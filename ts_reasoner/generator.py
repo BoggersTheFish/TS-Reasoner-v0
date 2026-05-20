@@ -1,14 +1,17 @@
-"""Deterministic candidate-chain generation.
+"""Candidate-chain generation.
 
-The generator is intentionally small and auditable. It makes candidate
-constraint paths from the question and supplied premises, but does not call a
-language model. The TensionLMGenerator class is a future plug-in interface.
+The default generator is intentionally small and auditable. It makes candidate
+constraint paths from the question and supplied premises. LearnedCandidateGenerator
+is the narrow v0.3 experiment: it learns which proposal templates to activate,
+then the existing CIG/ranker/repair pipeline still verifies the chains.
 """
 
 from __future__ import annotations
 
 import re
+import json
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Iterable, List, Optional, Sequence, Tuple
 
 from .types import ReasoningChain, ReasoningStep
@@ -245,6 +248,74 @@ class DeterministicHeuristicGenerator:
         if "therefore" in lower:
             return conclusion.replace("Therefore ", "", 1).strip()
         return conclusion
+
+
+class LearnedCandidateGenerator:
+    """Template-selection candidate generator trained from synthetic rows.
+
+    This is not a full language model. It learns proposal weights for a small
+    set of candidate-chain templates, then delegates actual chain construction
+    to the deterministic generator so the verifier can inspect every step.
+    """
+
+    name = "LearnedCandidateGenerator"
+
+    def __init__(self, template_weights: dict[str, float], threshold: float = 0.25) -> None:
+        self.template_weights = dict(template_weights)
+        self.threshold = threshold
+        self.base_generator = DeterministicHeuristicGenerator()
+
+    @classmethod
+    def from_json(cls, path: str | Path) -> "LearnedCandidateGenerator":
+        payload = json.loads(Path(path).read_text(encoding="utf-8"))
+        return cls(
+            template_weights=payload["template_weights"],
+            threshold=float(payload.get("threshold", 0.25)),
+        )
+
+    def to_json(self, path: str | Path, metadata: dict[str, object] | None = None) -> Path:
+        target = Path(path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "generator": self.name,
+            "model_type": "template_proposal_frequency_model",
+            "template_weights": self.template_weights,
+            "threshold": self.threshold,
+            "metadata": metadata or {},
+        }
+        target.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        return target
+
+    def generate(self, question: str, premises: Optional[Iterable[str]] = None) -> List[ReasoningChain]:
+        candidates = self.base_generator.generate(question, premises)
+        keep = {
+            chain.chain_id
+            for chain in candidates
+            if self.template_weights.get(chain.chain_id, 0.0) >= self.threshold
+        }
+        if not keep:
+            keep = {"candidate_direct", "candidate_cautious"}
+        # Always retain contradiction-aware proposals when the base generator
+        # can produce them; the verifier should see explicit instability paths.
+        keep.update(chain.chain_id for chain in candidates if "contradiction" in chain.chain_id)
+        selected = [chain for chain in candidates if chain.chain_id in keep]
+        return selected or candidates
+
+
+def train_learned_candidate_generator(rows: Sequence[dict[str, object]]) -> LearnedCandidateGenerator:
+    """Train a tiny template-frequency proposal model from candidate rows."""
+    good_counts: dict[str, int] = {}
+    total_counts: dict[str, int] = {}
+    for row in rows:
+        chain_id = str(row["chain_id"])
+        total_counts[chain_id] = total_counts.get(chain_id, 0) + 1
+        if int(row["label"]) == 0:
+            good_counts[chain_id] = good_counts.get(chain_id, 0) + 1
+    weights = {
+        chain_id: round(good_counts.get(chain_id, 0) / max(1, total), 4)
+        for chain_id, total in sorted(total_counts.items())
+    }
+    return LearnedCandidateGenerator(template_weights=weights)
 
 
 class TensionLMGenerator:

@@ -88,9 +88,11 @@ This repo is not the final model. It is the control panel and trace contract for
 
 ## Roadmap
 
-- **v1:** learned proof/tension ranker while preserving the v0 trace format; broader CIG patterns, better natural-language negation, and richer repair application.
-- **v2:** learned TensionLM candidate generation with exported tension fields.
-- **v3:** trained proof-ranker integration and grounded trajectory scoring over larger tasks.
+- **v0.1.0:** deterministic inspectable reasoning trace contract.
+- **v0.2.0:** learned tension-ranker experiment inside the same trace contract.
+- **v0.3.0:** learned candidate proposal, still verified by CIG/tension/repair.
+- **v0.4.0:** generator + ranker loop.
+- **v1.0.0:** TS-native proof/reasoning model benchmark release.
 
 ## v1 Branch Direction
 
@@ -106,6 +108,12 @@ v3 = generator + ranker + verifier loop
 The learned-ranker scripts build synthetic candidate-chain rows, train a standard-library logistic classifier, and compare it against `HeuristicTensionRanker`.
 
 Branch details are in `docs/v1_learned_ranker.md`.
+
+## v0.3 Branch Direction
+
+The `v0.3.0-learned-candidate-generator` branch adds a narrow learned candidate-proposal model. It is not a full LLM: generated candidate chains still pass through the existing CIG, tension-ranker, repair, and trace pipeline.
+
+Branch details are in `docs/v03_learned_candidate_generator.md`.
 
 ## License
 

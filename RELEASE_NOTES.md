@@ -23,3 +23,14 @@ Added before merging v1:
 - Adversarial synthetic cases where confident surface wording masks wrong logic.
 - Heldout template families: symbolic A/B/C-style training, natural-term evaluation.
 - Ablation table comparing heuristic ranker, learned ranker, learned without CIG features, learned without issue-kind features, and random baseline.
+
+## v0.3.0-learned-candidate-generator draft
+
+v0.3.0 adds learned candidate proposal while preserving inspectable CIG/tension/repair verification.
+
+Draft scope:
+
+- Learn which candidate-chain templates to propose from synthetic rows.
+- Keep generated candidates inspectable as `ReasoningChain` objects.
+- Pass all generated chains through the existing CIG checker, ranker, repairer, and JSON trace exporter.
+- Do not claim full LLM generation or robust natural-language reasoning.

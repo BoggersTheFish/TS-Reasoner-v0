@@ -14,8 +14,8 @@ from .types import ReasonerOutput
 class TSReasoner:
     """Generate, score, check, repair, and select a reasoning chain."""
 
-    def __init__(self, ranker=None) -> None:
-        self.generator = DeterministicHeuristicGenerator()
+    def __init__(self, ranker=None, generator=None) -> None:
+        self.generator = generator or DeterministicHeuristicGenerator()
         self.cig_checker = CIGChecker()
         self.ranker = ranker or HeuristicTensionRanker()
         self.repairer = TensionRepairer()
@@ -74,5 +74,5 @@ class TSReasoner:
         )
 
 
-def run_reasoner(question: str, premises: Optional[Iterable[str]] = None, ranker=None) -> ReasonerOutput:
-    return TSReasoner(ranker=ranker).run(question, premises)
+def run_reasoner(question: str, premises: Optional[Iterable[str]] = None, ranker=None, generator=None) -> ReasonerOutput:
+    return TSReasoner(ranker=ranker, generator=generator).run(question, premises)
