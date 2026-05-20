@@ -120,3 +120,7 @@ Interpretation:
 - In this small split, CIG-derived features and issue-kind features are redundant enough that each single ablation still solves the heldout set.
 - The random baseline shows the task is not solved by arbitrary candidate ordering.
 - This is a tiny branch experiment, not a general proof-ranking benchmark.
+
+## Caveat
+
+Because all learned ablations reach 1.0 on the current heldout set, this eval should be treated as a schema-preserving learned-ranker smoke test, not evidence that the learned model has robust general reasoning ability. The next eval should add harder cases where CIG provenance and issue-kind features are necessary.
