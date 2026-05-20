@@ -1,0 +1,74 @@
+{
+  "artifact_set": "TS-Reasoner-v0 v0.3.0 regenerated artifacts",
+  "generated_or_verified_files": [
+    {
+      "path": "artifacts/eval_summary.json",
+      "source_command": "python3 demo_reasoning.py",
+      "purpose": "Toy demo eval summary for the deterministic trace contract."
+    },
+    {
+      "path": "artifacts/sample_outputs.md",
+      "source_command": "python3 demo_reasoning.py",
+      "purpose": "Human-readable sample outputs for toy reasoning tasks."
+    },
+    {
+      "path": "artifacts/tension_traces.jsonl",
+      "source_command": "python3 demo_reasoning.py",
+      "purpose": "JSONL traces for toy reasoning tasks."
+    },
+    {
+      "path": "artifacts/latest_trace.json",
+      "source_command": "python3 inference.py --question \"If all A are B and all B are C, are all A C?\"",
+      "purpose": "Most recent CLI trace."
+    },
+    {
+      "path": "data/synthetic_ranker_dataset.jsonl",
+      "source_command": "python3 scripts/build_synthetic_dataset.py",
+      "purpose": "Synthetic candidate-chain rows for learned ranker smoke eval."
+    },
+    {
+      "path": "data/synthetic_ranker_dataset_summary.json",
+      "source_command": "python3 scripts/build_synthetic_dataset.py",
+      "purpose": "Synthetic ranker dataset summary."
+    },
+    {
+      "path": "artifacts/learned_ranker_v1.json",
+      "source_command": "python3 scripts/train_learned_ranker.py",
+      "purpose": "Tiny standard-library learned ranker artifact."
+    },
+    {
+      "path": "artifacts/learned_ranker_v1_no_cig.json",
+      "source_command": "python3 scripts/train_learned_ranker.py",
+      "purpose": "No-CIG-features learned-ranker ablation."
+    },
+    {
+      "path": "artifacts/learned_ranker_v1_no_issue_kinds.json",
+      "source_command": "python3 scripts/train_learned_ranker.py",
+      "purpose": "No-issue-kind-features learned-ranker ablation."
+    },
+    {
+      "path": "artifacts/ranker_comparison.json",
+      "source_command": "python3 scripts/compare_rankers.py",
+      "purpose": "Heuristic, learned, ablated, and random ranker comparison."
+    },
+    {
+      "path": "artifacts/learned_candidate_generator_v03.json",
+      "source_command": "python3 scripts/train_candidate_generator.py",
+      "purpose": "Tiny learned candidate-proposal model artifact."
+    },
+    {
+      "path": "artifacts/learned_candidate_generator_summary.json",
+      "source_command": "python3 scripts/train_candidate_generator.py",
+      "purpose": "Candidate proposer training summary and template weights."
+    },
+    {
+      "path": "artifacts/candidate_generator_coverage.json",
+      "source_command": "python3 scripts/evaluate_candidate_generators.py",
+      "purpose": "Candidate-proposal coverage comparison."
+    }
+  ],
+  "inspection_context": "TS-Codex-OS v0.1.0 inspected TS-Reasoner-v0 before merge and detected release-control tensions around missing release receipts and stale artifacts.",
+  "receipt_id": "artifact-receipt:ts-reasoner-v0:v0.3.0",
+  "verification_result": "regenerated before v0.3.0 release; artifacts are toy-scope receipts, not benchmark claims."
+}
+

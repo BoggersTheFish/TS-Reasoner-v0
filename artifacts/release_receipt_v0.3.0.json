@@ -1,0 +1,39 @@
+{
+  "action_title": "Release TS-Reasoner v0.3.0",
+  "changed_files": [
+    "RELEASE_NOTES.md",
+    "docs/v03_learned_candidate_generator.md",
+    "artifacts/release_receipt_v0.3.0.json",
+    "artifacts/artifact_receipt_v0.3.0.json",
+    "artifacts/release_receipt.json",
+    "artifacts/candidate_generator_coverage.json",
+    "artifacts/learned_candidate_generator_summary.json",
+    "artifacts/learned_candidate_generator_v03.json",
+    "artifacts/ranker_comparison.json",
+    "artifacts/learned_ranker_training_summary.json",
+    "artifacts/learned_ranker_v1.json",
+    "artifacts/learned_ranker_v1_no_cig.json",
+    "artifacts/learned_ranker_v1_no_issue_kinds.json",
+    "data/synthetic_ranker_dataset.jsonl",
+    "data/synthetic_ranker_dataset_summary.json"
+  ],
+  "next_actions": [
+    "Use v0.4.0 to explore a generator + ranker loop without breaking the v0 JSON trace contract.",
+    "Add harder candidate-proposal eval cases where proposal recall and verifier-selected answer quality diverge."
+  ],
+  "project_name": "TS-Reasoner-v0",
+  "receipt_id": "receipt:ts-reasoner-v0:v0.3.0",
+  "remaining_tensions": [],
+  "verification_commands": [
+    "python3 -m unittest discover",
+    "python3 demo_reasoning.py",
+    "python3 inference.py --question \"If all A are B and all B are C, are all A C?\"",
+    "python3 scripts/build_synthetic_dataset.py",
+    "python3 scripts/train_learned_ranker.py",
+    "python3 scripts/compare_rankers.py",
+    "python3 scripts/train_candidate_generator.py",
+    "python3 scripts/evaluate_candidate_generators.py",
+    "PYTHONPATH=/home/boggersthefish/BoggersSpace/TS-Codex-OS python3 -m ts_codex_os.cli status --project-path ."
+  ],
+  "verification_result": "passed: 15 unittest tests OK; demo generated 5/5 toy task eval summary; inference returned all A are C with global tension 0.0000; ranker and candidate-generator comparison artifacts regenerated; TS-Codex-OS v0.1.0 status reported 0 tensions."
+}
