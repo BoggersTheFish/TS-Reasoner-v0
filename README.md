@@ -92,6 +92,21 @@ This repo is not the final model. It is the control panel and trace contract for
 - **v2:** learned TensionLM candidate generation with exported tension fields.
 - **v3:** trained proof-ranker integration and grounded trajectory scoring over larger tasks.
 
+## v1 Branch Direction
+
+The `v1-learned-ranker` branch keeps the v0 output schema and replaces the hand-coded global tension field with a tiny learned ranker experiment:
+
+```text
+v0 = hand-coded tension field
+v1 = learned tension field
+v2 = learned candidate generator
+v3 = generator + ranker + verifier loop
+```
+
+The learned-ranker scripts build synthetic candidate-chain rows, train a standard-library logistic classifier, and compare it against `HeuristicTensionRanker`.
+
+Branch details are in `docs/v1_learned_ranker.md`.
+
 ## License
 
 MIT. See `LICENSE`.

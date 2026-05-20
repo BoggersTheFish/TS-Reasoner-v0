@@ -1,0 +1,7 @@
+{
+  "eval_rows": 18,
+  "model_path": "artifacts/learned_ranker_v1.json",
+  "negative_training_labels": 30,
+  "positive_training_labels": 24,
+  "training_rows": 54
+}

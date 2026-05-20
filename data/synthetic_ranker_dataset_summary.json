@@ -1,0 +1,6 @@
+{
+  "negative_labels": 40,
+  "path": "data/synthetic_ranker_dataset.jsonl",
+  "positive_labels": 32,
+  "rows": 72
+}

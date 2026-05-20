@@ -14,10 +14,10 @@ from .types import ReasonerOutput
 class TSReasoner:
     """Generate, score, check, repair, and select a reasoning chain."""
 
-    def __init__(self) -> None:
+    def __init__(self, ranker=None) -> None:
         self.generator = DeterministicHeuristicGenerator()
         self.cig_checker = CIGChecker()
-        self.ranker = HeuristicTensionRanker()
+        self.ranker = ranker or HeuristicTensionRanker()
         self.repairer = TensionRepairer()
 
     def run(self, question: str, premises: Optional[Iterable[str]] = None) -> ReasonerOutput:
@@ -36,6 +36,7 @@ class TSReasoner:
         trace = {
             "pipeline": "TS-Reasoner-v0",
             "generator": self.generator.name,
+            "ranker": self.ranker.__class__.__name__,
             "selection": {
                 "selected_chain_id": selected_chain.chain_id,
                 "criterion": "lowest_global_tension_then_highest_stability",
@@ -73,6 +74,5 @@ class TSReasoner:
         )
 
 
-def run_reasoner(question: str, premises: Optional[Iterable[str]] = None) -> ReasonerOutput:
-    return TSReasoner().run(question, premises)
-
+def run_reasoner(question: str, premises: Optional[Iterable[str]] = None, ranker=None) -> ReasonerOutput:
+    return TSReasoner(ranker=ranker).run(question, premises)

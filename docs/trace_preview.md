@@ -53,6 +53,7 @@ The complete trace is written to `artifacts/latest_trace.json`.
   "trace": {
     "pipeline": "TS-Reasoner-v0",
     "generator": "DeterministicHeuristicGenerator",
+    "ranker": "HeuristicTensionRanker",
     "selection": {
       "selected_chain_id": "candidate_cautious",
       "criterion": "lowest_global_tension_then_highest_stability"
@@ -69,4 +70,3 @@ The complete trace is written to `artifacts/latest_trace.json`.
   }
 }
 ```
-

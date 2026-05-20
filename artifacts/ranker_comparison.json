@@ -1,0 +1,16 @@
+{
+  "comparison": "LearnedTensionRanker_vs_HeuristicTensionRanker",
+  "eval_rows": 18,
+  "heuristic_label_accuracy": 0.7778,
+  "learned_label_accuracy": 1.0,
+  "mean_absolute_label_error": 0.0228,
+  "mean_absolute_tension_error": 0.3452,
+  "notes": [
+    "Labels are answer-quality ranking targets over synthetic variants, not benchmark ground truth.",
+    "v1 learns the tension field interface, not a general reasoning model.",
+    "Both rankers return TensionScore and can be used by TSReasoner without changing ReasonerOutput."
+  ],
+  "output_schema_identical": true,
+  "selection_agreement": 1.0,
+  "selection_tasks": 32
+}
