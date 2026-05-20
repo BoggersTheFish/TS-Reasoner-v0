@@ -1,6 +1,11 @@
 {
-  "negative_labels": 40,
+  "adversarial_rows": 42,
+  "heldout_rows": 96,
+  "heldout_template_family": "heldout_natural",
+  "negative_labels": 70,
   "path": "data/synthetic_ranker_dataset.jsonl",
-  "positive_labels": 32,
-  "rows": 72
+  "positive_labels": 98,
+  "rows": 168,
+  "train_rows": 72,
+  "train_template_family": "symbolic"
 }

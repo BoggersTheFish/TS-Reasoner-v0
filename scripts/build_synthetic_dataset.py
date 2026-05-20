@@ -25,9 +25,14 @@ def main() -> int:
             handle.write(json.dumps(row, sort_keys=True) + "\n")
     summary = {
         "rows": len(rows),
+        "train_rows": sum(1 for row in rows if row["split"] == "train"),
+        "heldout_rows": sum(1 for row in rows if row["split"] == "eval"),
+        "adversarial_rows": sum(1 for row in rows if row["chain_id"] == "candidate_adversarial_confident"),
         "positive_labels": sum(int(row["label"]) for row in rows),
         "negative_labels": sum(1 - int(row["label"]) for row in rows),
         "path": str(path.relative_to(ROOT)),
+        "train_template_family": "symbolic",
+        "heldout_template_family": "heldout_natural",
     }
     (DATA / "synthetic_ranker_dataset_summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n",

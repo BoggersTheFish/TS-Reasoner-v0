@@ -1,16 +1,59 @@
 {
-  "comparison": "LearnedTensionRanker_vs_HeuristicTensionRanker",
-  "eval_rows": 18,
-  "heuristic_label_accuracy": 0.7778,
-  "learned_label_accuracy": 1.0,
-  "mean_absolute_label_error": 0.0228,
-  "mean_absolute_tension_error": 0.3452,
+  "ablation_table": [
+    {
+      "adversarial_avoidance_accuracy": 1.0,
+      "adversarial_selected_count": 0,
+      "ranker": "heuristic_ranker",
+      "row_label_accuracy": 0.5833,
+      "selected_bad_candidates": 0,
+      "selection_accuracy": 1.0
+    },
+    {
+      "adversarial_avoidance_accuracy": 1.0,
+      "adversarial_selected_count": 0,
+      "ranker": "learned_ranker",
+      "row_label_accuracy": 1.0,
+      "selected_bad_candidates": 0,
+      "selection_accuracy": 1.0
+    },
+    {
+      "adversarial_avoidance_accuracy": 1.0,
+      "adversarial_selected_count": 0,
+      "ranker": "learned_ranker_without_cig_features",
+      "row_label_accuracy": 1.0,
+      "selected_bad_candidates": 0,
+      "selection_accuracy": 1.0
+    },
+    {
+      "adversarial_avoidance_accuracy": 1.0,
+      "adversarial_selected_count": 0,
+      "ranker": "learned_ranker_without_issue_kind_features",
+      "row_label_accuracy": 1.0,
+      "selected_bad_candidates": 0,
+      "selection_accuracy": 1.0
+    },
+    {
+      "adversarial_avoidance_accuracy": 0.5417,
+      "adversarial_selected_count": 11,
+      "ranker": "random_baseline",
+      "row_label_accuracy": 0.5312,
+      "selected_bad_candidates": 15,
+      "selection_accuracy": 0.5312
+    }
+  ],
+  "adversarial_heldout_rows": 24,
+  "comparison": "v1_ranker_ablation_on_heldout_synthetic_tasks",
+  "heldout_rows": 96,
+  "heldout_tasks": 32,
+  "heldout_template_family": "heldout_natural",
   "notes": [
-    "Labels are answer-quality ranking targets over synthetic variants, not benchmark ground truth.",
-    "v1 learns the tension field interface, not a general reasoning model.",
-    "Both rankers return TensionScore and can be used by TSReasoner without changing ReasonerOutput."
+    "Labels are synthetic answer-quality ranking targets, not benchmark ground truth.",
+    "Training uses symbolic A/B/C-style families; evaluation uses heldout natural term families.",
+    "Adversarial candidates use confident surface wording while the underlying logic is wrong.",
+    "All learned variants still return TensionScore through the same ReasonerOutput schema."
   ],
   "output_schema_identical": true,
-  "selection_agreement": 1.0,
-  "selection_tasks": 32
+  "release_note": "v1 adds the first learned tension-ranker while preserving the v0 JSON trace schema. On synthetic heldout reasoning tasks, the learned ranker matches or improves answer-quality scoring over the heuristic baseline, with ablations showing which trace features carry the signal.",
+  "train_rows": 72,
+  "train_template_family": "symbolic"
 }

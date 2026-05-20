@@ -1,7 +1,11 @@
 {
-  "eval_rows": 18,
+  "eval_rows": 96,
+  "heldout_template_family": "heldout_natural",
   "model_path": "artifacts/learned_ranker_v1.json",
   "negative_training_labels": 30,
-  "positive_training_labels": 24,
-  "training_rows": 54
+  "no_cig_model_path": "artifacts/learned_ranker_v1_no_cig.json",
+  "no_issue_kind_model_path": "artifacts/learned_ranker_v1_no_issue_kinds.json",
+  "positive_training_labels": 42,
+  "train_template_family": "symbolic",
+  "training_rows": 72
 }

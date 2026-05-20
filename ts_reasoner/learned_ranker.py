@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Sequence
 
 from .cig_checker import CIGChecker
-from .features import FEATURE_NAMES, extract_chain_features, vectorize_features
+from .features import FEATURE_NAMES, extract_chain_features, mask_features
 from .ranker import HeuristicTensionRanker
 from .types import CIGCheck, ReasoningChain, TensionScore
 
@@ -36,6 +36,8 @@ class LearnedTensionRanker:
         feature_means: Dict[str, float] | None = None,
         feature_scales: Dict[str, float] | None = None,
         threshold: float = 0.5,
+        without_cig: bool = False,
+        without_issue_kinds: bool = False,
     ) -> None:
         self.weights = {name: float(weights.get(name, 0.0)) for name in FEATURE_NAMES}
         self.feature_means = {name: float((feature_means or {}).get(name, 0.0)) for name in FEATURE_NAMES}
@@ -44,6 +46,8 @@ class LearnedTensionRanker:
             for name in FEATURE_NAMES
         }
         self.threshold = threshold
+        self.without_cig = without_cig
+        self.without_issue_kinds = without_issue_kinds
         self.cig_checker = CIGChecker()
         self.explainer = HeuristicTensionRanker()
 
@@ -55,6 +59,8 @@ class LearnedTensionRanker:
             feature_means=data.get("feature_means"),
             feature_scales=data.get("feature_scales"),
             threshold=float(data.get("threshold", 0.5)),
+            without_cig=bool(data.get("without_cig", False)),
+            without_issue_kinds=bool(data.get("without_issue_kinds", False)),
         )
 
     def to_json(self, path: str | Path, metadata: Dict[str, object] | None = None) -> Path:
@@ -68,6 +74,8 @@ class LearnedTensionRanker:
             "feature_means": self.feature_means,
             "feature_scales": self.feature_scales,
             "threshold": self.threshold,
+            "without_cig": self.without_cig,
+            "without_issue_kinds": self.without_issue_kinds,
             "metadata": metadata or {},
         }
         target.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -75,9 +83,9 @@ class LearnedTensionRanker:
 
     def score(self, chain: ReasoningChain, cig_check: CIGCheck | None = None) -> TensionScore:
         cig = cig_check or self.cig_checker.check(chain)
-        features = extract_chain_features(chain, cig)
-        probability = self.predict_probability(features)
         heuristic = self.explainer.score(chain, cig)
+        features = extract_chain_features(chain, cig, heuristic.issues)
+        probability = self.predict_probability(features)
         local = self._project_local_tension(chain, heuristic, probability)
         return TensionScore(
             chain_id=chain.chain_id,
@@ -88,6 +96,7 @@ class LearnedTensionRanker:
         )
 
     def predict_probability(self, features: Dict[str, float]) -> float:
+        features = mask_features(features, self.without_cig, self.without_issue_kinds)
         total = 0.0
         for name in FEATURE_NAMES:
             value = float(features.get(name, 0.0))
@@ -118,9 +127,14 @@ def train_logistic_ranker(
     epochs: int = 900,
     learning_rate: float = 0.08,
     l2: float = 0.001,
+    without_cig: bool = False,
+    without_issue_kinds: bool = False,
 ) -> LearnedTensionRanker:
     """Train a tiny logistic classifier with deterministic gradient descent."""
-    feature_rows = [row["features"] for row in rows]
+    feature_rows = [
+        mask_features(row["features"], without_cig=without_cig, without_issue_kinds=without_issue_kinds)
+        for row in rows
+    ]
     labels = [float(row["label"]) for row in rows]
     means, scales = _feature_stats(feature_rows)
     weights = {name: 0.0 for name in FEATURE_NAMES}
@@ -138,7 +152,13 @@ def train_logistic_ranker(
             penalty = 0.0 if name == "bias" else l2 * weights[name]
             weights[name] -= learning_rate * ((gradients[name] / count) + penalty)
 
-    return LearnedTensionRanker(weights=weights, feature_means=means, feature_scales=scales)
+    return LearnedTensionRanker(
+        weights=weights,
+        feature_means=means,
+        feature_scales=scales,
+        without_cig=without_cig,
+        without_issue_kinds=without_issue_kinds,
+    )
 
 
 def _feature_stats(rows: Iterable[Dict[str, float]]) -> tuple[Dict[str, float], Dict[str, float]]:
@@ -170,4 +190,3 @@ def _normalized_vector(
             value = (value - means[name]) / scales[name]
         values.append(value)
     return values
-

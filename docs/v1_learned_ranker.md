@@ -30,17 +30,29 @@ The learned ranker still returns `TensionScore`, so downstream trace export, rep
 
 ## Synthetic Data
 
-Synthetic rows are generated from the existing example patterns plus symbol/name variants:
+Synthetic rows are generated from the existing example patterns plus train/heldout template families:
 
 - valid all/all syllogism
 - invalid some/all quantifier jump
 - direct contradiction
 - missing premise
 
+Training uses symbolic forms such as `A/B/C`, `D/E/F`, and `G/H/I`.
+
+Heldout evaluation uses natural terms such as:
+
+- `pilots/engineers/careful`
+- `mammals/animals/living`
+- `tools/objects/useful`
+
+Adversarial candidates are added for invalid tasks. These candidates use confident surface wording such as `Obviously`, `Certainly`, or `Definitely` while the underlying logic is wrong.
+
 Each candidate chain becomes one row with:
 
 - task ID
 - task type
+- train/eval split
+- template family
 - candidate chain ID
 - question
 - premises
@@ -72,6 +84,8 @@ Generated artifacts:
 - `data/synthetic_ranker_dataset.jsonl`
 - `data/synthetic_ranker_dataset_summary.json`
 - `artifacts/learned_ranker_v1.json`
+- `artifacts/learned_ranker_v1_no_cig.json`
+- `artifacts/learned_ranker_v1_no_issue_kinds.json`
 - `artifacts/learned_ranker_training_summary.json`
 - `artifacts/ranker_comparison.json`
 
@@ -80,17 +94,29 @@ Generated artifacts:
 The generated comparison currently reports:
 
 ```text
-learned_label_accuracy: 1.0
-heuristic_label_accuracy: 0.7778
-selection_agreement: 1.0
-selection_tasks: 32
+train_template_family: symbolic
+heldout_template_family: heldout_natural
+heldout_rows: 96
+heldout_tasks: 32
+adversarial_heldout_rows: 24
 output_schema_identical: true
+```
+
+Current ablation table:
+
+```text
+ranker                                      row_acc  select_acc  adv_avoid
+heuristic_ranker                            0.5833   1.0000      1.0000
+learned_ranker                              1.0000   1.0000      1.0000
+learned_ranker_without_cig_features         1.0000   1.0000      1.0000
+learned_ranker_without_issue_kind_features  1.0000   1.0000      1.0000
+random_baseline                             0.5312   0.5312      0.5417
 ```
 
 Interpretation:
 
-- The learned ranker matches the synthetic answer-quality labels on the held-out split.
-- The heuristic ranker is still the v0 reference field, but its raw threshold is not identical to the answer-quality target.
-- The learned ranker and heuristic pipeline select the same candidate on the synthetic task set.
+- The learned ranker matches the synthetic answer-quality labels on heldout natural templates.
+- The heuristic ranker is still the v0 reference field and selects stable candidates, but its raw tension threshold is not identical to the answer-quality label.
+- In this small split, CIG-derived features and issue-kind features are redundant enough that each single ablation still solves the heldout set.
+- The random baseline shows the task is not solved by arbitrary candidate ordering.
 - This is a tiny branch experiment, not a general proof-ranking benchmark.
-
