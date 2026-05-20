@@ -1,0 +1,226 @@
+{
+  "candidates": [
+    {
+      "chain_id": "candidate_direct",
+      "final_answer": "all A are C.",
+      "generator": "DeterministicHeuristicGenerator",
+      "premises": [
+        "all A are B",
+        "all B are C"
+      ],
+      "question": "If all A are B and all B are C, are all A C?",
+      "steps": [
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p1",
+          "text": "all A are B"
+        },
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p2",
+          "text": "all B are C"
+        },
+        {
+          "confidence": 0.78,
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "kind": "conclusion",
+          "step_id": "s1",
+          "text": "Therefore all A are C."
+        }
+      ]
+    },
+    {
+      "chain_id": "candidate_cautious",
+      "final_answer": "all A are C.",
+      "generator": "DeterministicHeuristicGenerator",
+      "premises": [
+        "all A are B",
+        "all B are C"
+      ],
+      "question": "If all A are B and all B are C, are all A C?",
+      "steps": [
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p1",
+          "text": "all A are B"
+        },
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p2",
+          "text": "all B are C"
+        },
+        {
+          "confidence": 0.64,
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "kind": "conclusion",
+          "step_id": "s1",
+          "text": "Therefore all A are C."
+        }
+      ]
+    }
+  ],
+  "cig_check": {
+    "chain_id": "candidate_cautious",
+    "circular_step_ids": [],
+    "claims": [
+      {
+        "claim_id": "p1:c1",
+        "confidence": 0.9,
+        "dependencies": [],
+        "normalized": "all a are b",
+        "polarity": "positive",
+        "predicate": "B",
+        "quantifier": "all",
+        "source_step_id": "p1",
+        "subject": "A",
+        "text": "all A are B"
+      },
+      {
+        "claim_id": "p2:c1",
+        "confidence": 0.9,
+        "dependencies": [],
+        "normalized": "all b are c",
+        "polarity": "positive",
+        "predicate": "C",
+        "quantifier": "all",
+        "source_step_id": "p2",
+        "subject": "B",
+        "text": "all B are C"
+      },
+      {
+        "claim_id": "s1:c1",
+        "confidence": 0.64,
+        "dependencies": [
+          "p1",
+          "p2"
+        ],
+        "normalized": "all a are c",
+        "polarity": "positive",
+        "predicate": "C",
+        "quantifier": "all",
+        "source_step_id": "s1",
+        "subject": "A",
+        "text": "all A are C"
+      }
+    ],
+    "contradiction_pairs": [],
+    "dependencies": {
+      "p1": [],
+      "p2": [],
+      "s1": [
+        "p1",
+        "p2"
+      ]
+    },
+    "unsupported_claim_ids": []
+  },
+  "final_answer": "all A are C.",
+  "premises": [
+    "all A are B",
+    "all B are C"
+  ],
+  "question": "If all A are B and all B are C, are all A C?",
+  "repairs": [],
+  "selected_chain": {
+    "chain_id": "candidate_cautious",
+    "final_answer": "all A are C.",
+    "generator": "DeterministicHeuristicGenerator",
+    "premises": [
+      "all A are B",
+      "all B are C"
+    ],
+    "question": "If all A are B and all B are C, are all A C?",
+    "steps": [
+      {
+        "confidence": 0.9,
+        "dependencies": [],
+        "kind": "premise",
+        "step_id": "p1",
+        "text": "all A are B"
+      },
+      {
+        "confidence": 0.9,
+        "dependencies": [],
+        "kind": "premise",
+        "step_id": "p2",
+        "text": "all B are C"
+      },
+      {
+        "confidence": 0.64,
+        "dependencies": [
+          "p1",
+          "p2"
+        ],
+        "kind": "conclusion",
+        "step_id": "s1",
+        "text": "Therefore all A are C."
+      }
+    ]
+  },
+  "tension_score": {
+    "chain_id": "candidate_cautious",
+    "global_tension": 0.0,
+    "issues": [],
+    "local_tension": {
+      "p1": 0.0,
+      "p2": 0.0,
+      "s1": 0.0
+    },
+    "stability": 1.0
+  },
+  "trace": {
+    "candidate_scores": [
+      {
+        "chain_id": "candidate_direct",
+        "global_tension": 0.0,
+        "issue_kinds": [],
+        "stability": 1.0
+      },
+      {
+        "chain_id": "candidate_cautious",
+        "global_tension": 0.0,
+        "issue_kinds": [],
+        "stability": 1.0
+      }
+    ],
+    "generator": "DeterministicHeuristicGenerator",
+    "graph_view": {
+      "claim_count": 3,
+      "contradiction_count": 0,
+      "edges": [
+        {
+          "from": "p1",
+          "to": "s1"
+        },
+        {
+          "from": "p2",
+          "to": "s1"
+        }
+      ],
+      "nodes": [
+        "p1",
+        "p2",
+        "s1"
+      ]
+    },
+    "pipeline": "TS-Reasoner-v0",
+    "selection": {
+      "criterion": "lowest_global_tension_then_highest_stability",
+      "selected_chain_id": "candidate_cautious"
+    }
+  }
+}

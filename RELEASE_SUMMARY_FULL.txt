@@ -1,0 +1,1353 @@
+TS-REASONER-V0 FULL RELEASE SUMMARY
+===================================
+
+Repository path:
+  /home/boggersthefish/BoggersSpace/TS-Reasoner-v0
+
+Summary date:
+  2026-05-20
+
+Primary goal:
+  Create a standalone Python research release that demonstrates inspectable
+  reasoning telemetry using TS-style constraint graphs, local tension scoring,
+  simple Claim-Interaction-Graph checks, and explicit repair suggestions.
+
+Implementation status:
+  Complete for the v0 toy scope.
+
+Runtime dependency policy:
+  Python standard library only. No required runtime dependencies. No model
+  downloads. No transformer dependency. No external benchmark dependency.
+
+
+1. HIGH-LEVEL DESCRIPTION
+=========================
+
+TS-Reasoner-v0 is a small, deterministic reasoning pipeline. It is designed to
+show how a reasoning chain can be represented as a graph of constraint-bearing
+steps, how local failures can be turned into inspectable tension issues, and
+how repair suggestions can be attached to those failures.
+
+The system is deliberately not a large language model. It does not download
+weights, call an API, run a transformer, or claim general reasoning ability.
+Instead, it uses hand-auditable standard-library heuristics over small
+syllogistic templates. This makes the trace easy to inspect: every candidate
+chain, step, claim, contradiction pair, tension score, and repair suggestion is
+serializable to JSON.
+
+The release is intended as a toy public artifact for showing the TS mapping:
+
+  - TS-Core style substrate:
+      Reasoning steps are graph nodes.
+      Dependencies are support edges.
+      Candidate chains are graph trajectories.
+
+  - TensionLM style telemetry:
+      Failures such as contradiction, unsupported conclusion, quantifier jump,
+      missing premise, circular reasoning, and overconfidence are exposed as
+      local tension rather than hidden inside a score.
+
+  - Claim-Interaction Graph:
+      Claims are extracted from steps with provenance back to the source step.
+      Dependencies and contradiction pairs are exported.
+
+  - Proof Ranker:
+      Candidate chains are ranked by global tension and stability.
+      The selected chain is the lowest-tension path under the toy scoring rules.
+
+
+2. WHAT THIS RELEASE IS
+=======================
+
+This release is:
+
+  - A standalone Python repository.
+  - A deterministic toy reasoner.
+  - A trace generator for small reasoning examples.
+  - A public demonstration of constraint-graph reasoning telemetry.
+  - A simple framework for showing how tension reduction can guide repair.
+  - A release artifact with README, model card, examples, generated artifacts,
+    CLI entry point, demo script, package modules, and unit tests.
+
+This release is not:
+
+  - A trained model.
+  - A TensionLM checkpoint.
+  - A transformer wrapper.
+  - A formal theorem prover.
+  - A production decision system.
+  - A benchmark-grade reasoning evaluator.
+  - A claim that regex heuristics solve natural-language reasoning.
+
+
+3. DIRECTORY STRUCTURE
+======================
+
+The final repository contains the following files:
+
+  .gitignore
+  LICENSE
+  README.md
+  RELEASE_SUMMARY_FULL.txt
+  artifacts/eval_summary.json
+  artifacts/latest_trace.json
+  artifacts/sample_outputs.md
+  artifacts/tension_traces.jsonl
+  demo_reasoning.py
+  docs/trace_preview.md
+  examples/direct_contradiction.json
+  examples/invalid_quantifier_jump.json
+  examples/missing_premise.json
+  examples/repair_loop.json
+  examples/valid_syllogism.json
+  inference.py
+  model_card.md
+  pyproject.toml
+  requirements.txt
+  tests/__init__.py
+  tests/test_pipeline.py
+  tests/test_ranker.py
+  tests/test_repair.py
+  ts_reasoner/__init__.py
+  ts_reasoner/cig_checker.py
+  ts_reasoner/cli.py
+  ts_reasoner/generator.py
+  ts_reasoner/pipeline.py
+  ts_reasoner/ranker.py
+  ts_reasoner/repair.py
+  ts_reasoner/trace.py
+  ts_reasoner/types.py
+
+
+4. CORE PACKAGE MODULES
+=======================
+
+4.1 ts_reasoner/types.py
+------------------------
+
+This module defines the shared dataclasses used throughout the system.
+
+Main dataclasses:
+
+  ReasoningStep
+    Represents one node in a reasoning chain.
+    Fields:
+      step_id: stable identifier such as p1 or s1.
+      text: human-readable step text.
+      kind: premise, conclusion, or related step type.
+      dependencies: list of support step IDs.
+      confidence: toy confidence value.
+
+  ReasoningChain
+    Represents a candidate graph trajectory.
+    Fields:
+      chain_id: stable candidate identifier.
+      question: input question.
+      premises: normalized premise list.
+      steps: ordered ReasoningStep objects.
+      final_answer: final answer surfaced by the chain.
+      generator: generator name.
+
+  TensionIssue
+    Represents a local failure or instability.
+    Fields:
+      issue_id: stable issue identifier.
+      step_id: target step with tension.
+      kind: issue type.
+      severity: local numeric contribution.
+      message: readable explanation.
+      evidence: claim IDs or text fragments.
+      suggestion: short repair direction.
+
+  TensionScore
+    Represents the local and global tension summary.
+    Fields:
+      chain_id: candidate chain ID.
+      local_tension: mapping from step IDs to local scores.
+      global_tension: aggregate instability score.
+      issues: list of TensionIssue objects.
+      stability: 1.0 minus global tension.
+
+  Claim
+    Represents an extracted claim with provenance.
+    Fields:
+      claim_id: source-step scoped claim identifier.
+      text: original claim text.
+      normalized: normalized claim string.
+      source_step_id: step that produced the claim.
+      subject: parsed subject.
+      predicate: parsed predicate.
+      quantifier: parsed quantifier if present.
+      polarity: positive or negative.
+      confidence: inherited from source step.
+      dependencies: source step dependencies.
+
+  CIGCheck
+    Represents the Claim-Interaction Graph check output.
+    Fields:
+      chain_id: candidate chain ID.
+      claims: extracted claims.
+      dependencies: support edges by step ID.
+      contradiction_pairs: conflicting claim ID pairs.
+      unsupported_claim_ids: claims without sufficient premise support.
+      circular_step_ids: self-supporting or circular steps.
+
+  RepairSuggestion
+    Represents an explicit repair proposal.
+    Fields:
+      repair_id: stable repair identifier.
+      target_step_id: step to repair.
+      issue_kind: issue being repaired.
+      original_text: original step text.
+      proposed_text: repaired or weakened text.
+      rationale: why the repair reduces tension.
+      expected_tension_delta: expected score movement.
+      status: suggested by default.
+
+  ReasonerOutput
+    Represents the full output of one pipeline run.
+    Fields:
+      question, premises, candidates, selected_chain, tension_score, cig_check,
+      repairs, final_answer, and trace.
+
+Utility:
+
+  to_jsonable()
+    Recursively converts dataclasses into JSON-safe dictionaries and lists.
+
+
+4.1A ts_reasoner/cli.py
+-----------------------
+
+This module provides the package-level console entry point.
+
+Purpose:
+
+  - Own the argparse CLI implementation inside the installable package.
+  - Keep the repo-root inference.py script as a thin wrapper.
+  - Support the pyproject.toml console script:
+      ts-reasoner = "ts_reasoner.cli:main"
+
+Behavior:
+
+  - Accepts --question.
+  - Accepts repeated --premise values.
+  - Accepts --trace with a default of artifacts/latest_trace.json.
+  - Runs the same run_reasoner() pipeline as inference.py.
+  - Writes a JSON trace.
+  - Prints a readable answer, selected chain, global tension, issues, repairs,
+    and trace path.
+
+Why this matters:
+
+  The CLI implementation lives in the package rather than importing the
+  repo-root inference.py file. That keeps editable installs and package builds
+  cleaner, because console scripts should resolve to installed package modules.
+
+
+4.2 ts_reasoner/generator.py
+----------------------------
+
+This module creates deterministic candidate chains.
+
+Important functions and classes:
+
+  extract_relations(text)
+    Uses a regular expression to extract simple relations of the form:
+      "all A are B"
+      "some A are B"
+      "no A are B"
+
+  infer_premises_from_question(question)
+    Pulls simple if/then-style premises out of a question string. Example:
+      Input:
+        If all A are B and all B are C, are all A C?
+      Inferred premises:
+        all A are B
+        all B are C
+
+  infer_query_relation(question)
+    Extracts the final asked relation from the question. It deliberately uses
+    the final query-shaped match so the asked relation is not confused with an
+    earlier premise.
+
+  DeterministicHeuristicGenerator
+    Generates small candidate sets. It normally emits:
+      candidate_direct
+      candidate_cautious
+    For contradictory premise sets it can also emit:
+      candidate_a_contradiction_aware
+
+  TensionLMGenerator
+    A future interface stub. It raises NotImplementedError because v0 does not
+    include learned generation.
+
+Candidate behavior:
+
+  candidate_direct
+    Tries to derive or assert the requested conclusion. It is useful because it
+    can expose failures such as unsupported conclusions or quantifier jumps.
+
+  candidate_cautious
+    Gives a lower-tension answer when the universal claim is not forced. For a
+    valid all/all transitive syllogism it still answers the derived universal.
+    For invalid jumps or missing support it says the premises are insufficient.
+
+  candidate_a_contradiction_aware
+    Surfaces direct contradiction when a negative and positive relation collide.
+    Its ID intentionally sorts before candidate_cautious when scores tie, so
+    contradiction-aware output can be selected for contradiction tasks.
+
+
+4.3 ts_reasoner/cig_checker.py
+------------------------------
+
+This module extracts a toy Claim-Interaction Graph.
+
+Core behavior:
+
+  - Extracts all simple relation claims from each step.
+  - Extracts simple explicit negation claims like "A are not C".
+  - Stores each claim with source-step provenance.
+  - Stores dependency edges from step dependencies.
+  - Detects contradiction pairs.
+  - Detects unsupported conclusion claims.
+  - Detects simple circular reasoning.
+
+Contradiction detection:
+
+  The checker treats a pair as contradictory when the subject and predicate
+  match and one side is a negative universal or explicit negation while the
+  other side is positive. Example:
+
+    All A are C.
+    No A are C.
+
+Unsupported conclusion detection:
+
+  A conclusion claim is treated as supported when:
+
+    - the same claim appears in premise support, or
+    - an all/all transitive bridge supports it.
+
+  For example:
+
+    All A are B.
+    All B are C.
+    Therefore all A are C.
+
+  is treated as supported.
+
+  But:
+
+    Some A are B.
+    All B are C.
+    Therefore all A are C.
+
+  is not treated as universal support.
+
+
+4.4 ts_reasoner/ranker.py
+-------------------------
+
+This module scores local and global tension.
+
+Main class:
+
+  HeuristicTensionRanker
+
+Issue kinds:
+
+  contradiction
+    A claim conflicts with another claim in the chain.
+
+  unsupported_conclusion
+    A conclusion claim is not supported by direct or transitive premise
+    evidence.
+
+  circular_reasoning
+    A step depends on itself or uses language that assumes its own conclusion.
+
+  quantifier_jump
+    A conclusion upgrades "some" support into an "all" universal claim.
+
+  missing_premise
+    A conclusion is attempted with no explicit premises.
+
+  overconfidence
+    Surface language is more certain than support permits.
+
+Score mechanics:
+
+  - Each step begins with local tension 0.0.
+  - Each issue adds severity to the target step.
+  - Local tension is capped at 1.0.
+  - Global tension is the sum of issue severities divided by the number of
+    steps, capped at 1.0.
+  - Stability is 1.0 minus global tension.
+
+Severity values:
+
+  contradiction: 0.55
+  unsupported_conclusion: 0.35
+  circular_reasoning: 0.45
+  quantifier_jump: 0.50
+  missing_premise: 0.40
+  overconfidence: 0.20
+
+Important caveat:
+
+  These are transparent toy values, not calibrated probabilities.
+
+
+4.5 ts_reasoner/repair.py
+-------------------------
+
+This module creates repair suggestions from tension issues.
+
+Main class:
+
+  TensionRepairer
+
+Repair behavior:
+
+  quantifier_jump
+    Downgrades the first occurrence of "all" to "some" when possible, or
+    otherwise states that the universal claim should be weakened.
+
+  unsupported_conclusion
+    Proposes an insufficiency answer unless a missing premise is supplied.
+
+  contradiction
+    Proposes surfacing the contradiction rather than forcing a conclusion.
+
+  missing_premise
+    Proposes requesting or adding premises.
+
+  circular_reasoning
+    Proposes replacing self-support with independent premise support.
+
+  overconfidence
+    Replaces some high-certainty words with weaker modal language.
+
+The repairer does not secretly mutate the selected chain. It returns explicit
+repair suggestions so the trace remains inspectable.
+
+
+4.6 ts_reasoner/trace.py
+------------------------
+
+This module writes output traces.
+
+Functions:
+
+  write_json(output, path)
+    Writes a full ReasonerOutput as formatted JSON.
+
+  write_jsonl(outputs, path)
+    Writes multiple ReasonerOutput objects as newline-delimited JSON.
+
+Trace outputs are used by:
+
+  inference.py
+    writes artifacts/latest_trace.json
+
+  demo_reasoning.py
+    writes artifacts/tension_traces.jsonl
+
+
+4.7 ts_reasoner/pipeline.py
+---------------------------
+
+This module ties the system together.
+
+Main class:
+
+  TSReasoner
+
+Pipeline order:
+
+  1. Normalize or infer premises.
+  2. Generate candidate chains.
+  3. Run CIG checks for each candidate.
+  4. Score tension for each candidate.
+  5. Select the chain with:
+       lowest global tension,
+       then highest stability,
+       then lexical chain ID tie-break.
+  6. Generate repair suggestions for the selected chain.
+  7. Return ReasonerOutput.
+
+Convenience function:
+
+  run_reasoner(question, premises=None)
+
+Trace object includes:
+
+  pipeline:
+    "TS-Reasoner-v0"
+
+  generator:
+    "DeterministicHeuristicGenerator"
+
+  selection:
+    selected chain ID and selection criterion.
+
+  candidate_scores:
+    chain ID, global tension, stability, and issue kinds for each candidate.
+
+  graph_view:
+    selected graph nodes, dependency edges, claim count, and contradiction count.
+
+
+5. COMMAND-LINE ENTRY POINT
+===========================
+
+File:
+  inference.py
+
+Purpose:
+  Thin repo-root CLI wrapper. It imports main from ts_reasoner.cli so both
+  script execution and installed console-script execution use the same code.
+
+Package console script:
+
+  ts-reasoner
+
+Purpose of the CLI:
+  Run one question through the pipeline, print a readable answer, and write a
+  full JSON trace.
+
+Example command:
+
+  python3 inference.py --question "If all A are B and all B are C, are all A C?"
+
+Observed output from verification:
+
+  TS-Reasoner-v0
+  Question: If all A are B and all B are C, are all A C?
+  Premises:
+    - all A are B
+    - all B are C
+  Answer: all A are C.
+  Selected chain: candidate_cautious
+  Global tension: 0.0000
+  Trace: artifacts/latest_trace.json
+
+Trace written:
+
+  artifacts/latest_trace.json
+
+Optional CLI flags:
+
+  --question
+    Required question string.
+
+  --premise
+    Optional explicit premise. Can be repeated.
+
+  --trace
+    Optional trace output path. Defaults to artifacts/latest_trace.json.
+
+
+5A. PACKAGING METADATA
+======================
+
+File:
+  pyproject.toml
+
+Purpose:
+  Provide minimal Python package metadata without adding runtime dependencies.
+
+Important fields:
+
+  build-system:
+    Uses setuptools>=61 and setuptools.build_meta.
+
+  project.name:
+    ts-reasoner-v0
+
+  project.version:
+    0.1.0
+
+  requires-python:
+    >=3.10
+
+  dependencies:
+    Empty list. The runtime remains standard-library only.
+
+  project.scripts:
+    ts-reasoner = "ts_reasoner.cli:main"
+
+  project.urls:
+    Homepage points to https://boggersthefish.com.
+    Repository placeholder points to the expected TS-Reasoner-v0 GitHub path.
+
+Important caveat:
+
+  pyproject.toml enables packaging metadata and editable installs, but this
+  release is still designed to run directly from the repo with python3.
+
+
+6. DEMO AND ARTIFACT GENERATION
+===============================
+
+File:
+  demo_reasoning.py
+
+Purpose:
+  Run all example tasks, produce readable sample outputs, write JSONL traces,
+  and summarize toy evaluation behavior.
+
+Example command:
+
+  python3 demo_reasoning.py
+
+Generated files:
+
+  artifacts/sample_outputs.md
+  artifacts/tension_traces.jsonl
+  artifacts/eval_summary.json
+
+Observed eval summary:
+
+  {
+    "known_failure_modes": [
+      "Regex claim extraction only covers small syllogistic templates.",
+      "Natural-language negation can be missed outside simple 'no X are Y' or 'X are not Y' forms.",
+      "The selector may prefer an insufficiency answer when a generated direct candidate is high tension.",
+      "No learned TensionLM generator or trained proof ranker is included in v0."
+    ],
+    "mean_global_tension_invalid": 0.1458,
+    "mean_global_tension_valid": 0.0,
+    "number_correct": 5,
+    "number_of_tasks": 5,
+    "repair_success_count": 4
+  }
+
+Interpretation:
+
+  - 5 toy tasks were loaded from examples.
+  - 5 matched their expected toy behavior.
+  - Valid task mean selected-chain tension was 0.0.
+  - Invalid task mean selected-chain tension was 0.1458.
+  - 4 tasks had at least one repair path among their candidate chains.
+
+Important nuance:
+
+  Some invalid tasks select the cautious chain with low or zero tension because
+  the system correctly refuses the unsupported universal answer. The demo also
+  counts candidate repair paths across all generated candidates, so it can show
+  that the direct high-tension chain had a repair even if the selected chain was
+  already cautious.
+
+
+7. EXAMPLE TASKS
+================
+
+7.1 valid_syllogism.json
+------------------------
+
+Task type:
+  valid
+
+Question:
+  If all A are B and all B are C, are all A C?
+
+Premises:
+  All A are B.
+  All B are C.
+
+Expected behavior:
+  valid_low_tension
+
+Observed selected output:
+  Answer: all A are C.
+  Selected chain: candidate_cautious
+  Global tension: 0.0000
+  Candidate repair paths: 0
+
+Why this matters:
+  This is the simplest all/all transitive syllogism. It checks that the system
+  can recognize a stable support path and keep global tension low.
+
+
+7.2 invalid_quantifier_jump.json
+--------------------------------
+
+Task type:
+  invalid
+
+Question:
+  If some A are B and all B are C, are all A C?
+
+Premises:
+  Some A are B.
+  All B are C.
+
+Expected behavior:
+  reject_universal
+
+Observed selected output:
+  Answer: Not enough information.
+  Selected chain: candidate_cautious
+  Global tension: 0.0000
+  Candidate repair paths: 1
+
+Why this matters:
+  The direct candidate tries to derive "all A are C" from "some A are B" plus
+  "all B are C". That is a quantifier jump. The ranker marks it high tension,
+  and the repairer can propose weakening the universal. The cautious candidate
+  avoids the bad universal conclusion and is selected.
+
+
+7.3 direct_contradiction.json
+-----------------------------
+
+Task type:
+  invalid
+
+Question:
+  If all A are C and no A are C, are all A C?
+
+Premises:
+  All A are C.
+  No A are C.
+
+Expected behavior:
+  detect_contradiction
+
+Observed selected output:
+  Answer: Contradiction detected; no stable answer follows.
+  Selected chain: candidate_a_contradiction_aware
+  Global tension: 0.1833
+  Candidate repair paths: 3
+
+Why this matters:
+  The premise graph contains direct conflict. The contradiction-aware candidate
+  surfaces that instability instead of pretending there is a stable answer.
+
+
+7.4 missing_premise.json
+------------------------
+
+Task type:
+  invalid
+
+Question:
+  Are all A C?
+
+Premises:
+  none
+
+Expected behavior:
+  missing_premise
+
+Observed selected output:
+  Answer: Not enough information.
+  Selected chain: candidate_cautious
+  Global tension: 0.4000
+  Candidate repair paths: 2
+
+Why this matters:
+  This verifies that the system can notice missing support. In the selected
+  cautious answer, tension remains nonzero because the chain is operating
+  without incoming premise support.
+
+
+7.5 repair_loop.json
+--------------------
+
+Task type:
+  invalid
+
+Question:
+  If some pilots are engineers and all engineers are careful, are all pilots careful?
+
+Premises:
+  Some pilots are engineers.
+  All engineers are careful.
+
+Expected behavior:
+  repair_available
+
+Observed selected output:
+  Answer: Not enough information.
+  Selected chain: candidate_cautious
+  Global tension: 0.0000
+  Candidate repair paths: 1
+
+Why this matters:
+  This is a concrete non-letter version of the quantifier-jump pattern. It
+  checks that repair logic is not tied only to A/B/C symbols.
+
+
+8. GENERATED ARTIFACTS
+======================
+
+8.1 artifacts/latest_trace.json
+-------------------------------
+
+Produced by:
+  inference.py
+
+Purpose:
+  Stores the full most recent ReasonerOutput from the CLI run.
+
+Contains:
+  - question
+  - premises
+  - all generated candidates
+  - selected chain
+  - selected tension score
+  - selected CIG check
+  - repairs for selected chain
+  - final answer
+  - trace metadata
+
+
+8.2 artifacts/sample_outputs.md
+-------------------------------
+
+Produced by:
+  demo_reasoning.py
+
+Purpose:
+  Human-readable demo output for each example task.
+
+Contains:
+  - task ID
+  - task type
+  - question
+  - selected answer
+  - selected chain
+  - selected global tension
+  - number of candidate repair paths
+
+
+8.3 artifacts/tension_traces.jsonl
+----------------------------------
+
+Produced by:
+  demo_reasoning.py
+
+Purpose:
+  Machine-readable trace stream. Each line is one full ReasonerOutput as JSON.
+
+Useful for:
+  - inspecting candidate scores across all demo examples
+  - checking local tension issues
+  - reviewing CIG claim extraction
+  - testing downstream trace viewers
+
+
+8.4 artifacts/eval_summary.json
+-------------------------------
+
+Produced by:
+  demo_reasoning.py
+
+Purpose:
+  Toy-scope summary metrics for public release receipts.
+
+Current values:
+
+  number_of_tasks: 5
+  number_correct: 5
+  mean_global_tension_valid: 0.0
+  mean_global_tension_invalid: 0.1458
+  repair_success_count: 4
+
+Known failure modes listed in artifact:
+
+  - Regex claim extraction only covers small syllogistic templates.
+  - Natural-language negation can be missed outside simple "no X are Y" or
+    "X are not Y" forms.
+  - The selector may prefer an insufficiency answer when a generated direct
+    candidate is high tension.
+  - No learned TensionLM generator or trained proof ranker is included in v0.
+
+
+8.5 docs/trace_preview.md
+-------------------------
+
+Produced by:
+  Manually added release documentation, based on the shape of
+  artifacts/latest_trace.json.
+
+Purpose:
+  Give readers a compact JSON trace preview without requiring them to open the
+  full generated trace.
+
+Contains:
+  - input question
+  - inferred premises
+  - final answer
+  - selected chain ID
+  - selected step list
+  - local and global tension
+  - issue list
+  - trace metadata
+  - graph nodes and edges
+
+Why this matters:
+  It serves the same public-release role as a screenshot would, but keeps the
+  artifact substrate-native and inspectable.
+
+
+9. TEST SUITE
+=============
+
+Tests live in:
+
+  tests/test_ranker.py
+  tests/test_repair.py
+  tests/test_pipeline.py
+
+9.1 tests/test_ranker.py
+------------------------
+
+Checks:
+
+  - Valid syllogism has lower tension than invalid quantifier jump.
+  - Invalid quantifier jump produces a quantifier_jump issue.
+  - Direct contradiction is detected.
+  - Missing premise is detected.
+
+This validates the ranker as the primary tension field.
+
+
+9.2 tests/test_repair.py
+------------------------
+
+Checks:
+
+  - Quantifier jump produces a traceable repair.
+  - Repair targets the conclusion step.
+  - Proposed repair includes weakened "some" language.
+
+This validates the repair path from high-tension issue to explicit suggestion.
+
+
+9.3 tests/test_pipeline.py
+--------------------------
+
+Checks:
+
+  - Pipeline returns a ReasonerOutput.
+  - Valid syllogism selects the expected low-tension chain.
+  - Final answer for valid syllogism is "all A are C."
+  - Trace contains expected sections.
+  - JSON trace writing produces expected top-level shape.
+
+
+10. VERIFICATION RESULTS
+========================
+
+Commands run successfully:
+
+  python3 -m unittest discover
+
+Observed result:
+
+  Ran 6 tests in 0.002s
+  OK
+
+Command run successfully:
+
+  python3 inference.py --question "If all A are B and all B are C, are all A C?"
+
+Observed result:
+
+  Answer: all A are C.
+  Selected chain: candidate_cautious
+  Global tension: 0.0000
+  Trace: artifacts/latest_trace.json
+
+Command run successfully:
+
+  python3 demo_reasoning.py
+
+Observed result:
+
+  number_of_tasks: 5
+  number_correct: 5
+  mean_global_tension_valid: 0.0
+  mean_global_tension_invalid: 0.1458
+  repair_success_count: 4
+
+Command attempted:
+
+  python3 -m pytest
+
+Observed result:
+
+  /usr/bin/python3: No module named pytest
+
+Interpretation:
+
+  Pytest is not installed in this environment. This is acceptable for the v0
+  no-dependency release because the primary test path uses unittest from the
+  Python standard library.
+
+Environment note:
+
+  The system has python3 but no python shim. README quickstart commands use
+  python3 for accuracy.
+
+
+11. README CONTENT
+==================
+
+README.md explains:
+
+  - What TS-Reasoner-v0 is.
+  - What it is not.
+  - Release badges for Python, stdlib runtime, unittest status, MIT license,
+    and v0 research-release status.
+  - Why the repo matters as the bridge/control-panel artifact.
+  - How it maps TS-Core, TensionLM, CIG, and Proof Ranker ideas into one toy
+    system.
+  - Quickstart commands.
+  - Trace preview location.
+  - Example CLI output.
+  - Release hierarchy from TS-Core to full TS-native reasoning model.
+  - Generated artifacts.
+  - Limitations.
+  - v1/v2/v3 roadmap.
+  - MIT license marker.
+
+Quickstart from README:
+
+  python3 inference.py --question "If all A are B and all B are C, are all A C?"
+  python3 demo_reasoning.py
+  python3 -m unittest discover
+
+
+12. MODEL CARD CONTENT
+======================
+
+model_card.md includes:
+
+  - System name.
+  - Author: BoggersTheFish.
+  - License: MIT.
+  - Intended use.
+  - Out-of-scope use.
+  - Architecture.
+  - Eval summary pointer.
+  - Limitations.
+  - Ethical notes.
+  - Citation placeholder.
+
+The model card is intentionally conservative. It does not claim the system is a
+trained model. It explicitly states that the release is deterministic and does
+not download or execute model weights.
+
+
+12A. LICENSE
+============
+
+File:
+  LICENSE
+
+License:
+  MIT License
+
+Copyright:
+  Copyright (c) 2026 BoggersTheFish
+
+Purpose:
+  Make the license explicit for public release rather than relying only on the
+  README and model card statements.
+
+
+13. DESIGN DECISIONS
+====================
+
+13.1 Standard library only
+--------------------------
+
+The release avoids external dependencies so it can run in a clean Python
+environment. JSON writing, dataclasses, argparse, regex parsing, and unit tests
+all use the standard library.
+
+
+13.2 Deterministic heuristics
+-----------------------------
+
+The generator and ranker are deterministic. This makes generated traces stable
+and makes tests reliable.
+
+
+13.3 Candidate plurality
+------------------------
+
+The pipeline generates more than one chain so the ranker has something to
+compare. This matters for TS framing because reasoning is treated as a graph
+trajectory selection problem, not a single hidden answer.
+
+
+13.4 Cautious chain
+-------------------
+
+The cautious chain is allowed to say that premises are insufficient. This keeps
+invalid universal claims from being selected when the direct chain has high
+tension.
+
+
+13.5 Contradiction-aware chain
+------------------------------
+
+When contradictory premises are present, the generator can produce a candidate
+that surfaces graph instability. Its ID sorts before candidate_cautious in a
+tie so contradiction tasks can select contradiction-aware output when tension
+scores are tied or close.
+
+
+13.6 Explicit repair suggestions
+--------------------------------
+
+Repairs are not hidden rewrites. The repairer returns structured
+RepairSuggestion objects with target step, issue kind, original text, proposed
+text, rationale, and expected tension delta.
+
+
+13.7 Toy metrics only
+---------------------
+
+The demo summary is framed as toy-scope receipts, not benchmark performance.
+This preserves the distinction between observed local behavior and broader
+research claims.
+
+
+14. CURRENT BEHAVIOR BY FAILURE TYPE
+====================================
+
+14.1 Quantifier jump
+--------------------
+
+Pattern:
+
+  Some A are B.
+  All B are C.
+  Therefore all A are C.
+
+Detected as:
+
+  quantifier_jump
+  unsupported_conclusion
+
+Repair style:
+
+  Downgrade the universal claim or answer that the universal does not follow.
+
+
+14.2 Direct contradiction
+-------------------------
+
+Pattern:
+
+  All A are C.
+  No A are C.
+
+Detected as:
+
+  contradiction
+
+Repair style:
+
+  Surface contradiction and avoid forced stable conclusion.
+
+
+14.3 Missing premise
+--------------------
+
+Pattern:
+
+  Are all A C?
+
+Detected as:
+
+  missing_premise
+
+Repair style:
+
+  Request premises or return insufficiency.
+
+
+14.4 Unsupported conclusion
+---------------------------
+
+Pattern:
+
+  Conclusion relation has no direct premise support and no recognized all/all
+  transitive bridge.
+
+Detected as:
+
+  unsupported_conclusion
+
+Repair style:
+
+  Add missing premise or weaken the answer to insufficiency.
+
+
+14.5 Circular reasoning
+-----------------------
+
+Pattern:
+
+  A step depends on itself, or uses simple circular language such as "because
+  the conclusion" or "assume the conclusion".
+
+Detected as:
+
+  circular_reasoning
+
+Repair style:
+
+  Replace circular support with independent premise support.
+
+
+14.6 Overconfidence
+-------------------
+
+Pattern:
+
+  Surface text uses certainty markers such as "definitely", "certainly",
+  "always", "obviously", or "must be true" while support is weak.
+
+Detected as:
+
+  overconfidence
+
+Repair style:
+
+  Use calibrated language tied to available support.
+
+
+15. LIMITATIONS
+===============
+
+The most important limitations are:
+
+  - Regex extraction is narrow.
+  - Only simple quantifiers are handled: all, some, no.
+  - Relation parsing expects short "X are Y" style claims.
+  - The system is not a full natural-language parser.
+  - The system is not a formal proof engine.
+  - It cannot handle complex nested conditionals.
+  - It cannot handle most real-world ambiguity.
+  - It does not learn.
+  - It does not call TensionLM.
+  - It does not call a trained proof ranker.
+  - Numeric tension values are heuristic and not calibrated.
+  - The demo set has only five toy tasks.
+  - The eval summary is a release receipt, not a benchmark.
+
+
+16. FUTURE ROADMAP
+==================
+
+v1:
+
+  - Broaden CIG patterns.
+  - Improve natural-language negation handling.
+  - Add explicit repair application loops.
+  - Add richer dependency inspection.
+  - Add more examples and negative controls.
+
+v2:
+
+  - Connect a learned TensionLM candidate generator.
+  - Export learned tension fields.
+  - Compare deterministic and learned candidate trajectories.
+  - Add stronger trace visualization hooks.
+
+v3:
+
+  - Integrate a trained proof ranker.
+  - Use grounded trajectory scoring.
+  - Add larger task suites.
+  - Add calibration checks for tension scores.
+
+
+17. PUBLIC RELEASE READINESS
+============================
+
+The repo is ready as a v0 public toy release because it includes:
+
+  - standalone README
+  - model card
+  - explicit MIT LICENSE file
+  - pyproject.toml package metadata
+  - README badges
+  - JSON trace preview
+  - no-dependency requirements file
+  - runnable CLI
+  - package-level console script wrapper
+  - runnable demo
+  - example task JSON files
+  - generated artifacts
+  - unit tests
+  - clear limitations
+  - no model-download claim
+  - no benchmark overclaim
+
+Before publishing, optional next steps could include:
+
+  - Add more examples if the release page needs a broader demo.
+  - Add a rendered trace screenshot if publishing to a visual landing page.
+  - Add CI if the repo is pushed to GitHub.
+  - Add a package build smoke test if publishing to PyPI.
+
+
+18. FINAL STATE
+===============
+
+Final state summary:
+
+  TS-Reasoner-v0 was implemented as a compact, inspectable, standard-library
+  Python system. The core substrate is a set of candidate reasoning chains with
+  graph-like step dependencies. The CIG checker extracts claims and support
+  edges. The ranker turns local graph failures into tension. The repairer turns
+  high-tension issues into explicit proposed relaxations. The pipeline selects
+  the lowest-tension candidate and exports a full trace.
+
+  Verification passed with unittest. The demo artifacts were regenerated from
+  the actual code. The release explicitly separates observed toy behavior from
+  broader TS/TensionLM research hypotheses.
+
+
+19. RELEASE POLISH PASS
+=======================
+
+After the initial implementation, a release-hardening pass added the following:
+
+  LICENSE
+    Full MIT license text.
+
+  pyproject.toml
+    Minimal package metadata, no runtime dependencies, Python >=3.10, setuptools
+    build backend, and a ts-reasoner console script.
+
+  ts_reasoner/cli.py
+    Package-owned CLI implementation so installed console scripts do not depend
+    on a repo-root script.
+
+  inference.py
+    Simplified into a thin wrapper around ts_reasoner.cli.main.
+
+  docs/trace_preview.md
+    Compact JSON trace preview for public readers.
+
+  README.md
+    Added badges, "Why This Matters", trace preview pointer, release hierarchy,
+    and sharper roadmap language.
+
+Net result:
+
+  The repo now has the basic public-release polish expected for a sober v0:
+  license, packaging metadata, visual status badges, a trace preview, a clear
+  bridge/control-panel pitch, and no expansion of claims beyond the toy scope.

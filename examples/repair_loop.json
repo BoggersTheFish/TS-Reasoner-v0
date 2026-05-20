@@ -1,0 +1,11 @@
+{
+  "id": "repair_loop",
+  "question": "If some pilots are engineers and all engineers are careful, are all pilots careful?",
+  "premises": [
+    "Some pilots are engineers.",
+    "All engineers are careful."
+  ],
+  "expected_behavior": "repair_available",
+  "task_type": "invalid"
+}
+

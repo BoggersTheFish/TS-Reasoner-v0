@@ -1,0 +1,11 @@
+{
+  "id": "valid_syllogism",
+  "question": "If all A are B and all B are C, are all A C?",
+  "premises": [
+    "All A are B.",
+    "All B are C."
+  ],
+  "expected_behavior": "valid_low_tension",
+  "task_type": "valid"
+}
+

@@ -1,0 +1,11 @@
+{
+  "id": "invalid_quantifier_jump",
+  "question": "If some A are B and all B are C, are all A C?",
+  "premises": [
+    "Some A are B.",
+    "All B are C."
+  ],
+  "expected_behavior": "reject_universal",
+  "task_type": "invalid"
+}
+

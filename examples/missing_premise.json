@@ -1,0 +1,8 @@
+{
+  "id": "missing_premise",
+  "question": "Are all A C?",
+  "premises": [],
+  "expected_behavior": "missing_premise",
+  "task_type": "invalid"
+}
+

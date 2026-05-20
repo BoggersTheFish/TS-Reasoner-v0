@@ -1,0 +1,11 @@
+{
+  "id": "direct_contradiction",
+  "question": "If all A are C and no A are C, are all A C?",
+  "premises": [
+    "All A are C.",
+    "No A are C."
+  ],
+  "expected_behavior": "detect_contradiction",
+  "task_type": "invalid"
+}
+

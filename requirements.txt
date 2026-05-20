@@ -1,0 +1,3 @@
+# TS-Reasoner-v0 uses the Python standard library only.
+# No runtime dependencies are required.
+

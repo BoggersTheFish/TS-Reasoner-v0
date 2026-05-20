@@ -1,0 +1,13 @@
+{
+  "known_failure_modes": [
+    "Regex claim extraction only covers small syllogistic templates.",
+    "Natural-language negation can be missed outside simple 'no X are Y' or 'X are not Y' forms.",
+    "The selector may prefer an insufficiency answer when a generated direct candidate is high tension.",
+    "No learned TensionLM generator or trained proof ranker is included in v0."
+  ],
+  "mean_global_tension_invalid": 0.1458,
+  "mean_global_tension_valid": 0.0,
+  "number_correct": 5,
+  "number_of_tasks": 5,
+  "repair_success_count": 4
+}
