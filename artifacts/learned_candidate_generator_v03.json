@@ -3,15 +3,18 @@
   "metadata": {
     "eval_rows": 96,
     "not_a_full_llm": true,
+    "safety_fallback": "cautious fallback for too-few proposals; contradiction-aware candidates forced when present",
     "scope": "learned template proposal only; existing CIG/ranker/repair pipeline verifies candidates",
     "training_rows": 72
   },
+  "min_candidates": 2,
   "model_type": "template_proposal_frequency_model",
+  "safety_fallback": true,
   "template_weights": {
     "candidate_a_contradiction_aware": 1.0,
     "candidate_adversarial_confident": 0.0,
     "candidate_cautious": 0.75,
     "candidate_direct": 0.25
   },
-  "threshold": 0.25
+  "threshold": 0.3
 }

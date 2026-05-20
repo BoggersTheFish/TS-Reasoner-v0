@@ -1,12 +1,15 @@
 {
   "claim": "v0.3.0 adds learned candidate proposal while preserving inspectable CIG/tension/repair verification.",
   "eval_rows": 96,
+  "min_candidates": 2,
   "model_path": "artifacts/learned_candidate_generator_v03.json",
+  "safety_fallback": true,
   "template_weights": {
     "candidate_a_contradiction_aware": 1.0,
     "candidate_adversarial_confident": 0.0,
     "candidate_cautious": 0.75,
     "candidate_direct": 0.25
   },
+  "threshold": 0.3,
   "training_rows": 72
 }

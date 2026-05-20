@@ -26,11 +26,13 @@ Added before merging v1:
 
 ## v0.3.0-learned-candidate-generator draft
 
-v0.3.0 adds learned candidate proposal while preserving inspectable CIG/tension/repair verification.
+v0.3.0 adds a learned candidate-proposal experiment while preserving the v0 JSON trace contract. Candidate chains remain verified by the existing CIG, tension-ranker, repair, and trace pipeline.
 
 Draft scope:
 
 - Learn which candidate-chain templates to propose from synthetic rows.
 - Keep generated candidates inspectable as `ReasoningChain` objects.
 - Pass all generated chains through the existing CIG checker, ranker, repairer, and JSON trace exporter.
-- Do not claim full LLM generation or robust natural-language reasoning.
+- Add coverage metrics for candidate count, stable candidate inclusion, adversarial suppression, and contradiction-aware inclusion.
+- Compare deterministic generator, learned generator, learned generator plus safety fallback, and random candidate proposer.
+- Do not claim full LLM generation, open-ended reasoning generation, or robust natural-language reasoning.

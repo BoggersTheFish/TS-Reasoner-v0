@@ -35,7 +35,19 @@ class LearnedCandidateGeneratorTests(unittest.TestCase):
         chains = generator.generate("Are all A C?", [])
         self.assertTrue(chains)
 
+    def test_safety_fallback_includes_cautious_when_too_few_candidates(self):
+        generator = LearnedCandidateGenerator({}, min_candidates=2, safety_fallback=True)
+        chains = generator.generate("Are all A C?", [])
+        self.assertIn("candidate_cautious", {chain.chain_id for chain in chains})
+
+    def test_safety_fallback_forces_contradiction_aware_candidate(self):
+        generator = LearnedCandidateGenerator({"candidate_cautious": 1.0}, safety_fallback=True)
+        chains = generator.generate(
+            "If all A are C and no A are C, are all A C?",
+            ["All A are C.", "No A are C."],
+        )
+        self.assertIn("candidate_a_contradiction_aware", {chain.chain_id for chain in chains})
+
 
 if __name__ == "__main__":
     unittest.main()
-

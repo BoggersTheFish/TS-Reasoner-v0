@@ -260,9 +260,17 @@ class LearnedCandidateGenerator:
 
     name = "LearnedCandidateGenerator"
 
-    def __init__(self, template_weights: dict[str, float], threshold: float = 0.25) -> None:
+    def __init__(
+        self,
+        template_weights: dict[str, float],
+        threshold: float = 0.3,
+        min_candidates: int = 2,
+        safety_fallback: bool = True,
+    ) -> None:
         self.template_weights = dict(template_weights)
         self.threshold = threshold
+        self.min_candidates = min_candidates
+        self.safety_fallback = safety_fallback
         self.base_generator = DeterministicHeuristicGenerator()
 
     @classmethod
@@ -271,6 +279,8 @@ class LearnedCandidateGenerator:
         return cls(
             template_weights=payload["template_weights"],
             threshold=float(payload.get("threshold", 0.25)),
+            min_candidates=int(payload.get("min_candidates", 2)),
+            safety_fallback=bool(payload.get("safety_fallback", True)),
         )
 
     def to_json(self, path: str | Path, metadata: dict[str, object] | None = None) -> Path:
@@ -281,6 +291,8 @@ class LearnedCandidateGenerator:
             "model_type": "template_proposal_frequency_model",
             "template_weights": self.template_weights,
             "threshold": self.threshold,
+            "min_candidates": self.min_candidates,
+            "safety_fallback": self.safety_fallback,
             "metadata": metadata or {},
         }
         target.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -288,18 +300,47 @@ class LearnedCandidateGenerator:
 
     def generate(self, question: str, premises: Optional[Iterable[str]] = None) -> List[ReasoningChain]:
         candidates = self.base_generator.generate(question, premises)
+        by_id = {chain.chain_id: chain for chain in candidates}
         keep = {
             chain.chain_id
             for chain in candidates
             if self.template_weights.get(chain.chain_id, 0.0) >= self.threshold
         }
-        if not keep:
-            keep = {"candidate_direct", "candidate_cautious"}
-        # Always retain contradiction-aware proposals when the base generator
-        # can produce them; the verifier should see explicit instability paths.
-        keep.update(chain.chain_id for chain in candidates if "contradiction" in chain.chain_id)
-        selected = [chain for chain in candidates if chain.chain_id in keep]
+        if self.safety_fallback:
+            keep = self._apply_safety_fallbacks(keep, candidates)
+        selected = [chain for chain_id, chain in by_id.items() if chain_id in keep]
         return selected or candidates
+
+    def _apply_safety_fallbacks(self, keep: set[str], candidates: List[ReasoningChain]) -> set[str]:
+        by_id = {chain.chain_id: chain for chain in candidates}
+        if len(keep) < self.min_candidates:
+            for fallback in ("candidate_cautious", "candidate_direct"):
+                if fallback in by_id:
+                    keep.add(fallback)
+                if len(keep) >= self.min_candidates:
+                    break
+        if any("contradiction" in chain.chain_id for chain in candidates):
+            keep.update(chain.chain_id for chain in candidates if "contradiction" in chain.chain_id)
+        return keep
+
+
+class RandomCandidateProposer:
+    """Deterministic pseudo-random candidate proposer for baseline comparisons."""
+
+    name = "RandomCandidateProposer"
+
+    def __init__(self, threshold: float = 0.5) -> None:
+        self.threshold = threshold
+        self.base_generator = DeterministicHeuristicGenerator()
+
+    def generate(self, question: str, premises: Optional[Iterable[str]] = None) -> List[ReasoningChain]:
+        candidates = self.base_generator.generate(question, premises)
+        selected = [
+            chain
+            for chain in candidates
+            if _stable_fraction(f"{question}::{chain.chain_id}") >= self.threshold
+        ]
+        return selected or candidates[:1]
 
 
 def train_learned_candidate_generator(rows: Sequence[dict[str, object]]) -> LearnedCandidateGenerator:
@@ -316,6 +357,11 @@ def train_learned_candidate_generator(rows: Sequence[dict[str, object]]) -> Lear
         for chain_id, total in sorted(total_counts.items())
     }
     return LearnedCandidateGenerator(template_weights=weights)
+
+
+def _stable_fraction(text: str) -> float:
+    total = sum((index + 1) * ord(char) for index, char in enumerate(text))
+    return (total % 10000) / 10000.0
 
 
 class TensionLMGenerator:

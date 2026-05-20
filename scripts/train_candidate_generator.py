@@ -29,6 +29,7 @@ def main() -> int:
             "eval_rows": len(eval_rows),
             "scope": "learned template proposal only; existing CIG/ranker/repair pipeline verifies candidates",
             "not_a_full_llm": True,
+            "safety_fallback": "cautious fallback for too-few proposals; contradiction-aware candidates forced when present",
         },
     )
     summary = {
@@ -36,6 +37,9 @@ def main() -> int:
         "training_rows": len(train_rows),
         "eval_rows": len(eval_rows),
         "template_weights": generator.template_weights,
+        "threshold": generator.threshold,
+        "min_candidates": generator.min_candidates,
+        "safety_fallback": generator.safety_fallback,
         "claim": "v0.3.0 adds learned candidate proposal while preserving inspectable CIG/tension/repair verification.",
     }
     (ARTIFACTS / "learned_candidate_generator_summary.json").write_text(
@@ -48,4 +52,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

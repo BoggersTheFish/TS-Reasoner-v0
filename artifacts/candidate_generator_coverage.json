@@ -1,0 +1,41 @@
+{
+  "caveat": "This evaluates learned candidate selection/proposal over toy chain families, not open-ended reasoning generation.",
+  "comparison": "v0.3_candidate_generator_coverage",
+  "coverage_table": [
+    {
+      "adversarial_confident_suppressed_rate": 1.0,
+      "average_candidates_proposed_per_task": 2.25,
+      "contradiction_aware_included_when_needed_rate": 1.0,
+      "generator": "deterministic_generator",
+      "stable_candidate_included_rate": 1.0
+    },
+    {
+      "adversarial_confident_suppressed_rate": 1.0,
+      "average_candidates_proposed_per_task": 1.25,
+      "contradiction_aware_included_when_needed_rate": 1.0,
+      "generator": "learned_generator",
+      "stable_candidate_included_rate": 1.0
+    },
+    {
+      "adversarial_confident_suppressed_rate": 1.0,
+      "average_candidates_proposed_per_task": 2.0,
+      "contradiction_aware_included_when_needed_rate": 1.0,
+      "generator": "learned_generator_plus_safety_fallback",
+      "stable_candidate_included_rate": 1.0
+    },
+    {
+      "adversarial_confident_suppressed_rate": 1.0,
+      "average_candidates_proposed_per_task": 1.3393,
+      "contradiction_aware_included_when_needed_rate": 0.3571,
+      "generator": "random_candidate_proposer",
+      "stable_candidate_included_rate": 0.5357
+    }
+  ],
+  "metrics": [
+    "average_candidates_proposed_per_task",
+    "stable_candidate_included_rate",
+    "adversarial_confident_suppressed_rate",
+    "contradiction_aware_included_when_needed_rate"
+  ],
+  "tasks": 56
+}
