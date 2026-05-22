@@ -1,0 +1,47 @@
+{
+  "release": "v0.5.0",
+  "date": "2026-05-22",
+  "scope": [
+    "residual-trained coupling matrix",
+    "coupling artifact loader",
+    "CLI coupling-matrix injection",
+    "learned coupling matrix artifact",
+    "learned coupling summary artifact"
+  ],
+  "training": {
+    "command": "python3 scripts/train_coupling_matrix.py",
+    "total_candidates": 168,
+    "accepted_examples": 42,
+    "repair_examples": 126,
+    "artifact": "artifacts/learned_coupling_matrix_v05.json"
+  },
+  "verification": {
+    "tests_command": "python3 -m unittest discover",
+    "tests_result": "passed",
+    "tests": 21,
+    "cli_command": "python3 inference.py --question \"If some A are B and all B are C, are all A C?\" --premise \"Some A are B.\" --premise \"All B are C.\" --coupling-matrix artifacts/learned_coupling_matrix_v05.json --trace /tmp/ts-reasoner-v05-trace.json",
+    "cli_result": "passed"
+  },
+  "example_loaded_matrix_repair": {
+    "candidate": "candidate_direct",
+    "status": "repaired",
+    "repair": "Therefore some A are C.",
+    "before_coordinated_tensions": {
+      "compression": 0.0,
+      "goal": 1.0,
+      "logic": 1.0,
+      "repair": 1.0
+    },
+    "after_coordinated_tensions": {
+      "compression": 0.0,
+      "goal": 0.0,
+      "logic": 0.0,
+      "repair": 0.0
+    }
+  },
+  "limitations": [
+    "The learner uses synthetic toy repair traces.",
+    "The matrix learns channel coupling only, not reasoning operations.",
+    "The CIG verifier remains narrow and regex-driven."
+  ]
+}

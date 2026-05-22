@@ -1,0 +1,36 @@
+{
+  "coupling_matrix": {
+    "compression": {
+      "goal": 0.725,
+      "logic": 0.74,
+      "repair": 0.5975
+    },
+    "goal": {
+      "logic": 0.6734,
+      "repair": 0.8764
+    },
+    "logic": {
+      "goal": 0.8298,
+      "repair": 0.9426
+    },
+    "repair": {
+      "goal": 0.7098,
+      "logic": 0.6143
+    }
+  },
+  "metadata": {
+    "accepted_examples": 42,
+    "channels": [
+      "logic",
+      "goal",
+      "repair",
+      "compression"
+    ],
+    "formula": "weight(source,target)=mean(target_tension_drop | source_raw_tension active), blended with prior",
+    "prior_weight": 0.25,
+    "repair_examples": 126,
+    "total_candidates": 168,
+    "training_source": "synthetic_tasks candidate repair residuals"
+  },
+  "model_type": "residual_coupling_matrix"
+}

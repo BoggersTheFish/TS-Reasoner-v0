@@ -1,0 +1,47 @@
+{
+  "release": "v0.6.0",
+  "date": "2026-05-22",
+  "scope": [
+    "bounded multi-step tension-control loop",
+    "cycle-level operation traces",
+    "compression operation handler",
+    "hard loop eval cases",
+    "v0.6 loop evaluation artifact"
+  ],
+  "verification": {
+    "tests_command": "python3 -m unittest discover",
+    "tests_result": "passed",
+    "tests": 22,
+    "eval_command": "python3 scripts/evaluate_v06_loop.py",
+    "eval_artifact": "artifacts/v06_loop_eval.json"
+  },
+  "eval_summary": {
+    "case_count": 4,
+    "settled_count": 3,
+    "settled_rate": 0.75,
+    "mean_initial_global_tension": 0.4552,
+    "mean_final_global_tension": 0.0,
+    "mean_cycles_used": 1.75,
+    "failed_to_settle": [
+      "v06_contradiction_forced_answer"
+    ]
+  },
+  "multi_step_success": {
+    "case": "v06_quantifier_then_compress",
+    "ops": [
+      "REPAIR_STEP",
+      "COMPRESS_TRACE"
+    ],
+    "cycle_statuses": [
+      "repaired",
+      "compressed"
+    ],
+    "initial_global_tension": 0.2125,
+    "final_global_tension": 0.0
+  },
+  "limitations": [
+    "The loop is bounded and deterministic.",
+    "Operation handlers are still toy transformations over small reasoning chains.",
+    "One hard case reaches zero scalar global tension but still does not settle because compression pressure has no valid mutation left."
+  ]
+}

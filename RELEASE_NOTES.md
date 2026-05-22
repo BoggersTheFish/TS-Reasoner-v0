@@ -1,5 +1,124 @@
 # Release Notes
 
+## v0.7.0
+
+v0.7.0 closes the residual no-compression failure exposed by v0.6. Compression
+now removes redundant non-premise claims that are already represented by earlier
+graph claims, allowing contradiction repair traces to settle instead of stopping
+with `no_compression_available`.
+
+Release scope:
+
+- Extend `COMPRESS_TRACE` to remove redundant non-premise claims.
+- Preserve exact-duplicate compression behavior.
+- Add `scripts/evaluate_v07_loop.py`.
+- Generate `artifacts/v07_loop_eval.json`.
+- Add a regression test for the contradiction-forced-answer closure path.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_v07_loop.py
+```
+
+Verification result:
+
+- `23` unittest tests passed.
+- v0.7 loop eval ran `4` hard cases.
+- `4/4` hard cases settled.
+- Mean global tension dropped from `0.4552` to `0.0`.
+
+## v0.6.0
+
+v0.6.0 replaces one-shot candidate operation routing with a bounded multi-step
+tension-control loop. Each candidate can now cycle through tension evaluation,
+operation routing, state transition, verifier rescore, and residual logging
+until it settles or reaches a bounded stop condition.
+
+Release scope:
+
+- Add `OperationRouter.run_until_stable(max_steps=5)`.
+- Keep `run_once()` for v0.4/v0.5 compatibility.
+- Add cycle-level operation traces.
+- Add concrete handlers for accept, repair, compression, localization, and goal
+  verification.
+- Add harder v0.6 loop cases requiring repeated transitions.
+- Add `scripts/evaluate_v06_loop.py`.
+- Generate `artifacts/v06_loop_eval.json`.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_v06_loop.py
+```
+
+Verification result:
+
+- `22` unittest tests passed.
+- v0.6 loop eval ran `4` hard cases.
+- `3/4` hard cases settled.
+- Mean global tension dropped from `0.4552` to `0.0`.
+- One failed-to-settle case remains: `v06_contradiction_forced_answer`.
+
+## v0.5.0
+
+v0.5.0 adds a residual-trained coupling matrix. The learner replays v0.4
+candidate repair transitions, measures before/after coordinated tension drops,
+and trains channel-to-channel coupling weights from successful repairs.
+
+Release scope:
+
+- Add `train_residual_coupling_matrix()`.
+- Add `scripts/train_coupling_matrix.py`.
+- Add learned matrix loading through `TensionCoordinator.from_json()`.
+- Add CLI support via `--coupling-matrix`.
+- Generate `artifacts/learned_coupling_matrix_v05.json`.
+- Generate `artifacts/learned_coupling_matrix_summary.json`.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/train_coupling_matrix.py
+python3 inference.py --question "If some A are B and all B are C, are all A C?" --premise "Some A are B." --premise "All B are C." --coupling-matrix artifacts/learned_coupling_matrix_v05.json --trace /tmp/ts-reasoner-v05-trace.json
+```
+
+Verification result:
+
+- `21` unittest tests passed.
+- Coupling learner trained on `168` candidates with `126` successful repair examples.
+- CLI loaded the learned matrix and preserved the repaired direct-candidate transition.
+
+## v0.4.0
+
+v0.4.0 adds the coordinated tension-state repair loop. The pipeline now runs
+specialist tension agents over each candidate chain, propagates their signals
+through a coupling matrix, routes one bounded operation, applies a repair when
+available, and records before/after residuals in the JSON trace.
+
+Release scope:
+
+- Add `logic`, `goal`, `repair`, and `compression` tension agents.
+- Add an explicit coupling matrix and coordinated tension field.
+- Add `OperationRouter` for one-step closed-loop candidate repair.
+- Accept repaired candidate states only when global tension does not increase.
+- Preserve top-level v0 trace fields while adding operation-loop telemetry.
+- Extend the toy CIG verifier so existential bridge repairs can settle:
+  `some A are B` plus `all B are C` supports `some A are C`.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+```
+
+Verification result:
+
+- `19` unittest tests passed.
+- Release receipt: `artifacts/release_receipt_v0.4.0.json`.
+
 ## v0.1.0
 
 TS-Reasoner-v0 is the first public proof-of-concept release of the inspectable TS reasoning telemetry pipeline.

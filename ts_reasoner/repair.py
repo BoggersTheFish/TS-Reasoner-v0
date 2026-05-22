@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import List
 
-from .types import ReasoningChain, RepairSuggestion, TensionScore
+from .types import ReasoningChain, ReasoningStep, RepairSuggestion, TensionScore
 
 
 class TensionRepairer:
@@ -32,6 +32,31 @@ class TensionRepairer:
             )
         return repairs
 
+    def apply(self, chain: ReasoningChain, repair: RepairSuggestion) -> ReasoningChain:
+        """Return a new chain with the target step text replaced by a repair."""
+        repaired_steps: List[ReasoningStep] = []
+        for step in chain.steps:
+            if step.step_id != repair.target_step_id:
+                repaired_steps.append(step)
+                continue
+            repaired_steps.append(
+                ReasoningStep(
+                    step_id=step.step_id,
+                    text=repair.proposed_text,
+                    kind=step.kind,
+                    dependencies=self._dependencies_after_repair(step, repair),
+                    confidence=min(step.confidence, 0.55),
+                )
+            )
+        return ReasoningChain(
+            chain_id=f"{chain.chain_id}:repaired",
+            question=chain.question,
+            premises=chain.premises,
+            steps=repaired_steps,
+            final_answer=self._answer_from_repair(chain, repair),
+            generator=chain.generator,
+        )
+
     def _proposal(self, text: str, issue_kind: str) -> tuple[str, str, float]:
         if issue_kind == "quantifier_jump":
             downgraded = re.sub(r"\ball\b", "some", text, count=1, flags=re.IGNORECASE)
@@ -56,7 +81,7 @@ class TensionRepairer:
             )
         if issue_kind == "missing_premise":
             return (
-                "More premises are needed before deriving the conclusion.",
+                "Not enough information; more premises are needed before deriving the conclusion.",
                 "The conclusion node lacks incoming support edges.",
                 -0.4,
             )
@@ -68,7 +93,17 @@ class TensionRepairer:
             )
         if issue_kind == "overconfidence":
             return (
-                text.replace("definitely", "may").replace("certainly", "may").replace("obviously", "possibly"),
+                re.sub(
+                    r"\bdefinitely\b",
+                    "may",
+                    re.sub(
+                        r"\bcertainly\b",
+                        "may",
+                        re.sub(r"\bobviously\b", "possibly", text, flags=re.IGNORECASE),
+                        flags=re.IGNORECASE,
+                    ),
+                    flags=re.IGNORECASE,
+                ),
                 "Surface confidence should match graph support.",
                 -0.2,
             )
@@ -78,3 +113,20 @@ class TensionRepairer:
             -0.1,
         )
 
+    def _answer_from_repair(self, chain: ReasoningChain, repair: RepairSuggestion) -> str:
+        proposed = repair.proposed_text.strip()
+        lower = proposed.lower()
+        if "not provide enough support" in lower or "more premises are needed" in lower:
+            return "Not enough information."
+        if "contradiction" in lower:
+            return "Contradiction detected; no stable answer follows."
+        if proposed.lower().startswith("therefore "):
+            return proposed[10:].strip()
+        if repair.target_step_id.startswith("s"):
+            return proposed
+        return chain.final_answer
+
+    def _dependencies_after_repair(self, step: ReasoningStep, repair: RepairSuggestion) -> List[str]:
+        if repair.issue_kind == "circular_reasoning":
+            return [dep for dep in step.dependencies if dep != step.step_id]
+        return step.dependencies

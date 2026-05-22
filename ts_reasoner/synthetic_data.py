@@ -212,3 +212,51 @@ def train_eval_split(rows: List[Dict[str, object]]) -> tuple[List[Dict[str, obje
     train = [row for row in rows if row.get("split") == "train"]
     eval_rows = [row for row in rows if row.get("split") == "eval"]
     return train, eval_rows
+
+
+def v06_loop_cases() -> List[ReasoningChain]:
+    """Harder chains that need bounded operation loops, not just one score."""
+    return [
+        ReasoningChain(
+            chain_id="v06_quantifier_then_compress",
+            question="If some A are B and all B are C, are all A C?",
+            premises=["Some A are B.", "All B are C."],
+            steps=[
+                ReasoningStep("p1", "Some A are B.", "premise", [], 0.9),
+                ReasoningStep("p2", "All B are C.", "premise", [], 0.9),
+                ReasoningStep("s1", "Therefore all A are C.", "conclusion", ["p1", "p2"], 0.95),
+                ReasoningStep("s2", "Therefore some A are C.", "conclusion", ["p1", "p2"], 0.7),
+            ],
+            final_answer="all A are C.",
+        ),
+        ReasoningChain(
+            chain_id="v06_missing_premise_overconfident",
+            question="Are all A C?",
+            premises=[],
+            steps=[
+                ReasoningStep("s1", "Definitely all A are C.", "conclusion", [], 0.98),
+            ],
+            final_answer="Definitely all A are C.",
+        ),
+        ReasoningChain(
+            chain_id="v06_contradiction_forced_answer",
+            question="If all A are C and no A are C, are all A C?",
+            premises=["All A are C.", "No A are C."],
+            steps=[
+                ReasoningStep("p1", "All A are C.", "premise", [], 0.9),
+                ReasoningStep("p2", "No A are C.", "premise", [], 0.9),
+                ReasoningStep("s1", "Certainly all A are C.", "conclusion", ["p1", "p2"], 0.98),
+            ],
+            final_answer="Certainly all A are C.",
+        ),
+        ReasoningChain(
+            chain_id="v06_circular_then_relax",
+            question="Are all A C?",
+            premises=["All A are C."],
+            steps=[
+                ReasoningStep("p1", "All A are C.", "premise", [], 0.9),
+                ReasoningStep("s1", "All A are C because the conclusion says all A are C.", "conclusion", ["s1"], 0.93),
+            ],
+            final_answer="All A are C.",
+        ),
+    ]

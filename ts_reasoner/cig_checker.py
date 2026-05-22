@@ -115,6 +115,21 @@ def _claim_has_support(claim: Claim, premise_claims: List[Claim]) -> bool:
                     and right.predicate.lower() == claim.predicate.lower()
                 ):
                     return True
+    if claim.quantifier == "some":
+        for left in premise_claims:
+            for right in premise_claims:
+                if (
+                    left.quantifier == "some"
+                    and right.quantifier == "all"
+                    and left.subject
+                    and left.predicate
+                    and right.subject
+                    and right.predicate
+                    and left.subject.lower() == claim.subject.lower()
+                    and left.predicate.lower() == right.subject.lower()
+                    and right.predicate.lower() == claim.predicate.lower()
+                ):
+                    return True
     return False
 
 
@@ -163,4 +178,3 @@ class CIGChecker:
                 if _contradict(left, right):
                     pairs.append([left.claim_id, right.claim_id])
         return pairs
-

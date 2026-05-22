@@ -57,6 +57,16 @@ class TensionScore:
 
 
 @dataclass(frozen=True)
+class TensionAgentSignal:
+    channel: str
+    tension: float
+    suspect_edges: List[str] = field(default_factory=list)
+    suggested_ops: List[str] = field(default_factory=list)
+    confidence: float = 0.0
+    shares_with: List[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True)
 class Claim:
     claim_id: str
     text: str
@@ -106,4 +116,3 @@ class ReasonerOutput:
 
     def to_dict(self) -> Dict[str, Any]:
         return to_jsonable(self)
-
