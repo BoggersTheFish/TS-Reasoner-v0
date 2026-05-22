@@ -1,5 +1,40 @@
 # Release Notes
 
+## v0.8.0
+
+v0.8.0 adds the first externalized small benchmark harness. It turns the v0.7
+bounded control loop into a repeatable baseline comparison over curated
+external-style tasks normalized into TS-Reasoner relation form.
+
+Release scope:
+
+- Add `data/external_benchmark_v08.jsonl` with ten tasks across five categories.
+- Add `ts_reasoner.benchmark` with loader, scorer, runner, and baseline summaries.
+- Add `scripts/evaluate_v08_external_benchmark.py`.
+- Generate `artifacts/v08_external_benchmark_report.json`.
+- Add `docs/v08_external_benchmark_harness.md`.
+- Add benchmark regression tests.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_v08_external_benchmark.py
+```
+
+Verification result:
+
+- `26` unittest tests passed.
+- v0.8 benchmark ran `10` externalized small-reasoning tasks.
+- `direct`: `4/10` correct, mean global tension `0.2141`.
+- `random_selector`: `5/10` correct, mean global tension `0.1771`.
+- `ranker_only`: `8/10` correct, mean global tension `0.0767`.
+- `full_control_loop`: `8/10` correct, `10/10` settled, mean global tension `0.0`.
+- Known gap: `full_control_loop` fails both `small_proof_chain` tasks by settling
+  to low-tension abstentions.
+
+This is a toy-scope receipt, not a broad benchmark claim.
+
 ## v0.7.0
 
 v0.7.0 closes the residual no-compression failure exposed by v0.6. Compression

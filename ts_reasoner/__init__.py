@@ -4,14 +4,18 @@ from .pipeline import TSReasoner, run_reasoner
 from .operation_router import OperationRouter
 from .tension_agents import TensionCoordinator
 from .coupling_learner import train_residual_coupling_matrix
+from .benchmark import BenchmarkRunner, BenchmarkTask, load_benchmark
 from .types import ReasonerOutput, TensionAgentSignal
 
 __all__ = [
+    "BenchmarkRunner",
+    "BenchmarkTask",
     "OperationRouter",
     "ReasonerOutput",
     "TSReasoner",
     "TensionAgentSignal",
     "TensionCoordinator",
+    "load_benchmark",
     "run_reasoner",
     "train_residual_coupling_matrix",
 ]

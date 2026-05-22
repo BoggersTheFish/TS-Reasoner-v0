@@ -84,7 +84,7 @@ This repo is not the final model. It is the control panel and trace contract for
 - The CIG is a toy provenance graph, not a full formal logic engine.
 - Contradiction, support, and quantifier checks are heuristic.
 - TensionLM generation and trained proof ranking are future interfaces only.
-- Artifact metrics are toy-scope receipts, not benchmark claims.
+- Artifact metrics and v0.8 benchmark results are toy-scope receipts, not broad benchmark claims.
 
 ## Roadmap
 
@@ -95,6 +95,7 @@ This repo is not the final model. It is the control panel and trace contract for
 - **v0.5.0:** residual-trained coupling matrix.
 - **v0.6.0:** bounded multi-step tension-control loop.
 - **v0.7.0:** residual closure with redundant-claim compression.
+- **v0.8.0:** externalized small benchmark harness and baseline comparison.
 - **v1.0.0:** TS-native proof/reasoning model benchmark release.
 
 ## v0.4 Branch Direction
@@ -180,6 +181,41 @@ python3 scripts/evaluate_v07_loop.py
 
 This writes `artifacts/v07_loop_eval.json`; the current hard-case settled rate
 is `4/4`.
+
+## v0.8 Branch Direction
+
+v0.8 adds the first externalized benchmark harness around the bounded
+tension-control loop:
+
+```text
+external prompt -> normalized task -> baselines -> answer score -> tension telemetry -> receipt
+```
+
+The fixture is `data/external_benchmark_v08.jsonl`, with ten curated tasks
+covering syllogism variants, boolean word problems, small proof chains,
+contradiction detection, and repair-needed cases. The benchmark compares four
+baselines: direct candidate selection, deterministic random candidate selection,
+ranker-only selection, and the full bounded control loop.
+
+Evaluate with:
+
+```bash
+python3 scripts/evaluate_v08_external_benchmark.py
+```
+
+This writes `artifacts/v08_external_benchmark_report.json`. The current receipt
+is deliberately narrow:
+
+- `direct`: `4/10`
+- `random_selector`: `5/10`
+- `ranker_only`: `8/10`
+- `full_control_loop`: `8/10`, `10/10` settled, mean final tension `0.0`
+
+The important exposed gap is that the full loop fails both `small_proof_chain`
+tasks by settling to low-tension abstentions. v0.9 should target stronger
+transitive proof-chain support.
+
+Branch details are in `docs/v08_external_benchmark_harness.md`.
 
 ## v1 Branch Direction
 
