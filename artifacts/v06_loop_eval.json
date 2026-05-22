@@ -1,0 +1,74 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "chain_id": "v06_quantifier_then_compress",
+      "cycle_statuses": [
+        "repaired",
+        "compressed"
+      ],
+      "cycles_used": 2,
+      "final_global_tension": 0.0,
+      "initial_global_tension": 0.2125,
+      "ops": [
+        "REPAIR_STEP",
+        "COMPRESS_TRACE"
+      ],
+      "settled": true,
+      "status": "settled"
+    },
+    {
+      "chain_id": "v06_missing_premise_overconfident",
+      "cycle_statuses": [
+        "repaired"
+      ],
+      "cycles_used": 1,
+      "final_global_tension": 0.0,
+      "initial_global_tension": 0.95,
+      "ops": [
+        "REPAIR_STEP"
+      ],
+      "settled": true,
+      "status": "settled"
+    },
+    {
+      "chain_id": "v06_contradiction_forced_answer",
+      "cycle_statuses": [
+        "repaired",
+        "repaired",
+        "compressed"
+      ],
+      "cycles_used": 3,
+      "final_global_tension": 0.0,
+      "initial_global_tension": 0.4333,
+      "ops": [
+        "REPAIR_STEP",
+        "REPAIR_STEP",
+        "COMPRESS_TRACE"
+      ],
+      "settled": true,
+      "status": "settled"
+    },
+    {
+      "chain_id": "v06_circular_then_relax",
+      "cycle_statuses": [
+        "repaired"
+      ],
+      "cycles_used": 1,
+      "final_global_tension": 0.0,
+      "initial_global_tension": 0.225,
+      "ops": [
+        "REPAIR_STEP"
+      ],
+      "settled": true,
+      "status": "settled"
+    }
+  ],
+  "failed_to_settle": [],
+  "mean_cycles_used": 1.75,
+  "mean_final_global_tension": 0.0,
+  "mean_initial_global_tension": 0.4552,
+  "settled_count": 4,
+  "settled_rate": 1.0,
+  "version": "v0.6.0"
+}

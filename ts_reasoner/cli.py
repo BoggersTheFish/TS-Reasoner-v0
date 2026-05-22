@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 
 from .pipeline import run_reasoner
+from .tension_agents import TensionCoordinator
 from .trace import write_json
 
 
@@ -23,9 +24,15 @@ def main() -> int:
         default="artifacts/latest_trace.json",
         help="Path for JSON trace output.",
     )
+    parser.add_argument(
+        "--coupling-matrix",
+        default=None,
+        help="Optional learned coupling matrix JSON artifact.",
+    )
     args = parser.parse_args()
 
-    output = run_reasoner(args.question, args.premise)
+    coordinator = TensionCoordinator.from_json(args.coupling_matrix) if args.coupling_matrix else None
+    output = run_reasoner(args.question, args.premise, tension_coordinator=coordinator)
     trace_path = write_json(output, Path(args.trace))
 
     print("TS-Reasoner-v0")
@@ -50,4 +57,3 @@ def main() -> int:
 
 
 __all__ = ["main"]
-

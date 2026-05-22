@@ -17,6 +17,10 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(output.selected_chain.chain_id, "candidate_cautious")
         self.assertIn("candidate_scores", output.trace)
         self.assertIn("graph_view", output.trace)
+        self.assertIn("coordinated_tension_field", output.trace)
+        self.assertIn("agents", output.trace["coordinated_tension_field"])
+        self.assertIn("operation_loop", output.trace)
+        self.assertIn("candidate_operation_loops", output.trace)
         self.assertEqual(output.final_answer, "all A are C.")
 
     def test_write_json_trace(self):
@@ -27,8 +31,9 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(data["trace"]["pipeline"], "TS-Reasoner-v0")
             self.assertIn("selected_chain", data)
             self.assertIn("tension_score", data)
+            self.assertIn("coordinated_tension_field", data["trace"])
+            self.assertIn("operation_loop", data["trace"])
 
 
 if __name__ == "__main__":
     unittest.main()
-

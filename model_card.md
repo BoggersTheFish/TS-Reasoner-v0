@@ -26,7 +26,7 @@ MIT.
 
 ## Architecture
 
-The system uses a deterministic candidate generator, regex claim extraction, a toy Claim-Interaction Graph checker, heuristic tension scoring, and repair suggestion templates. No model weights are downloaded or executed.
+The system uses a deterministic candidate generator, regex claim extraction, a toy Claim-Interaction Graph checker, heuristic tension scoring, specialist tension agents, a coupling matrix, an operation router, and repair templates. v0.5 can load a residual-trained coupling matrix artifact learned from successful repair traces. v0.6 runs bounded multi-step control loops and records cycle-level residuals. v0.7 adds redundant-claim compression to close residual no-op pressure. No neural model weights are downloaded or executed.
 
 ## Eval Summary
 
@@ -52,4 +52,3 @@ Citation placeholder:
   license = {MIT}
 }
 ```
-

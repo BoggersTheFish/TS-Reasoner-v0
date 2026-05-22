@@ -1,0 +1,41 @@
+{
+  "release": "v0.7.0",
+  "date": "2026-05-22",
+  "scope": [
+    "residual no-op closure",
+    "redundant non-premise claim compression",
+    "v0.7 loop evaluation artifact",
+    "contradiction-forced-answer regression"
+  ],
+  "verification": {
+    "tests_command": "python3 -m unittest discover",
+    "tests_result": "passed",
+    "tests": 23,
+    "eval_command": "python3 scripts/evaluate_v07_loop.py",
+    "eval_artifact": "artifacts/v07_loop_eval.json"
+  },
+  "eval_summary": {
+    "case_count": 4,
+    "settled_count": 4,
+    "settled_rate": 1.0,
+    "mean_initial_global_tension": 0.4552,
+    "mean_final_global_tension": 0.0,
+    "mean_cycles_used": 1.75,
+    "failed_to_settle": []
+  },
+  "closed_failure": {
+    "case": "v06_contradiction_forced_answer",
+    "previous_status": "no_compression_available",
+    "new_status": "settled",
+    "ops": [
+      "REPAIR_STEP",
+      "REPAIR_STEP",
+      "COMPRESS_TRACE"
+    ]
+  },
+  "limitations": [
+    "The compression rule is deterministic and claim-normalization based.",
+    "The CIG verifier remains narrow and regex-driven.",
+    "v0.7 closes the current hard eval, not arbitrary natural-language reasoning."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "release": "v0.4.0",
+  "date": "2026-05-22",
+  "scope": [
+    "coordinated tension-state agents",
+    "explicit coupling matrix",
+    "one-step operation router",
+    "closed-loop candidate repair",
+    "before/after residual trace"
+  ],
+  "trace_contract_additions": [
+    "trace.tension_coordinator",
+    "trace.operation_router",
+    "trace.coordinated_tension_field",
+    "trace.operation_loop",
+    "trace.candidate_operation_loops",
+    "trace.candidate_scores[*].coordinated_tensions",
+    "trace.candidate_scores[*].selected_next_op",
+    "trace.candidate_scores[*].post_loop_global_tension",
+    "trace.candidate_scores[*].post_loop_status"
+  ],
+  "verification": {
+    "command": "python3 -m unittest discover",
+    "result": "passed",
+    "tests": 19
+  },
+  "example_repair": {
+    "input": "Some A are B. All B are C. Therefore all A are C.",
+    "selected_op": "REPAIR_STEP",
+    "repair": "Therefore some A are C.",
+    "before_global_tension": 0.2833,
+    "after_global_tension": 0.0
+  },
+  "limitations": [
+    "The operation router is deterministic and bounded to one transition per candidate.",
+    "The verifier remains a toy CIG checker, not a full theorem prover.",
+    "Coupling weights are hand-coded, not learned."
+  ]
+}

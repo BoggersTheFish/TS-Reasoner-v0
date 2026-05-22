@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ts-reasoner-v0"
-version = "0.1.0"
+version = "0.7.0"
 description = "Inspectable TS-style reasoning telemetry with deterministic tension scoring."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -38,4 +38,3 @@ ts-reasoner = "ts_reasoner.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["ts_reasoner*"]
-
