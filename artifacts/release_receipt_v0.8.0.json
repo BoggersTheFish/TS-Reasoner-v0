@@ -1,0 +1,63 @@
+{
+  "version": "v0.8.0",
+  "name": "External Benchmark Harness",
+  "date": "2026-05-22",
+  "scope": [
+    "Add a curated externalized small-reasoning benchmark fixture.",
+    "Add a benchmark runner comparing direct, random, ranker-only, and full control-loop baselines.",
+    "Generate an external benchmark report artifact.",
+    "Document the first benchmark-style receipt and the exposed proof-chain limitation."
+  ],
+  "artifacts": [
+    "data/external_benchmark_v08.jsonl",
+    "scripts/evaluate_v08_external_benchmark.py",
+    "artifacts/v08_external_benchmark_report.json",
+    "docs/v08_external_benchmark_harness.md"
+  ],
+  "verification": {
+    "unit_tests": {
+      "command": "python3 -m unittest discover",
+      "status": "passed",
+      "tests_run": 26
+    },
+    "benchmark": {
+      "command": "python3 scripts/evaluate_v08_external_benchmark.py",
+      "status": "generated",
+      "task_count": 10,
+      "baselines": {
+        "direct": {
+          "correct": 4,
+          "total": 10,
+          "accuracy": 0.4,
+          "mean_global_tension": 0.2141
+        },
+        "random_selector": {
+          "correct": 5,
+          "total": 10,
+          "accuracy": 0.5,
+          "mean_global_tension": 0.1771
+        },
+        "ranker_only": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8,
+          "mean_global_tension": 0.0767
+        },
+        "full_control_loop": {
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8,
+          "mean_global_tension": 0.0,
+          "settled_rate": 1.0,
+          "mean_cycles_used": 1.0
+        }
+      }
+    }
+  },
+  "known_limits": [
+    "The task set is curated and normalized into TS-Reasoner relation form.",
+    "The result is a toy-scope receipt, not a broad benchmark claim.",
+    "The full control loop fails both small_proof_chain tasks by settling to low-tension abstentions."
+  ],
+  "next_target": "v0.9 should strengthen transitive proof-chain support before broader benchmark claims."
+}
