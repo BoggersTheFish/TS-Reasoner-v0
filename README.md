@@ -2,273 +2,160 @@
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
-[![Tests](https://img.shields.io/badge/tests-unittest_passed-brightgreen)](tests)
+[![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v0_research_release-orange)](model_card.md)
+[![Status](https://img.shields.io/badge/status-v1_trace_contract-blue)](MODEL_CARD.md)
 
-TS-Reasoner-v0 is a standalone toy research release for inspectable reasoning telemetry. It represents reasoning chains as a small constraint graph, scores local failures as tension, and proposes repairs that try to reduce tension.
+TS-Reasoner is an inspectable reasoning control loop. It generates candidate
+reasoning chains, scores local and global tension, runs a bounded repair or
+compression loop, settles a trace, and exposes why a result was accepted or
+rejected.
 
-It is not a downloaded model, transformer, benchmark-grade prover, or production reasoning system. v0 uses deterministic Python standard-library heuristics so every node, edge, issue, and repair can be inspected.
+This repository is the stable public v1.0 foundation for that loop. It is not a
+large language model, a general theorem prover, or a broad benchmark claim.
 
-## Why This Matters
-
-TS-Reasoner-v0 is the bridge repo: it turns the TS loop into runnable reasoning telemetry instead of a verbal claim. The core path is:
-
-```text
-question -> candidate chains -> CIG checks -> tension issues -> repair suggestions -> selected low-tension answer -> JSON trace
-```
-
-That makes the substrate visible before any learned model is plugged in. v0 proves the interface; later versions can learn the generator, tension field, or proof ranker while keeping the same trace contract.
-
-## TS Mapping
-
-- **TS-Core:** reasoning steps are graph nodes and dependencies are support edges.
-- **TensionLM:** high-tension local failures are explicit fields, not hidden attention weights.
-- **CIG:** extracted claims keep provenance back to source steps and dependencies.
-- **Proof Ranker:** candidate chains are selected by lower global tension and higher stability.
-
-The toy loop is: generate candidate chains, extract claims, score local/global tension, coordinate specialist tension states, suggest repairs, then select the most stable chain.
-
-## Quickstart
+## One-Command Run
 
 ```bash
 python3 inference.py --question "If all A are B and all B are C, are all A C?"
+```
+
+That writes `artifacts/latest_trace.json` and prints the selected answer,
+selected chain, and global tension.
+
+Run all examples and tests:
+
+```bash
 python3 demo_reasoning.py
 python3 -m unittest discover
 ```
 
-The CLI writes `artifacts/latest_trace.json`. The demo writes:
+## What It Does
 
-- `artifacts/sample_outputs.md`
-- `artifacts/tension_traces.jsonl`
-- `artifacts/eval_summary.json`
+The core pipeline is:
 
-For the v0.9 proof-chain receipt:
+```text
+input problem
+-> candidate chains
+-> Claim-Interaction Graph checks
+-> local/global tension scoring
+-> bounded repair/compression loop
+-> selected answer or failure reason
+-> JSON trace
+```
+
+Tension is a transparent instability score. Local tension marks the step where
+support is missing, a contradiction appears, a quantifier jump happens, or a
+claim is overconfident. Global tension summarizes the candidate chain.
+
+Traces are the public API of TS reasoning. Every trace records the input,
+candidate steps, local tension, global tension, chosen action, rejected
+alternatives, settled answer, and failure reason when the loop does not settle.
+
+## v1.0 Receipts
+
+Generate the stable v1 benchmark receipt:
 
 ```bash
-python3 scripts/evaluate_v09_proof_chains.py
+python3 scripts/evaluate_v1_baseline.py
 ```
 
-This writes `artifacts/v09_proof_chain_report.json`.
+This writes:
 
-## Trace Preview
+- `artifacts/v1_baseline_report.json`
+- `artifacts/release_receipt_v1.0.0.json`
 
-A compact trace preview is available at `docs/trace_preview.md`. The full CLI trace is written to `artifacts/latest_trace.json`.
+Current v1 receipt:
 
-## Example Output
+- `20` tasks total.
+- `16` expected-pass tasks.
+- `4` adversarial known-limit tasks.
+- `full_control_loop`: `16/16` on expected-pass tasks.
+- Known-limit tasks are included to make failures visible, not to claim solved behavior.
+
+See `BENCHMARKS.md` for the benchmark categories and `LIMITATIONS.md` for the
+non-claims.
+
+## TensionLM Bridge
+
+TS-Reasoner can use TensionLM as an optional candidate proposer while keeping
+TS-Reasoner as the verifier:
 
 ```text
-TS-Reasoner-v0
-Question: If all A are B and all B are C, are all A C?
-Answer: all A are C.
-Selected chain: candidate_cautious
-Global tension: 0.0000
-Trace: artifacts/latest_trace.json
+problem
+-> TS-Reasoner reasoning state
+-> TensionLM proposes candidate text
+-> tension scorer and verifier evaluate it
+-> trace records acceptance, repair, or rejection
 ```
 
-## Release Hierarchy
-
-```text
-TS-Core
-  |
-  v
-TS-Reasoner-v0
-  |
-  v
-TS-Proof-Ranker
-  |
-  v
-TensionProofLM
-  |
-  v
-Full TS-native reasoning model
-```
-
-This repo is not the final model. It is the control panel and trace contract for the final model.
-
-## Limitations
-
-- Claim extraction is regex-based and covers only small syllogistic templates.
-- The CIG is a toy provenance graph, not a full formal logic engine.
-- Contradiction, support, and quantifier checks are heuristic.
-- TensionLM generation and trained proof ranking are future interfaces only.
-- Artifact metrics and v0.8 benchmark results are toy-scope receipts, not broad benchmark claims.
-
-## Roadmap
-
-- **v0.1.0:** deterministic inspectable reasoning trace contract.
-- **v0.2.0:** learned tension-ranker experiment inside the same trace contract.
-- **v0.3.0:** learned candidate proposal, still verified by CIG/tension/repair.
-- **v0.4.0:** coordinated tension-state operation engine.
-- **v0.5.0:** residual-trained coupling matrix.
-- **v0.6.0:** bounded multi-step tension-control loop.
-- **v0.7.0:** residual closure with redundant-claim compression.
-- **v0.8.0:** externalized small benchmark harness and baseline comparison.
-- **v0.9.0:** transitive proof-chain support for positive universal all/all chains.
-- **v1.0.0:** TS-native proof/reasoning model benchmark release.
-
-## v0.4 Branch Direction
-
-The v0.4 trace adds specialist tension agents over the existing CIG/ranker/repair
-surface:
-
-```text
-state graph -> tension agents -> coupling matrix -> coordinated tension field -> operation router -> residual trace
-```
-
-The minimum viable agent set is `logic`, `goal`, `repair`, and `compression`.
-Each agent emits a JSON-compatible signal with a channel tension, suspect edges,
-operation hints, confidence, and declared sharing targets. The coordinator then
-applies a deterministic coupling matrix so a logic spike can wake repair and
-goal pressure, compression pressure can wake repair checks, and the trace can
-show the next operation the system would run. The v0.4 operation router applies
-one bounded repair transition per candidate, rescoring the repaired chain and
-recording before/after residuals.
-
-Branch details are in `docs/v04_coordinated_tension_states.md`.
-
-## v0.5 Branch Direction
-
-v0.5 learns the coupling matrix from v0.4 repair residuals:
-
-```text
-repair traces -> before/after coordinated tensions -> residual learner -> coupling matrix artifact
-```
-
-The learner is still standard-library and deterministic. It watches successful
-one-step repairs, measures which target channels dropped after a source channel
-was active, blends those observations with the v0.4 prior, and writes
-`artifacts/learned_coupling_matrix_v05.json`.
-
-Use it from the CLI with:
+Run the offline bridge smoke receipt:
 
 ```bash
-python3 scripts/train_coupling_matrix.py
-python3 inference.py --question "If some A are B and all B are C, are all A C?" \
-  --premise "Some A are B." \
-  --premise "All B are C." \
-  --coupling-matrix artifacts/learned_coupling_matrix_v05.json
+python3 scripts/run_tensionlm_bridge.py --offline
 ```
 
-## v0.6 Branch Direction
-
-v0.6 turns the one-step operation router into a bounded control loop:
-
-```text
-state -> tensions -> op -> transition -> verifier -> residual -> repeat
-```
-
-Each candidate can now run for up to `max_steps` cycles and records every cycle
-in `trace.candidate_operation_loops[*].cycles`. The release also adds harder
-loop cases that require more than one operation, including repair followed by
-compression.
-
-Evaluate with:
+Run against a local public TensionLM checkout:
 
 ```bash
-python3 scripts/evaluate_v06_loop.py
+python3 scripts/run_tensionlm_bridge.py --tensionlm-path ../TensionLM
 ```
 
-This writes `artifacts/v06_loop_eval.json` with initial tension, final tension,
-cycles used, settled rate, and failed-to-settle cases.
+The bridge writes `artifacts/tensionlm_bridge_smoke.json`. The public claim is
+narrow: this tests whether a tension-attention language model can improve an
+inspectable reasoning loop.
 
-## v0.7 Branch Direction
+## TensionProofLM Target
 
-v0.7 closes the remaining v0.6 residual failure. The compression operation now
-removes redundant non-premise claims already carried by earlier graph claims, so
-the contradiction-forced-answer case can settle after:
+The next model target is `TensionProofLM-22M`: a small model trained for proof
+step proposal, repair, and abstention, not general chat.
 
-```text
-REPAIR_STEP -> REPAIR_STEP -> COMPRESS_TRACE
-```
-
-Evaluate with:
+Run the tiny smoke-training/eval receipt:
 
 ```bash
-python3 scripts/evaluate_v07_loop.py
+python3 scripts/run_tensionprooflm_smoke.py
 ```
 
-This writes `artifacts/v07_loop_eval.json`; the current hard-case settled rate
-is `4/4`.
+This writes `artifacts/tensionprooflm_smoke_report.json`. The smoke run validates
+the data/eval contract only; it is not a trained 22M checkpoint.
 
-## v0.8 Branch Direction
+## Public Docs
 
-v0.8 adds the first externalized benchmark harness around the bounded
-tension-control loop:
+- `TRACE_SCHEMA.md`: stable JSON trace contract.
+- `BENCHMARKS.md`: v1 benchmark suite and receipt shape.
+- `LIMITATIONS.md`: explicit known limits and non-claims.
+- `MODEL_CARD.md`: intended use, risks, and eval summary.
+- `docs/tensionlm_bridge.md`: optional TensionLM proposal bridge.
+- `docs/tensionprooflm_22m.md`: next model target and metric.
 
-```text
-external prompt -> normalized task -> baselines -> answer score -> tension telemetry -> receipt
-```
+## Installation
 
-The fixture is `data/external_benchmark_v08.jsonl`, with ten curated tasks
-covering syllogism variants, boolean word problems, small proof chains,
-contradiction detection, and repair-needed cases. The benchmark compares four
-baselines: direct candidate selection, deterministic random candidate selection,
-ranker-only selection, and the full bounded control loop.
-
-Evaluate with:
+No runtime dependencies are required beyond Python 3.10+.
 
 ```bash
-python3 scripts/evaluate_v08_external_benchmark.py
+python3 -m unittest discover
+python3 inference.py --question "If all cats are mammals and all mammals are animals, are all cats animals?"
 ```
 
-This writes `artifacts/v08_external_benchmark_report.json`. The current receipt
-is deliberately narrow:
-
-- `direct`: `4/10`
-- `random_selector`: `5/10`
-- `ranker_only`: `8/10`
-- `full_control_loop`: `8/10`, `10/10` settled, mean final tension `0.0`
-
-The important exposed gap is that the full loop fails both `small_proof_chain`
-tasks by settling to low-tension abstentions. v0.9 should target stronger
-transitive proof-chain support.
-
-Branch details are in `docs/v08_external_benchmark_harness.md`.
-
-## v0.9 Branch Direction
-
-v0.9 closes the v0.8 proof-chain gap without broadening the benchmark claim:
-
-```text
-all/all premise chain -> explicit bridge path -> supported universal conclusion
-```
-
-Evaluate with:
+The package also exposes a console entry point when installed:
 
 ```bash
-python3 scripts/evaluate_v09_proof_chains.py
+ts-reasoner --question "If all A are B and all B are C, are all A C?"
 ```
 
-This writes `artifacts/v09_proof_chain_report.json`. The current narrow receipt:
+## Claim Boundary
 
-- `small_proof_chain/full_control_loop`: `2/2`
-- `full_control_loop`: `10/10`, `10/10` settled, mean final tension `0.0`
-- remaining limit: positive universal all/all chains only
+TS-Reasoner v1.0 claims:
 
-Branch details are in `docs/v09_proof_chain_support.md`.
+- stable inspectable traces,
+- deterministic small reasoning receipts,
+- visible failure modes,
+- a bridge contract for learned candidate proposers.
 
-## v1 Branch Direction
+TS-Reasoner v1.0 does not claim:
 
-The `v1-learned-ranker` branch keeps the v0 output schema and replaces the hand-coded global tension field with a tiny learned ranker experiment:
-
-```text
-v0 = hand-coded tension field
-v1 = learned tension field
-v2 = learned candidate generator
-v3 = generator + ranker + verifier loop
-```
-
-The learned-ranker scripts build synthetic candidate-chain rows, train a standard-library logistic classifier, and compare it against `HeuristicTensionRanker`.
-
-Branch details are in `docs/v1_learned_ranker.md`.
-
-## v0.3 Branch Direction
-
-The `v0.3.0-learned-candidate-generator` branch adds a narrow learned candidate-proposal model. It is not a full LLM or open-ended reasoning generator: proposed candidate chains still pass through the existing CIG, tension-ranker, repair, and trace pipeline.
-
-Branch details are in `docs/v03_learned_candidate_generator.md`.
-
-## License
-
-MIT. See `LICENSE`.
+- general reasoning ability,
+- production decision-making reliability,
+- formal proof completeness,
+- chatbot quality,
+- superiority over frontier models.

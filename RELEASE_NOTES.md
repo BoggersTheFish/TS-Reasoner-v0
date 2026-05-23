@@ -1,5 +1,34 @@
 # Release Notes
 
+## v1.0.0
+
+v1.0.0 is the stable public trace-contract release. It keeps the same
+inspectable output schema, adds focused public docs, adds adversarial
+known-limit cases, and runs tests in GitHub Actions.
+
+Release scope:
+
+- Freeze and document the public JSON output shape in `TRACE_SCHEMA.md`.
+- Document the v1 benchmark receipt in `BENCHMARKS.md`.
+- Document explicit non-claims and known failures in `LIMITATIONS.md`.
+- Add `data/external_benchmark_v1.jsonl` with expected passes and known limits.
+- Add `scripts/evaluate_v1_baseline.py`.
+- Add optional `TS-Reasoner + TensionLM` bridge tooling.
+- Add a tiny `TensionProofLM-22M` target smoke-training/eval receipt.
+- Add CI via `.github/workflows/tests.yml`.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_v1_baseline.py
+python3 scripts/run_tensionlm_bridge.py --offline
+python3 scripts/run_tensionprooflm_smoke.py
+```
+
+The release claim is narrow: this is stable enough for another technical reader
+to inspect or build on. It is not a broad reasoning benchmark or large model.
+
 ## v0.9.0
 
 v0.9.0 closes the narrow proof-chain gap exposed by v0.8. The release adds

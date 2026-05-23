@@ -107,7 +107,8 @@ def main() -> int:
             "Regex claim extraction only covers small syllogistic templates.",
             "Natural-language negation can be missed outside simple 'no X are Y' or 'X are not Y' forms.",
             "The selector may prefer an insufficiency answer when a generated direct candidate is high tension.",
-            "No learned TensionLM generator or trained proof ranker is included in v0.",
+            "TensionLM is optional proposal input only; TS-Reasoner remains the verifier.",
+            "TensionProofLM-22M is a target with a smoke receipt, not a trained released checkpoint.",
         ],
     }
     (ARTIFACTS / "eval_summary.json").write_text(
@@ -120,4 +121,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

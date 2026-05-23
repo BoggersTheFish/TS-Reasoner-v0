@@ -52,8 +52,31 @@ class TSReasoner:
         selected_score = selected_loop["score"]
         selected_field = selected_loop["field"]
         repairs = self.repairer.suggest(selected_chain, selected_score)
+        candidate_score_rows = [
+            {
+                "chain_id": chain.chain_id,
+                "global_tension": score.global_tension,
+                "local_tension": score.local_tension,
+                "stability": score.stability,
+                "issue_kinds": [issue.kind for issue in score.issues],
+                "coordinated_tensions": field["coordinated_tensions"],
+                "selected_next_op": field["selected_next_op"],
+                "post_loop_chain_id": loop["chain"].chain_id,
+                "post_loop_global_tension": loop["score"].global_tension,
+                "post_loop_local_tension": loop["score"].local_tension,
+                "post_loop_status": loop["status"],
+                "post_loop_cycles": loop["cycle_count"],
+                "post_loop_settled": loop["settled"],
+            }
+            for chain, _cig, score, field, loop in scored
+        ]
         trace = {
+            "contract_version": "1.0.0",
             "pipeline": "TS-Reasoner-v0",
+            "input": {
+                "question": question,
+                "premises": premise_list,
+            },
             "generator": self.generator.name,
             "ranker": self.ranker.__class__.__name__,
             "tension_coordinator": "TensionCoordinator",
@@ -63,22 +86,11 @@ class TSReasoner:
                 "selected_original_chain_id": selected_original.chain_id,
                 "criterion": "lowest_post_loop_global_tension_then_highest_stability",
             },
-            "candidate_scores": [
-                {
-                    "chain_id": chain.chain_id,
-                    "global_tension": score.global_tension,
-                    "stability": score.stability,
-                    "issue_kinds": [issue.kind for issue in score.issues],
-                    "coordinated_tensions": field["coordinated_tensions"],
-                    "selected_next_op": field["selected_next_op"],
-                    "post_loop_chain_id": loop["chain"].chain_id,
-                    "post_loop_global_tension": loop["score"].global_tension,
-                    "post_loop_status": loop["status"],
-                    "post_loop_cycles": loop["cycle_count"],
-                    "post_loop_settled": loop["settled"],
-                }
-                for chain, _cig, score, field, loop in scored
-            ],
+            "candidate_scores": candidate_score_rows,
+            "chosen_action": self._chosen_action(selected_loop),
+            "rejected_alternatives": self._rejected_alternatives(candidate_score_rows, selected_chain.chain_id),
+            "settled_answer": selected_chain.final_answer,
+            "failure_reason": None if selected_loop["settled"] else selected_loop["status"],
             "coordinated_tension_field": selected_field,
             "operation_loop": self._operation_trace(selected_loop),
             "candidate_operation_loops": {
@@ -117,6 +129,35 @@ class TSReasoner:
             "final": transition["final"],
             "settled": transition["settled"],
         }
+
+    def _chosen_action(self, transition: dict) -> dict:
+        cycles = transition["cycles"]
+        last_cycle = cycles[-1] if cycles else {}
+        return {
+            "status": transition["status"],
+            "settled": transition["settled"],
+            "selected_op": last_cycle.get("selected_op"),
+            "target": last_cycle.get("target"),
+            "final_global_tension": transition["score"].global_tension,
+        }
+
+    def _rejected_alternatives(self, candidate_rows: list[dict], selected_chain_id: str) -> list[dict]:
+        rejected = []
+        for row in candidate_rows:
+            post_loop_chain_id = row["post_loop_chain_id"]
+            if row["chain_id"] == selected_chain_id or post_loop_chain_id == selected_chain_id:
+                continue
+            rejected.append(
+                {
+                    "chain_id": row["chain_id"],
+                    "post_loop_chain_id": post_loop_chain_id,
+                    "global_tension": row["global_tension"],
+                    "post_loop_global_tension": row["post_loop_global_tension"],
+                    "issue_kinds": row["issue_kinds"],
+                    "reason": row["post_loop_status"],
+                }
+            )
+        return rejected
 
 
 def run_reasoner(

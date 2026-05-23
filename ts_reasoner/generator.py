@@ -407,12 +407,12 @@ def _stable_fraction(text: str) -> float:
 
 
 class TensionLMGenerator:
-    """Future interface for plugging a learned TensionLM candidate generator."""
+    """Compatibility stub; use tensionlm_bridge for proposal integration."""
 
     name = "TensionLMGenerator"
 
     def generate(self, question: str, premises: Optional[Iterable[str]] = None) -> List[ReasoningChain]:
         raise NotImplementedError(
-            "TensionLM generation is intentionally not bundled in v0. "
-            "Use DeterministicHeuristicGenerator for this release."
+            "Use ts_reasoner.tensionlm_bridge to let TensionLM propose candidate text "
+            "while TS-Reasoner verifies the resulting chain."
         )

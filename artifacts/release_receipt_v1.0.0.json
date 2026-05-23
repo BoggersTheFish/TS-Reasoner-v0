@@ -1,0 +1,32 @@
+{
+  "additional_receipts": [
+    "python3 scripts/run_tensionlm_bridge.py --offline",
+    "python3 scripts/run_tensionprooflm_smoke.py"
+  ],
+  "artifacts": [
+    "artifacts/v1_baseline_report.json",
+    "artifacts/tensionlm_bridge_smoke.json",
+    "artifacts/tensionprooflm_smoke_report.json",
+    "TRACE_SCHEMA.md",
+    "BENCHMARKS.md",
+    "LIMITATIONS.md",
+    "MODEL_CARD.md"
+  ],
+  "claim": "The same TS-Reasoner output schema is stable enough for external inspection, with benchmark receipts that include expected passes and adversarial known limits.",
+  "command": "python3 scripts/evaluate_v1_baseline.py",
+  "date": "2026-05-23",
+  "generated_at_utc": "2026-05-23T14:56:12+00:00",
+  "limitations": [
+    "Positive universal all/all chains are the only supported transitive proof-chain family.",
+    "Multi-word terms, unless/counterfactual scope, and negative transitive chains remain known limits.",
+    "The parser and CIG are heuristic inspection tools, not a formal prover.",
+    "TensionProofLM-22M is a target with a smoke receipt, not a trained released checkpoint."
+  ],
+  "status_summary": {
+    "expected_pass_tasks": 16,
+    "full_control_loop_correct": 16,
+    "full_control_loop_total": 20,
+    "known_failure_tasks": 4
+  },
+  "version": "v1.0.0"
+}

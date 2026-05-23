@@ -7,6 +7,7 @@ from ts_reasoner.tension_agents import TensionCoordinator
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "external_benchmark_v08.jsonl"
+DATA_V1 = ROOT / "data" / "external_benchmark_v1.jsonl"
 COUPLING = ROOT / "artifacts" / "learned_coupling_matrix_v05.json"
 
 
@@ -49,6 +50,24 @@ class BenchmarkHarnessTests(unittest.TestCase):
         proof_chain = report["by_category"]["small_proof_chain"]
         self.assertEqual(proof_chain["direct"]["correct"], 2)
         self.assertEqual(proof_chain["full_control_loop"]["correct"], 2)
+
+    def test_v1_suite_includes_expected_passes_and_known_failures(self):
+        tasks = load_benchmark(DATA_V1)
+        statuses = {task.expected_status for task in tasks}
+        coordinator = TensionCoordinator.from_json(COUPLING)
+        report = BenchmarkRunner(tension_coordinator=coordinator).evaluate(tasks)
+
+        self.assertEqual(len(tasks), 20)
+        self.assertEqual(statuses, {"expected_pass", "known_failure"})
+        self.assertIn("adversarial_known_limit", report["by_category"])
+        self.assertIn("abstention_insufficient", report["by_category"])
+        self.assertIn("multi_step_symbolic_proof", report["by_category"])
+        self.assertIn("noisy_candidate_repair", report["by_category"])
+        self.assertIn("provenance_weighted_reasoning", report["by_category"])
+        self.assertIn("graph_consistency", report["by_category"])
+        self.assertIn("refusal_to_settle", report["by_category"])
+        self.assertIn("known_failure", report["by_expected_status"])
+        self.assertEqual(report["by_expected_status"]["expected_pass"]["full_control_loop"]["correct"], 16)
 
 
 if __name__ == "__main__":

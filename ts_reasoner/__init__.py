@@ -5,6 +5,7 @@ from .operation_router import OperationRouter
 from .tension_agents import TensionCoordinator
 from .coupling_learner import train_residual_coupling_matrix
 from .benchmark import BenchmarkRunner, BenchmarkTask, load_benchmark
+from .tensionproof_smoke import evaluate_tensionproof_smoke
 from .types import ReasonerOutput, TensionAgentSignal
 
 __all__ = [
@@ -15,6 +16,7 @@ __all__ = [
     "TSReasoner",
     "TensionAgentSignal",
     "TensionCoordinator",
+    "evaluate_tensionproof_smoke",
     "load_benchmark",
     "run_reasoner",
     "train_residual_coupling_matrix",

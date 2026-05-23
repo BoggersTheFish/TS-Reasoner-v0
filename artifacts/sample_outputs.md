@@ -6,9 +6,9 @@ Question: If all A are C and no A are C, are all A C?
 
 Answer: Contradiction detected; no stable answer follows.
 
-Selected chain: `candidate_a_contradiction_aware`
+Selected chain: `candidate_a_contradiction_aware:repaired`
 
-Global tension: `0.1833`
+Global tension: `0.0000`
 
 Candidate repair paths: `3`
 
@@ -30,9 +30,9 @@ Question: Are all A C?
 
 Answer: Not enough information.
 
-Selected chain: `candidate_cautious`
+Selected chain: `candidate_cautious:repaired`
 
-Global tension: `0.4000`
+Global tension: `0.0000`
 
 Candidate repair paths: `2`
 

@@ -1,0 +1,1343 @@
+{
+  "baselines": {
+    "direct": {
+      "accuracy": 0.4,
+      "correct": 8,
+      "mean_global_tension": 0.1983,
+      "total": 20
+    },
+    "full_control_loop": {
+      "accuracy": 0.8,
+      "correct": 16,
+      "mean_cycles_used": 1.05,
+      "mean_global_tension": 0.0,
+      "settled_rate": 0.95,
+      "total": 20
+    },
+    "random_selector": {
+      "accuracy": 0.55,
+      "correct": 11,
+      "mean_global_tension": 0.1517,
+      "total": 20
+    },
+    "ranker_only": {
+      "accuracy": 0.8,
+      "correct": 16,
+      "mean_global_tension": 0.0675,
+      "total": 20
+    }
+  },
+  "benchmark_path": "data/external_benchmark_v1.jsonl",
+  "by_category": {
+    "abstention_insufficient": {
+      "direct": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.75,
+        "total": 1
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 1
+      },
+      "random_selector": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.4,
+        "total": 1
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.4,
+        "total": 1
+      }
+    },
+    "adversarial_known_limit": {
+      "direct": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "mean_global_tension": 0.0583,
+        "total": 4
+      },
+      "full_control_loop": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_cycles_used": 1.25,
+        "mean_global_tension": 0.0,
+        "settled_rate": 0.75,
+        "total": 4
+      },
+      "random_selector": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "mean_global_tension": 0.0292,
+        "total": 4
+      },
+      "ranker_only": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.0,
+        "total": 4
+      }
+    },
+    "boolean_word_problem": {
+      "direct": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "mean_global_tension": 0.1416,
+        "total": 2
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 2
+      },
+      "random_selector": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "mean_global_tension": 0.1416,
+        "total": 2
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.0,
+        "total": 2
+      }
+    },
+    "contradiction_detection": {
+      "direct": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.3667,
+        "total": 2
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 2
+      },
+      "random_selector": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "mean_global_tension": 0.275,
+        "total": 2
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.1833,
+        "total": 2
+      }
+    },
+    "graph_consistency": {
+      "direct": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 1
+      },
+      "random_selector": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      }
+    },
+    "multi_step_symbolic_proof": {
+      "direct": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 1
+      },
+      "random_selector": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      }
+    },
+    "noisy_candidate_repair": {
+      "direct": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.2833,
+        "total": 1
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 1
+      },
+      "random_selector": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.2833,
+        "total": 1
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      }
+    },
+    "provenance_weighted_reasoning": {
+      "direct": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 1
+      },
+      "random_selector": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.0,
+        "total": 1
+      }
+    },
+    "refusal_to_settle": {
+      "direct": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.3667,
+        "total": 1
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 1
+      },
+      "random_selector": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.3667,
+        "total": 1
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "mean_global_tension": 0.1833,
+        "total": 1
+      }
+    },
+    "repair_needed": {
+      "direct": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.5167,
+        "total": 2
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 2
+      },
+      "random_selector": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.5167,
+        "total": 2
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.2,
+        "total": 2
+      }
+    },
+    "small_proof_chain": {
+      "direct": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.0,
+        "total": 2
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 2
+      },
+      "random_selector": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.0,
+        "total": 2
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.0,
+        "total": 2
+      }
+    },
+    "syllogism_variant": {
+      "direct": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "mean_global_tension": 0.1416,
+        "total": 2
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 2
+      },
+      "random_selector": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.0,
+        "total": 2
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "mean_global_tension": 0.0,
+        "total": 2
+      }
+    }
+  },
+  "by_expected_status": {
+    "expected_pass": {
+      "direct": {
+        "accuracy": 0.4375,
+        "correct": 7,
+        "mean_global_tension": 0.2333,
+        "total": 16
+      },
+      "full_control_loop": {
+        "accuracy": 1.0,
+        "correct": 16,
+        "mean_cycles_used": 1.0,
+        "mean_global_tension": 0.0,
+        "settled_rate": 1.0,
+        "total": 16
+      },
+      "random_selector": {
+        "accuracy": 0.625,
+        "correct": 10,
+        "mean_global_tension": 0.1823,
+        "total": 16
+      },
+      "ranker_only": {
+        "accuracy": 1.0,
+        "correct": 16,
+        "mean_global_tension": 0.0844,
+        "total": 16
+      }
+    },
+    "known_failure": {
+      "direct": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "mean_global_tension": 0.0583,
+        "total": 4
+      },
+      "full_control_loop": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_cycles_used": 1.25,
+        "mean_global_tension": 0.0,
+        "settled_rate": 0.75,
+        "total": 4
+      },
+      "random_selector": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "mean_global_tension": 0.0292,
+        "total": 4
+      },
+      "ranker_only": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "mean_global_tension": 0.0,
+        "total": 4
+      }
+    }
+  },
+  "claim": "Externalized small reasoning tasks compare direct, random, ranker-only, and full bounded tension-control baselines.",
+  "coupling_matrix": "artifacts/learned_coupling_matrix_v05.json",
+  "remaining_limits": [
+    "Positive universal all/all chains are the only supported transitive proof-chain family.",
+    "Multi-word terms, unless/counterfactual scope, and negative transitive chains remain known limits.",
+    "The parser and CIG are heuristic inspection tools, not a formal prover.",
+    "TensionProofLM-22M is a target with a smoke receipt, not a trained released checkpoint."
+  ],
+  "scope_note": "v1.0 freezes the public trace contract and benchmark receipt shape. It is not a larger model or broad reasoning benchmark.",
+  "status_summary": {
+    "expected_pass_tasks": 16,
+    "full_control_loop_correct": 16,
+    "full_control_loop_total": 20,
+    "known_failure_tasks": 4
+  },
+  "task_count": 20,
+  "tasks": [
+    {
+      "acceptable_answers": [
+        "all cats are animals"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all cats are animals.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all cats are animals.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all cats are animals.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "all cats are animals.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "syllogism_variant",
+      "expected_status": "expected_pass",
+      "external_prompt": "Cats are mammals. Mammals are animals. Does it follow that cats are animals?",
+      "premises": [
+        "All cats are mammals.",
+        "All mammals are animals."
+      ],
+      "question": "If all cats are mammals and all mammals are animals, are all cats animals?",
+      "source": "curated_externalized_v08",
+      "task_id": "syllogism_all_all_animals"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "do not force",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all artists are creators.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "syllogism_variant",
+      "expected_status": "expected_pass",
+      "external_prompt": "Some artists are makers. All makers are creators. Does it follow that all artists are creators?",
+      "premises": [
+        "Some artists are makers.",
+        "All makers are creators."
+      ],
+      "question": "If some artists are makers and all makers are creators, are all artists creators?",
+      "source": "curated_externalized_v08",
+      "task_id": "syllogism_some_all_invalid"
+    },
+    {
+      "acceptable_answers": [
+        "all switch_on are lamp_lit"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all switch_on are lamp_lit.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all switch_on are lamp_lit.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all switch_on are lamp_lit.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "all switch_on are lamp_lit.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "boolean_word_problem",
+      "expected_status": "expected_pass",
+      "external_prompt": "If the switch is on then the circuit is live. If the circuit is live then the lamp is lit. If the switch is on, is the lamp lit?",
+      "premises": [
+        "All switch_on are circuit_live.",
+        "All circuit_live are lamp_lit."
+      ],
+      "question": "If all switch_on are circuit_live and all circuit_live are lamp_lit, are all switch_on lamp_lit?",
+      "source": "curated_externalized_v08",
+      "task_id": "boolean_switch_lamp"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "do not force",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all sensors_triggered are operators_notified.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all sensors_triggered are operators_notified.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "boolean_word_problem",
+      "expected_status": "expected_pass",
+      "external_prompt": "Some triggered sensors activate alarms. All active alarms notify operators. Do all triggered sensors notify operators?",
+      "premises": [
+        "Some sensors_triggered are alarms_active.",
+        "All alarms_active are operators_notified."
+      ],
+      "question": "If some sensors_triggered are alarms_active and all alarms_active are operators_notified, are all sensors_triggered operators_notified?",
+      "source": "curated_externalized_v08",
+      "task_id": "boolean_sensor_alarm_invalid"
+    },
+    {
+      "acceptable_answers": [
+        "all seeds are need_water"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all seeds are need_water.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all seeds are need_water.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all seeds are need_water.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_transitive_bridge"
+        },
+        "ranker_only": {
+          "answer": "all seeds are need_water.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "small_proof_chain",
+      "expected_status": "expected_pass",
+      "external_prompt": "Seeds are plants. Plants are living things. Living things need water. Do seeds need water?",
+      "premises": [
+        "All seeds are plants.",
+        "All plants are living.",
+        "All living are need_water."
+      ],
+      "question": "If all seeds are plants and all plants are living and all living are need_water, are all seeds need_water?",
+      "source": "curated_externalized_v08",
+      "task_id": "proof_chain_three_hop_seed"
+    },
+    {
+      "acceptable_answers": [
+        "all runners are healthy"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all runners are healthy.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all runners are healthy.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all runners are healthy.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "all runners are healthy.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "small_proof_chain",
+      "expected_status": "expected_pass",
+      "external_prompt": "Runners are athletes. Athletes are fit. Fit people are healthy. Are runners healthy?",
+      "premises": [
+        "All runners are athletes.",
+        "All athletes are fit.",
+        "All fit are healthy."
+      ],
+      "question": "If all runners are athletes and all athletes are fit and all fit are healthy, are all runners healthy?",
+      "source": "curated_externalized_v08",
+      "task_id": "proof_chain_three_hop_runner"
+    },
+    {
+      "acceptable_answers": [
+        "contradiction",
+        "no stable answer"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all A are C.",
+          "correct": false,
+          "global_tension": 0.3667,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_a_contradiction_aware:repaired",
+          "settled": true,
+          "status": "settled"
+        },
+        "random_selector": {
+          "answer": "all A are C.",
+          "correct": false,
+          "global_tension": 0.3667,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "global_tension": 0.1833,
+          "selected_chain_id": "candidate_a_contradiction_aware"
+        }
+      },
+      "category": "contradiction_detection",
+      "expected_status": "expected_pass",
+      "external_prompt": "All A are C. No A are C. Can a stable all-A-are-C answer be accepted?",
+      "premises": [
+        "All A are C.",
+        "No A are C."
+      ],
+      "question": "If all A are C and no A are C, are all A C?",
+      "source": "curated_externalized_v08",
+      "task_id": "contradiction_a_c"
+    },
+    {
+      "acceptable_answers": [
+        "contradiction",
+        "no stable answer"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all servers are trusted.",
+          "correct": false,
+          "global_tension": 0.3667,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_a_contradiction_aware:repaired",
+          "settled": true,
+          "status": "settled"
+        },
+        "random_selector": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "global_tension": 0.1833,
+          "selected_chain_id": "candidate_a_contradiction_aware"
+        },
+        "ranker_only": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "global_tension": 0.1833,
+          "selected_chain_id": "candidate_a_contradiction_aware"
+        }
+      },
+      "category": "contradiction_detection",
+      "expected_status": "expected_pass",
+      "external_prompt": "All servers are trusted. No servers are trusted. Should the system force a trusted conclusion?",
+      "premises": [
+        "All servers are trusted.",
+        "No servers are trusted."
+      ],
+      "question": "If all servers are trusted and no servers are trusted, are all servers trusted?",
+      "source": "curated_externalized_v08",
+      "task_id": "contradiction_servers_trusted"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "more premises",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all maps are useful.",
+          "correct": false,
+          "global_tension": 0.75,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious:repaired",
+          "settled": true,
+          "status": "settled"
+        },
+        "random_selector": {
+          "answer": "all maps are useful.",
+          "correct": false,
+          "global_tension": 0.75,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.4,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "repair_needed",
+      "expected_status": "expected_pass",
+      "external_prompt": "Someone asks whether all maps are useful but gives no premises.",
+      "premises": [],
+      "question": "Are all maps useful?",
+      "source": "curated_externalized_v08",
+      "task_id": "repair_missing_premise"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "do not force",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all pilots are careful.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all pilots are careful.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "repair_needed",
+      "expected_status": "expected_pass",
+      "external_prompt": "Some pilots are engineers. All engineers are careful. Should the system repair an overstrong all-pilots conclusion?",
+      "premises": [
+        "Some pilots are engineers.",
+        "All engineers are careful."
+      ],
+      "question": "If some pilots are engineers and all engineers are careful, are all pilots careful?",
+      "source": "curated_externalized_v08",
+      "task_id": "repair_some_all_pilots"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "more premises",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all maps are useful.",
+          "correct": false,
+          "global_tension": 0.75,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious:repaired",
+          "settled": true,
+          "status": "settled"
+        },
+        "random_selector": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.4,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.4,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "abstention_insufficient",
+      "expected_status": "expected_pass",
+      "external_prompt": "Someone asks whether all maps are useful but gives no support.",
+      "premises": [],
+      "question": "Are all maps useful?",
+      "source": "curated_v1_suite",
+      "task_id": "abstain_insufficient_maps"
+    },
+    {
+      "acceptable_answers": [
+        "all A are D"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all A are D.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all A are D.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all A are D.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "all A are D.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "multi_step_symbolic_proof",
+      "expected_status": "expected_pass",
+      "external_prompt": "A implies B, B implies C, C implies D. Does A imply D?",
+      "premises": [
+        "All A are B.",
+        "All B are C.",
+        "All C are D."
+      ],
+      "question": "If all A are B and all B are C and all C are D, are all A D?",
+      "source": "curated_v1_suite",
+      "task_id": "symbolic_four_hop"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "do not force",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all artists are creators.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all artists are creators.",
+          "correct": false,
+          "global_tension": 0.2833,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "noisy_candidate_repair",
+      "expected_status": "expected_pass",
+      "external_prompt": "Some artists are makers and all makers are creators; reject the noisy all-artists conclusion.",
+      "premises": [
+        "Some artists are makers.",
+        "All makers are creators."
+      ],
+      "question": "If some artists are makers and all makers are creators, are all artists creators?",
+      "source": "curated_v1_suite",
+      "task_id": "noisy_candidate_repair_artists"
+    },
+    {
+      "acceptable_answers": [
+        "all logs are archived"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all logs are archived.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all logs are archived.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all logs are archived.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "all logs are archived.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "provenance_weighted_reasoning",
+      "expected_status": "expected_pass",
+      "external_prompt": "Logs are records and records are archived. Are logs archived?",
+      "premises": [
+        "All logs are records.",
+        "All records are archived."
+      ],
+      "question": "If all logs are records and all records are archived, are all logs archived?",
+      "source": "curated_v1_suite",
+      "task_id": "provenance_weighted_logs"
+    },
+    {
+      "acceptable_answers": [
+        "all services are monitored"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all services are monitored.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all services are monitored.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all services are monitored.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "all services are monitored.",
+          "correct": true,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "graph_consistency",
+      "expected_status": "expected_pass",
+      "external_prompt": "Services are processes, processes are resources, resources are monitored. Are services monitored?",
+      "premises": [
+        "All services are processes.",
+        "All processes are resources.",
+        "All resources are monitored."
+      ],
+      "question": "If all services are processes and all processes are resources and all resources are monitored, are all services monitored?",
+      "source": "curated_v1_suite",
+      "task_id": "graph_consistency_services"
+    },
+    {
+      "acceptable_answers": [
+        "contradiction",
+        "no stable answer"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all keys are valid.",
+          "correct": false,
+          "global_tension": 0.3667,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_a_contradiction_aware:repaired",
+          "settled": true,
+          "status": "settled"
+        },
+        "random_selector": {
+          "answer": "all keys are valid.",
+          "correct": false,
+          "global_tension": 0.3667,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "Contradiction detected; no stable answer follows.",
+          "correct": true,
+          "global_tension": 0.1833,
+          "selected_chain_id": "candidate_a_contradiction_aware"
+        }
+      },
+      "category": "refusal_to_settle",
+      "expected_status": "expected_pass",
+      "external_prompt": "All keys are valid and no keys are valid. The system must not force a valid conclusion.",
+      "premises": [
+        "All keys are valid.",
+        "No keys are valid."
+      ],
+      "question": "If all keys are valid and no keys are valid, are all keys valid?",
+      "source": "curated_v1_suite",
+      "task_id": "refusal_direct_contradiction"
+    },
+    {
+      "acceptable_answers": [
+        "no vipers are mammals"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all vipers are mammals.",
+          "correct": false,
+          "global_tension": 0.1167,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": false,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "Not enough information.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "adversarial_known_limit",
+      "expected_status": "known_failure",
+      "external_prompt": "Vipers are snakes. No snakes are mammals. Does it follow that no vipers are mammals?",
+      "premises": [
+        "All vipers are snakes.",
+        "No snakes are mammals."
+      ],
+      "question": "If all vipers are snakes and no snakes are mammals, are no vipers mammals?",
+      "source": "curated_v1_adversarial",
+      "task_id": "adversarial_negative_transitive"
+    },
+    {
+      "acceptable_answers": [
+        "all seeds are need_water"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all seeds are need_water.",
+          "correct": true,
+          "global_tension": 0.1167,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "Not enough information.",
+          "correct": false,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious",
+          "settled": true,
+          "status": "accepted"
+        },
+        "random_selector": {
+          "answer": "all seeds are need_water.",
+          "correct": true,
+          "global_tension": 0.1167,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "Not enough information.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "adversarial_known_limit",
+      "expected_status": "known_failure",
+      "external_prompt": "Living things need water. Seeds are living things. Do seeds need water?",
+      "premises": [
+        "All living things are need_water.",
+        "All seeds are living things."
+      ],
+      "question": "If all living things are need_water and all seeds are living things, are all seeds need_water?",
+      "source": "curated_v1_adversarial",
+      "task_id": "adversarial_multiword_terms"
+    },
+    {
+      "acceptable_answers": [
+        "circular",
+        "unstable"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all A are B.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all A are B.",
+          "correct": false,
+          "cycles_used": 2,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious:compressed",
+          "settled": false,
+          "status": "no_compression_available"
+        },
+        "random_selector": {
+          "answer": "all A are B.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "all A are B.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "adversarial_known_limit",
+      "expected_status": "known_failure",
+      "external_prompt": "The stated support repeats the conclusion as its own reason.",
+      "premises": [
+        "All A are B because all A are B."
+      ],
+      "question": "If all A are B because all A are B, are all A B?",
+      "source": "curated_v1_adversarial",
+      "task_id": "adversarial_circular_support"
+    },
+    {
+      "acceptable_answers": [
+        "not enough information",
+        "unless unsupported",
+        "more information"
+      ],
+      "baselines": {
+        "direct": {
+          "answer": "all alarms are loud.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "full_control_loop": {
+          "answer": "all alarms are loud.",
+          "correct": false,
+          "cycles_used": 1,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious:compressed",
+          "settled": true,
+          "status": "settled"
+        },
+        "random_selector": {
+          "answer": "all alarms are loud.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_direct"
+        },
+        "ranker_only": {
+          "answer": "all alarms are loud.",
+          "correct": false,
+          "global_tension": 0.0,
+          "selected_chain_id": "candidate_cautious"
+        }
+      },
+      "category": "adversarial_known_limit",
+      "expected_status": "known_failure",
+      "external_prompt": "Alarms are loud unless muted. This alarm is muted. Is it loud?",
+      "premises": [
+        "All alarms are loud unless muted.",
+        "Some alarms are muted."
+      ],
+      "question": "If all alarms are loud unless muted and some alarms are muted, are all alarms loud?",
+      "source": "curated_v1_adversarial",
+      "task_id": "adversarial_counterfactual_unless"
+    }
+  ],
+  "trace_contract": "TRACE_SCHEMA.md",
+  "v1_claim": "The same TS-Reasoner output schema is stable enough for external inspection, with benchmark receipts that include expected passes and adversarial known limits.",
+  "version": "v1.0.0"
+}

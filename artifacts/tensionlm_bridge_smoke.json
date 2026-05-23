@@ -2,27 +2,27 @@
   "candidates": [
     {
       "chain_id": "candidate_direct",
-      "final_answer": "all A are C.",
+      "final_answer": "all whales are animals.",
       "generator": "DeterministicHeuristicGenerator",
       "premises": [
-        "all A are B",
-        "all B are C"
+        "All mammals are animals.",
+        "All whales are mammals."
       ],
-      "question": "If all A are B and all B are C, are all A C?",
+      "question": "If all mammals are animals and all whales are mammals, are all whales animals?",
       "steps": [
         {
           "confidence": 0.9,
           "dependencies": [],
           "kind": "premise",
           "step_id": "p1",
-          "text": "all A are B"
+          "text": "All mammals are animals."
         },
         {
           "confidence": 0.9,
           "dependencies": [],
           "kind": "premise",
           "step_id": "p2",
-          "text": "all B are C"
+          "text": "All whales are mammals."
         },
         {
           "confidence": 0.78,
@@ -32,33 +32,33 @@
           ],
           "kind": "conclusion",
           "step_id": "s1",
-          "text": "Therefore all A are C."
+          "text": "Therefore all whales are animals."
         }
       ]
     },
     {
       "chain_id": "candidate_cautious",
-      "final_answer": "all A are C.",
+      "final_answer": "all whales are animals.",
       "generator": "DeterministicHeuristicGenerator",
       "premises": [
-        "all A are B",
-        "all B are C"
+        "All mammals are animals.",
+        "All whales are mammals."
       ],
-      "question": "If all A are B and all B are C, are all A C?",
+      "question": "If all mammals are animals and all whales are mammals, are all whales animals?",
       "steps": [
         {
           "confidence": 0.9,
           "dependencies": [],
           "kind": "premise",
           "step_id": "p1",
-          "text": "all A are B"
+          "text": "All mammals are animals."
         },
         {
           "confidence": 0.9,
           "dependencies": [],
           "kind": "premise",
           "step_id": "p2",
-          "text": "all B are C"
+          "text": "All whales are mammals."
         },
         {
           "confidence": 0.64,
@@ -68,7 +68,79 @@
           ],
           "kind": "conclusion",
           "step_id": "s1",
-          "text": "Therefore all A are C."
+          "text": "Therefore all whales are animals."
+        }
+      ]
+    },
+    {
+      "chain_id": "neural_candidate_1",
+      "final_answer": "all whales are animals.",
+      "generator": "TensionLMBridgeGenerator",
+      "premises": [
+        "All mammals are animals.",
+        "All whales are mammals."
+      ],
+      "question": "If all mammals are animals and all whales are mammals, are all whales animals?",
+      "steps": [
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p1",
+          "text": "All mammals are animals."
+        },
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p2",
+          "text": "All whales are mammals."
+        },
+        {
+          "confidence": 0.72,
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "kind": "conclusion",
+          "step_id": "s1",
+          "text": "Therefore all whales are animals."
+        }
+      ]
+    },
+    {
+      "chain_id": "neural_candidate_2",
+      "final_answer": "Unverified neural completion; rejected.",
+      "generator": "TensionLMBridgeGenerator",
+      "premises": [
+        "All mammals are animals.",
+        "All whales are mammals."
+      ],
+      "question": "If all mammals are animals and all whales are mammals, are all whales animals?",
+      "steps": [
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p1",
+          "text": "All mammals are animals."
+        },
+        {
+          "confidence": 0.9,
+          "dependencies": [],
+          "kind": "premise",
+          "step_id": "p2",
+          "text": "All whales are mammals."
+        },
+        {
+          "confidence": 0.95,
+          "dependencies": [
+            "p1",
+            "p2"
+          ],
+          "kind": "conclusion",
+          "step_id": "s1",
+          "text": "Obviously the unparsed neural completion about whales and animals should be accepted, even though it was not converted into a supported TS proof chain."
         }
       ]
     }
@@ -81,25 +153,25 @@
         "claim_id": "p1:c1",
         "confidence": 0.9,
         "dependencies": [],
-        "normalized": "all a are b",
+        "normalized": "all mammals are animals",
         "polarity": "positive",
-        "predicate": "B",
+        "predicate": "animals",
         "quantifier": "all",
         "source_step_id": "p1",
-        "subject": "A",
-        "text": "all A are B"
+        "subject": "mammals",
+        "text": "All mammals are animals"
       },
       {
         "claim_id": "p2:c1",
         "confidence": 0.9,
         "dependencies": [],
-        "normalized": "all b are c",
+        "normalized": "all whales are mammals",
         "polarity": "positive",
-        "predicate": "C",
+        "predicate": "mammals",
         "quantifier": "all",
         "source_step_id": "p2",
-        "subject": "B",
-        "text": "all B are C"
+        "subject": "whales",
+        "text": "All whales are mammals"
       },
       {
         "claim_id": "s1:c1",
@@ -108,13 +180,13 @@
           "p1",
           "p2"
         ],
-        "normalized": "all a are c",
+        "normalized": "all whales are animals",
         "polarity": "positive",
-        "predicate": "C",
+        "predicate": "animals",
         "quantifier": "all",
         "source_step_id": "s1",
-        "subject": "A",
-        "text": "all A are C"
+        "subject": "whales",
+        "text": "all whales are animals"
       }
     ],
     "contradiction_pairs": [],
@@ -128,36 +200,36 @@
     },
     "unsupported_claim_ids": []
   },
-  "final_answer": "all A are C.",
+  "final_answer": "all whales are animals.",
   "premises": [
-    "all A are B",
-    "all B are C"
+    "All mammals are animals.",
+    "All whales are mammals."
   ],
-  "question": "If all A are B and all B are C, are all A C?",
+  "question": "If all mammals are animals and all whales are mammals, are all whales animals?",
   "repairs": [],
   "selected_chain": {
     "chain_id": "candidate_cautious",
-    "final_answer": "all A are C.",
+    "final_answer": "all whales are animals.",
     "generator": "DeterministicHeuristicGenerator",
     "premises": [
-      "all A are B",
-      "all B are C"
+      "All mammals are animals.",
+      "All whales are mammals."
     ],
-    "question": "If all A are B and all B are C, are all A C?",
+    "question": "If all mammals are animals and all whales are mammals, are all whales animals?",
     "steps": [
       {
         "confidence": 0.9,
         "dependencies": [],
         "kind": "premise",
         "step_id": "p1",
-        "text": "all A are B"
+        "text": "All mammals are animals."
       },
       {
         "confidence": 0.9,
         "dependencies": [],
         "kind": "premise",
         "step_id": "p2",
-        "text": "all B are C"
+        "text": "All whales are mammals."
       },
       {
         "confidence": 0.64,
@@ -167,7 +239,7 @@
         ],
         "kind": "conclusion",
         "step_id": "s1",
-        "text": "Therefore all A are C."
+        "text": "Therefore all whales are animals."
       }
     ]
   },
@@ -327,6 +399,163 @@
         },
         "settled": true,
         "status": "accepted"
+      },
+      "neural_candidate_1": {
+        "cycle_count": 1,
+        "cycles": [
+          {
+            "after": {
+              "coordinated_tensions": {
+                "compression": 0.0,
+                "goal": 0.0,
+                "logic": 0.0,
+                "repair": 0.0
+              },
+              "global_tension": 0.0,
+              "issue_kinds": [],
+              "selected_next_op": "ACCEPT_TRACE",
+              "stability": 1.0,
+              "target": null
+            },
+            "before": {
+              "coordinated_tensions": {
+                "compression": 0.0,
+                "goal": 0.0,
+                "logic": 0.0,
+                "repair": 0.0
+              },
+              "global_tension": 0.0,
+              "issue_kinds": [],
+              "selected_next_op": "ACCEPT_TRACE",
+              "stability": 1.0,
+              "target": null
+            },
+            "cycle": 1,
+            "repair": null,
+            "residual": {
+              "compression": 0.0,
+              "goal": 0.0,
+              "logic": 0.0,
+              "repair": 0.0
+            },
+            "selected_op": "ACCEPT_TRACE",
+            "status": "accepted",
+            "target": null
+          }
+        ],
+        "final": {
+          "coordinated_tensions": {
+            "compression": 0.0,
+            "goal": 0.0,
+            "logic": 0.0,
+            "repair": 0.0
+          },
+          "global_tension": 0.0,
+          "issue_kinds": [],
+          "selected_next_op": "ACCEPT_TRACE",
+          "stability": 1.0,
+          "target": null
+        },
+        "initial": {
+          "coordinated_tensions": {
+            "compression": 0.0,
+            "goal": 0.0,
+            "logic": 0.0,
+            "repair": 0.0
+          },
+          "global_tension": 0.0,
+          "issue_kinds": [],
+          "selected_next_op": "ACCEPT_TRACE",
+          "stability": 1.0,
+          "target": null
+        },
+        "settled": true,
+        "status": "accepted"
+      },
+      "neural_candidate_2": {
+        "cycle_count": 1,
+        "cycles": [
+          {
+            "after": {
+              "coordinated_tensions": {
+                "compression": 0.0,
+                "goal": 0.0,
+                "logic": 0.0,
+                "repair": 0.0
+              },
+              "global_tension": 0.0,
+              "issue_kinds": [],
+              "selected_next_op": "ACCEPT_TRACE",
+              "stability": 1.0,
+              "target": null
+            },
+            "before": {
+              "coordinated_tensions": {
+                "compression": 0.0,
+                "goal": 0.1067,
+                "logic": 0.0133,
+                "repair": 0.24
+              },
+              "global_tension": 0.0667,
+              "issue_kinds": [
+                "overconfidence"
+              ],
+              "selected_next_op": "REPAIR_STEP",
+              "stability": 0.9333,
+              "target": "s1"
+            },
+            "cycle": 1,
+            "repair": {
+              "expected_tension_delta": -0.2,
+              "issue_kind": "overconfidence",
+              "original_text": "Obviously the unparsed neural completion about whales and animals should be accepted, even though it was not converted into a supported TS proof chain.",
+              "proposed_text": "possibly the unparsed neural completion about whales and animals should be accepted, even though it was not converted into a supported TS proof chain.",
+              "rationale": "Surface confidence should match graph support.",
+              "repair_id": "neural_candidate_2:repair:1",
+              "status": "suggested",
+              "target_step_id": "s1"
+            },
+            "residual": {
+              "compression": 0.0,
+              "goal": -0.1067,
+              "logic": -0.0133,
+              "repair": -0.24
+            },
+            "selected_op": "REPAIR_STEP",
+            "status": "repaired",
+            "target": "s1"
+          }
+        ],
+        "final": {
+          "coordinated_tensions": {
+            "compression": 0.0,
+            "goal": 0.0,
+            "logic": 0.0,
+            "repair": 0.0
+          },
+          "global_tension": 0.0,
+          "issue_kinds": [],
+          "selected_next_op": "ACCEPT_TRACE",
+          "stability": 1.0,
+          "target": null
+        },
+        "initial": {
+          "coordinated_tensions": {
+            "compression": 0.0,
+            "goal": 0.1067,
+            "logic": 0.0133,
+            "repair": 0.24
+          },
+          "global_tension": 0.0667,
+          "issue_kinds": [
+            "overconfidence"
+          ],
+          "selected_next_op": "REPAIR_STEP",
+          "stability": 0.9333,
+          "target": "s1"
+        },
+        "settled": true,
+        "status": "settled"
       }
     },
     "candidate_scores": [
@@ -385,6 +614,64 @@
         "post_loop_status": "accepted",
         "selected_next_op": "ACCEPT_TRACE",
         "stability": 1.0
+      },
+      {
+        "chain_id": "neural_candidate_1",
+        "coordinated_tensions": {
+          "compression": 0.0,
+          "goal": 0.0,
+          "logic": 0.0,
+          "repair": 0.0
+        },
+        "global_tension": 0.0,
+        "issue_kinds": [],
+        "local_tension": {
+          "p1": 0.0,
+          "p2": 0.0,
+          "s1": 0.0
+        },
+        "post_loop_chain_id": "neural_candidate_1",
+        "post_loop_cycles": 1,
+        "post_loop_global_tension": 0.0,
+        "post_loop_local_tension": {
+          "p1": 0.0,
+          "p2": 0.0,
+          "s1": 0.0
+        },
+        "post_loop_settled": true,
+        "post_loop_status": "accepted",
+        "selected_next_op": "ACCEPT_TRACE",
+        "stability": 1.0
+      },
+      {
+        "chain_id": "neural_candidate_2",
+        "coordinated_tensions": {
+          "compression": 0.0,
+          "goal": 0.1067,
+          "logic": 0.0133,
+          "repair": 0.24
+        },
+        "global_tension": 0.0667,
+        "issue_kinds": [
+          "overconfidence"
+        ],
+        "local_tension": {
+          "p1": 0.0,
+          "p2": 0.0,
+          "s1": 0.2
+        },
+        "post_loop_chain_id": "neural_candidate_2:repaired",
+        "post_loop_cycles": 1,
+        "post_loop_global_tension": 0.0,
+        "post_loop_local_tension": {
+          "p1": 0.0,
+          "p2": 0.0,
+          "s1": 0.0
+        },
+        "post_loop_settled": true,
+        "post_loop_status": "settled",
+        "selected_next_op": "REPAIR_STEP",
+        "stability": 0.9333
       }
     ],
     "chosen_action": {
@@ -474,7 +761,7 @@
       "target": null
     },
     "failure_reason": null,
-    "generator": "DeterministicHeuristicGenerator",
+    "generator": "TensionLMBridgeGenerator",
     "graph_view": {
       "claim_count": 3,
       "contradiction_count": 0,
@@ -496,10 +783,41 @@
     },
     "input": {
       "premises": [
-        "all A are B",
-        "all B are C"
+        "All mammals are animals.",
+        "All whales are mammals."
       ],
-      "question": "If all A are B and all B are C, are all A C?"
+      "question": "If all mammals are animals and all whales are mammals, are all whales animals?"
+    },
+    "neural_generation": {
+      "prompt": "Propose one short proof-chain completion for TS-Reasoner.\nQuestion: If all mammals are animals and all whales are mammals, are all whales animals?\nPremises:\n- All mammals are animals.\n- All whales are mammals.\nCompletion:",
+      "proposal_count": 2,
+      "proposals": [
+        {
+          "chain_id": "neural_candidate_1",
+          "initial_global_tension": 0.0,
+          "issue_kinds": [],
+          "parse_status": "parsed_relation",
+          "post_loop_global_tension": 0.0,
+          "proposal_id": "proposal_1",
+          "raw_completion": "Therefore all whales are animals.",
+          "source": "OfflineBridgeSmoke",
+          "verifier_status": "rejected_or_not_selected"
+        },
+        {
+          "chain_id": "neural_candidate_2",
+          "initial_global_tension": 0.0667,
+          "issue_kinds": [
+            "overconfidence"
+          ],
+          "parse_status": "unparsed",
+          "post_loop_global_tension": 0.0,
+          "proposal_id": "proposal_2",
+          "raw_completion": "waves of certainty with no relation syntax",
+          "source": "OfflineBridgeSmoke",
+          "verifier_status": "repaired_not_selected"
+        }
+      ],
+      "role": "TensionLM proposes; TS-Reasoner verifies, repairs, ranks, or rejects."
     },
     "operation_loop": {
       "cycle_count": 1,
@@ -584,6 +902,24 @@
         "post_loop_chain_id": "candidate_direct",
         "post_loop_global_tension": 0.0,
         "reason": "accepted"
+      },
+      {
+        "chain_id": "neural_candidate_1",
+        "global_tension": 0.0,
+        "issue_kinds": [],
+        "post_loop_chain_id": "neural_candidate_1",
+        "post_loop_global_tension": 0.0,
+        "reason": "accepted"
+      },
+      {
+        "chain_id": "neural_candidate_2",
+        "global_tension": 0.0667,
+        "issue_kinds": [
+          "overconfidence"
+        ],
+        "post_loop_chain_id": "neural_candidate_2:repaired",
+        "post_loop_global_tension": 0.0,
+        "reason": "settled"
       }
     ],
     "selection": {
@@ -591,7 +927,7 @@
       "selected_chain_id": "candidate_cautious",
       "selected_original_chain_id": "candidate_cautious"
     },
-    "settled_answer": "all A are C.",
+    "settled_answer": "all whales are animals.",
     "tension_coordinator": "TensionCoordinator"
   }
 }

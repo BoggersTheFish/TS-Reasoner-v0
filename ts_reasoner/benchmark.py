@@ -1,4 +1,4 @@
-"""Externalized small-reasoning benchmark harness for v0.8."""
+"""Externalized small-reasoning benchmark harness for TS-Reasoner."""
 
 from __future__ import annotations
 
@@ -25,6 +25,7 @@ class BenchmarkTask:
     question: str
     premises: List[str]
     acceptable_answers: List[str]
+    expected_status: str = "expected_pass"
     notes: str = ""
 
 
@@ -44,6 +45,7 @@ def load_benchmark(path: str | Path) -> List[BenchmarkTask]:
                     question=str(row["question"]),
                     premises=[str(premise) for premise in row.get("premises", [])],
                     acceptable_answers=[str(answer) for answer in row["acceptable_answers"]],
+                    expected_status=str(row.get("expected_status", "expected_pass")),
                     notes=str(row.get("notes", "")),
                 )
             )
@@ -51,7 +53,7 @@ def load_benchmark(path: str | Path) -> List[BenchmarkTask]:
 
 
 class BenchmarkRunner:
-    """Run externalized tasks through simple baselines and the v0.7 loop."""
+    """Run externalized tasks through simple baselines and the control loop."""
 
     def __init__(self, tension_coordinator: TensionCoordinator | None = None, random_seed: int = 17) -> None:
         self.generator = DeterministicHeuristicGenerator()
@@ -82,6 +84,7 @@ class BenchmarkRunner:
             "task_count": len(rows),
             "baselines": baseline_summary,
             "by_category": by_category,
+            "by_expected_status": self._summarize_expected_status(rows, baselines),
             "tasks": rows,
             "claim": "Externalized small reasoning tasks compare direct, random, ranker-only, and full bounded tension-control baselines.",
         }
@@ -105,6 +108,7 @@ class BenchmarkRunner:
             "question": task.question,
             "premises": task.premises,
             "acceptable_answers": task.acceptable_answers,
+            "expected_status": task.expected_status,
             "baselines": {
                 "direct": self._baseline_row(direct, task),
                 "random_selector": self._baseline_row(random_candidate, task),
@@ -173,6 +177,22 @@ class BenchmarkRunner:
             )
         return summary
 
+    def _summarize_expected_status(
+        self,
+        rows: Sequence[Dict[str, object]],
+        baselines: Sequence[str],
+    ) -> Dict[str, object]:
+        return {
+            status: {
+                baseline: self._summarize_baseline(
+                    [row for row in rows if row["expected_status"] == status],
+                    baseline,
+                )
+                for baseline in baselines
+            }
+            for status in sorted({str(row["expected_status"]) for row in rows})
+        }
+
 
 def answer_matches(answer: str, acceptable_answers: Iterable[str]) -> bool:
     normalized = _normalize(answer)
@@ -181,4 +201,3 @@ def answer_matches(answer: str, acceptable_answers: Iterable[str]) -> bool:
 
 def _normalize(text: str) -> str:
     return " ".join(text.lower().replace(".", "").split())
-
