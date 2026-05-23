@@ -34,6 +34,16 @@ class PipelineTests(unittest.TestCase):
             self.assertIn("coordinated_tension_field", data["trace"])
             self.assertIn("operation_loop", data["trace"])
 
+    def test_three_hop_universal_proof_chain_is_supported(self):
+        output = run_reasoner(
+            "If all seeds are plants and all plants are living and all living are need_water, are all seeds need_water?",
+            ["All seeds are plants.", "All plants are living.", "All living are need_water."],
+        )
+
+        self.assertEqual(output.final_answer, "all seeds are need_water.")
+        self.assertEqual(output.tension_score.global_tension, 0.0)
+        self.assertTrue(output.trace["operation_loop"]["settled"])
+
 
 if __name__ == "__main__":
     unittest.main()

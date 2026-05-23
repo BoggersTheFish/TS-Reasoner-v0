@@ -1,0 +1,74 @@
+{
+  "version": "v0.9.0",
+  "name": "Proof-Chain Support",
+  "date": "2026-05-23",
+  "scope": [
+    "Add explicit transitive support for positive universal all/all proof chains.",
+    "Keep the v0.8 externalized benchmark fixture shape stable.",
+    "Generate a v0.9 proof-chain report comparing against the committed v0.8 receipt.",
+    "Document the narrow claim and remaining limitations."
+  ],
+  "artifacts": [
+    "ts_reasoner/proof_chain.py",
+    "scripts/evaluate_v09_proof_chains.py",
+    "artifacts/v09_proof_chain_report.json",
+    "docs/v09_proof_chain_support.md"
+  ],
+  "verification": {
+    "unit_tests": {
+      "command": "python3 -m unittest discover",
+      "status": "passed",
+      "tests_run": 27
+    },
+    "benchmark": {
+      "command": "python3 scripts/evaluate_v09_proof_chains.py",
+      "status": "generated",
+      "task_count": 10,
+      "baselines": {
+        "direct": {
+          "correct": 4,
+          "total": 10,
+          "accuracy": 0.4,
+          "mean_global_tension": 0.2333
+        },
+        "random_selector": {
+          "correct": 6,
+          "total": 10,
+          "accuracy": 0.6,
+          "mean_global_tension": 0.1867
+        },
+        "ranker_only": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0,
+          "mean_global_tension": 0.0767
+        },
+        "full_control_loop": {
+          "correct": 10,
+          "total": 10,
+          "accuracy": 1.0,
+          "mean_global_tension": 0.0,
+          "settled_rate": 1.0,
+          "mean_cycles_used": 1.0
+        }
+      },
+      "small_proof_chain": {
+        "full_control_loop": {
+          "correct": 2,
+          "total": 2
+        }
+      },
+      "required_checks": [
+        "full_control_loop small_proof_chain correct = 2/2",
+        "full_control_loop total correct = 10/10",
+        "v0.8 report remains available for comparison"
+      ]
+    }
+  },
+  "known_limits": [
+    "Only positive universal all/all chains are supported.",
+    "The task set is curated and normalized into TS-Reasoner relation form.",
+    "The result is a toy-scope receipt, not a broad benchmark claim."
+  ],
+  "next_target": "Do not broaden benchmark claims until proof-chain support is tested beyond the tiny normalized fixture."
+}

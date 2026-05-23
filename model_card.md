@@ -32,7 +32,7 @@ The system uses a deterministic candidate generator, regex claim extraction, a t
 
 Run `python demo_reasoning.py` to regenerate `artifacts/eval_summary.json`. The included demos are toy examples covering valid syllogism, invalid quantifier jump, direct contradiction, missing premise, and repair-loop behavior.
 
-Run `python3 scripts/evaluate_v08_external_benchmark.py` to regenerate `artifacts/v08_external_benchmark_report.json`. The v0.8 fixture has ten curated externalized tasks. Current results are `direct = 4/10`, `random_selector = 5/10`, `ranker_only = 8/10`, and `full_control_loop = 8/10` with `10/10` settled. The full loop currently fails both small proof-chain tasks by settling to low-tension abstentions.
+Run `python3 scripts/evaluate_v09_proof_chains.py` to generate `artifacts/v09_proof_chain_report.json`. The v0.9 run keeps the v0.8 ten-task fixture shape and narrowly adds positive universal transitive proof-chain support. Current results are `direct = 4/10`, `random_selector = 6/10`, `ranker_only = 10/10`, and `full_control_loop = 10/10` with `10/10` settled. The two v0.8 small proof-chain failures now pass.
 
 ## Limitations
 

@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List, Optional, Sequence, Tuple
 
+from .proof_chain import has_universal_bridge, universal_bridge_path
 from .types import ReasoningChain, ReasoningStep
 
 
@@ -103,6 +104,9 @@ class DeterministicHeuristicGenerator:
             self._candidate_direct(question, premise_list, premise_relations, query),
             self._candidate_cautious(question, premise_list, premise_relations, query),
         ]
+        bridge = self._candidate_bridge_explicit(question, premise_list, premise_relations, query)
+        if bridge is not None:
+            candidates.append(bridge)
         contradiction = self._candidate_contradiction(question, premise_list, premise_relations, query)
         if contradiction is not None:
             candidates.append(contradiction)
@@ -145,7 +149,14 @@ class DeterministicHeuristicGenerator:
         if query is None:
             text = "The available premises are not enough to derive a definite answer."
         elif self._has_all_all_bridge(relations, query):
-            text = f"Therefore all {query.subject} are {query.predicate}."
+            bridge_path = universal_bridge_path(relations, query.subject, query.predicate)
+            if len(bridge_path) > 2:
+                bridge_text = " -> ".join(
+                    [bridge_path[0].subject, *[relation.predicate for relation in bridge_path]]
+                )
+                text = f"The universal bridge {bridge_text} supports the requested relation. Therefore all {query.subject} are {query.predicate}."
+            else:
+                text = f"Therefore all {query.subject} are {query.predicate}."
         else:
             text = (
                 f"The premises do not force the requested universal relation between {query.subject} and {query.predicate}; "
@@ -158,6 +169,47 @@ class DeterministicHeuristicGenerator:
             premises=list(premises),
             steps=steps,
             final_answer=self._answer_from_conclusion(text),
+        )
+
+    def _candidate_bridge_explicit(
+        self,
+        question: str,
+        premises: Sequence[str],
+        relations: Sequence[ParsedRelation],
+        query: Optional[ParsedRelation],
+    ) -> Optional[ReasoningChain]:
+        if query is None:
+            return None
+        bridge_path = universal_bridge_path(relations, query.subject, query.predicate)
+        if len(bridge_path) <= 2:
+            return None
+        steps = self._premise_steps(premises)
+        deps = [step.step_id for step in steps]
+        bridge_text = " -> ".join([bridge_path[0].subject, *[relation.predicate for relation in bridge_path]])
+        steps.append(
+            _step(
+                "s1",
+                f"Bridge the universal chain {bridge_text}.",
+                "bridge",
+                deps,
+                0.72,
+            )
+        )
+        steps.append(
+            _step(
+                "s2",
+                f"Therefore all {query.subject} are {query.predicate}.",
+                "conclusion",
+                ["s1"],
+                0.72,
+            )
+        )
+        return ReasoningChain(
+            chain_id="candidate_transitive_bridge",
+            question=question,
+            premises=list(premises),
+            steps=steps,
+            final_answer=f"all {query.subject} are {query.predicate}.",
         )
 
     def _candidate_contradiction(
@@ -200,17 +252,7 @@ class DeterministicHeuristicGenerator:
         return f"Therefore all {query.subject} are {query.predicate}."
 
     def _has_all_all_bridge(self, relations: Sequence[ParsedRelation], query: ParsedRelation) -> bool:
-        for left in relations:
-            for right in relations:
-                if (
-                    left.quantifier == "all"
-                    and right.quantifier == "all"
-                    and left.subject.lower() == query.subject.lower()
-                    and left.predicate.lower() == right.subject.lower()
-                    and right.predicate.lower() == query.predicate.lower()
-                ):
-                    return True
-        return False
+        return has_universal_bridge(relations, query.subject, query.predicate)
 
     def _has_some_bridge(self, relations: Sequence[ParsedRelation], query: ParsedRelation) -> bool:
         for left in relations:
@@ -246,7 +288,7 @@ class DeterministicHeuristicGenerator:
         if "contradiction" in lower:
             return "Contradiction detected."
         if "therefore" in lower:
-            return conclusion.replace("Therefore ", "", 1).strip()
+            return re.split(r"\btherefore\b", conclusion, flags=re.IGNORECASE)[-1].strip()
         return conclusion
 
 

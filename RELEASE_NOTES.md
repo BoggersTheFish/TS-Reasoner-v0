@@ -1,5 +1,34 @@
 # Release Notes
 
+## v0.9.0
+
+v0.9.0 closes the narrow proof-chain gap exposed by v0.8. The release adds
+explicit positive universal bridge support for small transitive `all/all`
+chains while keeping the v0.8 benchmark fixture shape stable.
+
+Release scope:
+
+- Add shared transitive proof-chain support for normalized `all A are B` chains.
+- Use that support in candidate generation, CIG support checks, and tension ranking.
+- Add `scripts/evaluate_v09_proof_chains.py`.
+- Generate `artifacts/v09_proof_chain_report.json`.
+- Add `docs/v09_proof_chain_support.md`.
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_v09_proof_chains.py
+```
+
+Verification result:
+
+- `27` unittest tests passed.
+- v0.9 benchmark ran the same `10` externalized small-reasoning tasks.
+- `full_control_loop`: `10/10` correct, `10/10` settled, mean global tension `0.0`.
+- `small_proof_chain/full_control_loop`: `2/2` correct.
+- Remaining limit: positive universal chains only; still toy-scope and normalized.
+
 ## v0.8.0
 
 v0.8.0 adds the first externalized small benchmark harness. It turns the v0.7

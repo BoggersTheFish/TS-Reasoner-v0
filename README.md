@@ -43,6 +43,14 @@ The CLI writes `artifacts/latest_trace.json`. The demo writes:
 - `artifacts/tension_traces.jsonl`
 - `artifacts/eval_summary.json`
 
+For the v0.9 proof-chain receipt:
+
+```bash
+python3 scripts/evaluate_v09_proof_chains.py
+```
+
+This writes `artifacts/v09_proof_chain_report.json`.
+
 ## Trace Preview
 
 A compact trace preview is available at `docs/trace_preview.md`. The full CLI trace is written to `artifacts/latest_trace.json`.
@@ -96,6 +104,7 @@ This repo is not the final model. It is the control panel and trace contract for
 - **v0.6.0:** bounded multi-step tension-control loop.
 - **v0.7.0:** residual closure with redundant-claim compression.
 - **v0.8.0:** externalized small benchmark harness and baseline comparison.
+- **v0.9.0:** transitive proof-chain support for positive universal all/all chains.
 - **v1.0.0:** TS-native proof/reasoning model benchmark release.
 
 ## v0.4 Branch Direction
@@ -216,6 +225,28 @@ tasks by settling to low-tension abstentions. v0.9 should target stronger
 transitive proof-chain support.
 
 Branch details are in `docs/v08_external_benchmark_harness.md`.
+
+## v0.9 Branch Direction
+
+v0.9 closes the v0.8 proof-chain gap without broadening the benchmark claim:
+
+```text
+all/all premise chain -> explicit bridge path -> supported universal conclusion
+```
+
+Evaluate with:
+
+```bash
+python3 scripts/evaluate_v09_proof_chains.py
+```
+
+This writes `artifacts/v09_proof_chain_report.json`. The current narrow receipt:
+
+- `small_proof_chain/full_control_loop`: `2/2`
+- `full_control_loop`: `10/10`, `10/10` settled, mean final tension `0.0`
+- remaining limit: positive universal all/all chains only
+
+Branch details are in `docs/v09_proof_chain_support.md`.
 
 ## v1 Branch Direction
 

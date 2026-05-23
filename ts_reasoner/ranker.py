@@ -6,6 +6,7 @@ from typing import Dict, List
 
 from .cig_checker import CIGChecker
 from .generator import extract_relations
+from .proof_chain import has_universal_bridge
 from .types import CIGCheck, ReasoningChain, TensionIssue, TensionScore
 
 
@@ -157,15 +158,4 @@ class HeuristicTensionRanker:
         ]
 
     def _has_all_support(self, relations, subject: str, predicate: str) -> bool:
-        for left in relations:
-            for right in relations:
-                if (
-                    left.quantifier == "all"
-                    and right.quantifier == "all"
-                    and left.subject.lower() == subject.lower()
-                    and left.predicate.lower() == right.subject.lower()
-                    and right.predicate.lower() == predicate.lower()
-                ):
-                    return True
-        return False
-
+        return has_universal_bridge(relations, subject, predicate)
