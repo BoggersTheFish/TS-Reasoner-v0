@@ -1,5 +1,34 @@
 # Release Notes
 
+## Learned Typed-Channel Calibrator
+
+This release tests whether TS-Reasoner can learn to activate and prioritize typed tension channels from trace-level supervision, rather than learning reasoning behaviour end-to-end.
+
+Core change:
+
+- Add a tiny dependency-light calibrator for typed-channel activation, channel weights, and resolver priority.
+- Build channel-level training rows from existing typed tension benchmark/demo traces.
+- Compare `hand_coded_baseline`, `learned_activation`, `learned_channel_weight`, `learned_resolver_priority`, and `full_calibrator`.
+- Preserve the existing public trace schema; the calibrator is an evaluation artifact, not a replacement for deterministic resolvers.
+
+Generated artifacts:
+
+- `data/typed_channel_calibrator_dataset.jsonl`
+- `artifacts/typed_channel_calibrator.json`
+- `artifacts/typed_channel_calibrator_report.json`
+- `artifacts/typed_channel_calibrator_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/build_typed_calibrator_dataset.py
+python3 scripts/train_typed_channel_calibrator.py
+python3 scripts/evaluate_typed_channel_calibrator.py
+```
+
+Claim level: experimental. The research step is the training-target shift: from behavior imitation to typed operational channel calibration. No TensionLM bridge or large-model training is included.
+
 ## Typed Tension Traces: TS-Core-backed channel reasoning
 
 This release adds TS-Core-backed typed tension traces while preserving the existing TS-Reasoner public trace contract.
