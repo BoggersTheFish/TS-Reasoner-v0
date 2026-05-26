@@ -104,6 +104,18 @@ The current calibration arc is intentionally receipt-first:
 
 See `docs/typed_channel_calibrator_structural_features.md`.
 
+## Typed-Channel Release Receipt
+
+Generate the unified release receipt for the kernel -> channels -> calibrator -> stress -> repair arc:
+
+```bash
+python3 scripts/generate_typed_channel_release_receipt.py
+```
+
+This writes `artifacts/typed_channel_release_receipt.json`.
+
+See `docs/typed_channel_release_receipt.md`.
+
 ## One-Command Run
 
 ```bash

@@ -1,5 +1,29 @@
 # Release Notes
 
+## Typed-Channel Release Receipt
+
+This release-receipt branch summarizes the full TS-Reasoner typed-channel arc:
+
+```text
+TS-Core-backed typed channels
+-> learned typed-channel calibrator
+-> generalization stress
+-> structural feature repair
+```
+
+Generated artifact:
+
+- `artifacts/typed_channel_release_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/generate_typed_channel_release_receipt.py
+```
+
+Claim level: experimental. The public story is that TS-Reasoner now has TS-Core-backed typed tension channels plus a learned calibrator; stress testing exposed structural generalization failures, and query-relevant graph features repaired those failures on the current stress benchmark.
+
 ## Structural Feature Repair for Typed-Channel Calibration
 
 This release tests whether the calibrator failures exposed by generalization stress are structural-feature gaps rather than failures of the typed-channel approach.
