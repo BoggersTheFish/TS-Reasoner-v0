@@ -23,8 +23,8 @@
   "commands_run": [
     "python3 scripts/evaluate_typed_tension.py"
   ],
-  "commit": "8282ba0",
-  "date": "2026-05-26T17:21:35.979058+00:00",
+  "commit": "ace01a2",
+  "date": "2026-05-26T17:22:00.879305+00:00",
   "inputs": [
     "data/typed_tension_benchmark.jsonl"
   ],

@@ -71,8 +71,8 @@
   "commands_run": [
     "python3 scripts/evaluate_typed_channel_calibrator_structural_features.py"
   ],
-  "commit": "8282ba0",
-  "date": "2026-05-26T17:21:36.302957+00:00",
+  "commit": "ace01a2",
+  "date": "2026-05-26T17:22:01.208066+00:00",
   "inputs": [
     "data/typed_channel_calibrator_stress.jsonl",
     "artifacts/typed_channel_calibrator.json"

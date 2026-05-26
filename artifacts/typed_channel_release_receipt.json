@@ -2,7 +2,7 @@
   "artifacts": [
     {
       "path": "artifacts/typed_tension_receipt.json",
-      "sha256": "6cd135b1ebc4d00b21f692532f31ea4a6d7f007f6f40e80094f7e2faa78dcd23"
+      "sha256": "9a690554a20d2be1701c6dfbc7f2ea936eeaa97d239b90d308fbaa5058441a25"
     },
     {
       "path": "artifacts/typed_tension_benchmark_report.json",
@@ -10,7 +10,7 @@
     },
     {
       "path": "artifacts/typed_channel_calibrator_receipt.json",
-      "sha256": "e82f5cba07281652cbfb47ad05562dcf201e534596cfe25ab1d781fb02eb3e71"
+      "sha256": "fc3c002cb6faa6b74eba5ef5318858ee86ac069e5af8630e4d52dbe11a5b10fd"
     },
     {
       "path": "artifacts/typed_channel_calibrator_report.json",
@@ -18,7 +18,7 @@
     },
     {
       "path": "artifacts/typed_channel_calibrator_stress_receipt.json",
-      "sha256": "90fbb0567cf6387bd95c363913f0cde2f38b1033377b078a6287d5b0ec66f1d7"
+      "sha256": "92aec9b6c79d6c9d432d3278488643a9e6c026c85508c8aa461fa9cf5e7a687f"
     },
     {
       "path": "artifacts/typed_channel_calibrator_stress_report.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "artifacts/typed_channel_calibrator_structural_features_receipt.json",
-      "sha256": "e4f0f2b721f5d683f3f634b7f6c6832a007af0bdd60041426feac583836e6b45"
+      "sha256": "8fbb9e91bd97490bc6b46cce846109218a881be02ff5d4412dd5e31e2ab1a1d4"
     },
     {
       "path": "artifacts/typed_channel_calibrator_structural_features_report.json",
@@ -116,8 +116,8 @@
     "python3 scripts/evaluate_typed_channel_calibrator_structural_features.py",
     "python3 scripts/generate_typed_channel_release_receipt.py"
   ],
-  "commit": "8282ba0",
-  "date": "2026-05-26T17:21:36.347235+00:00",
+  "commit": "ace01a2",
+  "date": "2026-05-26T17:22:01.253143+00:00",
   "headline": "TS-Core-backed typed channels, learned calibrator, stress, and structural repair",
   "inputs": [
     "artifacts/typed_tension_receipt.json",
