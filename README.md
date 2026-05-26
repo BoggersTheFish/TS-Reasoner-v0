@@ -67,6 +67,20 @@ surface_structure: tag A -> C as inferred, not stated
 
 That is the point of typed tension: proof completion, reverse-inference blocking, and identity preservation are separate inspectable operations, not one blended score.
 
+## Learned Typed-Channel Calibrator
+
+The next scoped experiment is a small calibrator over typed traces:
+
+```bash
+python3 scripts/build_typed_calibrator_dataset.py
+python3 scripts/train_typed_channel_calibrator.py
+python3 scripts/evaluate_typed_channel_calibrator.py
+```
+
+It compares hand-coded channel decisions against learned activation, learned channel weights, learned resolver priority, and the full calibrator. The research claim is narrow: training moves from learning reasoning end-to-end to calibrating typed operational channels. TensionLM is not part of this branch.
+
+See `docs/typed_channel_calibrator.md`.
+
 ## One-Command Run
 
 ```bash
