@@ -93,6 +93,17 @@ It covers variable renaming, deeper chains, distractors, quantifier traps, contr
 
 See `docs/typed_channel_calibrator_generalization_stress.md`.
 
+## Calibration Progression
+
+The current calibration arc is intentionally receipt-first:
+
+- Scoped calibrator eval: `1.0` answer accuracy, channel activation accuracy, resolver accuracy, abstention correctness, and trace schema validity on the typed trace-supervision benchmark.
+- Generalization stress: Outcome B. The calibrator handled variable renaming but exposed failures on deeper chains, distractor premises, quantifier traps, and contradiction placement.
+- Structural repair: query-relevant graph features repaired the targeted stress failures on the current stress benchmark. Depth generalization and distractor robustness moved from `0.0` to `1.0`; quantifier trap failures and contradiction misses moved from `1` to `0`.
+- Known limitation: this is still synthetic, parser-controlled, and not natural-language robust. TensionLM remains out of scope for this release path.
+
+See `docs/typed_channel_calibrator_structural_features.md`.
+
 ## One-Command Run
 
 ```bash
