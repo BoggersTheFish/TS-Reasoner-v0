@@ -1,5 +1,29 @@
 # Release Notes
 
+## Structural Feature Repair for Typed-Channel Calibration
+
+This release tests whether the calibrator failures exposed by generalization stress are structural-feature gaps rather than failures of the typed-channel approach.
+
+Core change:
+
+- Add query-relevant graph features for path length, distractor ratio, quantifier signatures, contradiction placement, and candidate operation requirements.
+- Preserve the original generalization stress report as the failure receipt.
+- Add a repaired stress evaluator comparing `original_calibrator`, `+ path features`, `+ distractor features`, `+ quantifier features`, `+ contradiction-placement features`, and `full_structural_features`.
+
+Generated artifacts:
+
+- `artifacts/typed_channel_calibrator_structural_features_report.json`
+- `artifacts/typed_channel_calibrator_structural_features_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_typed_channel_calibrator_structural_features.py
+```
+
+Claim level: experimental. The result supports targeted structural repair, not broad reasoning generalization. TensionLM remains out of scope.
+
 ## Typed-Channel Calibrator Generalization Stress
 
 This release tests whether the typed-channel calibrator generalizes beyond the exact trace surface it was trained on.
