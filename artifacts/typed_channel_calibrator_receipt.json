@@ -1,0 +1,101 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/typed_channel_calibrator.json",
+      "sha256": "7a966157eed8a391b126e1b5baaa171a35c6faaea97fa26c0557d1195829fc1f"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_report.json",
+      "sha256": "d9f2b73fce06e2defbd55eb8e8fb356a8073ff44441bdee6ed393e1bd7e36f08"
+    }
+  ],
+  "benchmarks": {
+    "full_calibrator": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.3265,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "hand_coded_baseline": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.449,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "learned_activation": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.449,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "learned_channel_weight": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.449,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "learned_resolver_priority": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.2541,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    }
+  },
+  "claim": "This release tests whether TS-Reasoner can learn to activate and prioritize typed tension channels from trace-level supervision, rather than learning reasoning behaviour end-to-end.",
+  "commands_run": [
+    "python3 scripts/build_typed_calibrator_dataset.py",
+    "python3 scripts/train_typed_channel_calibrator.py",
+    "python3 scripts/evaluate_typed_channel_calibrator.py"
+  ],
+  "commit": "189bd2f",
+  "date": "2026-05-26T17:16:35.396267+00:00",
+  "inputs": [
+    "data/typed_channel_calibrator_dataset.jsonl",
+    "artifacts/typed_channel_calibrator.json"
+  ],
+  "known_limitations": [
+    "Small curated dataset.",
+    "Evaluates trace-level calibration, not broad reasoning generalization.",
+    "Deterministic channel resolvers remain hand-coded operational priors.",
+    "TensionLM is explicitly out of scope for this branch."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Trace-level typed-channel calibration over the existing small benchmark surface.",
+  "tensions_detected": [
+    "typed channels worked but had no learned calibration layer"
+  ],
+  "tensions_resolved": [
+    "added activation, weight, and resolver-priority calibrator ablations"
+  ],
+  "tests": {},
+  "unresolved_tensions": [
+    "larger heldout channel traces and TensionLM candidate bridge remain future work"
+  ],
+  "version": "typed-channel-calibrator-v0"
+}

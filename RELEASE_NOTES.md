@@ -1,5 +1,79 @@
 # Release Notes
 
+## Structural Feature Repair for Typed-Channel Calibration
+
+This release tests whether the calibrator failures exposed by generalization stress are structural-feature gaps rather than failures of the typed-channel approach.
+
+Core change:
+
+- Add query-relevant graph features for path length, distractor ratio, quantifier signatures, contradiction placement, and candidate operation requirements.
+- Preserve the original generalization stress report as the failure receipt.
+- Add a repaired stress evaluator comparing `original_calibrator`, `+ path features`, `+ distractor features`, `+ quantifier features`, `+ contradiction-placement features`, and `full_structural_features`.
+
+Generated artifacts:
+
+- `artifacts/typed_channel_calibrator_structural_features_report.json`
+- `artifacts/typed_channel_calibrator_structural_features_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_typed_channel_calibrator_structural_features.py
+```
+
+Claim level: experimental. The result supports targeted structural repair, not broad reasoning generalization. TensionLM remains out of scope.
+
+## Typed-Channel Calibrator Generalization Stress
+
+This release tests whether the typed-channel calibrator generalizes beyond the exact trace surface it was trained on.
+
+Stress cases include variable renaming, deeper chains, distractor premises, quantifier traps, contradiction placement, reverse/identity adversarial queries, heldout relation shapes, and noisy surface forms.
+
+Generated artifacts:
+
+- `data/typed_channel_calibrator_stress.jsonl`
+- `artifacts/typed_channel_calibrator_stress_report.json`
+- `artifacts/typed_channel_calibrator_stress_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_typed_channel_calibrator_stress.py
+```
+
+Honest outcomes are explicit: clean generalization, partial generalization with depth/feature limits, or overfit detected by receipt. TensionLM remains out of scope.
+
+## Learned Typed-Channel Calibrator
+
+This release tests whether TS-Reasoner can learn to activate and prioritize typed tension channels from trace-level supervision, rather than learning reasoning behaviour end-to-end.
+
+Core change:
+
+- Add a tiny dependency-light calibrator for typed-channel activation, channel weights, and resolver priority.
+- Build channel-level training rows from existing typed tension benchmark/demo traces.
+- Compare `hand_coded_baseline`, `learned_activation`, `learned_channel_weight`, `learned_resolver_priority`, and `full_calibrator`.
+- Preserve the existing public trace schema; the calibrator is an evaluation artifact, not a replacement for deterministic resolvers.
+
+Generated artifacts:
+
+- `data/typed_channel_calibrator_dataset.jsonl`
+- `artifacts/typed_channel_calibrator.json`
+- `artifacts/typed_channel_calibrator_report.json`
+- `artifacts/typed_channel_calibrator_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/build_typed_calibrator_dataset.py
+python3 scripts/train_typed_channel_calibrator.py
+python3 scripts/evaluate_typed_channel_calibrator.py
+```
+
+Claim level: experimental. The research step is the training-target shift: from behavior imitation to typed operational channel calibration. No TensionLM bridge or large-model training is included.
+
 ## Typed Tension Traces: TS-Core-backed channel reasoning
 
 This release adds TS-Core-backed typed tension traces while preserving the existing TS-Reasoner public trace contract.

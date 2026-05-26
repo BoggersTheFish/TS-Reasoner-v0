@@ -16,5 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Checkout TS-Core kernel
+        run: git clone --depth 1 https://github.com/BoggersTheFish/TS-Core.git ../TS-Core
       - name: Run tests
         run: python3 -m unittest discover

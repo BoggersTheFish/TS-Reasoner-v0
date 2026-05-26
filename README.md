@@ -67,6 +67,43 @@ surface_structure: tag A -> C as inferred, not stated
 
 That is the point of typed tension: proof completion, reverse-inference blocking, and identity preservation are separate inspectable operations, not one blended score.
 
+## Learned Typed-Channel Calibrator
+
+The next scoped experiment is a small calibrator over typed traces:
+
+```bash
+python3 scripts/build_typed_calibrator_dataset.py
+python3 scripts/train_typed_channel_calibrator.py
+python3 scripts/evaluate_typed_channel_calibrator.py
+```
+
+It compares hand-coded channel decisions against learned activation, learned channel weights, learned resolver priority, and the full calibrator. The research claim is narrow: training moves from learning reasoning end-to-end to calibrating typed operational channels. TensionLM is not part of this branch.
+
+See `docs/typed_channel_calibrator.md`.
+
+## Calibrator Generalization Stress
+
+The stress evaluator checks whether the typed-channel calibrator survives heldout structure without retraining:
+
+```bash
+python3 scripts/evaluate_typed_channel_calibrator_stress.py
+```
+
+It covers variable renaming, deeper chains, distractors, quantifier traps, contradiction placement, reverse/identity adversarial queries, heldout relation shapes, and noisy surface forms. The point is credibility: the receipt should show clean generalization, expose partial limits, or catch overfit.
+
+See `docs/typed_channel_calibrator_generalization_stress.md`.
+
+## Calibration Progression
+
+The current calibration arc is intentionally receipt-first:
+
+- Scoped calibrator eval: `1.0` answer accuracy, channel activation accuracy, resolver accuracy, abstention correctness, and trace schema validity on the typed trace-supervision benchmark.
+- Generalization stress: Outcome B. The calibrator handled variable renaming but exposed failures on deeper chains, distractor premises, quantifier traps, and contradiction placement.
+- Structural repair: query-relevant graph features repaired the targeted stress failures on the current stress benchmark. Depth generalization and distractor robustness moved from `0.0` to `1.0`; quantifier trap failures and contradiction misses moved from `1` to `0`.
+- Known limitation: this is still synthetic, parser-controlled, and not natural-language robust. TensionLM remains out of scope for this release path.
+
+See `docs/typed_channel_calibrator_structural_features.md`.
+
 ## One-Command Run
 
 ```bash

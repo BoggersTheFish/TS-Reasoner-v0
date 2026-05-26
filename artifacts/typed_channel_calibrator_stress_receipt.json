@@ -1,0 +1,51 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/typed_channel_calibrator_stress_report.json",
+      "sha256": "2235615bd90fdeb1bd0b3c196116cce83ab844d0f08a1b7183cbb8c4a808687e"
+    }
+  ],
+  "benchmarks": {
+    "contradiction_miss_count": 1,
+    "depth_generalization_accuracy": 0.0,
+    "distractor_robustness": 0.0,
+    "heldout_answer_accuracy": 0.8182,
+    "heldout_channel_activation_accuracy": 0.7532,
+    "heldout_resolver_accuracy": 0.7532,
+    "identity_collapse_count": 0,
+    "quantifier_trap_failure_count": 1,
+    "reverse_fallacy_count": 0,
+    "trace_schema_validity": 1.0,
+    "variable_renaming_accuracy": 1.0
+  },
+  "claim": "Typed-channel calibrator generalization is stress-tested against heldout structure instead of assumed from training metrics.",
+  "commands_run": [
+    "python3 scripts/evaluate_typed_channel_calibrator_stress.py"
+  ],
+  "commit": "189bd2f",
+  "date": "2026-05-26T17:16:35.488477+00:00",
+  "inputs": [
+    "data/typed_channel_calibrator_stress.jsonl",
+    "artifacts/typed_channel_calibrator.json"
+  ],
+  "known_limitations": [
+    "Stress cases are synthetic and small.",
+    "The calibrator is not retrained on the stress set.",
+    "Failures are expected to expose feature/channel limits, not hidden.",
+    "TensionLM remains out of scope."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Heldout synthetic stress cases for variable renaming, depth, distractors, quantifiers, contradiction placement, adversarial reverse/identity queries, heldout relation forms, and noisy surface forms.",
+  "tensions_detected": [
+    "calibrator training metrics may overstate heldout robustness"
+  ],
+  "tensions_resolved": [
+    "added heldout generalization stress receipt"
+  ],
+  "tests": {},
+  "unresolved_tensions": [
+    "feature/channel revisions depend on observed stress failures"
+  ],
+  "version": "typed-channel-calibrator-generalization-stress-v0"
+}

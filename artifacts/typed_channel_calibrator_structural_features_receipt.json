@@ -1,0 +1,103 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/typed_channel_calibrator_structural_features_report.json",
+      "sha256": "5cfd1c9aa264bc9c8f2bf5272c414dd59eaa67df483e030ac0979502f3e8dcfc"
+    }
+  ],
+  "benchmarks": {
+    "contradiction_placement_features": {
+      "contradiction_misses": 0,
+      "depth_generalization": 1.0,
+      "distractor_robustness": 1.0,
+      "heldout_answer_accuracy": 0.8182,
+      "heldout_channel_activation_accuracy": 0.9351,
+      "heldout_resolver_accuracy": 0.9351,
+      "quantifier_trap_failures": 1,
+      "trace_schema_validity": 1.0
+    },
+    "distractor_features": {
+      "contradiction_misses": 1,
+      "depth_generalization": 1.0,
+      "distractor_robustness": 1.0,
+      "heldout_answer_accuracy": 0.8182,
+      "heldout_channel_activation_accuracy": 0.9091,
+      "heldout_resolver_accuracy": 0.9091,
+      "quantifier_trap_failures": 1,
+      "trace_schema_validity": 1.0
+    },
+    "full_structural_features": {
+      "contradiction_misses": 0,
+      "depth_generalization": 1.0,
+      "distractor_robustness": 1.0,
+      "heldout_answer_accuracy": 0.8182,
+      "heldout_channel_activation_accuracy": 0.961,
+      "heldout_resolver_accuracy": 0.961,
+      "quantifier_trap_failures": 0,
+      "trace_schema_validity": 1.0
+    },
+    "original_calibrator": {
+      "contradiction_misses": 1,
+      "depth_generalization": 0.0,
+      "distractor_robustness": 0.0,
+      "heldout_answer_accuracy": 0.8182,
+      "heldout_channel_activation_accuracy": 0.7532,
+      "heldout_resolver_accuracy": 0.7532,
+      "quantifier_trap_failures": 1,
+      "trace_schema_validity": 1.0
+    },
+    "path_features": {
+      "contradiction_misses": 1,
+      "depth_generalization": 1.0,
+      "distractor_robustness": 0.0,
+      "heldout_answer_accuracy": 0.8182,
+      "heldout_channel_activation_accuracy": 0.8571,
+      "heldout_resolver_accuracy": 0.8571,
+      "quantifier_trap_failures": 1,
+      "trace_schema_validity": 1.0
+    },
+    "quantifier_features": {
+      "contradiction_misses": 1,
+      "depth_generalization": 1.0,
+      "distractor_robustness": 1.0,
+      "heldout_answer_accuracy": 0.8182,
+      "heldout_channel_activation_accuracy": 0.9351,
+      "heldout_resolver_accuracy": 0.9351,
+      "quantifier_trap_failures": 0,
+      "trace_schema_validity": 1.0
+    }
+  },
+  "claim": "Generalization stress showed the calibrator handled renaming but failed on depth, distractors, quantifier traps, and contradiction placement. This branch adds query-relevant graph features to test whether those failures are structural-feature gaps rather than failures of the typed-channel approach.",
+  "commands_run": [
+    "python3 scripts/evaluate_typed_channel_calibrator_structural_features.py"
+  ],
+  "commit": "189bd2f",
+  "date": "2026-05-26T17:16:35.657260+00:00",
+  "inputs": [
+    "data/typed_channel_calibrator_stress.jsonl",
+    "artifacts/typed_channel_calibrator.json"
+  ],
+  "known_limitations": [
+    "The stress dataset is synthetic and small.",
+    "This evaluates structural feature repair against the existing calibrator artifact.",
+    "The evaluator does not claim broad natural-language generalization.",
+    "Existing reasoner answers are reported separately from channel/resolver repair metrics."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Structural feature repair over the existing heldout calibrator stress dataset; TensionLM remains out of scope.",
+  "tensions_detected": [
+    "original calibrator overfit shallow premise counts and missed query-relevant structural paths",
+    "quantifier and contradiction placement failures required explicit path-local features"
+  ],
+  "tensions_resolved": [
+    "added shortest-path, distractor, quantifier-signature, contradiction-placement, and candidate-operation features",
+    "added ablation report comparing original and structural repair variants"
+  ],
+  "tests": {},
+  "unresolved_tensions": [
+    "future work should train a model directly over the structural feature surface",
+    "heldout relation shapes remain intentionally unsupported unless explicit channel semantics are added"
+  ],
+  "version": "typed-channel-calibrator-structural-features-v0"
+}
