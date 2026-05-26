@@ -1,0 +1,66 @@
+{
+  "ablations": {
+    "full_calibrator": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.3265,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "hand_coded_baseline": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.449,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "learned_activation": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.449,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "learned_channel_weight": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.449,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    },
+    "learned_resolver_priority": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "identity_collapse_count": 0,
+      "mean_predicted_channel_weight": 0.2541,
+      "resolver_accuracy": 1.0,
+      "reverse_fallacy_count": 0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    }
+  },
+  "case_count": 7,
+  "claim": "Training moved from learning reasoning end-to-end to calibrating typed operational channels.",
+  "dataset": "data/typed_channel_calibrator_dataset.jsonl",
+  "headline": "Learned Typed-Channel Calibrator",
+  "honest_claim": "This release tests whether TS-Reasoner can learn to activate and prioritize typed tension channels from trace-level supervision, rather than learning reasoning behaviour end-to-end.",
+  "model_path": "artifacts/typed_channel_calibrator.json",
+  "row_count": 49
+}
