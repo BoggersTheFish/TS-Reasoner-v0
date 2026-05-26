@@ -1,5 +1,26 @@
 # Release Notes
 
+## Typed-Channel Calibrator Generalization Stress
+
+This release tests whether the typed-channel calibrator generalizes beyond the exact trace surface it was trained on.
+
+Stress cases include variable renaming, deeper chains, distractor premises, quantifier traps, contradiction placement, reverse/identity adversarial queries, heldout relation shapes, and noisy surface forms.
+
+Generated artifacts:
+
+- `data/typed_channel_calibrator_stress.jsonl`
+- `artifacts/typed_channel_calibrator_stress_report.json`
+- `artifacts/typed_channel_calibrator_stress_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_typed_channel_calibrator_stress.py
+```
+
+Honest outcomes are explicit: clean generalization, partial generalization with depth/feature limits, or overfit detected by receipt. TensionLM remains out of scope.
+
 ## Learned Typed-Channel Calibrator
 
 This release tests whether TS-Reasoner can learn to activate and prioritize typed tension channels from trace-level supervision, rather than learning reasoning behaviour end-to-end.

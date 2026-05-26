@@ -1,0 +1,922 @@
+{
+  "case_count": 11,
+  "goal": "Test whether the typed-channel calibrator generalizes beyond the exact trace surface it was trained on.",
+  "headline": "Typed-Channel Calibrator Generalization Stress",
+  "metrics": {
+    "contradiction_miss_count": 1,
+    "depth_generalization_accuracy": 0.0,
+    "distractor_robustness": 0.0,
+    "heldout_answer_accuracy": 0.8182,
+    "heldout_channel_activation_accuracy": 0.7532,
+    "heldout_resolver_accuracy": 0.7532,
+    "identity_collapse_count": 0,
+    "quantifier_trap_failure_count": 1,
+    "reverse_fallacy_count": 0,
+    "trace_schema_validity": 1.0,
+    "variable_renaming_accuracy": 1.0
+  },
+  "model_path": "artifacts/typed_channel_calibrator.json",
+  "outcome": {
+    "label": "Outcome B",
+    "meaning": "Calibrator handles renaming but exposes depth/feature limits."
+  },
+  "possible_outcomes": {
+    "A": "Calibrator generalizes cleanly; strong evidence that typed trace supervision is reusable.",
+    "B": "Calibrator works on renaming but fails deeper chains; next channel/features need work.",
+    "C": "Calibrator overfits current trace surface; receipt detects overfit instead of hiding it."
+  },
+  "results": [
+    {
+      "answer": "all X are Z.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": true,
+          "expected_resolution": "added_inferred_edge",
+          "predicted_active": true,
+          "predicted_resolution": "added_inferred_edge",
+          "predicted_weight": 0.5714,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": true,
+          "expected_resolution": "preserved_distinct_nodes",
+          "predicted_active": true,
+          "predicted_resolution": "preserved_distinct_nodes",
+          "predicted_weight": 0.4286,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": true,
+          "expected_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_active": true,
+          "predicted_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_weight": 0.8571,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": true,
+          "predicted_resolution": "abstained_or_answered",
+          "predicted_weight": 1.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "all X are Z",
+      "question": "If all X are Y and all Y are Z, are all X Z?",
+      "task_id": "stress_variable_renaming_001",
+      "task_type": "variable_renaming",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "all A are E.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": false,
+          "channel": "logic_transitivity",
+          "expected_active": true,
+          "expected_resolution": "added_inferred_edge",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "identity_preservation",
+          "expected_active": true,
+          "expected_resolution": "preserved_distinct_nodes",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "surface_structure",
+          "expected_active": true,
+          "expected_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "all A are E",
+      "question": "If all A are B and all B are C and all C are D and all D are E, are all A E?",
+      "task_id": "stress_deeper_chain_001",
+      "task_type": "deeper_chain",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "all A are C.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": false,
+          "channel": "logic_transitivity",
+          "expected_active": true,
+          "expected_resolution": "added_inferred_edge",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "identity_preservation",
+          "expected_active": true,
+          "expected_resolution": "preserved_distinct_nodes",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "surface_structure",
+          "expected_active": true,
+          "expected_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "all A are C",
+      "question": "If all A are B and all X are Y and all B are C, are all A C?",
+      "task_id": "stress_distractor_001",
+      "task_type": "distractor_premises",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "quantifier_scope",
+          "expected_active": true,
+          "expected_resolution": "blocked_some_to_all_upgrade",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        }
+      ],
+      "expected_answer_contains": "Not enough information",
+      "question": "If all A are B and some B are C, are all A C?",
+      "task_id": "stress_quantifier_trap_001",
+      "task_type": "quantifier_trap",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": false,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "contradiction",
+          "expected_active": true,
+          "expected_resolution": "flagged_contradiction",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "Contradiction",
+      "question": "If all A are B and no B are C, are some A C?",
+      "task_id": "stress_contradiction_placement_001",
+      "task_type": "contradiction_placement",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": true,
+          "expected_resolution": "added_inferred_edge",
+          "predicted_active": true,
+          "predicted_resolution": "added_inferred_edge",
+          "predicted_weight": 0.5714,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": true,
+          "expected_resolution": "blocked_reverse_inference",
+          "predicted_active": true,
+          "predicted_resolution": "blocked_reverse_inference",
+          "predicted_weight": 0.1429,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": true,
+          "expected_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_active": true,
+          "predicted_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_weight": 0.8571,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": true,
+          "predicted_resolution": "abstained_or_answered",
+          "predicted_weight": 1.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "Not enough information",
+      "question": "If all A are B and all B are C, are all C A?",
+      "task_id": "stress_reverse_adversarial_001",
+      "task_type": "reverse_adversarial",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": true,
+          "expected_resolution": "added_inferred_edge",
+          "predicted_active": true,
+          "predicted_resolution": "added_inferred_edge",
+          "predicted_weight": 0.5714,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": true,
+          "expected_resolution": "preserved_distinct_nodes",
+          "predicted_active": true,
+          "predicted_resolution": "preserved_distinct_nodes",
+          "predicted_weight": 0.4286,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": true,
+          "expected_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_active": true,
+          "predicted_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_weight": 0.8571,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": true,
+          "predicted_resolution": "abstained_or_answered",
+          "predicted_weight": 1.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "Not enough information",
+      "question": "If all A are B and all B are C, is A identical to C?",
+      "task_id": "stress_identity_adversarial_001",
+      "task_type": "identity_adversarial",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "Not enough information",
+      "question": "If A subset_of B and B subset_of C, is A subset_of C?",
+      "task_id": "stress_subset_relation_shape_001",
+      "task_type": "heldout_relation_shape",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "Not enough information",
+      "question": "If A equals B and B subset_of C, is A subset_of C?",
+      "task_id": "stress_equals_relation_shape_001",
+      "task_type": "heldout_relation_shape",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "channel_rows": [
+        {
+          "activation_ok": true,
+          "channel": "logic_transitivity",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "identity_preservation",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "surface_structure",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "Not enough information",
+      "question": "If A overlaps B and B contradicts C, does A contradict C?",
+      "task_id": "stress_overlap_relation_shape_001",
+      "task_type": "heldout_relation_shape",
+      "trace_schema_valid": true
+    },
+    {
+      "answer": "Not enough information.",
+      "answer_ok": false,
+      "channel_rows": [
+        {
+          "activation_ok": false,
+          "channel": "logic_transitivity",
+          "expected_active": true,
+          "expected_resolution": "added_inferred_edge",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "identity_preservation",
+          "expected_active": true,
+          "expected_resolution": "preserved_distinct_nodes",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "directionality",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": false,
+          "channel": "surface_structure",
+          "expected_active": true,
+          "expected_resolution": "tagged_premise_inferred_candidate_edges",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": false,
+          "channel": "confidence_abstention",
+          "expected_active": true,
+          "expected_resolution": "abstained_or_answered",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": false
+        },
+        {
+          "activation_ok": true,
+          "channel": "contradiction",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        },
+        {
+          "activation_ok": true,
+          "channel": "quantifier_scope",
+          "expected_active": false,
+          "expected_resolution": "not_activated",
+          "predicted_active": false,
+          "predicted_resolution": "not_activated",
+          "predicted_weight": 0.0,
+          "resolver_ok": true
+        }
+      ],
+      "expected_answer_contains": "all A are C",
+      "question": "Every A is a B. All Bs are Cs. Is each A a C?",
+      "task_id": "stress_noisy_surface_001",
+      "task_type": "noisy_surface_form",
+      "trace_schema_valid": true
+    }
+  ],
+  "stress_dataset": "data/typed_channel_calibrator_stress.jsonl"
+}

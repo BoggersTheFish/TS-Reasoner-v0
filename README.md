@@ -81,6 +81,18 @@ It compares hand-coded channel decisions against learned activation, learned cha
 
 See `docs/typed_channel_calibrator.md`.
 
+## Calibrator Generalization Stress
+
+The stress evaluator checks whether the typed-channel calibrator survives heldout structure without retraining:
+
+```bash
+python3 scripts/evaluate_typed_channel_calibrator_stress.py
+```
+
+It covers variable renaming, deeper chains, distractors, quantifier traps, contradiction placement, reverse/identity adversarial queries, heldout relation shapes, and noisy surface forms. The point is credibility: the receipt should show clean generalization, expose partial limits, or catch overfit.
+
+See `docs/typed_channel_calibrator_generalization_stress.md`.
+
 ## One-Command Run
 
 ```bash
