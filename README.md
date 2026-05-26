@@ -14,6 +14,59 @@ rejected.
 This repository is the stable public v1.0 foundation for that loop. It is not a
 large language model, a general theorem prover, or a broad benchmark claim.
 
+## Typed Tension Channel Demo
+
+The repo now includes a TS-Core-backed typed tension path alongside the existing public trace contract. The old fields remain, and traces also include:
+
+```text
+trace.tension_channels
+trace.typed_runtime
+```
+
+Initial channels:
+
+- `logic_transitivity`
+- `identity_preservation`
+- `directionality`
+- `surface_structure`
+- `confidence_abstention`
+- `contradiction`
+- `quantifier_scope`
+
+Run the typed demo and benchmark:
+
+```bash
+python3 scripts/demo_typed_tension.py
+python3 scripts/evaluate_typed_tension.py
+```
+
+Generated artifacts:
+
+- `artifacts/typed_tension_demo.json`
+- `artifacts/typed_tension_benchmark_report.json`
+- `artifacts/typed_tension_receipt.json`
+
+Claim level: demo. This shows specific failure modes separated into typed operational channels on small curated examples. It does not claim general reasoning.
+
+### 10-Second Example
+
+```text
+All A are B.
+All B are C.
+Question: Are all A C?
+```
+
+The typed trace shows:
+
+```text
+logic_transitivity: infer A -> C
+directionality: block C -> A
+identity_preservation: block A = C
+surface_structure: tag A -> C as inferred, not stated
+```
+
+That is the point of typed tension: proof completion, reverse-inference blocking, and identity preservation are separate inspectable operations, not one blended score.
+
 ## One-Command Run
 
 ```bash

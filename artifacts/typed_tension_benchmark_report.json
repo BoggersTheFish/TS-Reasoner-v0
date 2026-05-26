@@ -1,0 +1,144 @@
+{
+  "case_count": 7,
+  "dataset": "data/typed_tension_benchmark.jsonl",
+  "metrics": {
+    "abstention_correctness": 1.0,
+    "answer_accuracy": 1.0,
+    "channel_activation_accuracy": 0.9444,
+    "contradiction_miss_count": 0,
+    "identity_collapse_count": 0,
+    "mean_channel_tension": 0.0,
+    "mean_global_tension": 0.0,
+    "resolver_accuracy": 0.875,
+    "reverse_fallacy_count": 0,
+    "settled_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_leap_count": 0
+  },
+  "results": [
+    {
+      "activation_checks": {
+        "confidence_abstention": true,
+        "contradiction": true,
+        "directionality": true,
+        "identity_preservation": true,
+        "logic_transitivity": true,
+        "quantifier_scope": true,
+        "surface_structure": true
+      },
+      "answer": "all A are C.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": true,
+      "resolver_checks": {
+        "identity_preservation": true,
+        "logic_transitivity": true
+      },
+      "reverse_fallacy": false,
+      "settled": true,
+      "task_id": "transitive_valid_001",
+      "task_type": "transitive_valid"
+    },
+    {
+      "activation_checks": {
+        "directionality": true,
+        "identity_preservation": true,
+        "logic_transitivity": true
+      },
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": false,
+      "resolver_checks": {
+        "directionality": true
+      },
+      "reverse_fallacy": true,
+      "settled": true,
+      "task_id": "reverse_invalid_001",
+      "task_type": "reverse_invalid"
+    },
+    {
+      "activation_checks": {
+        "identity_preservation": true,
+        "logic_transitivity": true
+      },
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": true,
+      "resolver_checks": {
+        "identity_preservation": true
+      },
+      "reverse_fallacy": false,
+      "settled": true,
+      "task_id": "identity_invalid_001",
+      "task_type": "identity_invalid"
+    },
+    {
+      "activation_checks": {
+        "confidence_abstention": true,
+        "quantifier_scope": true
+      },
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": false,
+      "resolver_checks": {
+        "quantifier_scope": true
+      },
+      "reverse_fallacy": false,
+      "settled": true,
+      "task_id": "some_all_unsupported_001",
+      "task_type": "some_all_unsupported"
+    },
+    {
+      "activation_checks": {
+        "contradiction": false
+      },
+      "answer": "Contradiction detected; no stable answer follows.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": false,
+      "resolver_checks": {
+        "contradiction": false
+      },
+      "reverse_fallacy": false,
+      "settled": true,
+      "task_id": "no_contradiction_001",
+      "task_type": "no_contradiction"
+    },
+    {
+      "activation_checks": {
+        "logic_transitivity": true,
+        "surface_structure": true
+      },
+      "answer": "all cats are animals.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": true,
+      "resolver_checks": {
+        "surface_structure": true
+      },
+      "reverse_fallacy": false,
+      "settled": true,
+      "task_id": "surface_inferred_vs_stated_001",
+      "task_type": "surface_inferred_vs_stated"
+    },
+    {
+      "activation_checks": {
+        "confidence_abstention": true
+      },
+      "answer": "Not enough information.",
+      "answer_ok": true,
+      "global_tension": 0.0,
+      "identity_collapse_blocked": false,
+      "resolver_checks": {
+        "confidence_abstention": true
+      },
+      "reverse_fallacy": false,
+      "settled": true,
+      "task_id": "low_confidence_abstention_001",
+      "task_type": "low_confidence_abstention"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/typed_tension_benchmark_report.json",
+      "sha256": "ff472a1a09cf4074295c6197038f692a3d27208f38e3552ecf0c31e47d0f79e3"
+    }
+  ],
+  "benchmarks": {
+    "abstention_correctness": 1.0,
+    "answer_accuracy": 1.0,
+    "channel_activation_accuracy": 0.9444,
+    "contradiction_miss_count": 0,
+    "identity_collapse_count": 0,
+    "mean_channel_tension": 0.0,
+    "mean_global_tension": 0.0,
+    "resolver_accuracy": 0.875,
+    "reverse_fallacy_count": 0,
+    "settled_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_leap_count": 0
+  },
+  "claim": "Typed tension channels expose specific reasoning failure modes on a small deterministic benchmark.",
+  "commands_run": [
+    "python3 scripts/evaluate_typed_tension.py"
+  ],
+  "commit": "677d948",
+  "date": "2026-05-26T16:46:30.319906+00:00",
+  "inputs": [
+    "data/typed_tension_benchmark.jsonl"
+  ],
+  "known_limitations": [
+    "Regex-style parsing only.",
+    "Small curated benchmark.",
+    "No learned calibrator yet.",
+    "No broad theorem-proving or general reasoning claim."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "demo",
+  "scope": "Toy-scope deterministic syllogistic and abstention cases.",
+  "tensions_detected": [
+    "scalar global tension hid channel-specific behavior"
+  ],
+  "tensions_resolved": [
+    "added channel activation and resolver metrics"
+  ],
+  "tests": {},
+  "unresolved_tensions": [
+    "TensionLM bridge and CIG persistence are not connected in this wave"
+  ],
+  "version": "typed-tension-v0.1"
+}

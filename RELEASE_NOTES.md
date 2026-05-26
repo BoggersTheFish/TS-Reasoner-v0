@@ -1,5 +1,39 @@
 # Release Notes
 
+## Typed Tension Traces: TS-Core-backed channel reasoning
+
+This release adds TS-Core-backed typed tension traces while preserving the existing TS-Reasoner public trace contract.
+
+Core change:
+
+- The system now emits per-channel reasoning traces, showing which typed tensions activated, how they resolved, and whether the answer settled.
+
+Included channels:
+
+- `logic_transitivity`
+- `identity_preservation`
+- `directionality`
+- `surface_structure`
+- `confidence_abstention`
+- `contradiction`
+- `quantifier_scope`
+
+Generated artifacts:
+
+- `artifacts/typed_tension_demo.json`
+- `artifacts/typed_tension_benchmark_report.json`
+- `artifacts/typed_tension_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/demo_typed_tension.py
+python3 scripts/evaluate_typed_tension.py
+```
+
+Claim level: demo. This release separates specific reasoning failure modes into typed operational channels on small curated examples. It does not claim general reasoning, theorem proving, or broad natural-language robustness.
+
 ## v1.0.0
 
 v1.0.0 is the stable public trace-contract release. It keeps the same

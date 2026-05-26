@@ -108,6 +108,7 @@ class TSReasoner:
                 "contradiction_count": len(selected_cig.contradiction_pairs),
             },
         }
+        trace.update(self._typed_trace_section(selected_chain, selected_cig))
         return ReasonerOutput(
             question=question,
             premises=premise_list,
@@ -128,6 +129,42 @@ class TSReasoner:
             "initial": transition["initial"],
             "final": transition["final"],
             "settled": transition["settled"],
+        }
+
+    def _typed_trace_section(self, selected_chain, selected_cig):
+        try:
+            from .ts_core_adapter import channel_context, channel_results_to_trace, chain_to_graph
+            from ts_core import TypedTensionRuntime
+
+            from .reasoning_channels import default_reasoning_channels
+        except ModuleNotFoundError as exc:
+            return {
+                "tension_channels": {},
+                "typed_runtime": {
+                    "available": False,
+                    "reason": f"TS-Core typed kernel unavailable: {exc}",
+                },
+            }
+
+        typed_graph = chain_to_graph(selected_chain, selected_cig)
+        typed_context = channel_context(selected_chain, selected_cig)
+        typed_trace = TypedTensionRuntime(default_reasoning_channels()).run(typed_graph, typed_context)
+        return {
+            "tension_channels": channel_results_to_trace(typed_trace.channel_results),
+            "typed_runtime": {
+                "available": True,
+                "settled": typed_trace.settled,
+                "global_tension": typed_trace.global_tension,
+                "resolver_events": [event.to_dict() for event in typed_trace.resolver_events],
+                "context": {
+                    "blocked_edges": typed_context.get("blocked_edges", []),
+                    "blocked_equalities": typed_context.get("blocked_equalities", []),
+                    "surface_tags": typed_context.get("surface_tags", {}),
+                    "abstention": typed_context.get("abstention"),
+                    "contradiction_flagged": typed_context.get("contradiction_flagged", False),
+                    "quantifier_scope_blocked": typed_context.get("quantifier_scope_blocked", False),
+                },
+            },
         }
 
     def _chosen_action(self, transition: dict) -> dict:

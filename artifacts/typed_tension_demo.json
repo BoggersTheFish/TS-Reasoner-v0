@@ -1,0 +1,545 @@
+[
+  {
+    "answer": "all A are C.",
+    "name": "valid_transitivity",
+    "premises": [
+      "All A are B.",
+      "All B are C."
+    ],
+    "question": "If all A are B and all B are C, are all A C?",
+    "tension_channels": {
+      "confidence_abstention": {
+        "activated": true,
+        "details": {
+          "decision": "answer",
+          "event": {
+            "action": "abstained_or_answered",
+            "channel": "confidence_abstention",
+            "details": {
+              "abstained": false
+            },
+            "evidence": [],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": 0.0
+          }
+        },
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "abstained_or_answered"
+      },
+      "contradiction": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "directionality": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "identity_preservation": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "preserved_distinct_nodes",
+            "channel": "identity_preservation",
+            "details": {},
+            "evidence": [
+              "A!=C"
+            ],
+            "status": "resolved",
+            "target": "A!=C",
+            "tension_delta": -1.0
+          },
+          "protects_against": "relation_identity_collapse"
+        },
+        "evidence": [
+          "('A', 'C')"
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "preserved_distinct_nodes"
+      },
+      "logic_transitivity": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "added_inferred_edge",
+            "channel": "logic_transitivity",
+            "details": {},
+            "evidence": [
+              "A->B",
+              "B->C"
+            ],
+            "status": "resolved",
+            "target": "A->C",
+            "tension_delta": -1.0
+          },
+          "missing_inferences": 0
+        },
+        "evidence": [
+          "A->B->C"
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "added_inferred_edge"
+      },
+      "quantifier_scope": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "surface_structure": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "tagged_premise_inferred_candidate_edges",
+            "channel": "surface_structure",
+            "details": {
+              "tag_count": 3
+            },
+            "evidence": [],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": -1.0
+          },
+          "untagged_claim_edges": 0
+        },
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "tagged_premise_inferred_candidate_edges"
+      }
+    },
+    "typed_runtime": {
+      "available": true,
+      "context": {
+        "abstention": false,
+        "blocked_edges": [],
+        "blocked_equalities": [
+          "A!=C"
+        ],
+        "contradiction_flagged": false,
+        "quantifier_scope_blocked": false,
+        "surface_tags": {
+          "A->B:all": "premise",
+          "A->C:all": "inferred",
+          "B->C:all": "premise"
+        }
+      },
+      "global_tension": 0.0,
+      "resolver_events": [
+        {
+          "action": "added_inferred_edge",
+          "channel": "logic_transitivity",
+          "details": {},
+          "evidence": [
+            "A->B",
+            "B->C"
+          ],
+          "status": "resolved",
+          "target": "A->C",
+          "tension_delta": -1.0
+        },
+        {
+          "action": "preserved_distinct_nodes",
+          "channel": "identity_preservation",
+          "details": {},
+          "evidence": [
+            "A!=C"
+          ],
+          "status": "resolved",
+          "target": "A!=C",
+          "tension_delta": -1.0
+        },
+        {
+          "action": "tagged_premise_inferred_candidate_edges",
+          "channel": "surface_structure",
+          "details": {
+            "tag_count": 3
+          },
+          "evidence": [],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": -1.0
+        },
+        {
+          "action": "abstained_or_answered",
+          "channel": "confidence_abstention",
+          "details": {
+            "abstained": false
+          },
+          "evidence": [],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": 0.0
+        }
+      ],
+      "settled": true
+    }
+  },
+  {
+    "answer": "Not enough information.",
+    "name": "reverse_fallacy",
+    "premises": [
+      "All A are B.",
+      "All B are C."
+    ],
+    "question": "If all A are B and all B are C, are all C A?",
+    "tension_channels": {
+      "confidence_abstention": {
+        "activated": true,
+        "details": {
+          "decision": "abstain",
+          "event": {
+            "action": "abstained_or_answered",
+            "channel": "confidence_abstention",
+            "details": {
+              "abstained": true
+            },
+            "evidence": [],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": -1.0
+          }
+        },
+        "evidence": [
+          "Not enough information."
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "abstained_or_answered"
+      },
+      "contradiction": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "directionality": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "blocked_reverse_inference",
+            "channel": "directionality",
+            "details": {},
+            "evidence": [
+              "C->A"
+            ],
+            "status": "resolved",
+            "target": "C->A",
+            "tension_delta": -1.0
+          },
+          "protects_against": "converse_fallacy"
+        },
+        "evidence": [
+          "C->A"
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "blocked_reverse_inference"
+      },
+      "identity_preservation": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "logic_transitivity": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "added_inferred_edge",
+            "channel": "logic_transitivity",
+            "details": {},
+            "evidence": [
+              "A->B",
+              "B->C"
+            ],
+            "status": "resolved",
+            "target": "A->C",
+            "tension_delta": -1.0
+          },
+          "missing_inferences": 0
+        },
+        "evidence": [
+          "A->B->C"
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "added_inferred_edge"
+      },
+      "quantifier_scope": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "surface_structure": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "tagged_premise_inferred_candidate_edges",
+            "channel": "surface_structure",
+            "details": {
+              "tag_count": 3
+            },
+            "evidence": [],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": -1.0
+          },
+          "untagged_claim_edges": 0
+        },
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "tagged_premise_inferred_candidate_edges"
+      }
+    },
+    "typed_runtime": {
+      "available": true,
+      "context": {
+        "abstention": true,
+        "blocked_edges": [
+          "C->A"
+        ],
+        "blocked_equalities": [],
+        "contradiction_flagged": false,
+        "quantifier_scope_blocked": false,
+        "surface_tags": {
+          "A->B:all": "premise",
+          "A->C:all": "inferred",
+          "B->C:all": "premise"
+        }
+      },
+      "global_tension": 0.0,
+      "resolver_events": [
+        {
+          "action": "added_inferred_edge",
+          "channel": "logic_transitivity",
+          "details": {},
+          "evidence": [
+            "A->B",
+            "B->C"
+          ],
+          "status": "resolved",
+          "target": "A->C",
+          "tension_delta": -1.0
+        },
+        {
+          "action": "blocked_reverse_inference",
+          "channel": "directionality",
+          "details": {},
+          "evidence": [
+            "C->A"
+          ],
+          "status": "resolved",
+          "target": "C->A",
+          "tension_delta": -1.0
+        },
+        {
+          "action": "tagged_premise_inferred_candidate_edges",
+          "channel": "surface_structure",
+          "details": {
+            "tag_count": 3
+          },
+          "evidence": [],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": -1.0
+        },
+        {
+          "action": "abstained_or_answered",
+          "channel": "confidence_abstention",
+          "details": {
+            "abstained": true
+          },
+          "evidence": [],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": -1.0
+        }
+      ],
+      "settled": true
+    }
+  },
+  {
+    "answer": "Not enough information.",
+    "name": "some_all_unsupported",
+    "premises": [
+      "Some pilots are engineers.",
+      "All engineers are careful."
+    ],
+    "question": "If some pilots are engineers and all engineers are careful, are all pilots careful?",
+    "tension_channels": {
+      "confidence_abstention": {
+        "activated": true,
+        "details": {
+          "decision": "abstain",
+          "event": {
+            "action": "abstained_or_answered",
+            "channel": "confidence_abstention",
+            "details": {
+              "abstained": true
+            },
+            "evidence": [],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": -1.0
+          }
+        },
+        "evidence": [
+          "Not enough information."
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "abstained_or_answered"
+      },
+      "contradiction": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "directionality": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "identity_preservation": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "logic_transitivity": {
+        "activated": false,
+        "details": {},
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "not_activated"
+      },
+      "quantifier_scope": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "blocked_some_to_all_upgrade",
+            "channel": "quantifier_scope",
+            "details": {},
+            "evidence": [
+              "some premise cannot force universal conclusion"
+            ],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": -1.0
+          },
+          "protects_against": "overgeneralisation"
+        },
+        "evidence": [
+          "some/all scope conflict"
+        ],
+        "final_tension": 0.0,
+        "initial_tension": 1.0,
+        "resolution": "blocked_some_to_all_upgrade"
+      },
+      "surface_structure": {
+        "activated": true,
+        "details": {
+          "event": {
+            "action": "tagged_premise_inferred_candidate_edges",
+            "channel": "surface_structure",
+            "details": {
+              "tag_count": 2
+            },
+            "evidence": [],
+            "status": "resolved",
+            "target": null,
+            "tension_delta": -1.0
+          },
+          "untagged_claim_edges": 0
+        },
+        "evidence": [],
+        "final_tension": 0.0,
+        "initial_tension": 0.0,
+        "resolution": "tagged_premise_inferred_candidate_edges"
+      }
+    },
+    "typed_runtime": {
+      "available": true,
+      "context": {
+        "abstention": true,
+        "blocked_edges": [],
+        "blocked_equalities": [],
+        "contradiction_flagged": false,
+        "quantifier_scope_blocked": true,
+        "surface_tags": {
+          "engineers->careful:all": "premise",
+          "pilots->engineers:some": "premise"
+        }
+      },
+      "global_tension": 0.0,
+      "resolver_events": [
+        {
+          "action": "tagged_premise_inferred_candidate_edges",
+          "channel": "surface_structure",
+          "details": {
+            "tag_count": 2
+          },
+          "evidence": [],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": -1.0
+        },
+        {
+          "action": "abstained_or_answered",
+          "channel": "confidence_abstention",
+          "details": {
+            "abstained": true
+          },
+          "evidence": [],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": -1.0
+        },
+        {
+          "action": "blocked_some_to_all_upgrade",
+          "channel": "quantifier_scope",
+          "details": {},
+          "evidence": [
+            "some premise cannot force universal conclusion"
+          ],
+          "status": "resolved",
+          "target": null,
+          "tension_delta": -1.0
+        }
+      ],
+      "settled": true
+    }
+  }
+]
