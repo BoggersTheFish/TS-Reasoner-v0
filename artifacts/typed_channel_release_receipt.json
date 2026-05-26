@@ -1,0 +1,187 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/typed_tension_receipt.json",
+      "sha256": "9a690554a20d2be1701c6dfbc7f2ea936eeaa97d239b90d308fbaa5058441a25"
+    },
+    {
+      "path": "artifacts/typed_tension_benchmark_report.json",
+      "sha256": "ff472a1a09cf4074295c6197038f692a3d27208f38e3552ecf0c31e47d0f79e3"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_receipt.json",
+      "sha256": "fc3c002cb6faa6b74eba5ef5318858ee86ac069e5af8630e4d52dbe11a5b10fd"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_report.json",
+      "sha256": "d9f2b73fce06e2defbd55eb8e8fb356a8073ff44441bdee6ed393e1bd7e36f08"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_stress_receipt.json",
+      "sha256": "92aec9b6c79d6c9d432d3278488643a9e6c026c85508c8aa461fa9cf5e7a687f"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_stress_report.json",
+      "sha256": "2235615bd90fdeb1bd0b3c196116cce83ab844d0f08a1b7183cbb8c4a808687e"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_structural_features_receipt.json",
+      "sha256": "8fbb9e91bd97490bc6b46cce846109218a881be02ff5d4412dd5e31e2ab1a1d4"
+    },
+    {
+      "path": "artifacts/typed_channel_calibrator_structural_features_report.json",
+      "sha256": "5cfd1c9aa264bc9c8f2bf5272c414dd59eaa67df483e030ac0979502f3e8dcfc"
+    }
+  ],
+  "benchmarks": {
+    "generalization_stress": {
+      "metrics": {
+        "contradiction_miss_count": 1,
+        "depth_generalization_accuracy": 0.0,
+        "distractor_robustness": 0.0,
+        "heldout_answer_accuracy": 0.8182,
+        "heldout_channel_activation_accuracy": 0.7532,
+        "heldout_resolver_accuracy": 0.7532,
+        "identity_collapse_count": 0,
+        "quantifier_trap_failure_count": 1,
+        "reverse_fallacy_count": 0,
+        "trace_schema_validity": 1.0,
+        "variable_renaming_accuracy": 1.0
+      },
+      "outcome": {
+        "label": "Outcome B",
+        "meaning": "Calibrator handles renaming but exposes depth/feature limits."
+      }
+    },
+    "scoped_calibrator_full": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 1.0,
+      "resolver_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    },
+    "structural_repair": {
+      "full_structural_features": {
+        "contradiction_misses": 0,
+        "depth_generalization": 1.0,
+        "distractor_robustness": 1.0,
+        "heldout_answer_accuracy": 0.8182,
+        "heldout_channel_activation_accuracy": 0.961,
+        "heldout_resolver_accuracy": 0.961,
+        "quantifier_trap_failures": 0,
+        "trace_schema_validity": 1.0
+      },
+      "original_calibrator": {
+        "contradiction_misses": 1,
+        "depth_generalization": 0.0,
+        "distractor_robustness": 0.0,
+        "heldout_answer_accuracy": 0.8182,
+        "heldout_channel_activation_accuracy": 0.7532,
+        "heldout_resolver_accuracy": 0.7532,
+        "quantifier_trap_failures": 1,
+        "trace_schema_validity": 1.0
+      },
+      "outcome": {
+        "label": "targeted_structural_repair_improved",
+        "meaning": "Query-relevant structural features reduce the stress failures without changing trace schema validity."
+      },
+      "targeted_deltas": {
+        "contradiction_misses": 1,
+        "depth_generalization": 1.0,
+        "distractor_robustness": 1.0,
+        "quantifier_trap_failures": 1
+      }
+    },
+    "typed_tension_channels": {
+      "abstention_correctness": 1.0,
+      "answer_accuracy": 1.0,
+      "channel_activation_accuracy": 0.9444,
+      "contradiction_miss_count": 0,
+      "identity_collapse_count": 0,
+      "mean_channel_tension": 0.0,
+      "mean_global_tension": 0.0,
+      "resolver_accuracy": 0.875,
+      "reverse_fallacy_count": 0,
+      "settled_rate": 1.0,
+      "trace_schema_validity": 1.0,
+      "unsupported_leap_count": 0
+    }
+  },
+  "claim": "TS-Reasoner now has TS-Core-backed typed tension channels plus a learned calibrator. Stress testing exposed structural generalization failures, and query-relevant graph features repaired those failures on the current stress benchmark.",
+  "commands_run": [
+    "python3 -m unittest discover",
+    "python3 scripts/evaluate_typed_tension.py",
+    "python3 scripts/evaluate_typed_channel_calibrator.py",
+    "python3 scripts/evaluate_typed_channel_calibrator_stress.py",
+    "python3 scripts/evaluate_typed_channel_calibrator_structural_features.py",
+    "python3 scripts/generate_typed_channel_release_receipt.py"
+  ],
+  "commit": "ace01a2",
+  "date": "2026-05-26T17:22:01.253143+00:00",
+  "headline": "TS-Core-backed typed channels, learned calibrator, stress, and structural repair",
+  "inputs": [
+    "artifacts/typed_tension_receipt.json",
+    "artifacts/typed_tension_benchmark_report.json",
+    "artifacts/typed_channel_calibrator_receipt.json",
+    "artifacts/typed_channel_calibrator_report.json",
+    "artifacts/typed_channel_calibrator_stress_receipt.json",
+    "artifacts/typed_channel_calibrator_stress_report.json",
+    "artifacts/typed_channel_calibrator_structural_features_receipt.json",
+    "artifacts/typed_channel_calibrator_structural_features_report.json"
+  ],
+  "known_limitations": [
+    "All calibrator and stress results are synthetic and small.",
+    "The current stress surface is parser-controlled and not natural-language robust.",
+    "Structural repair is measured on the current heldout stress benchmark, not on broad reasoning tasks.",
+    "TS-Core-backed channels remain deterministic operational priors; the calibrator does not learn reasoning end-to-end.",
+    "TensionLM remains out of scope until this symbolic trace stack is release-stable."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "release_story": [
+    {
+      "evidence": "artifacts/typed_tension_benchmark_report.json",
+      "stage": "kernel_to_channels",
+      "summary": "TS-Core-backed typed tension channels expose channel activation, resolver events, and typed runtime traces."
+    },
+    {
+      "evidence": "artifacts/typed_channel_calibrator_report.json",
+      "stage": "scoped_calibrator",
+      "summary": "The learned typed-channel calibrator reaches 1.0 on scoped trace-supervision metrics."
+    },
+    {
+      "evidence": "artifacts/typed_channel_calibrator_stress_report.json",
+      "stage": "generalization_stress",
+      "summary": "Heldout stress produces Outcome B: renaming works, but depth/features fail."
+    },
+    {
+      "evidence": "artifacts/typed_channel_calibrator_structural_features_report.json",
+      "stage": "structural_repair",
+      "summary": "Query-relevant graph features repair the targeted failures on the current stress benchmark."
+    }
+  ],
+  "scope": "Unified release receipt for kernel-backed typed channels, scoped calibrator evaluation, generalization stress, and structural feature repair.",
+  "tensions_detected": [
+    "single scoped calibrator metrics could hide overfit",
+    "heldout stress exposed depth, distractor, quantifier, and contradiction-placement failures",
+    "public release needed one receipt tying kernel, channels, calibrator, stress, and repair together"
+  ],
+  "tensions_resolved": [
+    "added scoped calibrator ablations",
+    "preserved Outcome B stress failure as evidence",
+    "added structural graph features and repaired targeted stress failures",
+    "generated unified typed-channel release receipt"
+  ],
+  "tests": {
+    "python3 -m unittest discover": {
+      "status": "passed",
+      "test_count": 44
+    }
+  },
+  "unresolved_tensions": [
+    "release still needs broader non-synthetic benchmarks",
+    "messy-language candidate generation remains future TensionLM work",
+    "future calibrators should train directly over the structural feature surface"
+  ],
+  "version": "typed-channel-release-receipt-v0"
+}
