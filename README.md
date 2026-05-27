@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v1.5_real_exported_sample-blue)](MODEL_CARD.md)
+[![Status](https://img.shields.io/badge/status-v1.6_export_set_evaluation-blue)](MODEL_CARD.md)
 
 TS-Reasoner is an inspectable reasoning control loop. It generates candidate
 reasoning chains, scores local and global tension, runs a bounded repair or
@@ -16,9 +16,10 @@ large language model, a general theorem prover, or a broad benchmark claim.
 
 Current public bridge claim:
 
-> TS-Reasoner can consume real exported TensionLM-side candidate data through a
-> typed verification boundary where provenance is preserved, model confidence
-> remains metadata, and typed channels remain the proof authority.
+> TS-Reasoner can evaluate multiple exported TensionLM-side candidate samples
+> through a typed verification boundary where malformed, unsupported,
+> contradictory, reverse, and deeper-chain current-limit cases are preserved as
+> failure reasons instead of hidden.
 
 ## Typed Tension Channel Demo
 
@@ -280,6 +281,15 @@ Generated artifacts:
 
 See `docs/tensionlm_export_set_evaluation.md`.
 
+## Next: Deeper-Chain Support Repair
+
+v1.6.0 intentionally preserves a deeper-chain current-limit case in the export
+set receipt. The next structural repair target is A -> B -> C -> D style support
+inside the existing typed verifier boundary.
+
+Hard boundary remains unchanged: no TensionLM loading, no training, no
+confidence-as-proof, and no candidate edges entering proof support.
+
 ## One-Command Run
 
 ```bash
@@ -411,16 +421,17 @@ ts-reasoner --question "If all A are B and all B are C, are all A C?"
 
 ## Claim Boundary
 
-TS-Reasoner v1.5 claims:
+TS-Reasoner v1.6 claims:
 
 - stable inspectable traces,
 - deterministic small reasoning receipts,
 - visible failure modes,
 - a bridge contract for learned candidate proposers,
-- real exported TensionLM-side candidate data can cross into TS-Reasoner as candidate data,
-- typed channels remain the proof authority.
+- real exported TensionLM-side candidate sets can cross into TS-Reasoner as candidate data,
+- typed channels remain the proof authority,
+- malformed and current-limit cases are preserved as receipt evidence.
 
-TS-Reasoner v1.5 does not claim:
+TS-Reasoner v1.6 does not claim:
 
 - general reasoning ability,
 - production decision-making reliability,
