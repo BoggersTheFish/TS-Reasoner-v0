@@ -1,5 +1,48 @@
 # Release Notes
 
+## v1.5.0: Real Exported TensionLM Sample
+
+v1.5.0 evaluates a real exported TensionLM-side sample through the existing
+TS-Reasoner adapter and typed verification boundary.
+
+Release scope:
+
+- Add `data/real_exported_tensionlm_sample.jsonl`.
+- Source evidence from `/home/boggersthefish/BoggersSpace/bozo`:
+  `logs/eval/117m_transitivity_seed42.json`.
+- Preserve raw TensionLM completions in candidate `raw_text`.
+- Evaluate export-side normalized candidate claims through the existing adapter
+  unchanged.
+- Verify provenance, typed support, bad candidate rejection, verifier-over-
+  confidence behavior, and zero graph contamination.
+
+Generated artifacts:
+
+- `artifacts/real_exported_tensionlm_sample_report.json`
+- `artifacts/real_exported_tensionlm_sample_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_real_exported_tensionlm_sample.py
+```
+
+Verification result:
+
+- `sample_read_success_rate`: `1.0`.
+- `candidate_parse_success_rate`: `1.0`.
+- `provenance_preservation_rate`: `1.0`.
+- `accepted_outputs_typed_support_rate`: `1.0`.
+- `bad_candidate_rejection_rate`: `1.0`.
+- `verifier_beats_confidence_rate`: `1.0`.
+- `candidate_graph_contamination_count`: `0`.
+- `trace_schema_validity`: `1.0`.
+
+Claim level: experimental. This is a cross-repo exported-sample proof, not live
+model integration into TS-Reasoner. No model is loaded and no training is
+performed.
+
 ## v1.4.0: Live TensionLM Export Smoke
 
 v1.4.0 adds a live/export-style smoke around the v1.3 adapter boundary.

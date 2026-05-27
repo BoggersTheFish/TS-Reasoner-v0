@@ -1,0 +1,58 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/real_exported_tensionlm_sample_report.json",
+      "sha256": "ff2f6aa14060a90ffe5afe82989747728bf9a2c3a95385398076583ca888d4bc"
+    }
+  ],
+  "benchmarks": {
+    "accepted_outputs_typed_support_rate": 1.0,
+    "bad_candidate_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "candidate_parse_success_rate": 1.0,
+    "expected_status_accuracy": 1.0,
+    "provenance_preservation_rate": 1.0,
+    "sample_read_success_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_candidate_abstention_rate": 1.0,
+    "verifier_beats_confidence_rate": 1.0
+  },
+  "claim": "A real exported TensionLM-side sample can cross into TS-Reasoner while staying contained by typed verification.",
+  "commands_run": [
+    "python3 scripts/evaluate_real_exported_tensionlm_sample.py"
+  ],
+  "commit": "72f3106",
+  "date": "2026-05-27T03:37:26.611572+00:00",
+  "inputs": [
+    "data/real_exported_tensionlm_sample.jsonl"
+  ],
+  "known_limitations": [
+    "Uses an existing TensionLM-side eval artifact rather than running a new model sample in this repo.",
+    "Export-side normalized claims are evaluated by TS-Reasoner unchanged.",
+    "No TensionLM model is loaded into TS-Reasoner.",
+    "No training is performed."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Existing exported JSONL sample only; no model loading or training inside TS-Reasoner.",
+  "source_evidence": [
+    {
+      "artifact": "logs/eval/117m_transitivity_seed42.json",
+      "checkpoint": "checkpoints/117m-curriculum/pytorch_model.pt",
+      "repository": "/home/boggersthefish/BoggersSpace/bozo"
+    }
+  ],
+  "tensions_detected": [
+    "real model completions can be wrong, malformed, or overconfident",
+    "cross-repo samples can blur raw model text and proof support"
+  ],
+  "tensions_resolved": [
+    "raw completions are preserved as candidate provenance",
+    "typed channels remain the proof authority",
+    "candidate graph contamination remains blocked"
+  ],
+  "unresolved_tensions": [
+    "new live TensionLM export generation remains the next boundary"
+  ],
+  "version": "v1.5.0-real-exported-tensionlm-sample"
+}
