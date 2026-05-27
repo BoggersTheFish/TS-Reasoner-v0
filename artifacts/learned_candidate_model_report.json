@@ -1,0 +1,2164 @@
+{
+  "case_count": 3,
+  "dataset": "data/learned_candidate_model_eval.jsonl",
+  "metrics": {
+    "abstention_accuracy": 1.0,
+    "accepted_candidate_support_rate": 1.0,
+    "bad_candidate_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "candidate_ranking_accuracy": 1.0,
+    "channel_activation_accuracy": 0.9531,
+    "deeper_chain_success_rate": 1.0,
+    "distractor_robustness": 1.0,
+    "resolver_prediction_accuracy": 0.875,
+    "trace_schema_validity": 1.0,
+    "verifier_beats_model_confidence_rate": 1.0
+  },
+  "results": [
+    {
+      "abstention_checks": [],
+      "accepted_support_checks": [
+        true
+      ],
+      "bad_rejection_checks": [
+        true,
+        true
+      ],
+      "candidate_graph_contamination_count": 0,
+      "candidate_ranking_correct": true,
+      "case_id": "eval_deeper_grant_demo",
+      "channel_activation_checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "deeper_chain_checks": [
+        true
+      ],
+      "is_distractor": false,
+      "resolver_prediction_checks": [
+        true,
+        true,
+        true
+      ],
+      "scored_candidates": [
+        {
+          "candidate_id": "demo_valid_a_d",
+          "claim": "All A are D",
+          "confidence": 0.55,
+          "features": {
+            "accepted_relation_candidate": 1.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.55,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 1.0,
+            "direct_support": 0.0,
+            "has_distractor": 0.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 3.0,
+            "reverse_path": 0.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 3.0,
+            "transitive_support": 1.0,
+            "unsupported_relation_candidate": 0.0
+          },
+          "prediction": {
+            "channels": [
+              "logic_transitivity"
+            ],
+            "model_confidence": 0.7488,
+            "ranking_score": 1.092,
+            "resolver": "accept_transitive",
+            "status": "accepted"
+          },
+          "raw_output": "All A are D",
+          "source": "learned_candidate_dataset"
+        },
+        {
+          "candidate_id": "demo_bad_identity_a_d",
+          "claim": "A equals D",
+          "confidence": 0.88,
+          "features": {
+            "accepted_relation_candidate": 0.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.88,
+            "candidate_quantifier_all": 0.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 1.0,
+            "direct_support": 0.0,
+            "has_distractor": 0.0,
+            "identity_candidate": 1.0,
+            "identity_path_exists": 1.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 0.0,
+            "premise_count": 3.0,
+            "reverse_path": 0.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 0.0,
+            "transitive_support": 0.0,
+            "unsupported_relation_candidate": 0.0
+          },
+          "prediction": {
+            "channels": [
+              "identity_preservation"
+            ],
+            "model_confidence": 0.0501,
+            "ranking_score": -2.9428,
+            "resolver": "reject_identity",
+            "status": "rejected"
+          },
+          "raw_output": "A equals D",
+          "source": "learned_candidate_dataset"
+        },
+        {
+          "candidate_id": "demo_bad_reverse_d_a",
+          "claim": "All D are A",
+          "confidence": 0.96,
+          "features": {
+            "accepted_relation_candidate": 0.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.96,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 1.0,
+            "direct_support": 0.0,
+            "has_distractor": 0.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 3.0,
+            "reverse_path": 1.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 0.0,
+            "transitive_support": 0.0,
+            "unsupported_relation_candidate": 0.0
+          },
+          "prediction": {
+            "channels": [
+              "directionality"
+            ],
+            "model_confidence": 0.0173,
+            "ranking_score": -4.0376,
+            "resolver": "reject_reverse",
+            "status": "rejected"
+          },
+          "raw_output": "All D are A",
+          "source": "learned_candidate_dataset"
+        }
+      ],
+      "tags": [
+        "deeper_chain",
+        "grant_demo"
+      ],
+      "top_candidate_id": "demo_valid_a_d",
+      "trace_schema_valid": true,
+      "verification": {
+        "abstained": [],
+        "accepted": [
+          "All A are D"
+        ],
+        "candidate_results": [
+          {
+            "candidate_id": "demo_valid_a_d",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "identity_preservation": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "preserved_distinct_nodes",
+                    "channel": "identity_preservation",
+                    "details": {},
+                    "evidence": [
+                      "A!=D"
+                    ],
+                    "status": "resolved",
+                    "target": "A!=D",
+                    "tension_delta": -1.0
+                  },
+                  "protects_against": "relation_identity_collapse"
+                },
+                "evidence": [
+                  "('A', 'D')"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "preserved_distinct_nodes"
+              },
+              "logic_transitivity": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "added_inferred_edge",
+                    "channel": "logic_transitivity",
+                    "details": {},
+                    "evidence": [
+                      "A->B->C",
+                      "B->C->D",
+                      "A->B->D"
+                    ],
+                    "status": "resolved",
+                    "target": "A->C, B->D, A->D",
+                    "tension_delta": -3.0
+                  },
+                  "missing_inferences": 0
+                },
+                "evidence": [
+                  "A->B->C",
+                  "B->C->D"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "added_inferred_edge"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 6
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "logic_transitivity": "accepted inferred edge"
+            },
+            "claim": "All A are D",
+            "confidence": 0.7488,
+            "provenance": {
+              "candidate_id": "demo_valid_a_d",
+              "confidence": 0.7488,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.55,
+                "model_prediction": {
+                  "channels": [
+                    "logic_transitivity"
+                  ],
+                  "model_confidence": 0.7488,
+                  "ranking_score": 1.092,
+                  "resolver": "accept_transitive",
+                  "status": "accepted"
+                }
+              },
+              "raw_output": "All A are D",
+              "source": "learned_candidate_model"
+            },
+            "reason": "candidate is supported by a typed transitive inference",
+            "source": "learned_candidate_model",
+            "status": "accepted",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [],
+                "blocked_equalities": [
+                  "A!=D"
+                ],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise",
+                  "A->C:all": "inferred",
+                  "A->D:all": "inferred",
+                  "B->C:all": "premise",
+                  "B->D:all": "inferred",
+                  "C->D:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "added_inferred_edge",
+                  "channel": "logic_transitivity",
+                  "details": {},
+                  "evidence": [
+                    "A->B->C",
+                    "B->C->D",
+                    "A->B->D"
+                  ],
+                  "status": "resolved",
+                  "target": "A->C, B->D, A->D",
+                  "tension_delta": -3.0
+                },
+                {
+                  "action": "preserved_distinct_nodes",
+                  "channel": "identity_preservation",
+                  "details": {},
+                  "evidence": [
+                    "A!=D"
+                  ],
+                  "status": "resolved",
+                  "target": "A!=D",
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 6
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          },
+          {
+            "candidate_id": "demo_bad_identity_a_d",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "identity_preservation": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "preserved_distinct_nodes",
+                    "channel": "identity_preservation",
+                    "details": {},
+                    "evidence": [
+                      "A!=D"
+                    ],
+                    "status": "resolved",
+                    "target": "A!=D",
+                    "tension_delta": -1.0
+                  },
+                  "protects_against": "relation_identity_collapse"
+                },
+                "evidence": [
+                  "('A', 'D')"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "preserved_distinct_nodes"
+              },
+              "logic_transitivity": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "added_inferred_edge",
+                    "channel": "logic_transitivity",
+                    "details": {},
+                    "evidence": [
+                      "A->B->C",
+                      "B->C->D",
+                      "A->B->D"
+                    ],
+                    "status": "resolved",
+                    "target": "A->C, B->D, A->D",
+                    "tension_delta": -3.0
+                  },
+                  "missing_inferences": 0
+                },
+                "evidence": [
+                  "A->B->C",
+                  "B->C->D"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "added_inferred_edge"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 6
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "identity_preservation": "blocked identity collapse"
+            },
+            "claim": "A equals D",
+            "confidence": 0.0501,
+            "provenance": {
+              "candidate_id": "demo_bad_identity_a_d",
+              "confidence": 0.0501,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.88,
+                "model_prediction": {
+                  "channels": [
+                    "identity_preservation"
+                  ],
+                  "model_confidence": 0.0501,
+                  "ranking_score": -2.9428,
+                  "resolver": "reject_identity",
+                  "status": "rejected"
+                }
+              },
+              "raw_output": "A equals D",
+              "source": "learned_candidate_model"
+            },
+            "reason": "candidate collapses distinct graph nodes",
+            "source": "learned_candidate_model",
+            "status": "rejected",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [],
+                "blocked_equalities": [
+                  "A!=D"
+                ],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise",
+                  "A->C:all": "inferred",
+                  "A->D:all": "inferred",
+                  "B->C:all": "premise",
+                  "B->D:all": "inferred",
+                  "C->D:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "added_inferred_edge",
+                  "channel": "logic_transitivity",
+                  "details": {},
+                  "evidence": [
+                    "A->B->C",
+                    "B->C->D",
+                    "A->B->D"
+                  ],
+                  "status": "resolved",
+                  "target": "A->C, B->D, A->D",
+                  "tension_delta": -3.0
+                },
+                {
+                  "action": "preserved_distinct_nodes",
+                  "channel": "identity_preservation",
+                  "details": {},
+                  "evidence": [
+                    "A!=D"
+                  ],
+                  "status": "resolved",
+                  "target": "A!=D",
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 6
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          },
+          {
+            "candidate_id": "demo_bad_reverse_d_a",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "blocked_reverse_inference",
+                    "channel": "directionality",
+                    "details": {},
+                    "evidence": [
+                      "D->A"
+                    ],
+                    "status": "resolved",
+                    "target": "D->A",
+                    "tension_delta": -1.0
+                  },
+                  "protects_against": "converse_fallacy"
+                },
+                "evidence": [
+                  "D->A"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "blocked_reverse_inference"
+              },
+              "identity_preservation": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "logic_transitivity": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "added_inferred_edge",
+                    "channel": "logic_transitivity",
+                    "details": {},
+                    "evidence": [
+                      "A->B->C",
+                      "B->C->D",
+                      "A->B->D"
+                    ],
+                    "status": "resolved",
+                    "target": "A->C, B->D, A->D",
+                    "tension_delta": -3.0
+                  },
+                  "missing_inferences": 0
+                },
+                "evidence": [
+                  "A->B->C",
+                  "B->C->D"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "added_inferred_edge"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 6
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "directionality": "blocked reverse inference"
+            },
+            "claim": "All D are A",
+            "confidence": 0.0173,
+            "provenance": {
+              "candidate_id": "demo_bad_reverse_d_a",
+              "confidence": 0.0173,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.96,
+                "model_prediction": {
+                  "channels": [
+                    "directionality"
+                  ],
+                  "model_confidence": 0.0173,
+                  "ranking_score": -4.0376,
+                  "resolver": "reject_reverse",
+                  "status": "rejected"
+                }
+              },
+              "raw_output": "All D are A",
+              "source": "learned_candidate_model"
+            },
+            "reason": "candidate reverses a directed support path",
+            "source": "learned_candidate_model",
+            "status": "rejected",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [
+                  "D->A"
+                ],
+                "blocked_equalities": [],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise",
+                  "A->C:all": "inferred",
+                  "A->D:all": "inferred",
+                  "B->C:all": "premise",
+                  "B->D:all": "inferred",
+                  "C->D:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "added_inferred_edge",
+                  "channel": "logic_transitivity",
+                  "details": {},
+                  "evidence": [
+                    "A->B->C",
+                    "B->C->D",
+                    "A->B->D"
+                  ],
+                  "status": "resolved",
+                  "target": "A->C, B->D, A->D",
+                  "tension_delta": -3.0
+                },
+                {
+                  "action": "blocked_reverse_inference",
+                  "channel": "directionality",
+                  "details": {},
+                  "evidence": [
+                    "D->A"
+                  ],
+                  "status": "resolved",
+                  "target": "D->A",
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 6
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          }
+        ],
+        "channels": {
+          "directionality": "blocked reverse inference",
+          "identity_preservation": "blocked identity collapse",
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "rejected": [
+          "A equals D",
+          "All D are A"
+        ]
+      },
+      "verifier_beats_confidence_checks": [
+        true,
+        true
+      ]
+    },
+    {
+      "abstention_checks": [
+        true
+      ],
+      "accepted_support_checks": [
+        true
+      ],
+      "bad_rejection_checks": [
+        true
+      ],
+      "candidate_graph_contamination_count": 0,
+      "candidate_ranking_correct": true,
+      "case_id": "eval_distractor",
+      "channel_activation_checks": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "deeper_chain_checks": [
+        true
+      ],
+      "is_distractor": true,
+      "resolver_prediction_checks": [
+        true,
+        true,
+        true
+      ],
+      "scored_candidates": [
+        {
+          "candidate_id": "valid_a_d_distractor",
+          "claim": "All A are D",
+          "confidence": 0.6,
+          "features": {
+            "accepted_relation_candidate": 1.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.6,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 1.0,
+            "direct_support": 0.0,
+            "has_distractor": 1.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 4.0,
+            "reverse_path": 0.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 3.0,
+            "transitive_support": 1.0,
+            "unsupported_relation_candidate": 0.0
+          },
+          "prediction": {
+            "channels": [
+              "logic_transitivity"
+            ],
+            "model_confidence": 0.59,
+            "ranking_score": 0.364,
+            "resolver": "accept_transitive",
+            "status": "accepted"
+          },
+          "raw_output": "All A are D",
+          "source": "learned_candidate_dataset"
+        },
+        {
+          "candidate_id": "wrong_x_d",
+          "claim": "All X are D",
+          "confidence": 0.8,
+          "features": {
+            "accepted_relation_candidate": 0.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.8,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 1.0,
+            "direct_support": 0.0,
+            "has_distractor": 1.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 4.0,
+            "reverse_path": 0.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 0.0,
+            "transitive_support": 0.0,
+            "unsupported_relation_candidate": 1.0
+          },
+          "prediction": {
+            "channels": [
+              "typed_support"
+            ],
+            "model_confidence": 0.0189,
+            "ranking_score": -3.948,
+            "resolver": "abstain_unsupported",
+            "status": "abstained"
+          },
+          "raw_output": "All X are D",
+          "source": "learned_candidate_dataset"
+        },
+        {
+          "candidate_id": "bad_reverse_d_a",
+          "claim": "All D are A",
+          "confidence": 0.93,
+          "features": {
+            "accepted_relation_candidate": 0.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.93,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 1.0,
+            "direct_support": 0.0,
+            "has_distractor": 1.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 4.0,
+            "reverse_path": 1.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 0.0,
+            "transitive_support": 0.0,
+            "unsupported_relation_candidate": 0.0
+          },
+          "prediction": {
+            "channels": [],
+            "model_confidence": 0.0088,
+            "ranking_score": -4.7208,
+            "resolver": "reject_reverse",
+            "status": "rejected"
+          },
+          "raw_output": "All D are A",
+          "source": "learned_candidate_dataset"
+        }
+      ],
+      "tags": [
+        "deeper_chain",
+        "distractor"
+      ],
+      "top_candidate_id": "valid_a_d_distractor",
+      "trace_schema_valid": true,
+      "verification": {
+        "abstained": [
+          "All X are D"
+        ],
+        "accepted": [
+          "All A are D"
+        ],
+        "candidate_results": [
+          {
+            "candidate_id": "valid_a_d_distractor",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "identity_preservation": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "preserved_distinct_nodes",
+                    "channel": "identity_preservation",
+                    "details": {},
+                    "evidence": [
+                      "A!=D"
+                    ],
+                    "status": "resolved",
+                    "target": "A!=D",
+                    "tension_delta": -1.0
+                  },
+                  "protects_against": "relation_identity_collapse"
+                },
+                "evidence": [
+                  "('A', 'D')"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "preserved_distinct_nodes"
+              },
+              "logic_transitivity": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "added_inferred_edge",
+                    "channel": "logic_transitivity",
+                    "details": {},
+                    "evidence": [
+                      "A->B->C",
+                      "B->C->D",
+                      "A->B->D"
+                    ],
+                    "status": "resolved",
+                    "target": "A->C, B->D, A->D",
+                    "tension_delta": -3.0
+                  },
+                  "missing_inferences": 0
+                },
+                "evidence": [
+                  "A->B->C",
+                  "B->C->D"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "added_inferred_edge"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 7
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "logic_transitivity": "accepted inferred edge"
+            },
+            "claim": "All A are D",
+            "confidence": 0.59,
+            "provenance": {
+              "candidate_id": "valid_a_d_distractor",
+              "confidence": 0.59,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.6,
+                "model_prediction": {
+                  "channels": [
+                    "logic_transitivity"
+                  ],
+                  "model_confidence": 0.59,
+                  "ranking_score": 0.364,
+                  "resolver": "accept_transitive",
+                  "status": "accepted"
+                }
+              },
+              "raw_output": "All A are D",
+              "source": "learned_candidate_model"
+            },
+            "reason": "candidate is supported by a typed transitive inference",
+            "source": "learned_candidate_model",
+            "status": "accepted",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [],
+                "blocked_equalities": [
+                  "A!=D"
+                ],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise",
+                  "A->C:all": "inferred",
+                  "A->D:all": "inferred",
+                  "B->C:all": "premise",
+                  "B->D:all": "inferred",
+                  "C->D:all": "premise",
+                  "X->Y:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "added_inferred_edge",
+                  "channel": "logic_transitivity",
+                  "details": {},
+                  "evidence": [
+                    "A->B->C",
+                    "B->C->D",
+                    "A->B->D"
+                  ],
+                  "status": "resolved",
+                  "target": "A->C, B->D, A->D",
+                  "tension_delta": -3.0
+                },
+                {
+                  "action": "preserved_distinct_nodes",
+                  "channel": "identity_preservation",
+                  "details": {},
+                  "evidence": [
+                    "A!=D"
+                  ],
+                  "status": "resolved",
+                  "target": "A!=D",
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 7
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          },
+          {
+            "candidate_id": "wrong_x_d",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "identity_preservation": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "logic_transitivity": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "added_inferred_edge",
+                    "channel": "logic_transitivity",
+                    "details": {},
+                    "evidence": [
+                      "A->B->C",
+                      "B->C->D",
+                      "A->B->D"
+                    ],
+                    "status": "resolved",
+                    "target": "A->C, B->D, A->D",
+                    "tension_delta": -3.0
+                  },
+                  "missing_inferences": 0
+                },
+                "evidence": [
+                  "A->B->C",
+                  "B->C->D"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "added_inferred_edge"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 7
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "typed_support": "abstained no accepted channel support"
+            },
+            "claim": "All X are D",
+            "confidence": 0.0189,
+            "provenance": {
+              "candidate_id": "wrong_x_d",
+              "confidence": 0.0189,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.8,
+                "model_prediction": {
+                  "channels": [
+                    "typed_support"
+                  ],
+                  "model_confidence": 0.0189,
+                  "ranking_score": -3.948,
+                  "resolver": "abstain_unsupported",
+                  "status": "abstained"
+                }
+              },
+              "raw_output": "All X are D",
+              "source": "learned_candidate_model"
+            },
+            "reason": "no typed channel produced support or a typed rejection",
+            "source": "learned_candidate_model",
+            "status": "abstained",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [],
+                "blocked_equalities": [],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise",
+                  "A->C:all": "inferred",
+                  "A->D:all": "inferred",
+                  "B->C:all": "premise",
+                  "B->D:all": "inferred",
+                  "C->D:all": "premise",
+                  "X->Y:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "added_inferred_edge",
+                  "channel": "logic_transitivity",
+                  "details": {},
+                  "evidence": [
+                    "A->B->C",
+                    "B->C->D",
+                    "A->B->D"
+                  ],
+                  "status": "resolved",
+                  "target": "A->C, B->D, A->D",
+                  "tension_delta": -3.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 7
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          },
+          {
+            "candidate_id": "bad_reverse_d_a",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "blocked_reverse_inference",
+                    "channel": "directionality",
+                    "details": {},
+                    "evidence": [
+                      "D->A"
+                    ],
+                    "status": "resolved",
+                    "target": "D->A",
+                    "tension_delta": -1.0
+                  },
+                  "protects_against": "converse_fallacy"
+                },
+                "evidence": [
+                  "D->A"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "blocked_reverse_inference"
+              },
+              "identity_preservation": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "logic_transitivity": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "added_inferred_edge",
+                    "channel": "logic_transitivity",
+                    "details": {},
+                    "evidence": [
+                      "A->B->C",
+                      "B->C->D",
+                      "A->B->D"
+                    ],
+                    "status": "resolved",
+                    "target": "A->C, B->D, A->D",
+                    "tension_delta": -3.0
+                  },
+                  "missing_inferences": 0
+                },
+                "evidence": [
+                  "A->B->C",
+                  "B->C->D"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "added_inferred_edge"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 7
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "directionality": "blocked reverse inference"
+            },
+            "claim": "All D are A",
+            "confidence": 0.0088,
+            "provenance": {
+              "candidate_id": "bad_reverse_d_a",
+              "confidence": 0.0088,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.93,
+                "model_prediction": {
+                  "channels": [],
+                  "model_confidence": 0.0088,
+                  "ranking_score": -4.7208,
+                  "resolver": "reject_reverse",
+                  "status": "rejected"
+                }
+              },
+              "raw_output": "All D are A",
+              "source": "learned_candidate_model"
+            },
+            "reason": "candidate reverses a directed support path",
+            "source": "learned_candidate_model",
+            "status": "rejected",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [
+                  "D->A"
+                ],
+                "blocked_equalities": [],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise",
+                  "A->C:all": "inferred",
+                  "A->D:all": "inferred",
+                  "B->C:all": "premise",
+                  "B->D:all": "inferred",
+                  "C->D:all": "premise",
+                  "X->Y:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "added_inferred_edge",
+                  "channel": "logic_transitivity",
+                  "details": {},
+                  "evidence": [
+                    "A->B->C",
+                    "B->C->D",
+                    "A->B->D"
+                  ],
+                  "status": "resolved",
+                  "target": "A->C, B->D, A->D",
+                  "tension_delta": -3.0
+                },
+                {
+                  "action": "blocked_reverse_inference",
+                  "channel": "directionality",
+                  "details": {},
+                  "evidence": [
+                    "D->A"
+                  ],
+                  "status": "resolved",
+                  "target": "D->A",
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 7
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          }
+        ],
+        "channels": {
+          "directionality": "blocked reverse inference",
+          "logic_transitivity": "accepted inferred edge",
+          "typed_support": "abstained no accepted channel support"
+        },
+        "rejected": [
+          "All D are A"
+        ]
+      },
+      "verifier_beats_confidence_checks": [
+        true
+      ]
+    },
+    {
+      "abstention_checks": [
+        true
+      ],
+      "accepted_support_checks": [
+        true
+      ],
+      "bad_rejection_checks": [],
+      "candidate_graph_contamination_count": 0,
+      "candidate_ranking_correct": true,
+      "case_id": "eval_unsupported_leap",
+      "channel_activation_checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "deeper_chain_checks": [],
+      "is_distractor": false,
+      "resolver_prediction_checks": [
+        true,
+        false
+      ],
+      "scored_candidates": [
+        {
+          "candidate_id": "premise_a_b",
+          "claim": "All A are B",
+          "confidence": 0.51,
+          "features": {
+            "accepted_relation_candidate": 1.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.51,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 0.0,
+            "direct_support": 1.0,
+            "has_distractor": 0.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 1.0,
+            "reverse_path": 0.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 1.0,
+            "transitive_support": 1.0,
+            "unsupported_relation_candidate": 0.0
+          },
+          "prediction": {
+            "channels": [
+              "surface_structure"
+            ],
+            "model_confidence": 0.6823,
+            "ranking_score": 0.7644,
+            "resolver": "accept_premise",
+            "status": "accepted"
+          },
+          "raw_output": "All A are B",
+          "source": "learned_candidate_dataset"
+        },
+        {
+          "candidate_id": "unsupported_a_d",
+          "claim": "All A are D",
+          "confidence": 0.74,
+          "features": {
+            "accepted_relation_candidate": 0.0,
+            "bias": 1.0,
+            "candidate_confidence": 0.74,
+            "candidate_quantifier_all": 1.0,
+            "candidate_quantifier_no": 0.0,
+            "candidate_quantifier_some": 0.0,
+            "candidate_subject_eq_predicate": 0.0,
+            "contradiction_candidate": 0.0,
+            "deeper_chain_case": 0.0,
+            "direct_support": 0.0,
+            "has_distractor": 0.0,
+            "identity_candidate": 0.0,
+            "identity_path_exists": 0.0,
+            "malformed_candidate": 0.0,
+            "no_against_transitive_support": 0.0,
+            "parseable_relation": 1.0,
+            "premise_count": 1.0,
+            "reverse_path": 0.0,
+            "some_to_all_risk": 0.0,
+            "support_depth": 0.0,
+            "transitive_support": 0.0,
+            "unsupported_relation_candidate": 1.0
+          },
+          "prediction": {
+            "channels": [
+              "directionality",
+              "quantifier_scope",
+              "typed_support"
+            ],
+            "model_confidence": 0.1401,
+            "ranking_score": -1.8144,
+            "resolver": "accept_premise",
+            "status": "abstained"
+          },
+          "raw_output": "All A are D",
+          "source": "learned_candidate_dataset"
+        }
+      ],
+      "tags": [
+        "unsupported"
+      ],
+      "top_candidate_id": "premise_a_b",
+      "trace_schema_valid": true,
+      "verification": {
+        "abstained": [
+          "All A are D"
+        ],
+        "accepted": [
+          "All A are B"
+        ],
+        "candidate_results": [
+          {
+            "candidate_id": "premise_a_b",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "identity_preservation": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "preserved_distinct_nodes",
+                    "channel": "identity_preservation",
+                    "details": {},
+                    "evidence": [
+                      "A!=B"
+                    ],
+                    "status": "resolved",
+                    "target": "A!=B",
+                    "tension_delta": -1.0
+                  },
+                  "protects_against": "relation_identity_collapse"
+                },
+                "evidence": [
+                  "('A', 'B')"
+                ],
+                "final_tension": 0.0,
+                "initial_tension": 1.0,
+                "resolution": "preserved_distinct_nodes"
+              },
+              "logic_transitivity": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 1
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "surface_structure": "accepted premise edge"
+            },
+            "claim": "All A are B",
+            "confidence": 0.6823,
+            "provenance": {
+              "candidate_id": "premise_a_b",
+              "confidence": 0.6823,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.51,
+                "model_prediction": {
+                  "channels": [
+                    "surface_structure"
+                  ],
+                  "model_confidence": 0.6823,
+                  "ranking_score": 0.7644,
+                  "resolver": "accept_premise",
+                  "status": "accepted"
+                }
+              },
+              "raw_output": "All A are B",
+              "source": "learned_candidate_model"
+            },
+            "reason": "candidate is directly present in the premise graph",
+            "source": "learned_candidate_model",
+            "status": "accepted",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [],
+                "blocked_equalities": [
+                  "A!=B"
+                ],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "preserved_distinct_nodes",
+                  "channel": "identity_preservation",
+                  "details": {},
+                  "evidence": [
+                    "A!=B"
+                  ],
+                  "status": "resolved",
+                  "target": "A!=B",
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 1
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          },
+          {
+            "candidate_id": "unsupported_a_d",
+            "channel_trace": {
+              "confidence_abstention": {
+                "activated": true,
+                "details": {
+                  "decision": "answer",
+                  "event": {
+                    "action": "abstained_or_answered",
+                    "channel": "confidence_abstention",
+                    "details": {
+                      "abstained": false
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": 0.0
+                  }
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "abstained_or_answered"
+              },
+              "contradiction": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "directionality": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "identity_preservation": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "logic_transitivity": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "quantifier_scope": {
+                "activated": false,
+                "details": {},
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "not_activated"
+              },
+              "surface_structure": {
+                "activated": true,
+                "details": {
+                  "event": {
+                    "action": "tagged_premise_inferred_candidate_edges",
+                    "channel": "surface_structure",
+                    "details": {
+                      "tag_count": 1
+                    },
+                    "evidence": [],
+                    "status": "resolved",
+                    "target": null,
+                    "tension_delta": -1.0
+                  },
+                  "untagged_claim_edges": 0
+                },
+                "evidence": [],
+                "final_tension": 0.0,
+                "initial_tension": 0.0,
+                "resolution": "tagged_premise_inferred_candidate_edges"
+              }
+            },
+            "channels": {
+              "typed_support": "abstained no accepted channel support"
+            },
+            "claim": "All A are D",
+            "confidence": 0.1401,
+            "provenance": {
+              "candidate_id": "unsupported_a_d",
+              "confidence": 0.1401,
+              "metadata": {
+                "boundary": "learned model proposes/ranks; TS-Reasoner typed channels verify",
+                "input_candidate_confidence": 0.74,
+                "model_prediction": {
+                  "channels": [
+                    "directionality",
+                    "quantifier_scope",
+                    "typed_support"
+                  ],
+                  "model_confidence": 0.1401,
+                  "ranking_score": -1.8144,
+                  "resolver": "accept_premise",
+                  "status": "abstained"
+                }
+              },
+              "raw_output": "All A are D",
+              "source": "learned_candidate_model"
+            },
+            "reason": "no typed channel produced support or a typed rejection",
+            "source": "learned_candidate_model",
+            "status": "abstained",
+            "typed_runtime": {
+              "available": true,
+              "context": {
+                "abstention": false,
+                "blocked_edges": [],
+                "blocked_equalities": [],
+                "contradiction_flagged": false,
+                "quantifier_scope_blocked": false,
+                "surface_tags": {
+                  "A->B:all": "premise"
+                }
+              },
+              "global_tension": 0.0,
+              "resolver_events": [
+                {
+                  "action": "tagged_premise_inferred_candidate_edges",
+                  "channel": "surface_structure",
+                  "details": {
+                    "tag_count": 1
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": -1.0
+                },
+                {
+                  "action": "abstained_or_answered",
+                  "channel": "confidence_abstention",
+                  "details": {
+                    "abstained": false
+                  },
+                  "evidence": [],
+                  "status": "resolved",
+                  "target": null,
+                  "tension_delta": 0.0
+                }
+              ],
+              "settled": true
+            }
+          }
+        ],
+        "channels": {
+          "surface_structure": "accepted premise edge",
+          "typed_support": "abstained no accepted channel support"
+        },
+        "rejected": []
+      },
+      "verifier_beats_confidence_checks": []
+    }
+  ]
+}

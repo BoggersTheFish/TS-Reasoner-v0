@@ -1,5 +1,45 @@
 # Release Notes
 
+## v2.0.0: Learned Candidate Model
+
+v2.0.0 adds a tiny dependency-light learned candidate model before the typed
+verifier.
+
+Release scope:
+
+- Add `ts_reasoner/learned_model/` with dataset, feature extraction, pure-Python
+  model weights, training, inference, and evaluation.
+- Add controlled train/eval/stress JSONL splits for candidate ranking,
+  channel activation prediction, resolver prediction, and
+  accept/reject/abstain prediction.
+- Add a grant-facing demo where the model proposes `All A are D`, `All D are A`,
+  and `A equals D`; TS-Reasoner accepts the valid transitive claim and rejects
+  reverse/identity-collapse candidates through typed channels.
+- Preserve the verifier boundary: the learned model proposes and ranks, while
+  TS-Reasoner typed channels remain proof authority.
+
+Generated artifacts:
+
+- `artifacts/learned_candidate_model.json`
+- `artifacts/learned_candidate_model_report.json`
+- `artifacts/learned_candidate_model_stress_report.json`
+- `artifacts/learned_candidate_model_receipt.json`
+- `artifacts/learned_candidate_model_demo.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/build_learned_candidate_dataset.py
+python3 scripts/train_learned_candidate_model.py
+python3 scripts/evaluate_learned_candidate_model.py
+python3 scripts/demo_learned_candidate_model.py
+```
+
+Claim level: experimental. This is a small learned candidate/channel model for
+TS-Reasoner, not an instruction model, chatbot, live TensionLM runtime, or proof
+authority.
+
 ## v1.7.0: Deeper-Chain Support Repair
 
 v1.7.0 repairs the deeper-chain current-limit case preserved by the v1.6.0

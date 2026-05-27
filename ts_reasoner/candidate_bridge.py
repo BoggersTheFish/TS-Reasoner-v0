@@ -7,6 +7,7 @@ reads the settled graph and channel context.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from typing import Any, Callable, Iterable, Protocol
 
@@ -156,6 +157,9 @@ def verify_candidate_claim(
 
     relations = extract_relations(candidate.claim)
     if not relations:
+        identity_pair = _identity_pair(candidate.claim)
+        if identity_pair is not None:
+            return _verify_identity_candidate(premises, candidate, provenance, identity_pair, index)
         return CandidateVerification(
             candidate_id=candidate.candidate_id,
             claim=candidate.claim,
@@ -301,6 +305,57 @@ def _candidate_contradicts_premises(relation: ParsedRelation, graph: Any) -> boo
     return False
 
 
+def _verify_identity_candidate(
+    premises: list[str],
+    candidate: CandidateClaim,
+    provenance: dict[str, Any],
+    pair: tuple[str, str],
+    index: int,
+) -> CandidateVerification:
+    subject, predicate = pair
+    chain = _identity_verification_chain(premises, subject, predicate, index)
+    cig = CIGChecker().check(chain)
+    graph = chain_to_graph(chain, cig)
+    context = channel_context(chain, cig)
+    typed_trace = TypedTensionRuntime(default_reasoning_channels()).run(graph, context)
+    channel_trace = channel_results_to_trace(typed_trace.channel_results)
+    blocked_equalities = context.get("blocked_equalities", [])
+    marker = f"{subject}!={predicate}"
+    if marker in blocked_equalities:
+        channels = {"identity_preservation": "blocked identity collapse"}
+        status = "rejected"
+        reason = "candidate collapses distinct graph nodes"
+    else:
+        channels = {"typed_support": "abstained no accepted channel support"}
+        status = "abstained"
+        reason = "identity candidate has no typed support"
+    return CandidateVerification(
+        candidate_id=candidate.candidate_id,
+        claim=f"{subject} equals {predicate}",
+        source=candidate.source,
+        confidence=candidate.confidence,
+        status=status,
+        reason=reason,
+        channels=channels,
+        channel_trace=channel_trace,
+        typed_runtime={
+            "available": True,
+            "settled": typed_trace.settled,
+            "global_tension": typed_trace.global_tension,
+            "resolver_events": [event.to_dict() for event in typed_trace.resolver_events],
+            "context": {
+                "blocked_edges": context.get("blocked_edges", []),
+                "blocked_equalities": blocked_equalities,
+                "surface_tags": context.get("surface_tags", {}),
+                "abstention": context.get("abstention"),
+                "contradiction_flagged": context.get("contradiction_flagged", False),
+                "quantifier_scope_blocked": context.get("quantifier_scope_blocked", False),
+            },
+        },
+        provenance=provenance,
+    )
+
+
 def _verification_chain(
     input_text: str,
     premises: list[str],
@@ -321,6 +376,26 @@ def _verification_chain(
     )
 
 
+def _identity_verification_chain(
+    premises: list[str],
+    subject: str,
+    predicate: str,
+    index: int,
+) -> ReasoningChain:
+    steps = [
+        ReasoningStep(f"p{premise_index + 1}", premise, "premise", [], 0.9)
+        for premise_index, premise in enumerate(premises)
+    ]
+    return ReasoningChain(
+        chain_id=f"candidate_bridge_identity_verify_{index}",
+        question=f"Is {subject} identical to {predicate}?",
+        premises=list(premises),
+        steps=steps,
+        final_answer=f"{subject} equals {predicate}",
+        generator="TensionLMCandidateBridge",
+    )
+
+
 def _premise_list(input_text: str, premises: Iterable[str] | None) -> list[str]:
     if premises is not None:
         return [premise.strip() for premise in premises if premise.strip()]
@@ -329,6 +404,18 @@ def _premise_list(input_text: str, premises: Iterable[str] | None) -> list[str]:
 
 def _claim_text(relation: ParsedRelation) -> str:
     return f"{relation.quantifier.capitalize()} {relation.subject} are {relation.predicate}"
+
+
+def _identity_pair(text: str) -> tuple[str, str] | None:
+    match = re.search(
+        r"\b(?P<subject>[A-Za-z][A-Za-z0-9_-]*)\s+(?:equals|=|is\s+identical\s+to)\s+"
+        r"(?P<predicate>[A-Za-z][A-Za-z0-9_-]*)\b",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if match is None:
+        return None
+    return match.group("subject"), match.group("predicate")
 
 
 def _question_text(relation: ParsedRelation) -> str:

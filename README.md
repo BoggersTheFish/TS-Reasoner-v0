@@ -4,22 +4,21 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v1.7_deeper_chain_repair-blue)](MODEL_CARD.md)
+[![Status](https://img.shields.io/badge/status-v2.0_learned_candidate_model-blue)](MODEL_CARD.md)
 
 TS-Reasoner is an inspectable reasoning control loop. It generates candidate
 reasoning chains, scores local and global tension, runs a bounded repair or
 compression loop, settles a trace, and exposes why a result was accepted or
 rejected.
 
-This repository is the stable public v1.x foundation for that loop. It is not a
+This repository is the stable public v2.0 foundation for that loop. It is not a
 large language model, a general theorem prover, or a broad benchmark claim.
 
 Current public bridge claim:
 
-> TS-Reasoner can evaluate multiple exported TensionLM-side candidate samples
-> through a typed verification boundary where malformed, unsupported,
-> contradictory, reverse, and deeper-chain current-limit cases are preserved as
-> failure reasons instead of hidden.
+> TS-Reasoner can train a tiny learned candidate model that ranks/proposes
+> structured candidate claims while typed channels remain the verifier,
+> confidence remains metadata, and candidate graph contamination stays blocked.
 
 ## Typed Tension Channel Demo
 
@@ -303,6 +302,44 @@ Generated artifacts:
 
 See `docs/deeper_chain_support_repair.md`.
 
+## Learned Candidate Model
+
+v2.0.0 adds a dependency-light learned candidate model before the typed
+verifier. The model trains on controlled structured reasoning examples and
+predicts candidate ranking, channel activations, resolver labels, and
+accept/reject/abstain status.
+
+The boundary remains unchanged:
+
+```text
+learned model proposes/ranks
+-> candidate bridge
+-> TS-Reasoner typed channels verify
+-> receipts explain accepted, rejected, and abstained candidates
+```
+
+The learned model is not proof authority. Candidate confidence is metadata, and
+accepted outputs require typed-channel support.
+
+Run the full v2.0 receipt:
+
+```bash
+python3 scripts/build_learned_candidate_dataset.py
+python3 scripts/train_learned_candidate_model.py
+python3 scripts/evaluate_learned_candidate_model.py
+python3 scripts/demo_learned_candidate_model.py
+```
+
+Generated artifacts:
+
+- `artifacts/learned_candidate_model.json`
+- `artifacts/learned_candidate_model_report.json`
+- `artifacts/learned_candidate_model_stress_report.json`
+- `artifacts/learned_candidate_model_receipt.json`
+- `artifacts/learned_candidate_model_demo.json`
+
+See `docs/learned_candidate_model.md`.
+
 ## One-Command Run
 
 ```bash
@@ -434,17 +471,19 @@ ts-reasoner --question "If all A are B and all B are C, are all A C?"
 
 ## Claim Boundary
 
-TS-Reasoner v1.6 claims:
+TS-Reasoner v2.0 claims:
 
 - stable inspectable traces,
 - deterministic small reasoning receipts,
 - visible failure modes,
 - a bridge contract for learned candidate proposers,
 - real exported TensionLM-side candidate sets can cross into TS-Reasoner as candidate data,
+- a tiny learned model can rank/propose structured candidate claims and predict typed-channel signals,
 - typed channels remain the proof authority,
-- malformed and current-limit cases are preserved as receipt evidence.
+- malformed and current-limit cases are preserved as receipt evidence,
+- candidate graph contamination remains blocked.
 
-TS-Reasoner v1.6 does not claim:
+TS-Reasoner v2.0 does not claim:
 
 - general reasoning ability,
 - production decision-making reliability,
