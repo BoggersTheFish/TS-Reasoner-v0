@@ -1,0 +1,55 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/live_tensionlm_export_smoke.json",
+      "sha256": "18fd31f8aa301aa7ea5a7054e677d4c4131b81ea2304f03ccaf7a8c32048f0c2"
+    },
+    {
+      "path": "artifacts/live_tensionlm_export_smoke_report.json",
+      "sha256": "debfb526a6bf44763888b5560b1d6d310725de3d92e07e7fdcf65b1dc2389a3c"
+    }
+  ],
+  "benchmarks": {
+    "accepted_outputs_typed_support_rate": 1.0,
+    "bad_candidate_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "candidate_parse_success_rate": 1.0,
+    "expected_status_accuracy": 1.0,
+    "export_read_success_rate": 1.0,
+    "provenance_preservation_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_candidate_abstention_rate": 1.0,
+    "verifier_beats_confidence_rate": 1.0
+  },
+  "claim": "Live/export-style TensionLM candidate outputs can be verified through the v1.3 adapter boundary.",
+  "commands_run": [
+    "python3 scripts/run_live_tensionlm_export_smoke.py",
+    "python3 scripts/evaluate_live_tensionlm_export_smoke.py"
+  ],
+  "commit": "c35be33",
+  "date": "2026-05-27T03:28:16.767098+00:00",
+  "inputs": [
+    "artifacts/live_tensionlm_export_smoke.json"
+  ],
+  "known_limitations": [
+    "The included export is a deterministic smoke fixture.",
+    "No live model is loaded into TS-Reasoner.",
+    "TensionLM-style outputs remain candidate data and never become proof without typed-channel support."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Export smoke only; no live model integration into the verifier.",
+  "tensions_detected": [
+    "external export paths can blur candidate generation and verifier authority",
+    "high-confidence exported candidates can be wrong or malformed"
+  ],
+  "tensions_resolved": [
+    "exported candidates are read through the v1.3 JSONL adapter",
+    "provenance and raw export metadata are preserved",
+    "typed verifier support remains required for accepted outputs"
+  ],
+  "unresolved_tensions": [
+    "true live TensionLM execution remains outside this release"
+  ],
+  "version": "v1.4.0-live-tensionlm-export-smoke"
+}
