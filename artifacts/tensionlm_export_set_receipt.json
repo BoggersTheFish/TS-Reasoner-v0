@@ -89,8 +89,8 @@
   "commands_run": [
     "python3 scripts/evaluate_tensionlm_export_set.py"
   ],
-  "commit": "87e67d4",
-  "date": "2026-05-27T18:42:30.438717+00:00",
+  "commit": "6b26b0a",
+  "date": "2026-05-27T18:42:41.539724+00:00",
   "inputs": [
     "data/tensionlm_export_set_cases.jsonl"
   ],
