@@ -16,8 +16,8 @@
   "commands_run": [
     "python3 scripts/evaluate_tensionlm_candidate_bridge.py"
   ],
-  "commit": "668109f",
-  "date": "2026-05-27T03:02:01.789571+00:00",
+  "commit": "4679391",
+  "date": "2026-05-27T03:02:18.892999+00:00",
   "inputs": [
     "data/tensionlm_candidate_bridge_cases.jsonl"
   ],
