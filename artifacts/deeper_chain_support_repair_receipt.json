@@ -18,8 +18,8 @@
   "commands_run": [
     "python3 scripts/evaluate_deeper_chain_support_repair.py"
   ],
-  "commit": "56286c6",
-  "date": "2026-05-27T18:59:47.974394+00:00",
+  "commit": "60efbba",
+  "date": "2026-05-27T18:59:59.649193+00:00",
   "inputs": [
     "data/deeper_chain_support_repair_cases.jsonl"
   ],
