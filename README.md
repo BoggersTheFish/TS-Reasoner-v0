@@ -203,6 +203,31 @@ proof, and TS-Reasoner typed channels remain the verifier.
 
 See `docs/messy_language_candidate_stress.md`.
 
+## Live TensionLM Export Smoke
+
+v1.4.0 adds an exported-output smoke for TensionLM-style candidates. This is not
+live model integration into the verifier. It produces/reads exported JSON
+candidate data, feeds that data through the v1.3 adapter, and verifies
+provenance, rejection, typed support, and zero graph contamination.
+
+Run the export smoke and receipt:
+
+```bash
+python3 scripts/run_live_tensionlm_export_smoke.py
+python3 scripts/evaluate_live_tensionlm_export_smoke.py
+```
+
+Generated artifacts:
+
+- `artifacts/live_tensionlm_export_smoke.json`
+- `artifacts/live_tensionlm_export_smoke_report.json`
+- `artifacts/live_tensionlm_export_smoke_receipt.json`
+
+Hard boundary: TensionLM-style outputs remain candidate data and never become
+proof without typed-channel support.
+
+See `docs/live_tensionlm_export_smoke.md`.
+
 ## One-Command Run
 
 ```bash

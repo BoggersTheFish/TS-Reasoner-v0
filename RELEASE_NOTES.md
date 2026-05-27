@@ -1,5 +1,48 @@
 # Release Notes
 
+## v1.4.0: Live TensionLM Export Smoke
+
+v1.4.0 adds a live/export-style smoke around the v1.3 adapter boundary.
+
+Release scope:
+
+- Add deterministic TensionLM-style exported candidate rows.
+- Add a smoke producer that writes exported JSON candidate data.
+- Add an evaluator that feeds the export through the v1.3 adapter and candidate
+  bridge.
+- Verify provenance preservation, bad candidate rejection, typed support for
+  accepted outputs, verifier-over-confidence behavior, and zero graph
+  contamination.
+
+Generated artifacts:
+
+- `artifacts/live_tensionlm_export_smoke.json`
+- `artifacts/live_tensionlm_export_smoke_report.json`
+- `artifacts/live_tensionlm_export_smoke_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/run_live_tensionlm_export_smoke.py
+python3 scripts/evaluate_live_tensionlm_export_smoke.py
+```
+
+Verification result:
+
+- `export_read_success_rate`: `1.0`.
+- `candidate_parse_success_rate`: `1.0`.
+- `provenance_preservation_rate`: `1.0`.
+- `accepted_outputs_typed_support_rate`: `1.0`.
+- `bad_candidate_rejection_rate`: `1.0`.
+- `verifier_beats_confidence_rate`: `1.0`.
+- `candidate_graph_contamination_count`: `0`.
+- `trace_schema_validity`: `1.0`.
+
+Claim level: experimental. v1.4.0 is not live model integration into the
+verifier. It is an exported-output smoke test. TensionLM-style outputs remain
+candidate data and never become proof without typed-channel support.
+
 ## v1.3.0: Messy Language Candidate Stress
 
 v1.3.0 stresses exported candidate ingestion with messy natural-language
