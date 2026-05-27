@@ -8,12 +8,14 @@ contract, and delegates verification to TS-Reasoner typed channels.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
 from .candidate_bridge import run_tensionlm_candidate_bridge
 from .candidates import CandidateClaim
+from .generator import RELATION_RE, ParsedRelation
 
 
 @dataclass(frozen=True)
@@ -63,19 +65,114 @@ def normalize_export_candidate(
     provenance = candidate.get("provenance", "")
     source = str(provenance) if provenance is not None else ""
     raw_text = candidate.get("raw_text", candidate.get("raw_output"))
+    source_claim = str(candidate.get("claim", raw_text or ""))
+    normalized_claim, normalization_status = normalize_candidate_claim_text(source_claim)
+    confidence, confidence_status = coerce_candidate_confidence(candidate.get("confidence", 0.5))
     return CandidateClaim(
         candidate_id=str(candidate.get("candidate_id", f"{row_id}_candidate_{index}")),
-        claim=str(candidate.get("claim", "")),
+        claim=normalized_claim,
         source=source,
-        confidence=float(candidate.get("confidence", 0.5)),
+        confidence=confidence,
         raw_output=str(raw_text) if raw_text is not None else None,
         metadata={
             "model": model,
             "adapter": "real_tensionlm_export_jsonl",
             "row_id": row_id,
+            "source_claim": source_claim,
+            "normalization_status": normalization_status,
+            "confidence_status": confidence_status,
             "raw_candidate": dict(candidate),
         },
     )
+
+
+def coerce_candidate_confidence(value: Any) -> tuple[float, str]:
+    if value is None:
+        return 0.5, "missing_defaulted"
+    try:
+        confidence = float(value)
+    except (TypeError, ValueError):
+        return 0.5, "invalid_defaulted"
+    return max(0.0, min(1.0, confidence)), "provided"
+
+
+def normalize_candidate_claim_text(text: str) -> tuple[str, str]:
+    normalized_space = " ".join(text.replace("\n", " ").split())
+    matches: list[tuple[int, ParsedRelation, str]] = []
+    for match in RELATION_RE.finditer(normalized_space):
+        matches.append(
+            (
+                match.start(),
+                ParsedRelation(
+                    quantifier=match.group("quantifier").lower(),
+                    subject=match.group("subject"),
+                    predicate=match.group("predicate"),
+                    text=match.group(0),
+                ),
+                "canonical_relation",
+            )
+        )
+    paraphrase_patterns = [
+        (
+            "all",
+            re.compile(
+                r"\b(?:every|each)\s+(?P<subject>[A-Za-z][A-Za-z0-9_-]*)\s+"
+                r"(?:is|are|becomes|become|counts\s+as|count\s+as|belongs\s+to|belong\s+to|"
+                r"falls\s+under|fall\s+under|is\s+a\s+kind\s+of|are\s+kinds\s+of|is\s+an?|are)\s+"
+                r"(?P<predicate>[A-Za-z][A-Za-z0-9_-]*)\b",
+                re.IGNORECASE,
+            ),
+        ),
+        (
+            "all",
+            re.compile(
+                r"\ball\s+(?P<subject>[A-Za-z][A-Za-z0-9_-]*)\s+"
+                r"(?:become|are|count\s+as|belong\s+to|fall\s+under|are\s+kinds\s+of)\s+"
+                r"(?P<predicate>[A-Za-z][A-Za-z0-9_-]*)\b",
+                re.IGNORECASE,
+            ),
+        ),
+        (
+            "some",
+            re.compile(
+                r"\b(?:some|at\s+least\s+one)\s+(?P<subject>[A-Za-z][A-Za-z0-9_-]*)\s+"
+                r"(?:is|are|belongs\s+to|belong\s+to|falls\s+under|fall\s+under)\s+"
+                r"(?P<predicate>[A-Za-z][A-Za-z0-9_-]*)\b",
+                re.IGNORECASE,
+            ),
+        ),
+        (
+            "no",
+            re.compile(
+                r"\b(?:none\s+of\s+the|no)\s+(?P<subject>[A-Za-z][A-Za-z0-9_-]*)\s+"
+                r"(?:is|are|belongs\s+to|belong\s+to|falls\s+under|fall\s+under)\s+"
+                r"(?P<predicate>[A-Za-z][A-Za-z0-9_-]*)\b",
+                re.IGNORECASE,
+            ),
+        ),
+    ]
+    for quantifier, pattern in paraphrase_patterns:
+        for match in pattern.finditer(normalized_space):
+            matches.append(
+                (
+                    match.start(),
+                    ParsedRelation(
+                        quantifier=quantifier,
+                        subject=match.group("subject"),
+                        predicate=match.group("predicate"),
+                        text=match.group(0),
+                    ),
+                    "messy_paraphrase",
+                )
+            )
+    if not matches:
+        return text, "unparsed"
+    _start, relation, status = sorted(matches, key=lambda item: item[0])[-1]
+    return _claim_text(relation), status
+
+
+def _claim_text(relation: ParsedRelation) -> str:
+    return f"{relation.quantifier.capitalize()} {relation.subject} are {relation.predicate}"
 
 
 def run_tensionlm_export_row(row: TensionLMExportRow) -> dict[str, Any]:

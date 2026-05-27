@@ -1,0 +1,49 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/messy_language_candidate_stress_report.json",
+      "sha256": "07d9eafdcd958c210873e2f66af10293ee70f882590c5ceaf751e28c83ac504d"
+    }
+  ],
+  "benchmarks": {
+    "accepted_outputs_typed_support_rate": 1.0,
+    "bad_candidate_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "expected_status_accuracy": 1.0,
+    "messy_candidate_parse_success_rate": 1.0,
+    "provenance_preservation_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_candidate_abstention_rate": 1.0,
+    "verifier_beats_confidence_rate": 1.0
+  },
+  "claim": "TS-Reasoner can ingest messy exported language-model candidate outputs while preserving provenance and verifier authority.",
+  "commands_run": [
+    "python3 scripts/evaluate_messy_language_candidate_stress.py"
+  ],
+  "commit": "b88a414",
+  "date": "2026-05-27T03:23:02.457564+00:00",
+  "inputs": [
+    "data/messy_language_candidate_stress_cases.jsonl"
+  ],
+  "known_limitations": [
+    "Messy normalization is pattern-based and toy-scope.",
+    "No live TensionLM checkpoint is loaded.",
+    "Ambiguous and partial claims are rejected instead of semantically repaired."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Exported JSONL stress only; no live model loading.",
+  "tensions_detected": [
+    "exported model candidates may be paraphrased, partial, irrelevant, contradictory, or miscalibrated",
+    "messy text could be mistaken for proof if normalization bypassed typed verification"
+  ],
+  "tensions_resolved": [
+    "relation-shaped paraphrases normalize into candidate claims",
+    "partial and ambiguous claims remain malformed and are rejected",
+    "high-confidence bad candidates remain subordinate to typed verification"
+  ],
+  "unresolved_tensions": [
+    "live model-loading remains out of scope until messy exported stress is stable"
+  ],
+  "version": "v1.3.0-messy-language-candidate-stress"
+}

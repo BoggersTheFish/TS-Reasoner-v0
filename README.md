@@ -179,6 +179,30 @@ Generated artifacts:
 
 See `docs/real_tensionlm_candidate_adapter.md`.
 
+## Messy Language Candidate Stress
+
+v1.3.0 stresses exported candidate ingestion with messy language before any live
+model-loading work. It covers paraphrases, partial claims, extra irrelevant
+text, contradictory candidate sets, unsupported leaps, bad or missing
+confidence, ambiguous relation wording, and multi-candidate outputs where the
+wrong candidate has higher confidence.
+
+Run the stress receipt:
+
+```bash
+python3 scripts/evaluate_messy_language_candidate_stress.py
+```
+
+Generated artifacts:
+
+- `artifacts/messy_language_candidate_stress_report.json`
+- `artifacts/messy_language_candidate_stress_receipt.json`
+
+The boundary remains unchanged: model text is candidate data, confidence is not
+proof, and TS-Reasoner typed channels remain the verifier.
+
+See `docs/messy_language_candidate_stress.md`.
+
 ## One-Command Run
 
 ```bash
