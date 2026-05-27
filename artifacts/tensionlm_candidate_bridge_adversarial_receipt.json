@@ -1,0 +1,49 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/tensionlm_candidate_bridge_adversarial_report.json",
+      "sha256": "f2d505e2db3622aaabc6dbf5f030ae77085b73b947aa76346b29bce4e00e0a5f"
+    }
+  ],
+  "benchmarks": {
+    "bad_high_confidence_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "case_success_rate": 1.0,
+    "expected_status_accuracy": 1.0,
+    "malformed_candidate_rejection_rate": 1.0,
+    "provenance_required_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_candidate_abstention_rate": 1.0,
+    "verifier_beats_candidate_confidence": 1.0
+  },
+  "claim": "High-confidence bad candidate proposals do not override typed TS-Reasoner verification.",
+  "commands_run": [
+    "python3 scripts/evaluate_tensionlm_candidate_bridge_adversarial.py"
+  ],
+  "commit": "668109f",
+  "date": "2026-05-27T03:02:01.867352+00:00",
+  "inputs": [
+    "data/candidate_bridge_adversarial_cases.jsonl"
+  ],
+  "known_limitations": [
+    "Toy-scope relation parser.",
+    "Adversarial candidates are deterministic fixtures, not sampled model outputs.",
+    "Identity-style claims outside all/some/no relation syntax are rejected as malformed graph claims."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Adversarial bridge stress over deterministic external-hook candidates.",
+  "tensions_detected": [
+    "candidate confidence can conflict with typed verifier decisions",
+    "candidate claims could contaminate proof support if admitted too early"
+  ],
+  "tensions_resolved": [
+    "high-confidence bad candidates are rejected by typed reasons",
+    "candidate graph contamination remains zero in adversarial cases",
+    "missing provenance and malformed graph claims are hard rejections"
+  ],
+  "unresolved_tensions": [
+    "real TensionLM output adapter remains the next branch"
+  ],
+  "version": "v1.1.0-candidate-bridge-adversarial"
+}

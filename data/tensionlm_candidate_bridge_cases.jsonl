@@ -1,0 +1,4 @@
+{"case_id":"valid_transitive_with_reverse_probe","input_text":"All A are B. All B are C. Are all A C?","expected_status":{"All A are C":"accepted","All C are A":"rejected"}}
+{"case_id":"unsupported_relation_abstains","input_text":"All A are B. Are all A C?","expected_status":{"All A are C":"abstained","All C are A":"abstained"}}
+{"case_id":"some_all_upgrade_rejected","input_text":"Some pilots are engineers. All engineers are careful. Are all pilots careful?","expected_status":{"All pilots are careful":"rejected","All careful are pilots":"abstained"}}
+{"case_id":"contradictory_premise_rejected","input_text":"All A are B. No A are B. Are all A B?","expected_status":{"All A are B":"rejected","All B are A":"rejected"}}

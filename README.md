@@ -4,14 +4,14 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v1_trace_contract-blue)](MODEL_CARD.md)
+[![Status](https://img.shields.io/badge/status-v1.1_candidate_bridge-blue)](MODEL_CARD.md)
 
 TS-Reasoner is an inspectable reasoning control loop. It generates candidate
 reasoning chains, scores local and global tension, runs a bounded repair or
 compression loop, settles a trace, and exposes why a result was accepted or
 rejected.
 
-This repository is the stable public v1.0 foundation for that loop. It is not a
+This repository is the stable public v1.x foundation for that loop. It is not a
 large language model, a general theorem prover, or a broad benchmark claim.
 
 ## Typed Tension Channel Demo
@@ -115,6 +115,39 @@ python3 scripts/generate_typed_channel_release_receipt.py
 This writes `artifacts/typed_channel_release_receipt.json`.
 
 See `docs/typed_channel_release_receipt.md`.
+
+## TensionLM Candidate Bridge
+
+v1.1.0 adds a dependency-light candidate bridge contract:
+
+```text
+TensionLM proposes.
+TS-Reasoner verifies.
+Typed channels decide.
+Receipts explain.
+```
+
+The bridge admits external language/model outputs as candidate graph claims,
+then verifies them without inserting candidate claims into the proof-support
+graph. High-confidence bad proposals cannot override typed verification.
+
+Run the bridge demo, normal eval, and adversarial stress:
+
+```bash
+python3 scripts/demo_tensionlm_candidate_bridge.py
+python3 scripts/evaluate_tensionlm_candidate_bridge.py
+python3 scripts/evaluate_tensionlm_candidate_bridge_adversarial.py
+```
+
+Generated artifacts:
+
+- `artifacts/tensionlm_candidate_bridge_demo.json`
+- `artifacts/tensionlm_candidate_bridge_report.json`
+- `artifacts/tensionlm_candidate_bridge_receipt.json`
+- `artifacts/tensionlm_candidate_bridge_adversarial_report.json`
+- `artifacts/tensionlm_candidate_bridge_adversarial_receipt.json`
+
+See `docs/tensionlm_candidate_bridge.md`.
 
 ## One-Command Run
 

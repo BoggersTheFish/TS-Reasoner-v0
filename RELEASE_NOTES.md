@@ -1,5 +1,61 @@
 # Release Notes
 
+## v1.1.0: TensionLM Candidate Bridge
+
+v1.1.0 adds a safe candidate bridge contract for external language/model
+outputs:
+
+```text
+TensionLM proposes.
+TS-Reasoner verifies.
+Typed channels decide.
+Receipts explain.
+```
+
+Release scope:
+
+- Add `CandidateClaim` and `CandidateVerification` contracts.
+- Add mock and external-hook bridge modes.
+- Verify candidates against premise graphs without inserting candidate claims as
+  proof support.
+- Accept, reject, or abstain through typed-channel-derived reasons.
+- Reject missing-provenance and malformed graph claims before typed verification.
+- Add adversarial stress for high-confidence bad candidates, unsupported
+  candidates, malformed candidates, missing provenance, contradiction probes, and
+  candidate graph contamination.
+
+Generated artifacts:
+
+- `artifacts/tensionlm_candidate_bridge_demo.json`
+- `artifacts/tensionlm_candidate_bridge_report.json`
+- `artifacts/tensionlm_candidate_bridge_receipt.json`
+- `artifacts/tensionlm_candidate_bridge_adversarial_report.json`
+- `artifacts/tensionlm_candidate_bridge_adversarial_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/demo_tensionlm_candidate_bridge.py
+python3 scripts/evaluate_tensionlm_candidate_bridge.py
+python3 scripts/evaluate_tensionlm_candidate_bridge_adversarial.py
+```
+
+Verification result:
+
+- `53` unittest tests passed.
+- Normal bridge eval: `1.0` expected status accuracy, case success rate, typed
+  reason rejection rate, provenance preservation, and trace schema validity.
+- Adversarial bridge eval: `1.0` verifier-beats-candidate-confidence,
+  bad-high-confidence rejection, unsupported-candidate abstention,
+  malformed-candidate rejection, provenance-required rate, and trace schema
+  validity.
+- Candidate graph contamination count: `0`.
+
+Claim level: experimental. v1.1.0 proves external candidate proposals can be
+safely admitted without becoming proof. It does not load real TensionLM weights
+or claim natural-language robustness.
+
 ## Typed-Channel Release Receipt
 
 This release-receipt branch summarizes the full TS-Reasoner typed-channel arc:

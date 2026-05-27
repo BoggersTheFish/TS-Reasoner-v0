@@ -1,0 +1,102 @@
+{
+  "case_count": 4,
+  "dataset": "data/tensionlm_candidate_bridge_cases.jsonl",
+  "metrics": {
+    "case_success_rate": 1.0,
+    "expected_status_accuracy": 1.0,
+    "provenance_preservation_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "typed_reason_rejection_rate": 1.0
+  },
+  "results": [
+    {
+      "abstained": [],
+      "accepted": [
+        "All A are C"
+      ],
+      "all_expected_ok": true,
+      "candidate_count": 2,
+      "case_id": "valid_transitive_with_reverse_probe",
+      "channels": {
+        "directionality": "blocked reverse inference",
+        "logic_transitivity": "accepted inferred edge"
+      },
+      "expected_checks": {
+        "All A are C": true,
+        "All C are A": true
+      },
+      "input_text": "All A are B. All B are C. Are all A C?",
+      "provenance_preserved": true,
+      "rejected": [
+        "All C are A"
+      ],
+      "typed_reason_rejection_count": 1
+    },
+    {
+      "abstained": [
+        "All A are C",
+        "All C are A"
+      ],
+      "accepted": [],
+      "all_expected_ok": true,
+      "candidate_count": 2,
+      "case_id": "unsupported_relation_abstains",
+      "channels": {
+        "typed_support": "abstained no accepted channel support"
+      },
+      "expected_checks": {
+        "All A are C": true,
+        "All C are A": true
+      },
+      "input_text": "All A are B. Are all A C?",
+      "provenance_preserved": true,
+      "rejected": [],
+      "typed_reason_rejection_count": 0
+    },
+    {
+      "abstained": [
+        "All careful are pilots"
+      ],
+      "accepted": [],
+      "all_expected_ok": true,
+      "candidate_count": 2,
+      "case_id": "some_all_upgrade_rejected",
+      "channels": {
+        "quantifier_scope": "blocked some-to-all upgrade",
+        "typed_support": "abstained no accepted channel support"
+      },
+      "expected_checks": {
+        "All careful are pilots": true,
+        "All pilots are careful": true
+      },
+      "input_text": "Some pilots are engineers. All engineers are careful. Are all pilots careful?",
+      "provenance_preserved": true,
+      "rejected": [
+        "All pilots are careful"
+      ],
+      "typed_reason_rejection_count": 1
+    },
+    {
+      "abstained": [],
+      "accepted": [],
+      "all_expected_ok": true,
+      "candidate_count": 2,
+      "case_id": "contradictory_premise_rejected",
+      "channels": {
+        "contradiction": "flagged contradiction",
+        "directionality": "blocked reverse inference"
+      },
+      "expected_checks": {
+        "All A are B": true,
+        "All B are A": true
+      },
+      "input_text": "All A are B. No A are B. Are all A B?",
+      "provenance_preserved": true,
+      "rejected": [
+        "All A are B",
+        "All B are A"
+      ],
+      "typed_reason_rejection_count": 2
+    }
+  ]
+}
