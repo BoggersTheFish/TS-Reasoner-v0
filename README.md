@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v1.2_export_adapter-blue)](MODEL_CARD.md)
+[![Status](https://img.shields.io/badge/status-v1.5_real_exported_sample-blue)](MODEL_CARD.md)
 
 TS-Reasoner is an inspectable reasoning control loop. It generates candidate
 reasoning chains, scores local and global tension, runs a bounded repair or
@@ -13,6 +13,12 @@ rejected.
 
 This repository is the stable public v1.x foundation for that loop. It is not a
 large language model, a general theorem prover, or a broad benchmark claim.
+
+Current public bridge claim:
+
+> TS-Reasoner can consume real exported TensionLM-side candidate data through a
+> typed verification boundary where provenance is preserved, model confidence
+> remains metadata, and typed channels remain the proof authority.
 
 ## Typed Tension Channel Demo
 
@@ -382,17 +388,21 @@ ts-reasoner --question "If all A are B and all B are C, are all A C?"
 
 ## Claim Boundary
 
-TS-Reasoner v1.0 claims:
+TS-Reasoner v1.5 claims:
 
 - stable inspectable traces,
 - deterministic small reasoning receipts,
 - visible failure modes,
-- a bridge contract for learned candidate proposers.
+- a bridge contract for learned candidate proposers,
+- real exported TensionLM-side candidate data can cross into TS-Reasoner as candidate data,
+- typed channels remain the proof authority.
 
-TS-Reasoner v1.0 does not claim:
+TS-Reasoner v1.5 does not claim:
 
 - general reasoning ability,
 - production decision-making reliability,
 - formal proof completeness,
 - chatbot quality,
-- superiority over frontier models.
+- superiority over frontier models,
+- live TensionLM integration into the verifier,
+- model confidence as proof authority.
