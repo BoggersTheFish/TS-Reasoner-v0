@@ -1,7 +1,11 @@
 import json
 import unittest
 
-from ts_reasoner.tensionlm_adapter import parse_tensionlm_export_row, run_tensionlm_export_row
+from ts_reasoner.tensionlm_adapter import (
+    normalize_candidate_claim_text,
+    parse_tensionlm_export_row,
+    run_tensionlm_export_row,
+)
 
 
 class TensionLMAdapterTests(unittest.TestCase):
@@ -91,6 +95,41 @@ class TensionLMAdapterTests(unittest.TestCase):
         )
 
         json.dumps(run_tensionlm_export_row(row))
+
+    def test_messy_paraphrase_normalizes_without_granting_proof_authority(self):
+        claim, status = normalize_candidate_claim_text("Side note: all clouds are vapor. Final: every A is C.")
+
+        self.assertEqual(claim, "All A are C")
+        self.assertEqual(status, "messy_paraphrase")
+
+    def test_partial_messy_claim_stays_malformed(self):
+        claim, status = normalize_candidate_claim_text("A therefore C, probably.")
+
+        self.assertEqual(claim, "A therefore C, probably.")
+        self.assertEqual(status, "unparsed")
+
+    def test_bad_confidence_defaults_but_candidate_still_verifies(self):
+        row = parse_tensionlm_export_row(
+            {
+                "input_text": "All A are B. All B are C. Are all A C?",
+                "model": "TensionLM-export-fixture",
+                "candidates": [
+                    {
+                        "candidate_id": "bad_confidence_valid",
+                        "claim": "Every A falls under C.",
+                        "confidence": "very high",
+                        "provenance": "model_output",
+                    }
+                ],
+            }
+        )
+        candidate = row.candidates[0]
+        payload = run_tensionlm_export_row(row)
+
+        self.assertEqual(candidate.confidence, 0.5)
+        self.assertEqual(candidate.metadata["confidence_status"], "invalid_defaulted")
+        self.assertEqual(candidate.metadata["normalization_status"], "messy_paraphrase")
+        self.assertEqual(_result(payload, "All A are C")["status"], "accepted")
 
 
 def _result(payload, claim):

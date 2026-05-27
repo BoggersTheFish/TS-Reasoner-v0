@@ -1,5 +1,50 @@
 # Release Notes
 
+## v1.3.0: Messy Language Candidate Stress
+
+v1.3.0 stresses exported candidate ingestion with messy natural-language
+candidate outputs before any live model-loading work.
+
+Release scope:
+
+- Add messy exported JSONL stress cases covering paraphrases, partial claims,
+  irrelevant text, contradictory candidate sets, unsupported leaps, bad or
+  missing confidence, ambiguous relation wording, and high-confidence wrong
+  candidates.
+- Add pattern-based messy relation normalization in the exported-output adapter.
+- Preserve raw candidate text, normalization status, confidence status, model,
+  row ID, and provenance through bridge traces.
+- Keep partial and ambiguous claims malformed so the existing bridge rejects
+  them.
+- Preserve verifier authority: accepted outputs still require typed-channel
+  support, and candidate graph contamination remains blocked.
+
+Generated artifacts:
+
+- `artifacts/messy_language_candidate_stress_report.json`
+- `artifacts/messy_language_candidate_stress_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_messy_language_candidate_stress.py
+```
+
+Verification result:
+
+- `messy_candidate_parse_success_rate`: `1.0`.
+- `bad_candidate_rejection_rate`: `1.0`.
+- `verifier_beats_confidence_rate`: `1.0`.
+- `provenance_preservation_rate`: `1.0`.
+- `candidate_graph_contamination_count`: `0`.
+- `accepted_outputs_typed_support_rate`: `1.0`.
+- `trace_schema_validity`: `1.0`.
+
+Claim level: experimental. TS-Reasoner can robustly ingest messy exported
+language-model candidate outputs while preserving provenance and verifier
+authority. This release still does not load live model weights.
+
 ## v1.2.0: Real TensionLM Candidate Adapter
 
 v1.2.0 adds a JSONL adapter for real or exported TensionLM-style candidate
