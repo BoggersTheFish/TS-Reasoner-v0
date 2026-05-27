@@ -28,6 +28,11 @@ claims such as `All A are C`. It does not treat confidence as proof. Partial and
 ambiguous candidates remain malformed and are rejected by the v1.1 bridge
 boundary. Accepted outputs still require typed-channel support.
 
+When multiple relation-shaped fragments are present, the adapter selects the
+latest parseable candidate fragment under the current exported-output policy.
+This is a deterministic ingestion rule, not proof that the system fully
+understands arbitrary natural language.
+
 Run the stress:
 
 ```bash
