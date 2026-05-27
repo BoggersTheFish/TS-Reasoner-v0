@@ -257,6 +257,29 @@ Generated artifacts:
 
 See `docs/real_exported_tensionlm_sample.md`.
 
+## TensionLM Export Set Evaluation
+
+v1.6.0 evaluates a small set of real exported TensionLM-side samples through the
+same adapter boundary. The set preserves accepted, rejected, abstained, and
+malformed cases instead of hiding failures.
+
+This does not load TensionLM inside TS-Reasoner and does not train anything.
+Candidate confidence remains metadata; typed channels remain the proof
+authority; candidate edges do not enter proof support.
+
+Run the export set receipt:
+
+```bash
+python3 scripts/evaluate_tensionlm_export_set.py
+```
+
+Generated artifacts:
+
+- `artifacts/tensionlm_export_set_report.json`
+- `artifacts/tensionlm_export_set_receipt.json`
+
+See `docs/tensionlm_export_set_evaluation.md`.
+
 ## One-Command Run
 
 ```bash
