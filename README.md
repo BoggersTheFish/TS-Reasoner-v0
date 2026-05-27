@@ -228,6 +228,29 @@ proof without typed-channel support.
 
 See `docs/live_tensionlm_export_smoke.md`.
 
+## Real Exported TensionLM Sample
+
+v1.5.0 evaluates a real exported TensionLM-side sample through the existing
+TS-Reasoner adapter. The sample is sourced from the TensionLM checkout artifact
+`/home/boggersthefish/BoggersSpace/bozo/logs/eval/117m_transitivity_seed42.json`.
+
+This does not load TensionLM inside TS-Reasoner and does not train anything.
+Raw completions are preserved as candidate provenance; export-side normalized
+claims are evaluated unchanged by TS-Reasoner typed channels.
+
+Run the receipt:
+
+```bash
+python3 scripts/evaluate_real_exported_tensionlm_sample.py
+```
+
+Generated artifacts:
+
+- `artifacts/real_exported_tensionlm_sample_report.json`
+- `artifacts/real_exported_tensionlm_sample_receipt.json`
+
+See `docs/real_exported_tensionlm_sample.md`.
+
 ## One-Command Run
 
 ```bash
