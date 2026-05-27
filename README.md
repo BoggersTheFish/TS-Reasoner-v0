@@ -149,6 +149,33 @@ Generated artifacts:
 
 See `docs/tensionlm_candidate_bridge.md`.
 
+## Real TensionLM Candidate Adapter
+
+v1.2.0 adds a JSONL adapter for real or exported TensionLM-style candidate
+outputs. This is still dependency-light: it does not load a model or sample
+tokens. It normalizes exported candidates into the v1.1 bridge contract.
+
+```text
+TensionLM proposes.
+Bridge normalizes.
+TS-Reasoner verifies.
+Typed channels decide.
+```
+
+Run the adapter smoke and receipt:
+
+```bash
+python3 scripts/run_real_tensionlm_candidate_adapter.py
+python3 scripts/evaluate_real_tensionlm_candidate_adapter.py
+```
+
+Generated artifacts:
+
+- `artifacts/real_tensionlm_candidate_adapter_smoke.json`
+- `artifacts/real_tensionlm_candidate_adapter_receipt.json`
+
+See `docs/real_tensionlm_candidate_adapter.md`.
+
 ## One-Command Run
 
 ```bash

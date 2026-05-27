@@ -1,5 +1,49 @@
 # Release Notes
 
+## v1.2.0: Real TensionLM Candidate Adapter
+
+v1.2.0 adds a JSONL adapter for real or exported TensionLM-style candidate
+outputs while preserving the v1.1 verifier boundary.
+
+Release scope:
+
+- Add `ts_reasoner.tensionlm_adapter`.
+- Accept exported JSONL rows containing `input_text`, `model`, and candidate
+  objects with `claim`, `confidence`, `provenance`, and `raw_text`.
+- Normalize exported candidates into `CandidateClaim` records.
+- Preserve model, raw text, raw candidate payload, row ID, confidence, and
+  provenance through verification traces.
+- Reject malformed outputs and missing provenance through the existing bridge
+  boundary.
+- Keep high-confidence bad outputs subordinate to typed-channel verification.
+
+Generated artifacts:
+
+- `artifacts/real_tensionlm_candidate_adapter_smoke.json`
+- `artifacts/real_tensionlm_candidate_adapter_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/run_real_tensionlm_candidate_adapter.py
+python3 scripts/evaluate_real_tensionlm_candidate_adapter.py
+```
+
+Verification result:
+
+- Adapter smoke covers valid, high-confidence bad, malformed, unsupported, and
+  missing-provenance exported outputs.
+- `verifier_beats_candidate_confidence`: `1.0`.
+- `bad_high_confidence_rejection_rate`: `1.0`.
+- `candidate_graph_contamination_count`: `0`.
+- `candidate_provenance_preservation_rate`: `1.0`.
+- `accepted_outputs_typed_support_rate`: `1.0`.
+
+Claim level: experimental. TS-Reasoner can safely consume exported external
+model candidate outputs through a typed verification boundary. This release does
+not load real TensionLM weights or claim natural-language robustness.
+
 ## v1.1.0: TensionLM Candidate Bridge
 
 v1.1.0 adds a safe candidate bridge contract for external language/model
