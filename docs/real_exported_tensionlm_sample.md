@@ -12,10 +12,11 @@ Do not let model confidence become proof.
 Use exported JSONL only.
 ```
 
-Source evidence:
+Source evidence comes from an existing TensionLM-side eval artifact:
 
 - repository: `/home/boggersthefish/BoggersSpace/bozo`
-- source artifact: `logs/eval/117m_transitivity_seed42.json`
+- source artifact:
+  `/home/boggersthefish/BoggersSpace/bozo/logs/eval/117m_transitivity_seed42.json`
 - checkpoint recorded by the source artifact:
   `checkpoints/117m-curriculum/pytorch_model.pt`
 
@@ -47,5 +48,5 @@ Metrics:
 - `trace_schema_validity`
 
 Claim level: experimental. This is the first real cross-repo exported sample
-proof: TensionLM-side output can cross into TS-Reasoner while staying contained
-by typed verification.
+proof: real exported TensionLM-side candidate data can cross into TS-Reasoner
+while remaining candidate data, not proof.
