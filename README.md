@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v1.1_candidate_bridge-blue)](MODEL_CARD.md)
+[![Status](https://img.shields.io/badge/status-v1.2_export_adapter-blue)](MODEL_CARD.md)
 
 TS-Reasoner is an inspectable reasoning control loop. It generates candidate
 reasoning chains, scores local and global tension, runs a bounded repair or
@@ -152,8 +152,10 @@ See `docs/tensionlm_candidate_bridge.md`.
 ## Real TensionLM Candidate Adapter
 
 v1.2.0 adds a JSONL adapter for real or exported TensionLM-style candidate
-outputs. This is still dependency-light: it does not load a model or sample
-tokens. It normalizes exported candidates into the v1.1 bridge contract.
+outputs. This adapter consumes exported candidate JSONL. It does not load or
+train TensionLM, and model confidence does not get proof authority. It
+normalizes exported candidates into the v1.1 bridge contract while TS-Reasoner
+typed channels remain the verifier.
 
 ```text
 TensionLM proposes.
@@ -172,6 +174,7 @@ python3 scripts/evaluate_real_tensionlm_candidate_adapter.py
 Generated artifacts:
 
 - `artifacts/real_tensionlm_candidate_adapter_smoke.json`
+- `artifacts/real_tensionlm_candidate_adapter_report.json`
 - `artifacts/real_tensionlm_candidate_adapter_receipt.json`
 
 See `docs/real_tensionlm_candidate_adapter.md`.

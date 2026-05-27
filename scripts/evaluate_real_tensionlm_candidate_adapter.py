@@ -127,7 +127,7 @@ def evaluate_row(row) -> dict[str, Any]:
     }
 
 
-def build_receipt(report: dict[str, Any], smoke_path: Path, data_path: Path) -> dict[str, Any]:
+def build_receipt(report: dict[str, Any], smoke_path: Path, report_path: Path, data_path: Path) -> dict[str, Any]:
     return {
         "project": "TS-Reasoner-v0",
         "version": "v1.2.0-real-tensionlm-candidate-adapter",
@@ -143,6 +143,7 @@ def build_receipt(report: dict[str, Any], smoke_path: Path, data_path: Path) -> 
         "benchmarks": report["metrics"],
         "artifacts": [
             {"path": str(smoke_path.relative_to(ROOT)), "sha256": sha256(smoke_path)},
+            {"path": str(report_path.relative_to(ROOT)), "sha256": sha256(report_path)},
         ],
         "known_limitations": [
             "Fixture JSONL stands in for exported real/model outputs.",
@@ -168,11 +169,13 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", default="data/real_tensionlm_candidate_adapter_cases.jsonl")
     parser.add_argument("--smoke", default="artifacts/real_tensionlm_candidate_adapter_smoke.json")
+    parser.add_argument("--report", default="artifacts/real_tensionlm_candidate_adapter_report.json")
     parser.add_argument("--receipt", default="artifacts/real_tensionlm_candidate_adapter_receipt.json")
     args = parser.parse_args()
 
     data_path = ROOT / args.data
     smoke_path = ROOT / args.smoke
+    report_path = ROOT / args.report
     receipt_path = ROOT / args.receipt
     rows = load_tensionlm_export_jsonl(data_path)
     results = [evaluate_row(row) for row in rows]
@@ -218,9 +221,11 @@ def main() -> None:
         raise FileNotFoundError(
             f"Expected smoke artifact at {smoke_path}. Run scripts/run_real_tensionlm_candidate_adapter.py first."
         )
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     receipt_path.parent.mkdir(parents=True, exist_ok=True)
     receipt_path.write_text(
-        json.dumps(build_receipt(report, smoke_path, data_path), indent=2, sort_keys=True) + "\n",
+        json.dumps(build_receipt(report, smoke_path, report_path, data_path), indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
 

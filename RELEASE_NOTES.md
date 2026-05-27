@@ -20,6 +20,7 @@ Release scope:
 Generated artifacts:
 
 - `artifacts/real_tensionlm_candidate_adapter_smoke.json`
+- `artifacts/real_tensionlm_candidate_adapter_report.json`
 - `artifacts/real_tensionlm_candidate_adapter_receipt.json`
 
 Verification:
@@ -42,7 +43,8 @@ Verification result:
 
 Claim level: experimental. TS-Reasoner can safely consume exported external
 model candidate outputs through a typed verification boundary. This release does
-not load real TensionLM weights or claim natural-language robustness.
+not load or train real TensionLM weights, does not give model confidence proof
+authority, and does not claim natural-language robustness.
 
 ## v1.1.0: TensionLM Candidate Bridge
 

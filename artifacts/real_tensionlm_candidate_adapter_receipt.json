@@ -3,6 +3,10 @@
     {
       "path": "artifacts/real_tensionlm_candidate_adapter_smoke.json",
       "sha256": "0e3011b54626aa70b6470893c792d9f98a61da3a6ed645e1781b7413e3985cdb"
+    },
+    {
+      "path": "artifacts/real_tensionlm_candidate_adapter_report.json",
+      "sha256": "a6c935910ec9fd20b4f26859b9cf936d7b564ec1e753b08d44c54e853b9b960e"
     }
   ],
   "benchmarks": {
@@ -23,8 +27,8 @@
     "python3 scripts/run_real_tensionlm_candidate_adapter.py",
     "python3 scripts/evaluate_real_tensionlm_candidate_adapter.py"
   ],
-  "commit": "6216276",
-  "date": "2026-05-27T03:07:26.204778+00:00",
+  "commit": "13748ea",
+  "date": "2026-05-27T03:13:20.395431+00:00",
   "inputs": [
     "data/real_tensionlm_candidate_adapter_cases.jsonl"
   ],

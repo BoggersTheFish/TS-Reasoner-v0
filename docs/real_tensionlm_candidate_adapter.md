@@ -1,9 +1,10 @@
 # Real TensionLM Candidate Adapter
 
 v1.2.0 adds a narrow adapter for real or exported TensionLM-style candidate
-outputs. It does not load model weights. It accepts JSONL rows, normalizes model
-outputs into the v1.1 candidate bridge contract, and lets TS-Reasoner typed
-channels verify the claims.
+outputs. This adapter consumes exported candidate JSONL. It does not load,
+train, or sample TensionLM. It accepts JSONL rows, normalizes model outputs into
+the v1.1 candidate bridge contract, and lets TS-Reasoner typed channels remain
+the verifier.
 
 Rule:
 
@@ -37,6 +38,9 @@ Each line has this shape:
 existing bridge boundary. `raw_text`, `model`, and the raw candidate object are
 preserved in candidate metadata.
 
+Model confidence remains candidate metadata. It does not create proof authority;
+accepted outputs still require typed-channel support.
+
 ## Commands
 
 Run the smoke adapter:
@@ -54,6 +58,7 @@ python3 scripts/evaluate_real_tensionlm_candidate_adapter.py
 Outputs:
 
 - `artifacts/real_tensionlm_candidate_adapter_smoke.json`
+- `artifacts/real_tensionlm_candidate_adapter_report.json`
 - `artifacts/real_tensionlm_candidate_adapter_receipt.json`
 
 Success condition:
