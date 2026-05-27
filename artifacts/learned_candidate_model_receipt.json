@@ -1,0 +1,73 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/learned_candidate_model.json",
+      "sha256": "39c963fd9ec5d778e06fee3dfbaff575417b5e39c31ec70ef5623d3fc55bfbcc"
+    },
+    {
+      "path": "artifacts/learned_candidate_model_report.json",
+      "sha256": "57911fadc9ac369c2ee705a3d02e7a435679f94e5b5c95e723c63942d0c5c0a7"
+    },
+    {
+      "path": "artifacts/learned_candidate_model_stress_report.json",
+      "sha256": "99e41d7779bcb8d8eb2497e023ba6aa0f052e24eff5261adb470e0902d3f4d2d"
+    }
+  ],
+  "benchmarks": {
+    "eval": {
+      "abstention_accuracy": 1.0,
+      "accepted_candidate_support_rate": 1.0,
+      "bad_candidate_rejection_rate": 1.0,
+      "candidate_graph_contamination_count": 0,
+      "candidate_ranking_accuracy": 1.0,
+      "channel_activation_accuracy": 0.9531,
+      "deeper_chain_success_rate": 1.0,
+      "distractor_robustness": 1.0,
+      "resolver_prediction_accuracy": 0.875,
+      "trace_schema_validity": 1.0,
+      "verifier_beats_model_confidence_rate": 1.0
+    },
+    "stress": {
+      "abstention_accuracy": 1.0,
+      "accepted_candidate_support_rate": 1.0,
+      "bad_candidate_rejection_rate": 1.0,
+      "candidate_graph_contamination_count": 0,
+      "candidate_ranking_accuracy": 1.0,
+      "channel_activation_accuracy": 0.9886,
+      "deeper_chain_success_rate": 1.0,
+      "distractor_robustness": 1.0,
+      "resolver_prediction_accuracy": 1.0,
+      "trace_schema_validity": 1.0,
+      "verifier_beats_model_confidence_rate": 1.0
+    }
+  },
+  "boundary": {
+    "candidate_graph_contamination_count": 0,
+    "confidence_role": "metadata only; never proof authority",
+    "learned_model_role": "candidate ranking and channel/resolver prediction",
+    "verifier_role": "TS-Reasoner typed channels accept, reject, or abstain"
+  },
+  "claim": "A tiny learned candidate model can rank candidate claims and predict channel/resolver signals while TS-Reasoner typed channels remain proof authority.",
+  "commands_run": [
+    "python3 scripts/build_learned_candidate_dataset.py",
+    "python3 scripts/train_learned_candidate_model.py",
+    "python3 scripts/evaluate_learned_candidate_model.py"
+  ],
+  "commit": "90c7c3b",
+  "date": "2026-05-27T19:34:17.295361+00:00",
+  "inputs": [
+    "data/learned_candidate_model_train.jsonl",
+    "data/learned_candidate_model_eval.jsonl",
+    "data/learned_candidate_model_stress.jsonl"
+  ],
+  "known_limitations": [
+    "Synthetic, parser-controlled structured examples.",
+    "Tiny linear model, not a full language model.",
+    "No live TensionLM runtime is loaded.",
+    "Model predictions are advisory; all accepted claims require typed-channel support."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Pure-Python learned proposer/ranker over structured reasoning examples; no TensionLM loading or training.",
+  "version": "v2.0.0-learned-candidate-model"
+}
