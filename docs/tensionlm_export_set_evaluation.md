@@ -49,6 +49,15 @@ Metrics:
 - `trace_schema_validity`
 - `per_sample_failure_reasons`
 
+Current parse distinction:
+
+- `candidate_parse_success_rate`: `0.8889`
+- `candidate_parse_expectation_rate`: `1.0`
+
+This means not every exported candidate parsed successfully. The malformed
+exported completion is intentionally preserved and rejected. Every parse outcome
+matches the expected outcome for the set.
+
 Claim level: experimental. v1.6.0 extends the v1.5.0 single-sample bridge into
 a small exported set. It does not load TensionLM, train TensionLM, or give model
 confidence proof authority.
