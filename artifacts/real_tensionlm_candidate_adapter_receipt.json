@@ -23,8 +23,8 @@
     "python3 scripts/run_real_tensionlm_candidate_adapter.py",
     "python3 scripts/evaluate_real_tensionlm_candidate_adapter.py"
   ],
-  "commit": "0021aae",
-  "date": "2026-05-27T03:07:02.936871+00:00",
+  "commit": "6216276",
+  "date": "2026-05-27T03:07:26.204778+00:00",
   "inputs": [
     "data/real_tensionlm_candidate_adapter_cases.jsonl"
   ],
