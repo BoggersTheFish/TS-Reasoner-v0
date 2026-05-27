@@ -1,0 +1,57 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/real_tensionlm_candidate_adapter_smoke.json",
+      "sha256": "0e3011b54626aa70b6470893c792d9f98a61da3a6ed645e1781b7413e3985cdb"
+    },
+    {
+      "path": "artifacts/real_tensionlm_candidate_adapter_report.json",
+      "sha256": "a6c935910ec9fd20b4f26859b9cf936d7b564ec1e753b08d44c54e853b9b960e"
+    }
+  ],
+  "benchmarks": {
+    "accepted_outputs_typed_support_rate": 1.0,
+    "bad_high_confidence_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "candidate_provenance_preservation_rate": 1.0,
+    "case_success_rate": 1.0,
+    "expected_status_accuracy": 1.0,
+    "malformed_output_rejection_rate": 1.0,
+    "provenance_required_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_candidate_abstention_rate": 1.0,
+    "verifier_beats_candidate_confidence": 1.0
+  },
+  "claim": "TS-Reasoner can safely consume exported external model candidate outputs through the typed verification boundary.",
+  "commands_run": [
+    "python3 scripts/run_real_tensionlm_candidate_adapter.py",
+    "python3 scripts/evaluate_real_tensionlm_candidate_adapter.py"
+  ],
+  "commit": "bff228a",
+  "date": "2026-05-27T03:13:39.155306+00:00",
+  "inputs": [
+    "data/real_tensionlm_candidate_adapter_cases.jsonl"
+  ],
+  "known_limitations": [
+    "Fixture JSONL stands in for exported real/model outputs.",
+    "No TensionLM checkpoint is loaded.",
+    "Parsing remains toy-scope all/some/no relation extraction.",
+    "Natural-language robustness is not claimed."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "JSONL exported-output adapter only; no model loading or sampling in this wave.",
+  "tensions_detected": [
+    "real-style model exports can be malformed or overconfident",
+    "model provenance must survive normalization into candidate claims"
+  ],
+  "tensions_resolved": [
+    "exported candidates enter the existing v1.1 typed verification boundary",
+    "high-confidence bad exported candidates lose to verifier decisions",
+    "accepted exported candidates require typed support"
+  ],
+  "unresolved_tensions": [
+    "direct model-loading adapter remains out of scope"
+  ],
+  "version": "v1.2.0-real-tensionlm-candidate-adapter"
+}
