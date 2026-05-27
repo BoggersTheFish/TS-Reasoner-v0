@@ -1,0 +1,129 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/tensionlm_export_set_report.json",
+      "sha256": "75414fb963b1c434e3f33b4ee8ed1d601a6e9956bb696223281483d9389e7b2c"
+    }
+  ],
+  "benchmarks": {
+    "accepted_outputs_typed_support_rate": 1.0,
+    "bad_candidate_rejection_rate": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "candidate_parse_expectation_rate": 1.0,
+    "candidate_parse_success_rate": 0.8889,
+    "expected_status_accuracy": 1.0,
+    "export_set_read_success_rate": 1.0,
+    "per_sample_failure_reasons": {
+      "export_set_contradictory_high_confidence_candidate": [
+        {
+          "candidate_id": "set_bad_no_a_to_c",
+          "channels": {
+            "contradiction": "rejected candidate contradicts premise edge"
+          },
+          "claim": "No A are C",
+          "expected_failure_reason": "contradictory high-confidence candidate is rejected by typed contradiction handling",
+          "normalization_status": "messy_paraphrase",
+          "reason": "candidate contradicts a premise-supported edge",
+          "status": "rejected"
+        }
+      ],
+      "export_set_deeper_chain_current_limit_abstained": [
+        {
+          "candidate_id": "set_deeper_a_to_d",
+          "channels": {
+            "typed_support": "abstained no accepted channel support"
+          },
+          "claim": "All A are D",
+          "expected_failure_reason": "current typed verifier does not accept this deeper exported chain in the candidate bridge",
+          "normalization_status": "messy_paraphrase",
+          "reason": "no typed channel produced support or a typed rejection",
+          "status": "abstained"
+        }
+      ],
+      "export_set_malformed_node_completion_rejected": [
+        {
+          "candidate_id": "set_malformed_node_completion",
+          "channels": {
+            "malformed_relation": "rejected unparsable graph claim"
+          },
+          "claim": "two is the path from node two to node two",
+          "expected_failure_reason": "malformed raw completion is rejected as an unparsable graph claim",
+          "normalization_status": "unparsed",
+          "reason": "candidate claim could not be parsed as a graph relation",
+          "status": "rejected"
+        }
+      ],
+      "export_set_valid_pqr_with_high_confidence_reverse": [
+        {
+          "candidate_id": "set_bad_reverse_r_to_p",
+          "channels": {
+            "directionality": "blocked reverse inference"
+          },
+          "claim": "All R are P",
+          "expected_failure_reason": null,
+          "normalization_status": "messy_paraphrase",
+          "reason": "candidate reverses a directed support path",
+          "status": "rejected"
+        }
+      ],
+      "export_set_wrong_completion_abstained": [
+        {
+          "candidate_id": "set_wrong_b_completion",
+          "channels": {
+            "typed_support": "abstained no accepted channel support"
+          },
+          "claim": "All A are D",
+          "expected_failure_reason": "wrong completion remains unsupported by typed channels",
+          "normalization_status": "messy_paraphrase",
+          "reason": "no typed channel produced support or a typed rejection",
+          "status": "abstained"
+        }
+      ]
+    },
+    "provenance_preservation_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "unsupported_candidate_abstention_rate": 1.0,
+    "verifier_beats_confidence_rate": 1.0
+  },
+  "claim": "Multiple real exported TensionLM-side samples can cross into TS-Reasoner while staying contained by typed verification.",
+  "commands_run": [
+    "python3 scripts/evaluate_tensionlm_export_set.py"
+  ],
+  "commit": "2e517eb",
+  "date": "2026-05-27T13:38:08.197147+00:00",
+  "inputs": [
+    "data/tensionlm_export_set_cases.jsonl"
+  ],
+  "known_limitations": [
+    "Uses existing TensionLM-side eval artifacts rather than running new model samples in this repo.",
+    "Export-side normalized claims are evaluated by TS-Reasoner unchanged.",
+    "No TensionLM model is loaded into TS-Reasoner.",
+    "No training is performed.",
+    "The set is small and focused on transitivity-shaped exported samples."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Existing exported JSONL set only; no model loading or training inside TS-Reasoner.",
+  "source_evidence": [
+    {
+      "artifact": "logs/eval/117m_transitivity_seed42.json",
+      "checkpoint": "checkpoints/117m-curriculum/pytorch_model.pt",
+      "repository": "/home/boggersthefish/BoggersSpace/bozo"
+    }
+  ],
+  "tensions_detected": [
+    "real exported completions include wrong, malformed, contradictory, and unsupported candidates",
+    "some correct deeper-chain exported samples exceed the current candidate-bridge support depth",
+    "candidate confidence can be higher for bad candidates than for valid candidates"
+  ],
+  "tensions_resolved": [
+    "raw completions are preserved as candidate provenance",
+    "typed channels remain the proof authority",
+    "candidate graph contamination remains blocked",
+    "per-sample failure reasons are preserved in the aggregate report"
+  ],
+  "unresolved_tensions": [
+    "larger real TensionLM export sets remain future work"
+  ],
+  "version": "v1.6.0-tensionlm-export-set-evaluation"
+}

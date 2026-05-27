@@ -1,5 +1,54 @@
 # Release Notes
 
+## v1.6.0: TensionLM Export Set Evaluation
+
+v1.6.0 evaluates a small set of real exported TensionLM-side samples through the
+existing TS-Reasoner adapter and typed verification boundary.
+
+Release scope:
+
+- Add `data/tensionlm_export_set_cases.jsonl`.
+- Source evidence from `/home/boggersthefish/BoggersSpace/bozo`:
+  `logs/eval/117m_transitivity_seed42.json`.
+- Preserve raw TensionLM completions in candidate `raw_text`.
+- Evaluate export-side normalized candidate claims through the existing adapter
+  unchanged.
+- Preserve per-sample failure reasons for wrong, malformed, contradictory,
+  high-confidence bad, and deeper-chain current-limit cases.
+- Verify provenance, typed support, bad candidate rejection, verifier-over-
+  confidence behavior, and zero graph contamination across the set.
+
+Generated artifacts:
+
+- `artifacts/tensionlm_export_set_report.json`
+- `artifacts/tensionlm_export_set_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_tensionlm_export_set.py
+```
+
+Verification result:
+
+- `export_set_read_success_rate`: `1.0`.
+- `candidate_parse_success_rate`: `0.8889`.
+- `candidate_parse_expectation_rate`: `1.0`.
+- `provenance_preservation_rate`: `1.0`.
+- `accepted_outputs_typed_support_rate`: `1.0`.
+- `bad_candidate_rejection_rate`: `1.0`.
+- `verifier_beats_confidence_rate`: `1.0`.
+- `candidate_graph_contamination_count`: `0`.
+- `trace_schema_validity`: `1.0`.
+- `expected_status_accuracy`: `1.0`.
+- `unsupported_candidate_abstention_rate`: `1.0`.
+
+Claim level: experimental. This is a small exported-set boundary receipt, not
+live model integration into TS-Reasoner. No model is loaded and no training is
+performed. The malformed sample intentionally keeps parse success below `1.0`
+while preserving the rejection reason.
+
 ## v1.5.0: Real Exported TensionLM Sample
 
 v1.5.0 evaluates a real exported TensionLM-side sample through the existing
