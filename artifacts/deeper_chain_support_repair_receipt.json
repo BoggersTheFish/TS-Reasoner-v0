@@ -1,0 +1,48 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/deeper_chain_support_repair_report.json",
+      "sha256": "2236fcbb8dc9d49b836f06ed2d23ac0796be8bf798b1e992b73cf4b37f8e77a4"
+    }
+  ],
+  "benchmarks": {
+    "candidate_graph_contamination_count": 0,
+    "deeper_chain_acceptance_rate": 1.0,
+    "expected_status_accuracy": 1.0,
+    "identity_collapse_count": 0,
+    "trace_schema_validity": 1.0,
+    "v1_6_failure_repair_rate": 1.0,
+    "wrong_reverse_rejection_rate": 1.0
+  },
+  "claim": "The v1.6 deeper-chain current-limit candidate is repaired inside the typed verifier boundary.",
+  "commands_run": [
+    "python3 scripts/evaluate_deeper_chain_support_repair.py"
+  ],
+  "commit": "f5cde95",
+  "date": "2026-05-27T18:59:16.029891+00:00",
+  "inputs": [
+    "data/deeper_chain_support_repair_cases.jsonl"
+  ],
+  "known_limitations": [
+    "Repair covers positive all/all deeper-chain support only.",
+    "No TensionLM model is loaded into TS-Reasoner.",
+    "No training is performed.",
+    "Candidate confidence remains metadata, not proof authority."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Structural verifier repair only; no model loading or training inside TS-Reasoner.",
+  "tensions_detected": [
+    "v1.6 preserved a correct deeper-chain exported candidate as abstained",
+    "single-pass transitivity resolution did not close A -> B -> C -> D support"
+  ],
+  "tensions_resolved": [
+    "typed transitivity now closes positive all/all support chains in one verifier pass",
+    "wrong reverse candidates remain rejected by directionality",
+    "candidate graph contamination remains blocked"
+  ],
+  "unresolved_tensions": [
+    "non-all quantifier chains remain outside this repair"
+  ],
+  "version": "v1.7.0-deeper-chain-support-repair"
+}

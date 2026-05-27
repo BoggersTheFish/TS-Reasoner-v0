@@ -1,5 +1,47 @@
 # Release Notes
 
+## v1.7.0: Deeper-Chain Support Repair
+
+v1.7.0 repairs the deeper-chain current-limit case preserved by the v1.6.0
+TensionLM export set receipt.
+
+Release scope:
+
+- Repair positive all/all A -> B -> C -> D style support inside the typed
+  transitivity channel.
+- Preserve the existing TensionLM candidate boundary: no model loading, no
+  training, no confidence-as-proof, and no candidate edges entering proof
+  support.
+- Add `data/deeper_chain_support_repair_cases.jsonl`.
+- Add `scripts/evaluate_deeper_chain_support_repair.py`.
+- Preserve before/after evidence for the v1.6 failure: the candidate that was
+  abstained as a current-limit case is accepted after the structural repair.
+- Verify wrong reverse candidates still lose to directionality.
+
+Generated artifacts:
+
+- `artifacts/deeper_chain_support_repair_report.json`
+- `artifacts/deeper_chain_support_repair_receipt.json`
+
+Verification:
+
+```bash
+python3 -m unittest discover
+python3 scripts/evaluate_deeper_chain_support_repair.py
+```
+
+Verification result:
+
+- `deeper_chain_acceptance_rate`: `1.0`.
+- `wrong_reverse_rejection_rate`: `1.0`.
+- `identity_collapse_count`: `0`.
+- `candidate_graph_contamination_count`: `0`.
+- `trace_schema_validity`: `1.0`.
+- `v1_6_failure_repair_rate`: `1.0`.
+
+Claim level: experimental. This is a structural verifier repair for positive
+all/all deeper chains, not a TensionLM integration or training claim.
+
 ## v1.6.0: TensionLM Export Set Evaluation
 
 v1.6.0 evaluates a small set of real exported TensionLM-side samples through the

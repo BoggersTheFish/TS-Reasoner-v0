@@ -47,21 +47,25 @@ class LogicTransitivityChannel(TensionChannel):
         missing = self._missing(graph)
         if not missing:
             return ResolverEvent(channel=self.name, action="no_op", status="settled")
-        source, via, target = missing[0]
-        graph.add_edge(
-            Edge(
-                source,
-                target,
-                relation="all",
-                weight=1.0,
-                data={"status": "inferred", "channel": self.name, "via": via},
+        added = []
+        while missing:
+            source, via, target = missing[0]
+            graph.add_edge(
+                Edge(
+                    source,
+                    target,
+                    relation="all",
+                    weight=1.0,
+                    data={"status": "inferred", "channel": self.name, "via": via},
+                )
             )
-        )
+            added.append((source, via, target))
+            missing = self._missing(graph)
         return ResolverEvent(
             channel=self.name,
             action="added_inferred_edge",
             status="resolved",
-            target=f"{source}->{target}",
-            tension_delta=-1.0,
-            evidence=[f"{source}->{via}", f"{via}->{target}"],
+            target=", ".join(f"{source}->{target}" for source, _via, target in added),
+            tension_delta=-float(len(added)),
+            evidence=[f"{source}->{via}->{target}" for source, via, target in added],
         )

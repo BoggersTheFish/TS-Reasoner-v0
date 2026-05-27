@@ -28,12 +28,9 @@ class TensionLMExportSetTests(unittest.TestCase):
         results = {row.row_id: evaluate_row(row) for row in rows}
 
         malformed = results["export_set_malformed_node_completion_rejected"]
-        deeper_limit = results["export_set_deeper_chain_current_limit_abstained"]
 
         self.assertEqual(malformed["failure_reasons"][0]["status"], "rejected")
         self.assertEqual(malformed["failure_reasons"][0]["normalization_status"], "unparsed")
-        self.assertEqual(deeper_limit["failure_reasons"][0]["status"], "abstained")
-        self.assertIn("deeper", deeper_limit["failure_reasons"][0]["expected_failure_reason"])
 
 
 if __name__ == "__main__":
