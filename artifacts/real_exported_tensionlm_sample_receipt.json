@@ -21,8 +21,8 @@
   "commands_run": [
     "python3 scripts/evaluate_real_exported_tensionlm_sample.py"
   ],
-  "commit": "72f3106",
-  "date": "2026-05-27T03:37:26.611572+00:00",
+  "commit": "53813a3",
+  "date": "2026-05-27T03:38:55.442365+00:00",
   "inputs": [
     "data/real_exported_tensionlm_sample.jsonl"
   ],
