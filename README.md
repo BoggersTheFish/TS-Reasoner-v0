@@ -4,14 +4,14 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v2.0_learned_candidate_model-blue)](MODEL_CARD.md)
+[![Status](https://img.shields.io/badge/status-v2.1_adversarial_candidate_stress-blue)](MODEL_CARD.md)
 
 TS-Reasoner is an inspectable reasoning control loop. It generates candidate
 reasoning chains, scores local and global tension, runs a bounded repair or
 compression loop, settles a trace, and exposes why a result was accepted or
 rejected.
 
-This repository is the stable public v2.0 foundation for that loop. It is not a
+This repository is the stable public v2.1 foundation for that loop. It is not a
 large language model, a general theorem prover, or a broad benchmark claim.
 
 Current public bridge claim:
@@ -492,3 +492,37 @@ TS-Reasoner v2.0 does not claim:
 - superiority over frontier models,
 - live TensionLM integration into the verifier,
 - model confidence as proof authority.
+
+## v2.1.0: Learned Candidate Model Adversarial Stress
+
+v2.1.0 adds an adversarial stress layer for the v2.0 learned candidate model.
+
+The learned model remains advisory. It can rank and score candidate claims, but typed verifier channels remain the only proof authority.
+
+Adversarial cases include:
+
+- high-confidence wrong candidates
+- malformed outputs with fake confidence
+- unsupported plausible claims
+- reverse inference traps
+- contradiction traps
+- identity-collapse traps
+- distractor-heavy premise sets
+- missing-provenance candidates
+
+Core v2.1 boundary result:
+
+- candidate_graph_contamination_count: 0
+- accepted_without_typed_support_count: 0
+- high_confidence_bad_block_rate: 1.0
+- high_confidence_bad_total: 13
+- unsupported_abstained_count: 6
+- trace_schema_validity: 1.0
+
+Some bad candidates are blocked by abstention rather than hard rejection. That is intentional: abstention is safer than pretending unsupported claims are decidable.
+
+Run:
+
+```bash
+python3 scripts/evaluate_learned_candidate_model_adversarial.py
+python3 -m unittest discover -q

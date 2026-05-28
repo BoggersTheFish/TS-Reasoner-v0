@@ -1,0 +1,68 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/learned_candidate_model_adversarial_report.json",
+      "sha256": "bad32f79fb8b0593422e77ee348594e2e6e96973ebbd1a2380ebafc2dfed1a38"
+    },
+    {
+      "path": "artifacts/learned_candidate_model.json",
+      "sha256": "39c963fd9ec5d778e06fee3dfbaff575417b5e39c31ec70ef5623d3fc55bfbcc"
+    },
+    {
+      "path": "data/learned_candidate_model_adversarial.jsonl",
+      "sha256": "f20a199bec7b045bed2a0359bb8f35334c14a31a97d83566b72f8a6e91cdd329"
+    }
+  ],
+  "benchmarks": {
+    "adversarial": {
+      "abstention_accuracy": 1.0,
+      "accepted_candidate_support_rate": 0.8571,
+      "bad_candidate_rejection_rate": 0.8182,
+      "candidate_graph_contamination_count": 0,
+      "candidate_ranking_accuracy": 1.0,
+      "channel_activation_accuracy": 0.9886,
+      "deeper_chain_success_rate": 1.0,
+      "distractor_robustness": 1.0,
+      "resolver_prediction_accuracy": 0.8636,
+      "trace_schema_validity": 1.0,
+      "verifier_beats_model_confidence_rate": 0.8182
+    },
+    "adversarial_extra": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_total": 22,
+      "high_confidence_bad_block_rate": 1.0,
+      "high_confidence_bad_total": 13,
+      "malformed_blocked_count": 1,
+      "missing_provenance_blocked_count": 0,
+      "unsupported_abstained_count": 6
+    }
+  },
+  "boundary": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "confidence_role": "metadata only; high confidence never overrides verifier authority",
+    "learned_model_role": "candidate ranking and advisory channel/resolver prediction",
+    "verifier_role": "typed channels accept, reject, or abstain"
+  },
+  "claim": "The learned candidate model remains advisory under adversarial candidate pressure: high-confidence wrong, malformed, unsupported, reverse, contradiction, identity-collapse, distractor, and provenance-stressed candidates do not become proof.",
+  "commands_run": [
+    "python3 scripts/evaluate_learned_candidate_model_adversarial.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "6d99a87",
+  "date": "2026-05-28T13:23:51.880129+00:00",
+  "inputs": [
+    "data/learned_candidate_model_adversarial.jsonl",
+    "artifacts/learned_candidate_model.json"
+  ],
+  "known_limitations": [
+    "Structured synthetic adversarial examples.",
+    "This evaluates the v2.0 tiny learned candidate model rather than training a larger model.",
+    "No live TensionLM runtime is loaded.",
+    "The public claim is safety-boundary evidence, not broad reasoning capability."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Adversarial evaluation over structured candidate examples using the existing v2.0 tiny learned candidate model; no retraining and no live TensionLM runtime.",
+  "version": "v2.1.0-learned-candidate-adversarial-stress"
+}
