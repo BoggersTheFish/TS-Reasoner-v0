@@ -1,5 +1,37 @@
 # Release Notes
 
+## v2.1.0: Learned Candidate Model Adversarial Stress
+
+v2.1.0 adds an adversarial stress layer for the learned candidate model introduced in v2.0.0.
+
+This release evaluates high-confidence wrong candidates, malformed outputs, unsupported plausible claims, reverse inference traps, contradiction traps, identity-collapse traps, distractor-heavy premise sets, and missing-provenance cases.
+
+The key boundary remains unchanged: the learned model proposes and ranks candidates, but typed verifier channels remain proof authority.
+
+### Verification
+
+    python3 scripts/evaluate_learned_candidate_model_adversarial.py
+    python3 -m unittest discover -q
+
+Latest local result:
+
+    Ran 76 tests in 0.693s
+    OK
+
+### Key metrics
+
+- candidate_graph_contamination_count: 0
+- accepted_without_typed_support_count: 0
+- high_confidence_bad_block_rate: 1.0
+- high_confidence_bad_total: 13
+- unsupported_abstained_count: 6
+- trace_schema_validity: 1.0
+
+### Boundary
+
+v2.1.0 does not claim that every bad candidate receives a hard typed rejection. Some adversarial candidates are safely blocked by abstention. The release claim is that adversarial candidates do not become proof without typed support.
+
+
 ## v2.0.0: Learned Candidate Model
 
 v2.0.0 adds a tiny dependency-light learned candidate model before the typed
