@@ -1,0 +1,67 @@
+{
+  "artifacts": [
+    {
+      "path": "data/verifier_trace_training_data_v27.jsonl",
+      "sha256": "8846916293856f4d9ee92da3075ff1659d71bbd040eb24c372f8b3f0b3758c03"
+    },
+    {
+      "path": "artifacts/verifier_trace_training_data_summary.json",
+      "sha256": "25b6631c610eebb317d020bca667d955c2ef316b74525a36832de32a7a42a44a"
+    },
+    {
+      "path": "artifacts/candidate_model_v2_report.json",
+      "sha256": "4188613ce20bd485a96c4a3e491987c9746d1594ca95248aec7482a768add335"
+    }
+  ],
+  "benchmarks": {
+    "abstained_rows": 38,
+    "accepted_rows": 13,
+    "channel_counts": {
+      "directionality": 13,
+      "identity_preservation": 8,
+      "logic_transitivity": 7,
+      "malformed_relation": 19,
+      "surface_structure": 6,
+      "typed_support": 38
+    },
+    "has_boundary": true,
+    "has_model_features": true,
+    "has_verifier_targets": true,
+    "mean_proposal_quality": 0.2473,
+    "rejected_rows": 40,
+    "row_count": 91,
+    "status_counts": {
+      "abstained": 38,
+      "accepted": 13,
+      "rejected": 40
+    }
+  },
+  "boundary": {
+    "export_role": "turn verifier traces into future training rows",
+    "model_role": "candidate proposal/ranking signal only",
+    "proof_role": "exported rows are not proof; they are supervised training data",
+    "verifier_role": "typed channels define target labels"
+  },
+  "claim": "Verifier outcomes from Candidate Model v2 can be exported into supervised training rows containing candidate features, model predictions, typed-channel verifier status, failure reasons, and training targets.",
+  "commands_run": [
+    "python3 scripts/evaluate_candidate_model_v2.py",
+    "python3 scripts/export_verifier_trace_training_data.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "eb5893e",
+  "date": "2026-05-28T19:17:21.018199+00:00",
+  "inputs": [
+    "artifacts/candidate_model_v2_report.json"
+  ],
+  "known_limitations": [
+    "Rows are derived from bounded v2.6 candidate-model reports.",
+    "No new model is trained in v2.7.",
+    "No TensionLM runtime is loaded.",
+    "The dataset is still synthetic/benchmark-derived.",
+    "Future training loops must keep verifier authority separate from model confidence."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Training-data export from existing verifier traces; no model training, no TensionLM runtime, and no claim that exported rows are proof themselves.",
+  "version": "v2.7.0-verifier-trace-training-data"
+}

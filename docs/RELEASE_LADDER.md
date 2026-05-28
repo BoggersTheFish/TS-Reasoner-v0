@@ -132,3 +132,27 @@ Boundary preserved:
 - No broad NLP claim.
 - No neural language model training.
 
+## v2.7.0 — Verifier Trace Training Data
+
+v2.7.0 exports supervised training rows from Candidate Model v2 verifier traces.
+
+Result:
+
+- row count: 91
+- accepted rows: 13
+- rejected rows: 40
+- abstained rows: 38
+- has model features: true
+- has verifier targets: true
+- has boundary metadata: true
+- mean proposal quality: 0.2473
+
+Boundary preserved:
+
+- v2.7 exports training data only.
+- It does not train a new model.
+- Exported rows are not proof.
+- Typed verifier channels define target labels.
+- Model confidence remains metadata only.
+- No TensionLM runtime is loaded.
+

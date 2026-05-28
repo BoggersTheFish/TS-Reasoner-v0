@@ -1,0 +1,23 @@
+{
+  "abstained_rows": 38,
+  "accepted_rows": 13,
+  "channel_counts": {
+    "directionality": 13,
+    "identity_preservation": 8,
+    "logic_transitivity": 7,
+    "malformed_relation": 19,
+    "surface_structure": 6,
+    "typed_support": 38
+  },
+  "has_boundary": true,
+  "has_model_features": true,
+  "has_verifier_targets": true,
+  "mean_proposal_quality": 0.2473,
+  "rejected_rows": 40,
+  "row_count": 91,
+  "status_counts": {
+    "abstained": 38,
+    "accepted": 13,
+    "rejected": 40
+  }
+}
