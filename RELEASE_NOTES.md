@@ -1,5 +1,30 @@
 # Release Notes
 
+## v2.2.0: Learned vs Exported Candidate Comparison
+
+v2.2.0 compares learned candidate ranking against exported-candidate confidence ordering on the same structured adversarial candidate cases.
+
+The learned arm uses the v2.0 tiny learned candidate model. The exported baseline orders candidates by input/export confidence through the existing TensionLM export adapter. Typed verifier channels remain proof authority for both arms.
+
+### Verification
+
+    python3 scripts/evaluate_learned_vs_exported_candidate_comparison.py
+    python3 -m unittest discover -q
+
+### Key metrics
+
+- learned_top_accept_rate: 0.8571
+- exported_confidence_top_accept_rate: 0.1429
+- learned_top_beats_exported_confidence_top_rate: 0.7143
+- accepted_without_typed_support_count: 0
+- candidate_graph_contamination_count: 0
+- trace_schema_validity: 1.0
+
+### Boundary
+
+This is a structured same-case comparison. It does not claim broad natural-language reasoning, live TensionLM integration, or general candidate-ranking superiority.
+
+
 ## v2.1.0: Learned Candidate Model Adversarial Stress
 
 v2.1.0 adds an adversarial stress layer for the learned candidate model introduced in v2.0.0.
