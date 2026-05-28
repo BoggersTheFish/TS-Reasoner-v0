@@ -1,0 +1,12 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "claim": "TensionLM-shaped proposer boundary smoke; proposer confidence is not proof.",
+  "confidence_top_accuracy": 0.0,
+  "live_tensionlm_runtime_loaded": false,
+  "trace_schema_validity": 1.0,
+  "verifier_overrode_confidence_count": 4,
+  "verifier_selection_accuracy": 1.0,
+  "version": "v3.5-tensionlm-proposer-boundary"
+}

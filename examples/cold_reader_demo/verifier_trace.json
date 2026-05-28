@@ -1,0 +1,75 @@
+{
+  "version": "v3.2-cold-reader-demo",
+  "premises": [
+    "All dogs are mammals.",
+    "All mammals are animals."
+  ],
+  "question": "Are all dogs animals?",
+  "boundary": {
+    "candidate_confidence_is_proof": false,
+    "typed_verifier_is_proof_authority": true,
+    "candidate_edges_enter_support_graph": false
+  },
+  "results": [
+    {
+      "candidate_id": "valid_transitive",
+      "claim": "All dogs are animals.",
+      "source": "candidate_proposer",
+      "model_confidence": 0.41,
+      "expected_status": "accepted",
+      "status": "accepted",
+      "typed_channels": {
+        "logic_transitivity": "supports dogs -> mammals -> animals",
+        "directionality": "query direction preserved",
+        "identity_preservation": "no identity collapse",
+        "surface_structure": "claim is inferred, not directly stated"
+      },
+      "reason": "Two-hop all/all transitive support exists."
+    },
+    {
+      "candidate_id": "reverse_inference_trap",
+      "claim": "All animals are dogs.",
+      "source": "candidate_proposer",
+      "model_confidence": 0.94,
+      "expected_status": "rejected",
+      "status": "rejected",
+      "typed_channels": {
+        "directionality": "blocks reverse inference animals -> dogs",
+        "logic_transitivity": "no support path animals -> dogs"
+      },
+      "reason": "Reverse inference is not licensed by the premises."
+    },
+    {
+      "candidate_id": "identity_collapse_trap",
+      "claim": "Dogs are animals because dogs and animals are identical.",
+      "source": "candidate_proposer",
+      "model_confidence": 0.88,
+      "expected_status": "rejected",
+      "status": "rejected",
+      "typed_channels": {
+        "identity_preservation": "blocks class inclusion becoming identity",
+        "surface_structure": "premises support inclusion, not equivalence"
+      },
+      "reason": "Class inclusion is not identity."
+    },
+    {
+      "candidate_id": "weak_partial_claim",
+      "claim": "Some dogs are animals.",
+      "source": "candidate_proposer",
+      "model_confidence": 0.77,
+      "expected_status": "abstained",
+      "status": "abstained",
+      "typed_channels": {
+        "confidence_abstention": "candidate is weaker or different than the queried universal claim",
+        "surface_structure": "claim shape does not match target proof obligation"
+      },
+      "reason": "The system avoids accepting a weaker reformulation as the queried answer."
+    }
+  ],
+  "metrics": {
+    "candidate_count": 4,
+    "accepted_without_typed_support_count": 0,
+    "high_confidence_wrong_blocked_count": 3,
+    "trace_schema_validity": 1.0
+  }
+}
