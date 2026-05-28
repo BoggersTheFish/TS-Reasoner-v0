@@ -1,0 +1,7 @@
+{"case_id":"proofwriter_style_001","source_style":"proofwriter_style_handcrafted","premises":["All robins are birds.","All birds are animals."],"query":"All robins are animals.","expected_status":"accepted"}
+{"case_id":"proofwriter_style_002","source_style":"proofwriter_style_handcrafted","premises":["All robins are birds.","All birds are animals."],"query":"All animals are robins.","expected_status":"rejected"}
+{"case_id":"folio_style_001","source_style":"folio_style_handcrafted","premises":["All poets are writers.","All writers are people."],"query":"All poets are people.","expected_status":"accepted"}
+{"case_id":"folio_style_002","source_style":"folio_style_handcrafted","premises":["All poets are writers.","All writers are people."],"query":"All people are poets.","expected_status":"rejected"}
+{"case_id":"bbh_style_001","source_style":"bbh_boolean_style_handcrafted","premises":["All blue things are colored.","All colored things are visible."],"query":"All blue things are visible.","expected_status":"accepted"}
+{"case_id":"bbh_style_002","source_style":"bbh_boolean_style_handcrafted","premises":["All blue things are colored.","All colored things are visible."],"query":"All visible things are blue.","expected_status":"rejected"}
+{"case_id":"malformed_001","source_style":"malformed_external_input","premises":["Robins maybe birds.","Birds probably animals."],"query":"Robins animals yes?","expected_status":"abstained"}

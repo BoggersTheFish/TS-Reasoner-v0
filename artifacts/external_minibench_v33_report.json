@@ -1,0 +1,14 @@
+{
+  "abstention_count": 1,
+  "accepted_without_typed_support_count": 0,
+  "case_count": 7,
+  "claim_boundary": {
+    "adapter_smoke_claim": true,
+    "external_benchmark_victory_claim": false,
+    "typed_verifier_is_authority": true
+  },
+  "status_accuracy": 1.0,
+  "trace_schema_validity": 1.0,
+  "version": "v3.3-external-minibench-adapter",
+  "wrong_accept_count": 0
+}
