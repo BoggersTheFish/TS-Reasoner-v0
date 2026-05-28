@@ -1,0 +1,4 @@
+{"case_id":"adv_test_001","category":"adversarial_invalid","split":"test","input_text":"All A are B. Are all B A?","expected_status":"rejected","expected_claim":"All B are A","invalid_case":true}
+{"case_id":"adv_test_002","category":"adversarial_invalid","split":"test","input_text":"All private_keys are credentials. Are all credentials private_keys?","expected_status":"rejected","expected_claim":"All credentials are private_keys","invalid_case":true}
+{"case_id":"adv_test_003","category":"adversarial_invalid","split":"test","input_text":"All safe_files are approved_items. Some approved_items are public_items. Are all safe_files public_items?","expected_status":"abstained","expected_claim":"All safe_files are public_items","invalid_case":true}
+{"case_id":"adv_test_004","category":"adversarial_invalid","split":"test","input_text":"A vibes into B and maybe C therefore yes?","expected_status":"abstained","expected_claim":null,"invalid_case":true}

@@ -1,0 +1,4 @@
+{"case_id":"syll_dev_001","category":"syllogism","split":"dev","input_text":"Every raven belongs to bird. Each bird falls under animal. Can we conclude all raven are animal?","expected_status":"accepted","expected_claim":"All raven are animal","invalid_case":false}
+{"case_id":"syll_dev_002","category":"syllogism","split":"dev","input_text":"All apples are fruits. All fruits are foods. Are all apples foods?","expected_status":"accepted","expected_claim":"All apples are foods","invalid_case":false}
+{"case_id":"syll_dev_003","category":"syllogism","split":"dev","input_text":"All cars are vehicles. Are all vehicles cars?","expected_status":"rejected","expected_claim":"All vehicles are cars","invalid_case":true}
+{"case_id":"syll_dev_004","category":"syllogism","split":"dev","input_text":"All keys are tools. Are all keys locked_items?","expected_status":"abstained","expected_claim":"All keys are locked_items","invalid_case":true}

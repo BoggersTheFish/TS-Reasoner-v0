@@ -582,29 +582,37 @@ Example supported input:
 
 ```text
 All dogs are mammals. All mammals are animals. Are all dogs animals?
+```
 
 The v2.4 path is:
 
+```text
 bounded natural-language prompt
 → canonical relation-shaped premises
 → candidate graph claim
 → existing candidate bridge
 → typed TS-Reasoner verifier channels
 → accept / reject / abstain receipt
+```
 
 This release keeps the proof boundary intact: the parser extracts candidate data, but typed verifier channels decide whether the claim is accepted, rejected, or abstained.
 
 Run the evaluator:
 
+```bash
 python3 scripts/evaluate_natural_language_claim_ingestion.py
+```
 
 Generated artifacts:
 
+```text
 artifacts/natural_language_claim_ingestion_report.json
 artifacts/natural_language_claim_ingestion_receipt.json
+```
 
 Current v2.4 metrics:
 
+```json
 {
   "accepted_without_typed_support_count": 0,
   "candidate_graph_contamination_count": 0,
@@ -615,13 +623,61 @@ Current v2.4 metrics:
   "status_expectation_rate": 1.0,
   "trace_schema_validity": 1.0
 }
+```
 
 Boundary:
 
-bounded parser only, not broad natural-language understanding;
-no TensionLM runtime loaded;
-no neural training;
-parser confidence does not become proof authority;
-malformed or unsupported input safe-abstains;
-accepted claims still require typed support.
+- bounded parser only, not broad natural-language understanding;
+- no TensionLM runtime loaded;
+- no neural training;
+- parser confidence does not become proof authority;
+- malformed or unsupported input safe-abstains;
+- accepted claims still require typed support.
+
+## v2.5.0: Benchmark Harness
+
+v2.5.0 adds a reusable train/dev/test-style benchmark harness.
+
+Benchmark files:
+
+```text
+data/benchmarks/
+  syllogism_train.jsonl
+  syllogism_dev.jsonl
+  syllogism_test.jsonl
+  rule_deduction_train.jsonl
+  rule_deduction_dev.jsonl
+  rule_deduction_test.jsonl
+  adversarial_invalid_test.jsonl
+```
+
+Run:
+
+```bash
+python3 scripts/evaluate_benchmark_harness.py
+```
+
+Current metrics:
+
+```json
+{
+  "accepted_without_typed_support_count": 0,
+  "candidate_graph_contamination_count": 0,
+  "claim_accuracy": 1.0,
+  "invalid_rejection_or_abstention_rate": 1.0,
+  "parse_success_rate": 0.9642857142857143,
+  "status_accuracy": 1.0,
+  "trace_schema_validity": 1.0
+}
+```
+
+The parse success rate is below 1.0 because malformed adversarial input is intentionally preserved and safely abstained rather than hidden.
+
+Boundary:
+
+- reusable bounded benchmark harness;
+- not an external benchmark victory claim;
+- no TensionLM runtime;
+- no neural training;
+- typed channels remain verifier authority.
 

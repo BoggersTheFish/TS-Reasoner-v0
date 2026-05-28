@@ -1,0 +1,4 @@
+{"case_id":"syll_test_001","category":"syllogism","split":"test","input_text":"All roses are flowers. All flowers are plants. Are all roses plants?","expected_status":"accepted","expected_claim":"All roses are plants","invalid_case":false}
+{"case_id":"syll_test_002","category":"syllogism","split":"test","input_text":"All laptops are devices. All devices are tools. Are all laptops tools?","expected_status":"accepted","expected_claim":"All laptops are tools","invalid_case":false}
+{"case_id":"syll_test_003","category":"syllogism","split":"test","input_text":"All whales are mammals. Are all mammals whales?","expected_status":"rejected","expected_claim":"All mammals are whales","invalid_case":true}
+{"case_id":"syll_test_004","category":"syllogism","split":"test","input_text":"All medals are objects. Some objects are shiny_items. Are all medals shiny_items?","expected_status":"abstained","expected_claim":"All medals are shiny_items","invalid_case":true}

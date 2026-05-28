@@ -1,0 +1,5 @@
+{"case_id":"syll_train_001","category":"syllogism","split":"train","input_text":"All dogs are mammals. All mammals are animals. Are all dogs animals?","expected_status":"accepted","expected_claim":"All dogs are animals","invalid_case":false}
+{"case_id":"syll_train_002","category":"syllogism","split":"train","input_text":"All sparrows are birds. All birds are creatures. Are all sparrows creatures?","expected_status":"accepted","expected_claim":"All sparrows are creatures","invalid_case":false}
+{"case_id":"syll_train_003","category":"syllogism","split":"train","input_text":"All invoices are documents. All documents are records. Are all invoices records?","expected_status":"accepted","expected_claim":"All invoices are records","invalid_case":false}
+{"case_id":"syll_train_004","category":"syllogism","split":"train","input_text":"All cats are animals. Are all animals cats?","expected_status":"rejected","expected_claim":"All animals are cats","invalid_case":true}
+{"case_id":"syll_train_005","category":"syllogism","split":"train","input_text":"All A are B. Some B are C. Are all A C?","expected_status":"abstained","expected_claim":"All A are C","invalid_case":true}
