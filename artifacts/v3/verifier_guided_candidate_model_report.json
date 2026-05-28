@@ -1,0 +1,38 @@
+{
+  "boundary": {
+    "confidence_role": "metadata/baseline only",
+    "model_role": "predict candidate status/channels/proposal quality",
+    "proof_role": "model is not proof authority",
+    "verifier_role": "typed verifier channels remain proof authority"
+  },
+  "claim": "Bounded verifier-guided candidate model predicts candidate status/channels while preserving verifier authority.",
+  "gates": {
+    "accepted_without_support_gate": true,
+    "active_challenge_gate": true,
+    "all_gates_passed": true,
+    "boundary_metadata_gate": true,
+    "confidence_margin_gate": true,
+    "contamination_gate": true,
+    "majority_margin_gate": true,
+    "status_accuracy_gate": true,
+    "trace_schema_gate": true
+  },
+  "metrics": {
+    "accepted_without_typed_support_count": 0,
+    "active_challenge_rows": 12,
+    "active_challenge_status_accuracy": 1.0,
+    "beats_confidence_margin": 0.4286,
+    "beats_majority_margin": 0.5714,
+    "candidate_graph_contamination_count": 0,
+    "channel_prediction_accuracy": 0.9888,
+    "confidence_baseline_accuracy": 0.5714,
+    "eval_rows": 56,
+    "majority_baseline_accuracy": 0.4286,
+    "status_accuracy": 1.0,
+    "trace_schema_validity": 1.0,
+    "train_rows": 47
+  },
+  "model_type": "VerifierGuidedCandidateModel",
+  "scope": "Bounded reasoning-status/channel model over v3 verifier-derived dataset.",
+  "version": "v3.0.0-verifier-guided-candidate-model"
+}

@@ -1,0 +1,70 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/v3/verifier_guided_candidate_model.json",
+      "sha256": "c2ae0c36d0ddf357954445236fb832d844d66a175918b0e981a623c49339b328"
+    },
+    {
+      "path": "artifacts/v3/v3_training_dataset.jsonl",
+      "sha256": "b87d8782770dfb742e5c52043b2bb9e9a24dd38f463b0ef06b328334534b61fc"
+    },
+    {
+      "path": "artifacts/v3/verifier_guided_candidate_model_report.json",
+      "sha256": "2fd48150a0f17465e50d074846eb8fd1acdef8879d4ac89861664dc1bd1a4532"
+    },
+    {
+      "path": "artifacts/v3/v3_eval_predictions.jsonl",
+      "sha256": "b8f853fd3836490677e78750db1c2158be5e5b0c82ae01115ee8ec26755e71a9"
+    },
+    {
+      "path": "artifacts/v3/verifier_guided_candidate_model_receipt.json",
+      "sha256": "self"
+    }
+  ],
+  "boundary": {
+    "confidence_role": "metadata/baseline only",
+    "model_role": "predict candidate status/channels/proposal quality",
+    "proof_role": "model is not proof authority",
+    "verifier_role": "typed verifier channels remain proof authority"
+  },
+  "claim": "TS-Reasoner v3 evaluates a bounded verifier-guided candidate model while preserving typed verifier authority.",
+  "commit": "99590f4",
+  "date": "2026-05-28T20:29:33.941190+00:00",
+  "gates": {
+    "accepted_without_support_gate": true,
+    "active_challenge_gate": true,
+    "all_gates_passed": true,
+    "boundary_metadata_gate": true,
+    "confidence_margin_gate": true,
+    "contamination_gate": true,
+    "majority_margin_gate": true,
+    "status_accuracy_gate": true,
+    "trace_schema_gate": true
+  },
+  "known_limitations": [
+    "Small bounded dataset.",
+    "Linear inspectable model.",
+    "No TensionLM runtime.",
+    "No broad natural-language understanding claim.",
+    "Typed verifier remains authority."
+  ],
+  "metrics": {
+    "accepted_without_typed_support_count": 0,
+    "active_challenge_rows": 12,
+    "active_challenge_status_accuracy": 1.0,
+    "beats_confidence_margin": 0.4286,
+    "beats_majority_margin": 0.5714,
+    "candidate_graph_contamination_count": 0,
+    "channel_prediction_accuracy": 0.9888,
+    "confidence_baseline_accuracy": 0.5714,
+    "eval_rows": 56,
+    "majority_baseline_accuracy": 0.4286,
+    "status_accuracy": 1.0,
+    "trace_schema_validity": 1.0,
+    "train_rows": 47
+  },
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Bounded candidate-status/channel model; not broad NLP, not a general theorem prover, not proof authority.",
+  "version": "v3.0.0-verifier-guided-candidate-model-eval"
+}
