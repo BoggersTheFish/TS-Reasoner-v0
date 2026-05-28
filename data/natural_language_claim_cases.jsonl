@@ -1,0 +1,10 @@
+{"case_id":"nl_valid_001","input_text":"All dogs are mammals. All mammals are animals. Are all dogs animals?","expected_parse_success":true,"expected_status":"accepted","expected_claim":"All dogs are animals"}
+{"case_id":"nl_valid_002","input_text":"Every raven belongs to bird. Each bird falls under animal. Can we conclude all raven are animal?","expected_parse_success":true,"expected_status":"accepted","expected_claim":"All raven are animal"}
+{"case_id":"nl_valid_003","input_text":"All payroll_files are encrypted_messages. All encrypted_messages are sensitive_records. Does it follow that all payroll_files are sensitive_records?","expected_parse_success":true,"expected_status":"accepted","expected_claim":"All payroll_files are sensitive_records"}
+{"case_id":"nl_valid_004","input_text":"All A are B. All B are C. Are all A C?","expected_parse_success":true,"expected_status":"accepted","expected_claim":"All A are C"}
+{"case_id":"nl_invalid_reverse_001","input_text":"All cats are animals. Are all animals cats?","expected_parse_success":true,"expected_status":"rejected","expected_claim":"All animals are cats"}
+{"case_id":"nl_invalid_jump_001","input_text":"All A are B. Some B are C. Are all A C?","expected_parse_success":true,"expected_status":"abstained","expected_claim":"All A are C"}
+{"case_id":"nl_invalid_missing_001","input_text":"All invoices are documents. Are all invoices paid_items?","expected_parse_success":true,"expected_status":"abstained","expected_claim":"All invoices are paid_items"}
+{"case_id":"nl_malformed_001","input_text":"Dogs maybe mammal vibes???","expected_parse_success":false,"expected_status":"abstained","expected_claim":null}
+{"case_id":"nl_malformed_002","input_text":"All A are B. What is the weather tomorrow?","expected_parse_success":false,"expected_status":"abstained","expected_claim":null}
+{"case_id":"nl_malformed_003","input_text":"Because reasons. Therefore probably yes.","expected_parse_success":false,"expected_status":"abstained","expected_claim":null}

@@ -1,3 +1,36 @@
+## v2.4.0: Natural Language Claim Ingestion
+
+v2.4.0 adds bounded natural-language claim ingestion for simple syllogistic and relation-shaped prompts.
+
+The parser converts supported natural-language prompts into canonical premise/candidate graph claims, then delegates proof authority to the existing TS-Reasoner candidate bridge and typed verifier channels. This release does not claim broad NLP, does not load TensionLM, and does not train a neural model.
+
+Artifacts:
+
+- `data/natural_language_claim_cases.jsonl`
+- `scripts/evaluate_natural_language_claim_ingestion.py`
+- `docs/natural_language_claim_ingestion.md`
+- `artifacts/natural_language_claim_ingestion_report.json`
+- `artifacts/natural_language_claim_ingestion_receipt.json`
+
+Metrics:
+
+- `case_count`: 10
+- `parse_expectation_rate`: 1.0
+- `status_expectation_rate`: 1.0
+- `claim_expectation_rate`: 1.0
+- `malformed_input_safe_abstain_rate`: 1.0
+- `accepted_without_typed_support_count`: 0
+- `candidate_graph_contamination_count`: 0
+- `trace_schema_validity`: 1.0
+
+Boundary:
+
+- Parser extracts candidate data only.
+- Typed channels decide accept/reject/abstain.
+- Malformed or unsupported input safe-abstains.
+- No candidate/parser confidence becomes proof authority.
+- No parsed candidate contaminates the premise graph.
+
 # Release Notes
 
 ## v2.3.0: Scaled Learned vs Exported Candidate Comparison

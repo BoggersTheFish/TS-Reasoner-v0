@@ -52,3 +52,28 @@ Current Direction
 The next useful research step is a same-case comparison between learned
 candidate proposals and exported TensionLM-style proposals, while preserving the
 same typed verifier boundary.
+
+v2.4.0 — Natural Language Claim Ingestion
+
+v2.4.0 adds bounded natural-language claim ingestion.
+
+The release bridges simple natural-language reasoning prompts into canonical relation-shaped premises and candidate graph claims, then verifies those candidates through the existing candidate bridge and typed TS-Reasoner channels.
+
+Result:
+
+10 bounded NL cases
+parse expectation rate: 1.0
+status expectation rate: 1.0
+malformed input safe-abstain rate: 1.0
+accepted without typed support: 0
+candidate graph contamination: 0
+trace schema validity: 1.0
+
+Boundary preserved:
+
+no broad NLP claim;
+no TensionLM runtime;
+no training;
+no parser/model confidence as proof;
+typed channels remain verifier authority.
+

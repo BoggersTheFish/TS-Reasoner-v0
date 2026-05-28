@@ -1,0 +1,50 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/natural_language_claim_ingestion_report.json",
+      "sha256": "79f8ac82fc35b0b8457436ac1d702426696dbe9cdd2d75601f70c012fbb134ea"
+    },
+    {
+      "path": "data/natural_language_claim_cases.jsonl",
+      "sha256": "f375114460cb9c84a77041087201913b4546e517f70c62346d8efd4a81369907"
+    }
+  ],
+  "benchmarks": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 10,
+    "claim_expectation_rate": 1.0,
+    "malformed_input_safe_abstain_rate": 1.0,
+    "parse_expectation_rate": 1.0,
+    "status_expectation_rate": 1.0,
+    "trace_schema_validity": 1.0
+  },
+  "boundary": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "model_role": "none; no model loading or training in this release",
+    "parser_role": "extract bounded relation-shaped premises and candidate claim",
+    "verifier_role": "typed TS-Reasoner channels decide accept/reject/abstain"
+  },
+  "claim": "v2.4 adds bounded natural-language claim ingestion: simple NL prompts are normalized into candidate graph claims, then verified by the existing typed candidate bridge.",
+  "commands_run": [
+    "python3 scripts/evaluate_natural_language_claim_ingestion.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "0da9043",
+  "date": "2026-05-28T18:28:43.341769+00:00",
+  "inputs": [
+    "data/natural_language_claim_cases.jsonl"
+  ],
+  "known_limitations": [
+    "Bounded parser only; no claim of general natural-language understanding.",
+    "Single-token or underscore/hyphen concept names are the supported surface.",
+    "The parser extracts candidate data only; proof authority remains with typed channels.",
+    "No TensionLM runtime is loaded.",
+    "No neural training is performed."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Bounded syllogistic and relation-shaped natural language only; not general NLP or broad language understanding.",
+  "version": "v2.4.0-natural-language-claim-ingestion"
+}
