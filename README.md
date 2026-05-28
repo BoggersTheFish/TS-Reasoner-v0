@@ -547,3 +547,29 @@ Run:
 
 See `docs/learned_vs_exported_candidate_comparison.md`.
 
+
+## v2.3.0: Scaled Learned vs Exported Candidate Comparison
+
+v2.3.0 scales the learned-vs-exported comparison from the v2.2 seed set to a deterministic 15-case structured benchmark surface.
+
+Each case contains one valid low-confidence candidate plus high-confidence reverse, contradiction, identity-collapse, and unsupported candidates.
+
+Core result:
+
+- case_count: 15
+- learned_top_accept_rate: 1.0
+- exported_confidence_top_accept_rate: 0.0
+- learned_top_beats_exported_confidence_top_rate: 1.0
+- exported_high_confidence_bad_block_rate: 1.0
+- accepted_without_typed_support_count: 0
+- candidate_graph_contamination_count: 0
+- trace_schema_validity: 1.0
+
+Run:
+
+    python3 scripts/build_scaled_comparison_set.py
+    python3 scripts/evaluate_scaled_learned_vs_exported_candidate_comparison.py
+    python3 -m unittest discover -q
+
+See `docs/scaled_learned_vs_exported_candidate_comparison.md`.
+
