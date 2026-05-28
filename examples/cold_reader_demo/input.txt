@@ -1,0 +1,12 @@
+Premises:
+All dogs are mammals.
+All mammals are animals.
+
+Question:
+Are all dogs animals?
+
+Candidate claims:
+1. All dogs are animals.
+2. All animals are dogs.
+3. Dogs are animals because dogs and animals are identical.
+4. Some dogs are animals.
