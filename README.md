@@ -573,3 +573,55 @@ Run:
 
 See `docs/scaled_learned_vs_exported_candidate_comparison.md`.
 
+
+## v2.4.0: Natural Language Claim Ingestion
+
+v2.4.0 adds a bounded natural-language claim ingestion layer for simple syllogistic and relation-shaped prompts.
+
+Example supported input:
+
+```text
+All dogs are mammals. All mammals are animals. Are all dogs animals?
+
+The v2.4 path is:
+
+bounded natural-language prompt
+→ canonical relation-shaped premises
+→ candidate graph claim
+→ existing candidate bridge
+→ typed TS-Reasoner verifier channels
+→ accept / reject / abstain receipt
+
+This release keeps the proof boundary intact: the parser extracts candidate data, but typed verifier channels decide whether the claim is accepted, rejected, or abstained.
+
+Run the evaluator:
+
+python3 scripts/evaluate_natural_language_claim_ingestion.py
+
+Generated artifacts:
+
+artifacts/natural_language_claim_ingestion_report.json
+artifacts/natural_language_claim_ingestion_receipt.json
+
+Current v2.4 metrics:
+
+{
+  "accepted_without_typed_support_count": 0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 10,
+  "claim_expectation_rate": 1.0,
+  "malformed_input_safe_abstain_rate": 1.0,
+  "parse_expectation_rate": 1.0,
+  "status_expectation_rate": 1.0,
+  "trace_schema_validity": 1.0
+}
+
+Boundary:
+
+bounded parser only, not broad natural-language understanding;
+no TensionLM runtime loaded;
+no neural training;
+parser confidence does not become proof authority;
+malformed or unsupported input safe-abstains;
+accepted claims still require typed support.
+
