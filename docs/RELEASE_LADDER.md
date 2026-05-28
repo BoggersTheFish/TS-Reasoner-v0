@@ -106,3 +106,29 @@ Boundary preserved:
 - no TensionLM runtime;
 - no training;
 - typed verifier channels remain proof authority.
+
+## v2.6.0 — Candidate Model v2
+
+v2.6.0 trains Candidate Model v2 on candidate sets derived from the v2.5 benchmark harness.
+
+Result:
+
+- candidate ranking accuracy: 1.0
+- confidence baseline top accept rate: 0.2632
+- learned beats confidence baseline margin: 0.7368
+- multi-premise ranking success rate: 1.0
+- invalid query rejection-or-abstention rate: 1.0
+- supported alternative recovery rate: 1.0
+- malformed input non-accept rate: 1.0
+- accepted without typed support: 0
+- candidate graph contamination: 0
+- trace schema validity: 1.0
+
+Boundary preserved:
+
+- Candidate Model v2 ranks candidates only.
+- Typed channels remain proof authority.
+- No TensionLM runtime.
+- No broad NLP claim.
+- No neural language model training.
+

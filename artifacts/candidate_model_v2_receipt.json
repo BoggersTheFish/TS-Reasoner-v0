@@ -1,0 +1,76 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/candidate_model_v2.json",
+      "sha256": "c97517013f4db46f4987703f70f294ace8a608c7f200c09d7ec3455f1399e5fc"
+    },
+    {
+      "path": "artifacts/candidate_model_v2_report.json",
+      "sha256": "4188613ce20bd485a96c4a3e491987c9746d1594ca95248aec7482a768add335"
+    },
+    {
+      "path": "data/candidate_model_v2_train.jsonl",
+      "sha256": "8da23ec086c4a4789e29dc42acf0fe89519c925db1e3996b896e1bb83241263c"
+    },
+    {
+      "path": "data/candidate_model_v2_eval.jsonl",
+      "sha256": "8f1f6094279b07399afbac7784b3db068f9a6786b7c448ac76da115e99aacca6"
+    },
+    {
+      "path": "data/candidate_model_v2_stress.jsonl",
+      "sha256": "b79d3ac8aea2d6dbf02e72b920036c465c19c3fe7548d6c12f5d628777ee9843"
+    }
+  ],
+  "benchmarks": {
+    "abstention_accuracy": 1.0,
+    "accepted_candidate_support_rate": 1.0,
+    "accepted_without_typed_support_count": 0,
+    "bad_candidate_rejection_rate": 1.0,
+    "benchmark_aligned_metric_note": "v2.6 is a candidate-ranking release. Invalid benchmark queries may have a supported alternative candidate, so the correct metric is whether the invalid query is blocked and whether the model recovers the supported alternative.",
+    "candidate_graph_contamination_count": 0,
+    "candidate_ranking_accuracy": 1.0,
+    "channel_activation_accuracy": 0.9973,
+    "confidence_baseline_top_accept_rate": 0.2632,
+    "invalid_query_rejection_or_abstention_rate": 1.0,
+    "learned_beats_confidence_baseline_margin": 0.7368,
+    "malformed_input_non_accept_rate": 1.0,
+    "multi_premise_ranking_success_rate": 1.0,
+    "oracle_possible_accept_rate": 0.6842,
+    "resolver_prediction_accuracy": 1.0,
+    "supported_alternative_recovery_rate": 1.0,
+    "trace_schema_validity": 1.0,
+    "verifier_beats_model_confidence_rate": 1.0
+  },
+  "boundary": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "confidence_role": "baseline and metadata only; not proof authority",
+    "model_role": "rank candidate graph claims and predict advisory labels",
+    "verifier_role": "typed channels decide accept/reject/abstain"
+  },
+  "claim": "Candidate Model v2 trains on the v2.5 benchmark-derived candidate set and improves candidate ranking over confidence ordering while typed verifier channels remain proof authority.",
+  "commands_run": [
+    "python3 scripts/build_candidate_model_v2_dataset.py",
+    "python3 scripts/train_candidate_model_v2.py",
+    "python3 scripts/evaluate_candidate_model_v2.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "3751fe1",
+  "date": "2026-05-28T19:05:49.734095+00:00",
+  "inputs": [
+    "data/candidate_model_v2_train.jsonl",
+    "data/candidate_model_v2_eval.jsonl",
+    "data/candidate_model_v2_stress.jsonl"
+  ],
+  "known_limitations": [
+    "Benchmark-derived candidate set remains synthetic and bounded.",
+    "Pure-Python tiny linear model, not a full neural language model.",
+    "No live TensionLM runtime is loaded.",
+    "No broad NLP claim.",
+    "Model predictions remain advisory; typed verifier channels remain authority."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Pure-Python tiny linear candidate model over benchmark-derived candidate sets; no TensionLM runtime, no broad NLP, and no neural training.",
+  "version": "v2.6.0-candidate-model-v2"
+}
