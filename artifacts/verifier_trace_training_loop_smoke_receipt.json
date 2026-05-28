@@ -1,0 +1,51 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/verifier_trace_training_loop_smoke_report.json",
+      "sha256": "3d9cac626951e385d3044ae34f296f577d142108cc3b05f00723123817de7c5a"
+    },
+    {
+      "path": "artifacts/verifier_trace_status_model_v28.json",
+      "sha256": "505c56fe3b6a7f21f8beec9f245bf137275bc715baecb87519bf20330e6e70b6"
+    },
+    {
+      "path": "data/verifier_trace_training_data_v27.jsonl",
+      "sha256": "8846916293856f4d9ee92da3075ff1659d71bbd040eb24c372f8b3f0b3758c03"
+    }
+  ],
+  "boundary": {
+    "proof_role": "trained model is not proof authority",
+    "training_role": "smoke-test supervised status prediction from verifier traces",
+    "verifier_role": "typed verifier traces define target labels"
+  },
+  "claim": "v2.7 verifier trace rows can train a tiny supervised status model above simple baselines.",
+  "commands_run": [
+    "python3 scripts/train_from_verifier_trace_smoke.py",
+    "python3 scripts/generate_verifier_trace_training_loop_smoke_receipt.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "d8df8eb",
+  "date": "2026-05-28T19:28:00.077502+00:00",
+  "eval_rows": 56,
+  "known_limitations": [
+    "Smoke-scale linear model only.",
+    "Uses synthetic/benchmark-derived verifier traces.",
+    "No TensionLM runtime is loaded.",
+    "No neural language model is trained.",
+    "Trained model is not proof authority."
+  ],
+  "metrics": {
+    "confidence_baseline_eval_accuracy": 0.5714,
+    "eval_accuracy": 1.0,
+    "learned_beats_confidence_margin": 0.4286,
+    "learned_beats_majority_margin": 0.5714,
+    "majority_baseline_eval_accuracy": 0.4286,
+    "train_accuracy": 1.0
+  },
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "row_count": 91,
+  "scope": "Smoke-scale linear classifier over exported verifier trace rows; not a broad model-training claim.",
+  "train_rows": 35,
+  "version": "v2.8.0-training-loop-smoke"
+}

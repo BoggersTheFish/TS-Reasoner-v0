@@ -156,3 +156,27 @@ Boundary preserved:
 - Model confidence remains metadata only.
 - No TensionLM runtime is loaded.
 
+## v2.8.0 — Training Loop Smoke
+
+v2.8.0 proves that v2.7 verifier trace rows are usable supervised training signal.
+
+Result:
+
+- train accuracy: 1.0
+- eval accuracy: 1.0
+- majority baseline eval accuracy: 0.4286
+- confidence baseline eval accuracy: 0.5714
+- learned beats majority margin: 0.5714
+- learned beats confidence margin: 0.4286
+- row count: 91
+- train rows: 35
+- eval rows: 56
+
+Boundary preserved:
+
+- smoke-scale training loop only;
+- trained status model is not proof authority;
+- typed verifier traces define target labels;
+- no TensionLM runtime;
+- no neural language model training.
+

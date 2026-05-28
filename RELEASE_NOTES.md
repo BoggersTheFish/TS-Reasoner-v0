@@ -1,3 +1,40 @@
+## v2.8.0: Training Loop Smoke
+
+v2.8.0 proves that v2.7 verifier trace rows are usable supervised training signal.
+
+This release trains a tiny smoke-scale status model from exported verifier trace rows, evaluates on the heldout stress split, and compares against simple majority/confidence baselines.
+
+Artifacts:
+
+- `scripts/train_from_verifier_trace_smoke.py`
+- `scripts/generate_verifier_trace_training_loop_smoke_receipt.py`
+- `tests/test_verifier_trace_training_loop_smoke.py`
+- `docs/verifier_trace_training_loop_smoke.md`
+- `artifacts/verifier_trace_status_model_v28.json`
+- `artifacts/verifier_trace_training_loop_smoke_report.json`
+- `artifacts/verifier_trace_training_loop_smoke_receipt.json`
+
+Metrics:
+
+- `train_accuracy`: 1.0
+- `eval_accuracy`: 1.0
+- `majority_baseline_eval_accuracy`: 0.4286
+- `confidence_baseline_eval_accuracy`: 0.5714
+- `learned_beats_majority_margin`: 0.5714
+- `learned_beats_confidence_margin`: 0.4286
+- `row_count`: 91
+- `train_rows`: 35
+- `eval_rows`: 56
+
+Boundary:
+
+- This is a smoke-scale training loop, not a broad model-training claim.
+- The trained status model is not proof authority.
+- Typed verifier traces define target labels.
+- No TensionLM runtime is loaded.
+- No neural language model is trained.
+- Future larger models must preserve verifier/model separation.
+
 ## v2.7.0: Verifier Trace Training Data
 
 v2.7.0 exports supervised training rows from Candidate Model v2 verifier traces.

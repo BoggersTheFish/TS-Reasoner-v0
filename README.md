@@ -750,3 +750,33 @@ Boundary:
 - future training loops must keep verifier authority separate from model confidence.
 
 See `docs/verifier_trace_training_data.md`.
+
+## v2.8.0: Training Loop Smoke
+
+v2.8.0 proves that v2.7 verifier trace rows are usable supervised training signal.
+
+Run:
+
+    python3 scripts/train_from_verifier_trace_smoke.py
+    python3 scripts/generate_verifier_trace_training_loop_smoke_receipt.py
+
+Current metrics:
+
+- train_accuracy: 1.0
+- eval_accuracy: 1.0
+- majority_baseline_eval_accuracy: 0.4286
+- confidence_baseline_eval_accuracy: 0.5714
+- learned_beats_majority_margin: 0.5714
+- learned_beats_confidence_margin: 0.4286
+
+Boundary:
+
+- smoke-scale training loop only;
+- trained status model is not proof authority;
+- typed verifier traces define target labels;
+- no TensionLM runtime;
+- no neural language model training;
+- future larger models must preserve verifier/model separation.
+
+See `docs/verifier_trace_training_loop_smoke.md`.
+
