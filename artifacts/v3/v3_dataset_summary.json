@@ -1,0 +1,59 @@
+{
+  "boundary": {
+    "dataset_role": "unified supervised training signal",
+    "model_role": "candidate prediction/ranking only",
+    "verifier_role": "typed verifier remains proof authority"
+  },
+  "channel_counts": {
+    "directionality": 14,
+    "identity_preservation": 9,
+    "logic_transitivity": 10,
+    "malformed_relation": 21,
+    "surface_structure": 7,
+    "typed_support": 42
+  },
+  "duplicate_removed_count": 47,
+  "has_boundary": true,
+  "has_features": true,
+  "has_targets": true,
+  "input_artifacts": [
+    {
+      "path": "data/verifier_trace_training_data_v27.jsonl",
+      "sha256": "8846916293856f4d9ee92da3075ff1659d71bbd040eb24c372f8b3f0b3758c03"
+    },
+    {
+      "path": "data/active_learning_challenge_v29.jsonl",
+      "sha256": "8244f411b4c0e6ae3656a1b330830e61c4354a31ba5699fae9c39a02aacedec4"
+    },
+    {
+      "path": "data/active_learning_augmented_training_v29.jsonl",
+      "sha256": "23f932a950115459502b663dbac63e9157f0761ed2e1aab26e091fb528f71fb9"
+    }
+  ],
+  "output_artifact": {
+    "path": "artifacts/v3/v3_training_dataset.jsonl",
+    "sha256": "b87d8782770dfb742e5c52043b2bb9e9a24dd38f463b0ef06b328334534b61fc"
+  },
+  "raw_row_count": 150,
+  "raw_source_counts": {
+    "v27_verifier_trace": 91,
+    "v29_active_augmented": 47,
+    "v29_active_challenge": 12
+  },
+  "row_count": 103,
+  "source_counts": {
+    "v27_verifier_trace": 91,
+    "v29_active_challenge": 12
+  },
+  "split_counts": {
+    "active_challenge": 12,
+    "eval": 35,
+    "stress": 56
+  },
+  "status_counts": {
+    "abstained": 42,
+    "accepted": 17,
+    "rejected": 44
+  },
+  "version": "v3.0.0-dataset"
+}
