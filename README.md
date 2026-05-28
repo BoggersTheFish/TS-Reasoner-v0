@@ -4,847 +4,124 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Status](https://img.shields.io/badge/status-v2.1_adversarial_candidate_stress-blue)](MODEL_CARD.md)
+[![Release](https://img.shields.io/badge/release-v3.5.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.5.0)
 
-TS-Reasoner is an inspectable reasoning control loop. It generates candidate
-reasoning chains, scores local and global tension, runs a bounded repair or
-compression loop, settles a trace, and exposes why a result was accepted or
-rejected.
+TS-Reasoner is a verifier-first reasoning system.
 
-This repository is the stable public v2.1 foundation for that loop. It is not a
-large language model, a general theorem prover, or a broad benchmark claim.
+Core line:
 
-Current public bridge claim:
+    LLMs propose.
+    TS verifies.
+    Confidence is not proof.
+    Typed traces show why.
 
-> TS-Reasoner can train a tiny learned candidate model that ranks/proposes
-> structured candidate claims while typed channels remain the verifier,
-> confidence remains metadata, and candidate graph contamination stays blocked.
+It separates candidate generation, learned/advisory ranking, typed proof verification, and traceable rejection or abstention.
 
-## Typed Tension Channel Demo
+    candidate proposer
+    -> learned/advisory ranking
+    -> typed verifier channels
+    -> accept / reject / abstain trace
+    -> receipt
 
-The repo now includes a TS-Core-backed typed tension path alongside the existing public trace contract. The old fields remain, and traces also include:
+## Current flagship release
 
-```text
-trace.tension_channels
-trace.typed_runtime
-```
+Current release:
 
-Initial channels:
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.5.0
 
-- `logic_transitivity`
-- `identity_preservation`
-- `directionality`
-- `surface_structure`
-- `confidence_abstention`
-- `contradiction`
-- `quantifier_scope`
+v3.5.0 levels up TS-Reasoner from an internal release ladder into a clearer verifier-first research artifact.
 
-Run the typed demo and benchmark:
+It adds:
 
-```bash
-python3 scripts/demo_typed_tension.py
-python3 scripts/evaluate_typed_tension.py
-```
+- v3.1 public surface artifact
+- v3.2 cold-reader demo trace
+- v3.3 external mini-benchmark adapter
+- v3.4 verifier-first reasoning draft
+- v3.5 TensionLM proposer boundary smoke
 
-Generated artifacts:
+## Flagship evidence
 
-- `artifacts/typed_tension_demo.json`
-- `artifacts/typed_tension_benchmark_report.json`
-- `artifacts/typed_tension_receipt.json`
+v3.3 external adapter:
 
-Claim level: demo. This shows specific failure modes separated into typed operational channels on small curated examples. It does not claim general reasoning.
+    status_accuracy: 1.0
+    wrong_accept_count: 0
+    accepted_without_typed_support_count: 0
+    trace_schema_validity: 1.0
 
-### 10-Second Example
+v3.5 proposer-boundary smoke:
 
-```text
-All A are B.
-All B are C.
-Question: Are all A C?
-```
+    verifier_selection_accuracy: 1.0
+    confidence_top_accuracy: 0.0
+    verifier_overrode_confidence_count: 4
+    accepted_without_typed_support_count: 0
+    candidate_graph_contamination_count: 0
+    live_tensionlm_runtime_loaded: false
 
-The typed trace shows:
+Interpretation:
 
-```text
-logic_transitivity: infer A -> C
-directionality: block C -> A
-identity_preservation: block A = C
-surface_structure: tag A -> C as inferred, not stated
-```
+A proposer can be confidently wrong while TS-Reasoner still selects the typed-supported claim and blocks unsupported candidates.
 
-That is the point of typed tension: proof completion, reverse-inference blocking, and identity preservation are separate inspectable operations, not one blended score.
+## Run the current receipts
 
-## Learned Typed-Channel Calibrator
-
-The next scoped experiment is a small calibrator over typed traces:
-
-```bash
-python3 scripts/build_typed_calibrator_dataset.py
-python3 scripts/train_typed_channel_calibrator.py
-python3 scripts/evaluate_typed_channel_calibrator.py
-```
-
-It compares hand-coded channel decisions against learned activation, learned channel weights, learned resolver priority, and the full calibrator. The research claim is narrow: training moves from learning reasoning end-to-end to calibrating typed operational channels. TensionLM is not part of this branch.
-
-See `docs/typed_channel_calibrator.md`.
-
-## Calibrator Generalization Stress
-
-The stress evaluator checks whether the typed-channel calibrator survives heldout structure without retraining:
-
-```bash
-python3 scripts/evaluate_typed_channel_calibrator_stress.py
-```
-
-It covers variable renaming, deeper chains, distractors, quantifier traps, contradiction placement, reverse/identity adversarial queries, heldout relation shapes, and noisy surface forms. The point is credibility: the receipt should show clean generalization, expose partial limits, or catch overfit.
-
-See `docs/typed_channel_calibrator_generalization_stress.md`.
-
-## Calibration Progression
-
-The current calibration arc is intentionally receipt-first:
-
-- Scoped calibrator eval: `1.0` answer accuracy, channel activation accuracy, resolver accuracy, abstention correctness, and trace schema validity on the typed trace-supervision benchmark.
-- Generalization stress: Outcome B. The calibrator handled variable renaming but exposed failures on deeper chains, distractor premises, quantifier traps, and contradiction placement.
-- Structural repair: query-relevant graph features repaired the targeted stress failures on the current stress benchmark. Depth generalization and distractor robustness moved from `0.0` to `1.0`; quantifier trap failures and contradiction misses moved from `1` to `0`.
-- Known limitation: this is still synthetic, parser-controlled, and not natural-language robust. TensionLM remains out of scope for this release path.
-
-See `docs/typed_channel_calibrator_structural_features.md`.
-
-## Typed-Channel Release Receipt
-
-Generate the unified release receipt for the kernel -> channels -> calibrator -> stress -> repair arc:
-
-```bash
-python3 scripts/generate_typed_channel_release_receipt.py
-```
-
-This writes `artifacts/typed_channel_release_receipt.json`.
-
-See `docs/typed_channel_release_receipt.md`.
-
-## TensionLM Candidate Bridge
-
-v1.1.0 adds a dependency-light candidate bridge contract:
-
-```text
-TensionLM proposes.
-TS-Reasoner verifies.
-Typed channels decide.
-Receipts explain.
-```
-
-The bridge admits external language/model outputs as candidate graph claims,
-then verifies them without inserting candidate claims into the proof-support
-graph. High-confidence bad proposals cannot override typed verification.
-
-Run the bridge demo, normal eval, and adversarial stress:
-
-```bash
-python3 scripts/demo_tensionlm_candidate_bridge.py
-python3 scripts/evaluate_tensionlm_candidate_bridge.py
-python3 scripts/evaluate_tensionlm_candidate_bridge_adversarial.py
-```
-
-Generated artifacts:
-
-- `artifacts/tensionlm_candidate_bridge_demo.json`
-- `artifacts/tensionlm_candidate_bridge_report.json`
-- `artifacts/tensionlm_candidate_bridge_receipt.json`
-- `artifacts/tensionlm_candidate_bridge_adversarial_report.json`
-- `artifacts/tensionlm_candidate_bridge_adversarial_receipt.json`
-
-See `docs/tensionlm_candidate_bridge.md`.
-
-## Real TensionLM Candidate Adapter
-
-v1.2.0 adds a JSONL adapter for real or exported TensionLM-style candidate
-outputs. This adapter consumes exported candidate JSONL. It does not load or
-train TensionLM, and model confidence does not get proof authority. It
-normalizes exported candidates into the v1.1 bridge contract while TS-Reasoner
-typed channels remain the verifier.
-
-```text
-TensionLM proposes.
-Bridge normalizes.
-TS-Reasoner verifies.
-Typed channels decide.
-```
-
-Run the adapter smoke and receipt:
-
-```bash
-python3 scripts/run_real_tensionlm_candidate_adapter.py
-python3 scripts/evaluate_real_tensionlm_candidate_adapter.py
-```
-
-Generated artifacts:
-
-- `artifacts/real_tensionlm_candidate_adapter_smoke.json`
-- `artifacts/real_tensionlm_candidate_adapter_report.json`
-- `artifacts/real_tensionlm_candidate_adapter_receipt.json`
-
-See `docs/real_tensionlm_candidate_adapter.md`.
-
-## Messy Language Candidate Stress
-
-v1.3.0 stresses exported candidate ingestion with messy language before any live
-model-loading work. It covers paraphrases, partial claims, extra irrelevant
-text, contradictory candidate sets, unsupported leaps, bad or missing
-confidence, ambiguous relation wording, and multi-candidate outputs where the
-wrong candidate has higher confidence.
-
-Run the stress receipt:
-
-```bash
-python3 scripts/evaluate_messy_language_candidate_stress.py
-```
-
-Generated artifacts:
-
-- `artifacts/messy_language_candidate_stress_report.json`
-- `artifacts/messy_language_candidate_stress_receipt.json`
-
-The boundary remains unchanged: model text is candidate data, confidence is not
-proof, and TS-Reasoner typed channels remain the verifier.
-
-See `docs/messy_language_candidate_stress.md`.
-
-## Live TensionLM Export Smoke
-
-v1.4.0 adds an exported-output smoke for TensionLM-style candidates. This is not
-live model integration into the verifier. It produces/reads exported JSON
-candidate data, feeds that data through the v1.3 adapter, and verifies
-provenance, rejection, typed support, and zero graph contamination.
-
-Run the export smoke and receipt:
-
-```bash
-python3 scripts/run_live_tensionlm_export_smoke.py
-python3 scripts/evaluate_live_tensionlm_export_smoke.py
-```
-
-Generated artifacts:
-
-- `artifacts/live_tensionlm_export_smoke.json`
-- `artifacts/live_tensionlm_export_smoke_report.json`
-- `artifacts/live_tensionlm_export_smoke_receipt.json`
-
-Hard boundary: TensionLM-style outputs remain candidate data and never become
-proof without typed-channel support.
-
-See `docs/live_tensionlm_export_smoke.md`.
-
-## Real Exported TensionLM Sample
-
-v1.5.0 evaluates a real exported TensionLM-side sample through the existing
-TS-Reasoner adapter. The sample is sourced from the TensionLM checkout artifact
-`/home/boggersthefish/BoggersSpace/bozo/logs/eval/117m_transitivity_seed42.json`.
-
-This does not load TensionLM inside TS-Reasoner and does not train anything.
-Raw completions are preserved as candidate provenance; export-side normalized
-claims are evaluated unchanged by TS-Reasoner typed channels.
-
-Run the receipt:
-
-```bash
-python3 scripts/evaluate_real_exported_tensionlm_sample.py
-```
-
-Generated artifacts:
-
-- `artifacts/real_exported_tensionlm_sample_report.json`
-- `artifacts/real_exported_tensionlm_sample_receipt.json`
-
-See `docs/real_exported_tensionlm_sample.md`.
-
-## TensionLM Export Set Evaluation
-
-v1.6.0 evaluates a small set of real exported TensionLM-side samples through the
-same adapter boundary. The set preserves accepted, rejected, abstained, and
-malformed cases instead of hiding failures.
-
-This does not load TensionLM inside TS-Reasoner and does not train anything.
-Candidate confidence remains metadata; typed channels remain the proof
-authority; candidate edges do not enter proof support.
-
-Run the export set receipt:
-
-```bash
-python3 scripts/evaluate_tensionlm_export_set.py
-```
-
-Generated artifacts:
-
-- `artifacts/tensionlm_export_set_report.json`
-- `artifacts/tensionlm_export_set_receipt.json`
-
-See `docs/tensionlm_export_set_evaluation.md`.
-
-## Deeper-Chain Support Repair
-
-v1.7.0 repairs the deeper-chain current-limit case preserved by the v1.6.0
-export set receipt. A -> B -> C -> D style support is accepted inside the
-existing typed verifier boundary, while wrong reverse candidates remain blocked.
-
-Hard boundary remains unchanged: no TensionLM loading, no training, no
-confidence-as-proof, and no candidate edges entering proof support.
-
-Run the repair receipt:
-
-```bash
-python3 scripts/evaluate_deeper_chain_support_repair.py
-```
-
-Generated artifacts:
-
-- `artifacts/deeper_chain_support_repair_report.json`
-- `artifacts/deeper_chain_support_repair_receipt.json`
-
-See `docs/deeper_chain_support_repair.md`.
-
-## Learned Candidate Model
-
-v2.0.0 adds a dependency-light learned candidate model before the typed
-verifier. The model trains on controlled structured reasoning examples and
-predicts candidate ranking, channel activations, resolver labels, and
-accept/reject/abstain status.
-
-The boundary remains unchanged:
-
-```text
-learned model proposes/ranks
--> candidate bridge
--> TS-Reasoner typed channels verify
--> receipts explain accepted, rejected, and abstained candidates
-```
-
-The learned model is not proof authority. Candidate confidence is metadata, and
-accepted outputs require typed-channel support.
-
-Run the full v2.0 receipt:
-
-```bash
-python3 scripts/build_learned_candidate_dataset.py
-python3 scripts/train_learned_candidate_model.py
-python3 scripts/evaluate_learned_candidate_model.py
-python3 scripts/demo_learned_candidate_model.py
-```
-
-Generated artifacts:
-
-- `artifacts/learned_candidate_model.json`
-- `artifacts/learned_candidate_model_report.json`
-- `artifacts/learned_candidate_model_stress_report.json`
-- `artifacts/learned_candidate_model_receipt.json`
-- `artifacts/learned_candidate_model_demo.json`
-
-See `docs/learned_candidate_model.md`.
-
-## One-Command Run
-
-```bash
-python3 inference.py --question "If all A are B and all B are C, are all A C?"
-```
-
-That writes `artifacts/latest_trace.json` and prints the selected answer,
-selected chain, and global tension.
-
-Run all examples and tests:
-
-```bash
-python3 demo_reasoning.py
-python3 -m unittest discover
-```
-
-## What It Does
-
-The core pipeline is:
-
-```text
-input problem
--> candidate chains
--> Claim-Interaction Graph checks
--> local/global tension scoring
--> bounded repair/compression loop
--> selected answer or failure reason
--> JSON trace
-```
-
-Tension is a transparent instability score. Local tension marks the step where
-support is missing, a contradiction appears, a quantifier jump happens, or a
-claim is overconfident. Global tension summarizes the candidate chain.
-
-Traces are the public API of TS reasoning. Every trace records the input,
-candidate steps, local tension, global tension, chosen action, rejected
-alternatives, settled answer, and failure reason when the loop does not settle.
-
-## v1.0 Receipts
-
-Generate the stable v1 benchmark receipt:
-
-```bash
-python3 scripts/evaluate_v1_baseline.py
-```
-
-This writes:
-
-- `artifacts/v1_baseline_report.json`
-- `artifacts/release_receipt_v1.0.0.json`
-
-Current v1 receipt:
-
-- `20` tasks total.
-- `16` expected-pass tasks.
-- `4` adversarial known-limit tasks.
-- `full_control_loop`: `16/16` on expected-pass tasks.
-- Known-limit tasks are included to make failures visible, not to claim solved behavior.
-
-See `BENCHMARKS.md` for the benchmark categories and `LIMITATIONS.md` for the
-non-claims.
-
-## TensionLM Bridge
-
-TS-Reasoner can use TensionLM as an optional candidate proposer while keeping
-TS-Reasoner as the verifier:
-
-```text
-problem
--> TS-Reasoner reasoning state
--> TensionLM proposes candidate text
--> tension scorer and verifier evaluate it
--> trace records acceptance, repair, or rejection
-```
-
-Run the offline bridge smoke receipt:
-
-```bash
-python3 scripts/run_tensionlm_bridge.py --offline
-```
-
-Run against a local public TensionLM checkout:
-
-```bash
-python3 scripts/run_tensionlm_bridge.py --tensionlm-path ../TensionLM
-```
-
-The bridge writes `artifacts/tensionlm_bridge_smoke.json`. The public claim is
-narrow: this tests whether a tension-attention language model can improve an
-inspectable reasoning loop.
-
-## TensionProofLM Target
-
-The next model target is `TensionProofLM-22M`: a small model trained for proof
-step proposal, repair, and abstention, not general chat.
-
-Run the tiny smoke-training/eval receipt:
-
-```bash
-python3 scripts/run_tensionprooflm_smoke.py
-```
-
-This writes `artifacts/tensionprooflm_smoke_report.json`. The smoke run validates
-the data/eval contract only; it is not a trained 22M checkpoint.
-
-## Public Docs
-
-- `TRACE_SCHEMA.md`: stable JSON trace contract.
-- `BENCHMARKS.md`: v1 benchmark suite and receipt shape.
-- `LIMITATIONS.md`: explicit known limits and non-claims.
-- `MODEL_CARD.md`: intended use, risks, and eval summary.
-- `docs/tensionlm_bridge.md`: optional TensionLM proposal bridge.
-- `docs/tensionprooflm_22m.md`: next model target and metric.
-
-## Installation
-
-No runtime dependencies are required beyond Python 3.10+.
-
-```bash
-python3 -m unittest discover
-python3 inference.py --question "If all cats are mammals and all mammals are animals, are all cats animals?"
-```
-
-The package also exposes a console entry point when installed:
-
-```bash
-ts-reasoner --question "If all A are B and all B are C, are all A C?"
-```
-
-## Claim Boundary
-
-TS-Reasoner v2.0 claims:
-
-- stable inspectable traces,
-- deterministic small reasoning receipts,
-- visible failure modes,
-- a bridge contract for learned candidate proposers,
-- real exported TensionLM-side candidate sets can cross into TS-Reasoner as candidate data,
-- a tiny learned model can rank/propose structured candidate claims and predict typed-channel signals,
-- typed channels remain the proof authority,
-- malformed and current-limit cases are preserved as receipt evidence,
-- candidate graph contamination remains blocked.
-
-TS-Reasoner v2.0 does not claim:
-
-- general reasoning ability,
-- production decision-making reliability,
-- formal proof completeness,
-- chatbot quality,
-- superiority over frontier models,
-- live TensionLM integration into the verifier,
-- model confidence as proof authority.
-
-## v2.1.0: Learned Candidate Model Adversarial Stress
-
-v2.1.0 adds an adversarial stress layer for the v2.0 learned candidate model.
-
-The learned model remains advisory. It can rank and score candidate claims, but typed verifier channels remain the only proof authority.
-
-Adversarial cases include:
-
-- high-confidence wrong candidates
-- malformed outputs with fake confidence
-- unsupported plausible claims
-- reverse inference traps
-- contradiction traps
-- identity-collapse traps
-- distractor-heavy premise sets
-- missing-provenance candidates
-
-Core v2.1 boundary result:
-
-- candidate_graph_contamination_count: 0
-- accepted_without_typed_support_count: 0
-- high_confidence_bad_block_rate: 1.0
-- high_confidence_bad_total: 13
-- unsupported_abstained_count: 6
-- trace_schema_validity: 1.0
-
-Some bad candidates are blocked by abstention rather than hard rejection. That is intentional: abstention is safer than pretending unsupported claims are decidable.
-
-Run:
-
-```bash
-python3 scripts/evaluate_learned_candidate_model_adversarial.py
-python3 -m unittest discover -q
-
-## v2.2.0: Learned vs Exported Candidate Comparison
-
-v2.2.0 compares learned candidate ranking against exported-candidate confidence ordering on the same structured adversarial candidate cases.
-
-Core result:
-
-- learned_top_accept_rate: 0.8571
-- exported_confidence_top_accept_rate: 0.1429
-- learned_top_beats_exported_confidence_top_rate: 0.7143
-- accepted_without_typed_support_count: 0
-- candidate_graph_contamination_count: 0
-- trace_schema_validity: 1.0
-
-Run:
-
-    python3 scripts/evaluate_learned_vs_exported_candidate_comparison.py
+    python3 scripts/v3_2/run_cold_reader_demo.py
+    python3 scripts/v3_3/evaluate_external_minibench_v33.py
+    python3 scripts/v3_5/evaluate_tensionlm_proposer_boundary_v35.py
     python3 -m unittest discover -q
 
-See `docs/learned_vs_exported_candidate_comparison.md`.
+## What this is
 
+TS-Reasoner is:
 
-## v2.3.0: Scaled Learned vs Exported Candidate Comparison
+- a bounded verifier-first reasoning artifact;
+- a typed trace system;
+- a candidate rejection and abstention system;
+- a safe bridge for learned or language-model candidate proposers;
+- a receipt-first research surface for verifier-first reasoning.
 
-v2.3.0 scales the learned-vs-exported comparison from the v2.2 seed set to a deterministic 15-case structured benchmark surface.
+## What this is not
 
-Each case contains one valid low-confidence candidate plus high-confidence reverse, contradiction, identity-collapse, and unsupported candidates.
+TS-Reasoner is not:
 
-Core result:
+- a chatbot;
+- a general theorem prover;
+- a broad natural-language understanding system;
+- an external benchmark victory claim;
+- live TensionLM runtime integration;
+- a system where model confidence becomes proof authority.
 
-- case_count: 15
-- learned_top_accept_rate: 1.0
-- exported_confidence_top_accept_rate: 0.0
-- learned_top_beats_exported_confidence_top_rate: 1.0
-- exported_high_confidence_bad_block_rate: 1.0
-- accepted_without_typed_support_count: 0
-- candidate_graph_contamination_count: 0
-- trace_schema_validity: 1.0
+## Why this matters
 
-Run:
+Language models often entangle candidate generation, confidence, and proof.
 
-    python3 scripts/build_scaled_comparison_set.py
-    python3 scripts/evaluate_scaled_learned_vs_exported_candidate_comparison.py
-    python3 -m unittest discover -q
+TS-Reasoner keeps those roles separate.
 
-See `docs/scaled_learned_vs_exported_candidate_comparison.md`.
+A model may propose or rank a candidate claim, but the claim is not accepted unless typed verifier channels support it.
 
+## Core boundary
 
-## v2.4.0: Natural Language Claim Ingestion
+    candidate generation != proof
+    model confidence != proof
+    typed verifier support = proof boundary
 
-v2.4.0 adds a bounded natural-language claim ingestion layer for simple syllogistic and relation-shaped prompts.
+## Key v3.5 files
 
-Example supported input:
+- `docs/v3_1/PUBLIC_SURFACE.md`
+- `examples/cold_reader_demo/readable_trace.md`
+- `docs/v3_3/EXTERNAL_MINIBENCH_ADAPTER.md`
+- `docs/v3_4/VERIFIER_FIRST_REASONING_DRAFT.md`
+- `docs/v3_5/TENSIONLM_PROPOSER_BOUNDARY.md`
 
-```text
-All dogs are mammals. All mammals are animals. Are all dogs animals?
-```
+## Release ladder
 
-The v2.4 path is:
+| Version | Core addition | Boundary |
+|---|---|---|
+| v1.x | typed tension channels and TensionLM candidate bridge | TensionLM output remains candidate data |
+| v2.x | learned candidate models and verifier-trace training | learned models remain advisory |
+| v3.0 | verifier-guided candidate model | typed verifier remains proof authority |
+| v3.5 | public surface, cold demo, external adapter, proposer boundary | confidence is not proof |
 
-```text
-bounded natural-language prompt
-→ canonical relation-shaped premises
-→ candidate graph claim
-→ existing candidate bridge
-→ typed TS-Reasoner verifier channels
-→ accept / reject / abstain receipt
-```
+## One-command baseline
 
-This release keeps the proof boundary intact: the parser extracts candidate data, but typed verifier channels decide whether the claim is accepted, rejected, or abstained.
+    python3 inference.py --question "If all A are B and all B are C, are all A C?"
 
-Run the evaluator:
-
-```bash
-python3 scripts/evaluate_natural_language_claim_ingestion.py
-```
-
-Generated artifacts:
-
-```text
-artifacts/natural_language_claim_ingestion_report.json
-artifacts/natural_language_claim_ingestion_receipt.json
-```
-
-Current v2.4 metrics:
-
-```json
-{
-  "accepted_without_typed_support_count": 0,
-  "candidate_graph_contamination_count": 0,
-  "case_count": 10,
-  "claim_expectation_rate": 1.0,
-  "malformed_input_safe_abstain_rate": 1.0,
-  "parse_expectation_rate": 1.0,
-  "status_expectation_rate": 1.0,
-  "trace_schema_validity": 1.0
-}
-```
-
-Boundary:
-
-- bounded parser only, not broad natural-language understanding;
-- no TensionLM runtime loaded;
-- no neural training;
-- parser confidence does not become proof authority;
-- malformed or unsupported input safe-abstains;
-- accepted claims still require typed support.
-
-## v2.5.0: Benchmark Harness
-
-v2.5.0 adds a reusable train/dev/test-style benchmark harness.
-
-Benchmark files:
-
-```text
-data/benchmarks/
-  syllogism_train.jsonl
-  syllogism_dev.jsonl
-  syllogism_test.jsonl
-  rule_deduction_train.jsonl
-  rule_deduction_dev.jsonl
-  rule_deduction_test.jsonl
-  adversarial_invalid_test.jsonl
-```
-
-Run:
-
-```bash
-python3 scripts/evaluate_benchmark_harness.py
-```
-
-Current metrics:
-
-```json
-{
-  "accepted_without_typed_support_count": 0,
-  "candidate_graph_contamination_count": 0,
-  "claim_accuracy": 1.0,
-  "invalid_rejection_or_abstention_rate": 1.0,
-  "parse_success_rate": 0.9642857142857143,
-  "status_accuracy": 1.0,
-  "trace_schema_validity": 1.0
-}
-```
-
-The parse success rate is below 1.0 because malformed adversarial input is intentionally preserved and safely abstained rather than hidden.
-
-Boundary:
-
-- reusable bounded benchmark harness;
-- not an external benchmark victory claim;
-- no TensionLM runtime;
-- no neural training;
-- typed channels remain verifier authority.
-
-## v2.6.0: Candidate Model v2
-
-v2.6.0 trains Candidate Model v2 on candidate sets derived from the v2.5 benchmark harness.
-
-Run:
-
-    python3 scripts/build_candidate_model_v2_dataset.py
-    python3 scripts/train_candidate_model_v2.py
-    python3 scripts/evaluate_candidate_model_v2.py
-
-Current metrics:
-
-- candidate_ranking_accuracy: 1.0
-- confidence_baseline_top_accept_rate: 0.2632
-- learned_beats_confidence_baseline_margin: 0.7368
-- multi_premise_ranking_success_rate: 1.0
-- invalid_query_rejection_or_abstention_rate: 1.0
-- supported_alternative_recovery_rate: 1.0
-- malformed_input_non_accept_rate: 1.0
-- accepted_without_typed_support_count: 0
-- candidate_graph_contamination_count: 0
-- trace_schema_validity: 1.0
-
-Boundary:
-
-- learned model ranks candidate graph claims;
-- typed verifier channels remain proof authority;
-- confidence is metadata/baseline only;
-- no TensionLM runtime;
-- no broad NLP claim;
-- no accepted candidate without typed support.
-
-See `docs/candidate_model_v2.md`.
-
-## v2.7.0: Verifier Trace Training Data
-
-v2.7.0 exports supervised training rows from Candidate Model v2 verifier traces.
-
-Run:
-
-    python3 scripts/export_verifier_trace_training_data.py
-
-Current summary:
-
-- row_count: 91
-- accepted_rows: 13
-- rejected_rows: 40
-- abstained_rows: 38
-- has_model_features: true
-- has_verifier_targets: true
-- has_boundary: true
-- mean_proposal_quality: 0.2473
-
-Generated artifacts:
-
-- data/verifier_trace_training_data_v27.jsonl
-- artifacts/verifier_trace_training_data_summary.json
-- artifacts/verifier_trace_training_data_receipt.json
-
-Boundary:
-
-- v2.7 exports training data; it does not train a new model;
-- exported rows are supervised examples, not proof;
-- typed verifier channels define the target labels;
-- model confidence remains metadata only;
-- no TensionLM runtime;
-- future training loops must keep verifier authority separate from model confidence.
-
-See `docs/verifier_trace_training_data.md`.
-
-## v2.8.0: Training Loop Smoke
-
-v2.8.0 proves that v2.7 verifier trace rows are usable supervised training signal.
-
-Run:
-
-    python3 scripts/train_from_verifier_trace_smoke.py
-    python3 scripts/generate_verifier_trace_training_loop_smoke_receipt.py
-
-Current metrics:
-
-- train_accuracy: 1.0
-- eval_accuracy: 1.0
-- majority_baseline_eval_accuracy: 0.4286
-- confidence_baseline_eval_accuracy: 0.5714
-- learned_beats_majority_margin: 0.5714
-- learned_beats_confidence_margin: 0.4286
-
-Boundary:
-
-- smoke-scale training loop only;
-- trained status model is not proof authority;
-- typed verifier traces define target labels;
-- no TensionLM runtime;
-- no neural language model training;
-- future larger models must preserve verifier/model separation.
-
-See `docs/verifier_trace_training_loop_smoke.md`.
-
-## v2.9.0: Active Learning Loop
-
-v2.9.0 adds a smoke-scale active-learning loop on top of the verifier-trace training stack.
-
-Run:
-
-    python3 scripts/run_active_learning_loop_v29.py
-
-Current metrics:
-
-- baseline_challenge_accuracy: 0.6667
-- active_learning_challenge_accuracy: 1.0
-- active_learning_improvement: 0.3333
-- confidence_baseline_challenge_accuracy: 0.3333
-- active_beats_confidence_margin: 0.6667
-
-Boundary:
-
-- smoke-scale active-learning loop only;
-- trained model is not proof authority;
-- typed verifier traces define target labels;
-- challenge labels are verifier-derived;
-- no TensionLM runtime;
-- no neural language model training.
-
-See `docs/active_learning_loop_v29.md`.
-
-## v3.0.0: Verifier-Guided Candidate Model
-
-v3.0.0 is the first flagship TS-Reasoner model release.
-
-It introduces `VerifierGuidedCandidateModel`, a bounded model trained from verifier-derived rows. The model predicts candidate status, likely verifier channels, and proposal quality, while typed verifier channels remain proof authority.
-
-Run:
-
-    python3 scripts/v3/build_v3_training_dataset.py
-    python3 scripts/v3/train_v3_verifier_guided_model.py
-    python3 scripts/v3/evaluate_v3_verifier_guided_model.py
-    python3 scripts/v3/run_v3_demo.py
-
-Current metrics:
-
-- status_accuracy: 1.0
-- channel_prediction_accuracy: 0.9888
-- majority_baseline_accuracy: 0.4286
-- confidence_baseline_accuracy: 0.5714
-- beats_majority_margin: 0.5714
-- beats_confidence_margin: 0.4286
-- accepted_without_typed_support_count: 0
-- candidate_graph_contamination_count: 0
-- trace_schema_validity: 1.0
-- all_gates_passed: true
-
-Boundary:
-
-- bounded verifier-guided candidate model;
-- model is not proof authority;
-- typed verifier channels remain proof authority;
-- confidence is metadata/baseline only;
-- no TensionLM runtime;
-- no broad NLP or general theorem-proving claim.
-
-See:
-
-- `docs/v3/V3_MODEL_CARD.md`
-- `docs/v3/V3_EVAL_REPORT.md`
-- `docs/v3/V3_LIMITATIONS.md`
-
+That writes `artifacts/latest_trace.json` and prints the selected answer, selected chain, and global tension.
