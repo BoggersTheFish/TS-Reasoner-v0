@@ -1,0 +1,9 @@
+{
+  "version": "v3.4-paper-artifact",
+  "artifact": "docs/v3_4/VERIFIER_FIRST_REASONING_DRAFT.md",
+  "claim": "paper-style framing artifact only",
+  "model_is_proof_authority": false,
+  "typed_verifier_is_proof_authority": true,
+  "broad_benchmark_claim": false,
+  "live_tensionlm_runtime": false
+}
