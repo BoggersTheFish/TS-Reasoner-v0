@@ -1,3 +1,38 @@
+## v2.5.0: Benchmark Harness
+
+v2.5.0 adds a reusable train/dev/test-style benchmark harness for TS-Reasoner.
+
+The harness evaluates bounded natural-language and relation-shaped reasoning prompts across syllogism, rule-deduction, and adversarial-invalid categories. It reports status accuracy, claim accuracy, parse success rate, invalid rejection/abstention, accepted-without-typed-support count, candidate graph contamination count, trace validity, and split/category metrics.
+
+Artifacts:
+
+- `data/benchmarks/`
+- `ts_reasoner/benchmark_harness.py`
+- `scripts/evaluate_benchmark_harness.py`
+- `tests/test_benchmark_harness_v25.py`
+- `docs/benchmark_harness_v25.md`
+- `artifacts/benchmark_harness_report.json`
+- `artifacts/benchmark_harness_receipt.json`
+
+Metrics:
+
+- `case_count`: 28
+- `status_accuracy`: 1.0
+- `claim_accuracy`: 1.0
+- `parse_success_rate`: 0.9642857142857143
+- `invalid_rejection_or_abstention_rate`: 1.0
+- `accepted_without_typed_support_count`: 0
+- `candidate_graph_contamination_count`: 0
+- `trace_schema_validity`: 1.0
+
+Boundary:
+
+- This is a reusable bounded benchmark harness, not an external benchmark victory claim.
+- Malformed inputs may fail to parse, but safely abstain.
+- Typed verifier channels remain proof authority.
+- No TensionLM runtime is loaded.
+- No neural training is performed.
+
 ## v2.4.0: Natural Language Claim Ingestion
 
 v2.4.0 adds bounded natural-language claim ingestion for simple syllogistic and relation-shaped prompts.

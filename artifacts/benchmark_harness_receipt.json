@@ -1,0 +1,134 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/benchmark_harness_report.json",
+      "sha256": "58c7682e36baddc39a4c7e73f46636783d6953a335167c04d997e42a035b1c2f"
+    },
+    {
+      "path": "data/benchmarks/syllogism_train.jsonl",
+      "sha256": "0964ed16cc5efd5cbbad25b09e823c9a9efc5211bcc082f0ba837f280b33f34d"
+    },
+    {
+      "path": "data/benchmarks/syllogism_dev.jsonl",
+      "sha256": "2448d6c2e0e01758c84080fd4a19031205481759a22685487ec671dcb076f557"
+    },
+    {
+      "path": "data/benchmarks/syllogism_test.jsonl",
+      "sha256": "4c600a5a66b27b7aa53f007c45f63d6f483e1a1b40bc395482d9843b837f6cd8"
+    },
+    {
+      "path": "data/benchmarks/rule_deduction_train.jsonl",
+      "sha256": "87da19c0f452e8a91c0242a5f46137f68abfcf521a144279d1d2e8b1b9c701cf"
+    },
+    {
+      "path": "data/benchmarks/rule_deduction_dev.jsonl",
+      "sha256": "9f03613d16d375c0f2b6292ffadb97d2a52c93807c8ca3bc1209e040039509d8"
+    },
+    {
+      "path": "data/benchmarks/rule_deduction_test.jsonl",
+      "sha256": "6e5d8d8dcfd26b4298cd3a96c08dcb882077b7e27111de2dbff41e3b42e64d82"
+    },
+    {
+      "path": "data/benchmarks/adversarial_invalid_test.jsonl",
+      "sha256": "a25e03483bd0b0d79e181e25195a7469ae094d9321a9fe54ce46878aad8e96c9"
+    }
+  ],
+  "benchmarks": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "claim_accuracy": 1.0,
+    "invalid_rejection_or_abstention_rate": 1.0,
+    "parse_success_rate": 0.9642857142857143,
+    "status_accuracy": 1.0,
+    "trace_schema_validity": 1.0
+  },
+  "boundary": {
+    "accepted_without_typed_support_count": 0,
+    "benchmark_role": "reusable train/dev/test evaluation surface",
+    "candidate_graph_contamination_count": 0,
+    "parser_role": "bounded natural-language to candidate graph claim",
+    "verifier_role": "typed channels decide accept/reject/abstain"
+  },
+  "categories": {
+    "adversarial_invalid": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_count": 4,
+      "claim_accuracy": 1.0,
+      "invalid_rejection_or_abstention_rate": 1.0,
+      "parse_success_rate": 0.75,
+      "status_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    },
+    "rule_deduction": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_count": 11,
+      "claim_accuracy": 1.0,
+      "invalid_rejection_or_abstention_rate": 1.0,
+      "parse_success_rate": 1.0,
+      "status_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    },
+    "syllogism": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_count": 13,
+      "claim_accuracy": 1.0,
+      "invalid_rejection_or_abstention_rate": 1.0,
+      "parse_success_rate": 1.0,
+      "status_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    }
+  },
+  "claim": "A reusable train/dev/test benchmark harness evaluates TS-Reasoner across syllogism, rule-deduction, and adversarial-invalid reasoning surfaces.",
+  "commands_run": [
+    "python3 scripts/evaluate_benchmark_harness.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "c08ab1d",
+  "date": "2026-05-28T18:41:06.494704+00:00",
+  "known_limitations": [
+    "Benchmark is still bounded and synthetic.",
+    "It is a reusable harness, not an external benchmark victory claim.",
+    "No TensionLM runtime is loaded.",
+    "No neural training is performed.",
+    "Natural-language coverage remains deliberately narrow."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Bounded natural-language and canonical relation-shaped reasoning prompts; not broad NLP, not live TensionLM, and not neural training.",
+  "splits": {
+    "dev": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_count": 7,
+      "claim_accuracy": 1.0,
+      "invalid_rejection_or_abstention_rate": 1.0,
+      "parse_success_rate": 1.0,
+      "status_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    },
+    "test": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_count": 12,
+      "claim_accuracy": 1.0,
+      "invalid_rejection_or_abstention_rate": 1.0,
+      "parse_success_rate": 0.9166666666666666,
+      "status_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    },
+    "train": {
+      "accepted_without_typed_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_count": 9,
+      "claim_accuracy": 1.0,
+      "invalid_rejection_or_abstention_rate": 1.0,
+      "parse_success_rate": 1.0,
+      "status_accuracy": 1.0,
+      "trace_schema_validity": 1.0
+    }
+  },
+  "version": "v2.5.0-benchmark-harness"
+}
