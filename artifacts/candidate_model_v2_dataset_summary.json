@@ -1,0 +1,9 @@
+{
+  "candidate_count": 136,
+  "case_count": 28,
+  "eval_cases": 7,
+  "labelled": true,
+  "source": "v2.5 benchmark harness",
+  "stress_cases": 12,
+  "train_cases": 9
+}

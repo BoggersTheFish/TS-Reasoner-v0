@@ -681,3 +681,36 @@ Boundary:
 - no neural training;
 - typed channels remain verifier authority.
 
+## v2.6.0: Candidate Model v2
+
+v2.6.0 trains Candidate Model v2 on candidate sets derived from the v2.5 benchmark harness.
+
+Run:
+
+    python3 scripts/build_candidate_model_v2_dataset.py
+    python3 scripts/train_candidate_model_v2.py
+    python3 scripts/evaluate_candidate_model_v2.py
+
+Current metrics:
+
+- candidate_ranking_accuracy: 1.0
+- confidence_baseline_top_accept_rate: 0.2632
+- learned_beats_confidence_baseline_margin: 0.7368
+- multi_premise_ranking_success_rate: 1.0
+- invalid_query_rejection_or_abstention_rate: 1.0
+- supported_alternative_recovery_rate: 1.0
+- malformed_input_non_accept_rate: 1.0
+- accepted_without_typed_support_count: 0
+- candidate_graph_contamination_count: 0
+- trace_schema_validity: 1.0
+
+Boundary:
+
+- learned model ranks candidate graph claims;
+- typed verifier channels remain proof authority;
+- confidence is metadata/baseline only;
+- no TensionLM runtime;
+- no broad NLP claim;
+- no accepted candidate without typed support.
+
+See `docs/candidate_model_v2.md`.
