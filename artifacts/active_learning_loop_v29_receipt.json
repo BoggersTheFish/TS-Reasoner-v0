@@ -1,0 +1,56 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/active_learning_loop_v29_report.json",
+      "sha256": "d8f97b8073e9432c11a84de121067a3308119086fc0ec2e5a79dc8948f061128"
+    },
+    {
+      "path": "artifacts/active_learning_loop_v29_receipt.json",
+      "sha256": "self"
+    },
+    {
+      "path": "data/active_learning_challenge_v29.jsonl",
+      "sha256": "8244f411b4c0e6ae3656a1b330830e61c4354a31ba5699fae9c39a02aacedec4"
+    },
+    {
+      "path": "data/active_learning_augmented_training_v29.jsonl",
+      "sha256": "23f932a950115459502b663dbac63e9157f0761ed2e1aab26e091fb528f71fb9"
+    },
+    {
+      "path": "artifacts/active_learning_status_model_v29.json",
+      "sha256": "52806e51b9ab60908a9427c143d45464ab16fc58cada2bddfe4e28619898ce5c"
+    }
+  ],
+  "boundary": {
+    "active_learning_role": "select challenge rows and add verifier-derived labels",
+    "proof_role": "trained model is not proof authority",
+    "training_role": "smoke-test retraining from verifier trace rows",
+    "verifier_role": "typed verifier traces define target labels"
+  },
+  "claim": "Active-learning challenge rows can be selected, verifier-labeled, added to the training set, and used to improve a tiny status model on those challenge rows.",
+  "commands_run": [
+    "python3 scripts/run_active_learning_loop_v29.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "6217bc6",
+  "date": "2026-05-28T19:49:49.683904+00:00",
+  "known_limitations": [
+    "Synthetic challenge rows.",
+    "Smoke-scale linear model only.",
+    "No TensionLM runtime is loaded.",
+    "No neural language model is trained.",
+    "Trained model is not proof authority.",
+    "Verifier-derived labels remain authority."
+  ],
+  "metrics": {
+    "active_beats_confidence_margin": 0.6667,
+    "active_learning_challenge_accuracy": 1.0,
+    "active_learning_improvement": 0.3333,
+    "baseline_challenge_accuracy": 0.6667,
+    "confidence_baseline_challenge_accuracy": 0.3333
+  },
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Smoke-scale active-learning loop over verifier trace rows; not a broad model-training claim.",
+  "version": "v2.9.0-active-learning-loop"
+}

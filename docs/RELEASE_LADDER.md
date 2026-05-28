@@ -180,3 +180,28 @@ Boundary preserved:
 - no TensionLM runtime;
 - no neural language model training.
 
+## v2.9.0 — Active Learning Loop
+
+v2.9.0 adds a smoke-scale active-learning loop on top of the verifier-trace training stack.
+
+Result:
+
+- baseline challenge accuracy: 0.6667
+- active-learning challenge accuracy: 1.0
+- active-learning improvement: 0.3333
+- confidence baseline challenge accuracy: 0.3333
+- active beats confidence margin: 0.6667
+- row count: 91
+- base train rows: 35
+- challenge rows: 12
+- augmented train rows: 47
+
+Boundary preserved:
+
+- smoke-scale active-learning loop only;
+- trained model is not proof authority;
+- typed verifier traces define target labels;
+- challenge labels are verifier-derived;
+- no TensionLM runtime;
+- no neural language model training.
+

@@ -1,0 +1,22 @@
+{
+  "augmented_train_rows": 47,
+  "base_train_rows": 35,
+  "boundary": {
+    "active_learning_role": "select challenge rows and add verifier-derived labels",
+    "proof_role": "trained model is not proof authority",
+    "training_role": "smoke-test retraining from verifier trace rows",
+    "verifier_role": "typed verifier traces define target labels"
+  },
+  "challenge_rows": 12,
+  "claim": "Verifier-labeled challenge rows improve a tiny status model after active-learning retraining.",
+  "metrics": {
+    "active_beats_confidence_margin": 0.6667,
+    "active_learning_challenge_accuracy": 1.0,
+    "active_learning_improvement": 0.3333,
+    "baseline_challenge_accuracy": 0.6667,
+    "confidence_baseline_challenge_accuracy": 0.3333
+  },
+  "row_count": 91,
+  "scope": "Smoke-scale active-learning loop over verifier trace rows.",
+  "version": "v2.9.0-active-learning-loop"
+}
