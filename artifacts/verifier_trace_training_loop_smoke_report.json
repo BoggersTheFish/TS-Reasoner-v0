@@ -1,0 +1,21 @@
+{
+  "boundary": {
+    "proof_role": "trained model is not proof authority",
+    "training_role": "smoke-test supervised status prediction from verifier traces",
+    "verifier_role": "typed verifier traces define target labels"
+  },
+  "claim": "v2.7 verifier trace rows can train a tiny supervised status model above simple baselines.",
+  "eval_rows": 56,
+  "metrics": {
+    "confidence_baseline_eval_accuracy": 0.5714,
+    "eval_accuracy": 1.0,
+    "learned_beats_confidence_margin": 0.4286,
+    "learned_beats_majority_margin": 0.5714,
+    "majority_baseline_eval_accuracy": 0.4286,
+    "train_accuracy": 1.0
+  },
+  "row_count": 91,
+  "scope": "Smoke-scale linear classifier over exported verifier trace rows; not a broad model-training claim.",
+  "train_rows": 35,
+  "version": "v2.8.0-training-loop-smoke"
+}
