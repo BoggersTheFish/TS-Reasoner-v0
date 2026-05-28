@@ -1,0 +1,54 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/learned_vs_exported_candidate_comparison_report.json",
+      "sha256": "5d09a380a6c0fafaa3767be0079cbabffa622a1b0d9d008e1bea8f9a42d5e41e"
+    },
+    {
+      "path": "data/learned_vs_exported_candidate_comparison.jsonl",
+      "sha256": "a418aeb697b41ac6deb097a5d04257adcfcc72a4c39a7aa2a3796dc38cd40e67"
+    },
+    {
+      "path": "artifacts/learned_candidate_model.json",
+      "sha256": "39c963fd9ec5d778e06fee3dfbaff575417b5e39c31ec70ef5623d3fc55bfbcc"
+    }
+  ],
+  "benchmarks": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "exported_confidence_top_accept_rate": 0.1429,
+    "exported_high_confidence_bad_block_rate": 0.9286,
+    "learned_top_accept_rate": 0.8571,
+    "learned_top_beats_exported_confidence_top_rate": 0.7143,
+    "same_top_candidate_rate": 0.0,
+    "trace_schema_validity": 1.0
+  },
+  "boundary": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "exported_baseline_role": "rank candidates by input/export confidence",
+    "learned_model_role": "rank candidates by learned structured features",
+    "verifier_role": "typed channels decide accept/reject/abstain for both arms"
+  },
+  "claim": "On the same structured adversarial candidate cases, the learned candidate model is compared against exported-candidate confidence ordering while typed verification remains proof authority.",
+  "commands_run": [
+    "python3 scripts/evaluate_learned_vs_exported_candidate_comparison.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "16cbdf0",
+  "date": "2026-05-28T13:49:02.485004+00:00",
+  "inputs": [
+    "artifacts/learned_candidate_model.json",
+    "data/learned_vs_exported_candidate_comparison.jsonl"
+  ],
+  "known_limitations": [
+    "Structured synthetic adversarial cases, not broad natural-language evaluation.",
+    "Exported arm is an export-adapter confidence baseline, not a fresh live TensionLM generation run.",
+    "No live TensionLM runtime is loaded.",
+    "The result measures proposal/ranking quality under typed verification, not general reasoning capability."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Same-case comparison using the v2.0 learned candidate model and an exported-candidate confidence baseline generated through the existing TensionLM export adapter; no live TensionLM runtime is loaded.",
+  "version": "v2.2.0-learned-vs-exported-candidate-comparison"
+}

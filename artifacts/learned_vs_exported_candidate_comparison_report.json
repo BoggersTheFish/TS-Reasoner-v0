@@ -1,0 +1,350 @@
+{
+  "case_count": 7,
+  "dataset": "data/learned_vs_exported_candidate_comparison.jsonl",
+  "metrics": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "exported_confidence_top_accept_rate": 0.1429,
+    "exported_high_confidence_bad_block_rate": 0.9286,
+    "learned_top_accept_rate": 0.8571,
+    "learned_top_beats_exported_confidence_top_rate": 0.7143,
+    "same_top_candidate_rate": 0.0,
+    "trace_schema_validity": 1.0
+  },
+  "results": [
+    {
+      "accepted_candidate_ids": [
+        "valid_m_p"
+      ],
+      "case_id": "adv_high_confidence_false_candidate",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "bad_reverse_p_m",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All P are M",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "bad_identity_m_p",
+        "bad_reverse_p_m"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_m_p",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All M are P",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.7632,
+        "top_ranking_score": 1.1704,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "high_confidence_wrong",
+        "deeper_chain"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "valid_some_birds_animals"
+      ],
+      "case_id": "adv_some_all_quantifier_trap",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": false,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "bad_all_birds_animals",
+        "top_channels": {
+          "quantifier_scope": "blocked some-to-all upgrade"
+        },
+        "top_claim": "All birds are animals",
+        "top_input_confidence": 0.97,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "bad_all_birds_animals"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_some_birds_animals",
+        "top_channels": {
+          "typed_support": "abstained no accepted channel support"
+        },
+        "top_claim": "Some birds are animals",
+        "top_is_accepted": false,
+        "top_model_confidence": 0.0869,
+        "top_ranking_score": -2.352,
+        "top_status": "abstained",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "quantifier_scope",
+        "some_all_trap"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "valid_cats_animals"
+      ],
+      "case_id": "adv_malformed_fake_confidence",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "malformed_confident",
+        "top_channels": {
+          "malformed_relation": "rejected unparsable graph claim"
+        },
+        "top_claim": "cats therefore vibes animalish",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "bad_no_cats_animals",
+        "malformed_confident"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_cats_animals",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All cats are animals",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6811,
+        "top_ranking_score": 0.7588,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "malformed",
+        "fake_confidence"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "valid_a_c"
+      ],
+      "case_id": "adv_unsupported_plausible_candidate",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "unsupported_a_z",
+        "top_channels": {
+          "typed_support": "abstained no accepted channel support"
+        },
+        "top_claim": "All A are Z",
+        "top_input_confidence": 0.96,
+        "top_is_accepted": false,
+        "top_status": "abstained",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "unsupported_a_z",
+        "unsupported_z_a"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_a_c",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All A are C",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6967,
+        "top_ranking_score": 0.8316,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "unsupported",
+        "plausible"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "valid_a_d"
+      ],
+      "case_id": "adv_distractor_heavy_valid_chain",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "wrong_r_d",
+        "top_channels": {
+          "typed_support": "abstained no accepted channel support"
+        },
+        "top_claim": "All R are D",
+        "top_input_confidence": 0.95,
+        "top_is_accepted": false,
+        "top_status": "abstained",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "wrong_r_d",
+        "wrong_reverse_d_a",
+        "wrong_x_d"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_a_d",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All A are D",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.2796,
+        "top_ranking_score": -0.9464,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "distractor",
+        "deeper_chain"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "valid_fire_dangerous"
+      ],
+      "case_id": "adv_contradiction_trap",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "bad_no_fire_dangerous",
+        "top_channels": {
+          "contradiction": "rejected candidate contradicts premise edge"
+        },
+        "top_claim": "No fire are dangerous",
+        "top_input_confidence": 0.97,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "bad_fire_equals_dangerous",
+        "bad_no_fire_dangerous"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_fire_dangerous",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All fire are dangerous",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6835,
+        "top_ranking_score": 0.77,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "contradiction"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "valid_q_s"
+      ],
+      "case_id": "adv_provenance_missing_candidate",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          false,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": false,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "missing_source_q_s",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All Q are S",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": true,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "bad_reverse_s_q",
+        "missing_source_q_s"
+      ],
+      "learned": {
+        "top_candidate_id": "valid_q_s",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All Q are S",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6835,
+        "top_ranking_score": 0.77,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "adversarial",
+        "missing_provenance"
+      ]
+    }
+  ]
+}
