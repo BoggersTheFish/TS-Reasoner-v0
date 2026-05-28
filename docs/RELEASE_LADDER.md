@@ -205,3 +205,29 @@ Boundary preserved:
 - no TensionLM runtime;
 - no neural language model training.
 
+## v3.0.0 — Verifier-Guided Candidate Model
+
+v3.0.0 is the first flagship TS-Reasoner model release.
+
+Result:
+
+- status accuracy: 1.0
+- channel prediction accuracy: 0.9888
+- majority baseline accuracy: 0.4286
+- confidence baseline accuracy: 0.5714
+- beats majority margin: 0.5714
+- beats confidence margin: 0.4286
+- accepted without typed support count: 0
+- candidate graph contamination count: 0
+- trace schema validity: 1.0
+- all gates passed: true
+
+Boundary preserved:
+
+- model predicts candidate status/channels/proposal quality;
+- model is not proof authority;
+- typed verifier channels remain proof authority;
+- confidence is metadata/baseline only;
+- no TensionLM runtime;
+- no broad NLP or general theorem-proving claim.
+

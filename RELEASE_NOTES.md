@@ -1,3 +1,51 @@
+## v3.0.0: Verifier-Guided Candidate Model
+
+v3.0.0 is the first flagship TS-Reasoner model release.
+
+It introduces `VerifierGuidedCandidateModel`, a bounded model trained on verifier-derived rows from the v3 unified dataset. The model predicts candidate status, likely verifier channels, and proposal quality, while typed verifier channels remain proof authority.
+
+Artifacts:
+
+- `scripts/v3/build_v3_training_dataset.py`
+- `scripts/v3/train_v3_verifier_guided_model.py`
+- `scripts/v3/evaluate_v3_verifier_guided_model.py`
+- `scripts/v3/run_v3_demo.py`
+- `artifacts/v3/v3_training_dataset.jsonl`
+- `artifacts/v3/v3_dataset_summary.json`
+- `artifacts/v3/verifier_guided_candidate_model.json`
+- `artifacts/v3/verifier_guided_candidate_model_report.json`
+- `artifacts/v3/verifier_guided_candidate_model_receipt.json`
+- `artifacts/v3/v3_eval_predictions.jsonl`
+- `docs/v3/V3_MODEL_CARD.md`
+- `docs/v3/V3_EVAL_REPORT.md`
+- `docs/v3/V3_LIMITATIONS.md`
+
+Metrics:
+
+- `status_accuracy`: 1.0
+- `channel_prediction_accuracy`: 0.9888
+- `majority_baseline_accuracy`: 0.4286
+- `confidence_baseline_accuracy`: 0.5714
+- `beats_majority_margin`: 0.5714
+- `beats_confidence_margin`: 0.4286
+- `accepted_without_typed_support_count`: 0
+- `candidate_graph_contamination_count`: 0
+- `trace_schema_validity`: 1.0
+- `all_gates_passed`: true
+
+Boundary:
+
+- The model predicts candidate status/channels/proposal quality.
+- The model is not proof authority.
+- Typed verifier channels remain proof authority.
+- Model confidence is metadata/baseline only.
+- No TensionLM runtime is loaded.
+- No broad natural-language or general theorem-proving claim is made.
+
+Public claim:
+
+TS-Reasoner v3.0.0 is a bounded verifier-guided candidate model trained from typed verifier traces and active-learning rows, evaluated with proof-boundary gates that prevent model confidence from becoming proof authority.
+
 ## v2.9.0: Active Learning Loop
 
 v2.9.0 adds a smoke-scale active-learning loop on top of the verifier-trace training stack.

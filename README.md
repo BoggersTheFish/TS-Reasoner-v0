@@ -807,3 +807,44 @@ Boundary:
 
 See `docs/active_learning_loop_v29.md`.
 
+## v3.0.0: Verifier-Guided Candidate Model
+
+v3.0.0 is the first flagship TS-Reasoner model release.
+
+It introduces `VerifierGuidedCandidateModel`, a bounded model trained from verifier-derived rows. The model predicts candidate status, likely verifier channels, and proposal quality, while typed verifier channels remain proof authority.
+
+Run:
+
+    python3 scripts/v3/build_v3_training_dataset.py
+    python3 scripts/v3/train_v3_verifier_guided_model.py
+    python3 scripts/v3/evaluate_v3_verifier_guided_model.py
+    python3 scripts/v3/run_v3_demo.py
+
+Current metrics:
+
+- status_accuracy: 1.0
+- channel_prediction_accuracy: 0.9888
+- majority_baseline_accuracy: 0.4286
+- confidence_baseline_accuracy: 0.5714
+- beats_majority_margin: 0.5714
+- beats_confidence_margin: 0.4286
+- accepted_without_typed_support_count: 0
+- candidate_graph_contamination_count: 0
+- trace_schema_validity: 1.0
+- all_gates_passed: true
+
+Boundary:
+
+- bounded verifier-guided candidate model;
+- model is not proof authority;
+- typed verifier channels remain proof authority;
+- confidence is metadata/baseline only;
+- no TensionLM runtime;
+- no broad NLP or general theorem-proving claim.
+
+See:
+
+- `docs/v3/V3_MODEL_CARD.md`
+- `docs/v3/V3_EVAL_REPORT.md`
+- `docs/v3/V3_LIMITATIONS.md`
+
