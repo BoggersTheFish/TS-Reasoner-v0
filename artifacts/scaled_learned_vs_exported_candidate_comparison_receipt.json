@@ -1,0 +1,56 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/scaled_learned_vs_exported_candidate_comparison_report.json",
+      "sha256": "a0f3dd10b29b8d8f35d1825f9c29d41b103629731149eb4728ce711cf8a0b209"
+    },
+    {
+      "path": "data/scaled_learned_vs_exported_candidate_comparison.jsonl",
+      "sha256": "1afb5e3786fa42ed2cd3959788c7094b7d72a3fb388c7aab7d6907c6216f4d5a"
+    },
+    {
+      "path": "artifacts/learned_candidate_model.json",
+      "sha256": "39c963fd9ec5d778e06fee3dfbaff575417b5e39c31ec70ef5623d3fc55bfbcc"
+    }
+  ],
+  "benchmarks": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "exported_confidence_top_accept_rate": 0.0,
+    "exported_high_confidence_bad_block_rate": 1.0,
+    "learned_top_accept_rate": 1.0,
+    "learned_top_beats_exported_confidence_top_rate": 1.0,
+    "same_top_candidate_rate": 0.0,
+    "trace_schema_validity": 1.0
+  },
+  "boundary": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "exported_baseline_role": "rank candidates by input/export confidence",
+    "learned_model_role": "rank candidates by learned structured features",
+    "verifier_role": "typed channels decide accept/reject/abstain for both arms"
+  },
+  "claim": "The learned-vs-exported candidate comparison scales from the v2.2 seed set to a deterministic 15-case benchmark surface while preserving typed verification authority.",
+  "commands_run": [
+    "python3 scripts/build_scaled_comparison_set.py",
+    "python3 scripts/evaluate_scaled_learned_vs_exported_candidate_comparison.py",
+    "python3 -m unittest discover -q"
+  ],
+  "commit": "27e706b",
+  "date": "2026-05-28T14:04:02.252253+00:00",
+  "inputs": [
+    "data/scaled_learned_vs_exported_candidate_comparison.jsonl",
+    "artifacts/learned_candidate_model.json"
+  ],
+  "known_limitations": [
+    "Structured synthetic scaled cases, not broad natural-language evaluation.",
+    "Exported arm is a confidence-ordering baseline, not a fresh live TensionLM generation run.",
+    "No live TensionLM runtime is loaded.",
+    "No additional training is performed.",
+    "The result measures proposal/ranking quality under typed verification on this shaped benchmark surface."
+  ],
+  "project": "TS-Reasoner-v0",
+  "public_claim_level": "experimental",
+  "scope": "Deterministic structured scaled comparison set generated inside this repo; no live TensionLM runtime and no additional model training.",
+  "version": "v2.3.0-scaled-learned-vs-exported-candidate-comparison"
+}

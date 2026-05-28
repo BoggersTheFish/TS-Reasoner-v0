@@ -1,0 +1,801 @@
+{
+  "case_count": 15,
+  "dataset": "data/scaled_learned_vs_exported_candidate_comparison.jsonl",
+  "metrics": {
+    "accepted_without_typed_support_count": 0,
+    "candidate_graph_contamination_count": 0,
+    "exported_confidence_top_accept_rate": 0.0,
+    "exported_high_confidence_bad_block_rate": 1.0,
+    "learned_top_accept_rate": 1.0,
+    "learned_top_beats_exported_confidence_top_rate": 1.0,
+    "same_top_candidate_rate": 0.0,
+    "trace_schema_validity": 1.0
+  },
+  "results": [
+    {
+      "accepted_candidate_ids": [
+        "scaled_alpha_valid"
+      ],
+      "case_id": "scaled_alpha",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_alpha_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All C are A",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_alpha_contradiction_2",
+        "scaled_alpha_identity_3",
+        "scaled_alpha_reverse_1",
+        "scaled_alpha_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_alpha_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All A are C",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_beta_valid"
+      ],
+      "case_id": "scaled_beta",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_beta_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All animals are cats",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_beta_contradiction_2",
+        "scaled_beta_identity_3",
+        "scaled_beta_reverse_1",
+        "scaled_beta_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_beta_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All cats are animals",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_gamma_valid"
+      ],
+      "case_id": "scaled_gamma",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_gamma_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All artists are poets",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_gamma_contradiction_2",
+        "scaled_gamma_identity_3",
+        "scaled_gamma_reverse_1",
+        "scaled_gamma_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_gamma_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All poets are artists",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_delta_valid"
+      ],
+      "case_id": "scaled_delta",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_delta_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All risky are sparks",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_delta_contradiction_2",
+        "scaled_delta_identity_3",
+        "scaled_delta_reverse_1",
+        "scaled_delta_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_delta_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All sparks are risky",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_epsilon_valid"
+      ],
+      "case_id": "scaled_epsilon",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_epsilon_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All plants are oak",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_epsilon_contradiction_2",
+        "scaled_epsilon_identity_3",
+        "scaled_epsilon_reverse_1",
+        "scaled_epsilon_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_epsilon_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All oak are plants",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_zeta_valid"
+      ],
+      "case_id": "scaled_zeta",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_zeta_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All animals are robins",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_zeta_contradiction_2",
+        "scaled_zeta_identity_3",
+        "scaled_zeta_reverse_1",
+        "scaled_zeta_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_zeta_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All robins are animals",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_eta_valid"
+      ],
+      "case_id": "scaled_eta",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_eta_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All makers are coders",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_eta_contradiction_2",
+        "scaled_eta_identity_3",
+        "scaled_eta_reverse_1",
+        "scaled_eta_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_eta_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All coders are makers",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_theta_valid"
+      ],
+      "case_id": "scaled_theta",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_theta_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All causes are seeds",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_theta_contradiction_2",
+        "scaled_theta_identity_3",
+        "scaled_theta_reverse_1",
+        "scaled_theta_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_theta_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All seeds are causes",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_iota_valid"
+      ],
+      "case_id": "scaled_iota",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_iota_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All objects are moons",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_iota_contradiction_2",
+        "scaled_iota_identity_3",
+        "scaled_iota_reverse_1",
+        "scaled_iota_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_iota_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All moons are objects",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_kappa_valid"
+      ],
+      "case_id": "scaled_kappa",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_kappa_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All structures are proofs",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_kappa_contradiction_2",
+        "scaled_kappa_identity_3",
+        "scaled_kappa_reverse_1",
+        "scaled_kappa_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_kappa_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All proofs are structures",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.6955,
+        "top_ranking_score": 0.826,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_deeper_lambda_valid"
+      ],
+      "case_id": "scaled_deeper_lambda",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_deeper_lambda_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All D are A",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_deeper_lambda_contradiction_2",
+        "scaled_deeper_lambda_identity_3",
+        "scaled_deeper_lambda_reverse_1",
+        "scaled_deeper_lambda_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_deeper_lambda_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All A are D",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.7642,
+        "top_ranking_score": 1.176,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "deeper_chain",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_deeper_mu_valid"
+      ],
+      "case_id": "scaled_deeper_mu",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_deeper_mu_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All visible are red",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_deeper_mu_contradiction_2",
+        "scaled_deeper_mu_identity_3",
+        "scaled_deeper_mu_reverse_1",
+        "scaled_deeper_mu_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_deeper_mu_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All red are visible",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.7642,
+        "top_ranking_score": 1.176,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "deeper_chain",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_deeper_nu_valid"
+      ],
+      "case_id": "scaled_deeper_nu",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_deeper_nu_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All objects are maps",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_deeper_nu_contradiction_2",
+        "scaled_deeper_nu_identity_3",
+        "scaled_deeper_nu_reverse_1",
+        "scaled_deeper_nu_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_deeper_nu_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All maps are objects",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.7642,
+        "top_ranking_score": 1.176,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "deeper_chain",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_deeper_xi_valid"
+      ],
+      "case_id": "scaled_deeper_xi",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_deeper_xi_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All marks are tokens",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_deeper_xi_contradiction_2",
+        "scaled_deeper_xi_identity_3",
+        "scaled_deeper_xi_reverse_1",
+        "scaled_deeper_xi_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_deeper_xi_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All tokens are marks",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.7642,
+        "top_ranking_score": 1.176,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "deeper_chain",
+        "high_confidence_bad"
+      ]
+    },
+    {
+      "accepted_candidate_ids": [
+        "scaled_deeper_omicron_valid"
+      ],
+      "case_id": "scaled_deeper_omicron",
+      "comparison": {
+        "accepted_without_typed_support_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "exported_high_confidence_bad_block_checks": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "learned_top_beats_exported_confidence_top": true,
+        "same_top_candidate": false
+      },
+      "exported_confidence_baseline": {
+        "top_candidate_id": "scaled_deeper_omicron_reverse_1",
+        "top_channels": {
+          "directionality": "blocked reverse inference"
+        },
+        "top_claim": "All things are gears",
+        "top_input_confidence": 0.99,
+        "top_is_accepted": false,
+        "top_status": "rejected",
+        "trace_schema_valid": true
+      },
+      "high_confidence_bad_candidate_ids": [
+        "scaled_deeper_omicron_contradiction_2",
+        "scaled_deeper_omicron_identity_3",
+        "scaled_deeper_omicron_reverse_1",
+        "scaled_deeper_omicron_unsupported_4"
+      ],
+      "learned": {
+        "top_candidate_id": "scaled_deeper_omicron_valid",
+        "top_channels": {
+          "logic_transitivity": "accepted inferred edge"
+        },
+        "top_claim": "All gears are things",
+        "top_is_accepted": true,
+        "top_model_confidence": 0.7642,
+        "top_ranking_score": 1.176,
+        "top_status": "accepted",
+        "trace_schema_valid": true
+      },
+      "tags": [
+        "scaled",
+        "comparison",
+        "deeper_chain",
+        "high_confidence_bad"
+      ]
+    }
+  ]
+}
