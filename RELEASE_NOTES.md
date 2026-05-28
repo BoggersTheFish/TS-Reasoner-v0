@@ -1,3 +1,39 @@
+## v2.7.0: Verifier Trace Training Data
+
+v2.7.0 exports supervised training rows from Candidate Model v2 verifier traces.
+
+This release turns typed verifier outcomes into future training examples containing model features, model predictions, verifier status, typed channel targets, failure reasons, and explicit boundary metadata.
+
+Artifacts:
+
+- `ts_reasoner/trace_training_data.py`
+- `scripts/export_verifier_trace_training_data.py`
+- `tests/test_verifier_trace_training_data.py`
+- `docs/verifier_trace_training_data.md`
+- `data/verifier_trace_training_data_v27.jsonl`
+- `artifacts/verifier_trace_training_data_summary.json`
+- `artifacts/verifier_trace_training_data_receipt.json`
+
+Summary:
+
+- `row_count`: 91
+- `accepted_rows`: 13
+- `rejected_rows`: 40
+- `abstained_rows`: 38
+- `has_model_features`: true
+- `has_verifier_targets`: true
+- `has_boundary`: true
+- `mean_proposal_quality`: 0.2473
+
+Boundary:
+
+- v2.7 exports training data; it does not train a new model.
+- Exported rows are not proof.
+- Typed verifier channels define the target labels.
+- Model confidence remains metadata only.
+- No TensionLM runtime is loaded.
+- Future training loops must keep verifier authority separate from model confidence.
+
 ## v2.6.0: Candidate Model v2
 
 v2.6.0 trains Candidate Model v2 on candidate sets derived from the v2.5 benchmark harness.

@@ -714,3 +714,39 @@ Boundary:
 - no accepted candidate without typed support.
 
 See `docs/candidate_model_v2.md`.
+
+## v2.7.0: Verifier Trace Training Data
+
+v2.7.0 exports supervised training rows from Candidate Model v2 verifier traces.
+
+Run:
+
+    python3 scripts/export_verifier_trace_training_data.py
+
+Current summary:
+
+- row_count: 91
+- accepted_rows: 13
+- rejected_rows: 40
+- abstained_rows: 38
+- has_model_features: true
+- has_verifier_targets: true
+- has_boundary: true
+- mean_proposal_quality: 0.2473
+
+Generated artifacts:
+
+- data/verifier_trace_training_data_v27.jsonl
+- artifacts/verifier_trace_training_data_summary.json
+- artifacts/verifier_trace_training_data_receipt.json
+
+Boundary:
+
+- v2.7 exports training data; it does not train a new model;
+- exported rows are supervised examples, not proof;
+- typed verifier channels define the target labels;
+- model confidence remains metadata only;
+- no TensionLM runtime;
+- future training loops must keep verifier authority separate from model confidence.
+
+See `docs/verifier_trace_training_data.md`.
