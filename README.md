@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v4.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.0.0)
+[![Release](https://img.shields.io/badge/release-v4.1.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.1.0)
 
 TS-Reasoner is a verifier-first reasoning system.
 
@@ -27,9 +27,9 @@ It separates candidate generation, learned/advisory ranking, typed proof verific
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.0.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.1.0
 
-v4.0.0 adds the first bounded live proposer sandbox: a proposer backend emits candidate claims through a narrow interface, and TS-Reasoner still requires typed verifier support before acceptance.
+v4.1.0 proves the external JSONL backend path: externally emitted candidate rows can enter the live proposer sandbox while typed verifier support remains proof authority.
 
 It adds:
 
@@ -43,6 +43,7 @@ It adds:
 - v3.8 external benchmark translation pack
 - v3.9 live proposer dry-run interface
 - v4.0 live proposer sandbox
+- v4.1 external JSONL backend proof
 
 ## Flagship evidence
 
@@ -53,12 +54,13 @@ v3.3 external adapter:
     accepted_without_typed_support_count: 0
     trace_schema_validity: 1.0
 
-v4.0 live proposer sandbox:
+v4.1 external JSONL backend proof:
 
     sandbox_case_count: 8
     emitted_candidate_count: 16
     backend_contract_validity: 1.0
-    backend_kind: fixture
+    backend_kind: external_jsonl
+    backend_name: external_jsonl_proposer_backend_v1
     live_proposer_sandbox_executed: true
     verifier_selection_accuracy: 1.0
     confidence_top_accuracy: 0.0
@@ -73,7 +75,7 @@ v4.0 live proposer sandbox:
 
 Interpretation:
 
-Across 8 sandbox cases and 16 emitted candidates, TS-Reasoner runs a bounded live-proposer sandbox while keeping confidence outside the proof boundary.
+Across 8 sandbox cases and 16 external JSONL candidate rows, TS-Reasoner proves the external backend path while keeping confidence outside the proof boundary.
 
 ## Run the current receipts
 
@@ -85,6 +87,7 @@ Across 8 sandbox cases and 16 emitted candidates, TS-Reasoner runs a bounded liv
     python3 scripts/v3_8/evaluate_external_benchmark_translation_pack_v38.py
     python3 scripts/v3_9/evaluate_live_proposer_dry_run_interface_v39.py
     python3 scripts/v4_0/run_live_proposer_sandbox_v40.py
+    python3 scripts/v4_0/run_live_proposer_sandbox_v40.py --external-jsonl-backend data/v4_1_external_jsonl_backend_proof/external_backend_candidates_v41.jsonl
     python3 -m unittest discover -q
 
 ## What this is
@@ -134,6 +137,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 - `docs/v3_8/EXTERNAL_BENCHMARK_TRANSLATION_PACK.md`
 - `docs/v3_9/LIVE_PROPOSER_DRY_RUN_INTERFACE.md`
 - `docs/v4_0/LIVE_PROPOSER_SANDBOX.md`
+- `docs/v4_1/EXTERNAL_JSONL_BACKEND_PROOF.md`
 
 ## Release ladder
 
@@ -148,6 +152,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 | v3.8 | external benchmark translation pack | answer keys remain metadata, not proof |
 | v3.9 | live proposer dry-run interface | v4 runtime contract is ready, but not live yet |
 | v4.0 | live proposer sandbox | bounded backend emits candidates, TS verifies |
+| v4.1 | external JSONL backend proof | external candidate rows enter the sandbox safely |
 
 ## One-command baseline
 
