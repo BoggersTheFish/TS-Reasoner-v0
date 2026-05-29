@@ -1,0 +1,36 @@
+{
+  "abstention_case_count": 2,
+  "abstention_correctness": 1.0,
+  "accepted_without_typed_support_count": 0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 12,
+  "category_counts": {
+    "abstention_required": 2,
+    "confidence_not_proof": 1,
+    "deeper_chain_support": 1,
+    "direct_support": 1,
+    "distractor_heavy": 1,
+    "high_confidence_wrong_reverse": 1,
+    "identity_collapse_trap": 1,
+    "malformed_candidate": 1,
+    "multiple_supported_candidates": 1,
+    "partial_candidate_text": 1,
+    "unsupported_leap": 1
+  },
+  "claim": "Scaled proposer-boundary evaluation; proposer confidence is not proof.",
+  "confidence_top_accuracy": 0.0,
+  "gates": {
+    "accepted_without_typed_support_count_is_0": true,
+    "candidate_graph_contamination_count_is_0": true,
+    "confidence_is_not_proof": true,
+    "live_tensionlm_runtime_loaded_is_false": true,
+    "trace_schema_validity_is_1": true,
+    "wrong_accept_count_is_0": true
+  },
+  "live_tensionlm_runtime_loaded": false,
+  "trace_schema_validity": 1.0,
+  "verifier_overrode_confidence_count": 12,
+  "verifier_selection_accuracy": 1.0,
+  "version": "v3.6-scaled-proposer-boundary",
+  "wrong_accept_count": 0
+}
