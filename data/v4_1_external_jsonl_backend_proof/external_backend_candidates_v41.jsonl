@@ -1,0 +1,16 @@
+{"sandbox_case_id":"v40-sandbox-001","claim":"All C are A.","confidence":0.97,"raw_text":"External backend candidate: All C are A.","candidate_id":"v41-ext-001-a"}
+{"sandbox_case_id":"v40-sandbox-001","claim":"All A are C.","confidence":0.34,"raw_text":"External backend candidate: All A are C.","candidate_id":"v41-ext-001-b"}
+{"sandbox_case_id":"v40-sandbox-002","claim":"All D are A.","confidence":0.95,"raw_text":"External backend candidate: All D are A.","candidate_id":"v41-ext-002-a"}
+{"sandbox_case_id":"v40-sandbox-002","claim":"All A are D.","confidence":0.33,"raw_text":"External backend candidate: All A are D.","candidate_id":"v41-ext-002-b"}
+{"sandbox_case_id":"v40-sandbox-003","claim":"All cats are cats.","confidence":0.99,"raw_text":"External backend candidate: All cats are cats.","candidate_id":"v41-ext-003-a"}
+{"sandbox_case_id":"v40-sandbox-003","claim":"All cats are animals.","confidence":0.41,"raw_text":"External backend candidate: All cats are animals.","candidate_id":"v41-ext-003-b"}
+{"sandbox_case_id":"v40-sandbox-004","claim":"All A are Y.","confidence":0.96,"raw_text":"External backend candidate: All A are Y.","candidate_id":"v41-ext-004-a"}
+{"sandbox_case_id":"v40-sandbox-004","claim":"All Y are A.","confidence":0.88,"raw_text":"External backend candidate: All Y are A.","candidate_id":"v41-ext-004-b"}
+{"sandbox_case_id":"v40-sandbox-005","claim":"red therefore active","confidence":0.93,"raw_text":"red therefore active","candidate_id":"v41-ext-005-a"}
+{"sandbox_case_id":"v40-sandbox-005","claim":"All red things are active.","confidence":0.35,"raw_text":"External backend candidate: All red things are active.","candidate_id":"v41-ext-005-b"}
+{"sandbox_case_id":"v40-sandbox-006","claim":"All traces are proofs.","confidence":0.91,"raw_text":"External backend candidate: All traces are proofs.","candidate_id":"v41-ext-006-a"}
+{"sandbox_case_id":"v40-sandbox-006","claim":"All proofs are traces.","confidence":0.32,"raw_text":"External backend candidate: All proofs are traces.","candidate_id":"v41-ext-006-b"}
+{"sandbox_case_id":"v40-sandbox-007","claim":"A maybe C","confidence":0.98,"raw_text":"A maybe C","candidate_id":"v41-ext-007-a"}
+{"sandbox_case_id":"v40-sandbox-007","claim":"C because A","confidence":0.89,"raw_text":"C because A","candidate_id":"v41-ext-007-b"}
+{"sandbox_case_id":"v40-sandbox-008","claim":"All E are A.","confidence":0.98,"raw_text":"External backend candidate: All E are A.","candidate_id":"v41-ext-008-a"}
+{"sandbox_case_id":"v40-sandbox-008","claim":"All A are E.","confidence":0.31,"raw_text":"External backend candidate: All A are E.","candidate_id":"v41-ext-008-b"}
