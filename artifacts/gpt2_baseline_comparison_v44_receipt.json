@@ -1,0 +1,28 @@
+{
+  "abstention_case_count": 2,
+  "abstention_correctness": 1.0,
+  "broad_gpt2_superiority_claim": false,
+  "claim": "Bounded GPT-2 baseline comparison harness; GPT-2-style outputs are baseline data, not proof authority.",
+  "comparison_case_count": 12,
+  "confidence_is_not_proof": true,
+  "gates": {
+    "broad_gpt2_superiority_claim_is_false": true,
+    "comparison_case_count_positive": true,
+    "comparison_claim_is_bounded": true,
+    "confidence_is_not_proof": true,
+    "trace_schema_validity_is_1": true,
+    "ts_accepted_without_typed_support_count_is_0": true,
+    "ts_candidate_graph_contamination_count_is_0": true,
+    "ts_wrong_accept_count_is_0": true
+  },
+  "gpt2_baseline_answer_accuracy": 0.5,
+  "gpt2_comparison_claim_is_bounded": true,
+  "gpt2_wrong_accept_count": 6,
+  "trace_schema_validity": 1.0,
+  "ts_accepted_without_typed_support_count": 0,
+  "ts_answer_accuracy": 0.9166666666666666,
+  "ts_beats_gpt2_accuracy_margin": 0.41666666666666663,
+  "ts_candidate_graph_contamination_count": 0,
+  "ts_wrong_accept_count": 0,
+  "version": "v4.4-gpt2-baseline-comparison-harness"
+}
