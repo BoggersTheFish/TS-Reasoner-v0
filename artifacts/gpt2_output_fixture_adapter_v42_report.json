@@ -1,0 +1,12 @@
+{
+  "adapted_candidate_count": 16,
+  "adapter_success_rate": 1.0,
+  "claim": "GPT-2-style generated outputs are adapted into external JSONL candidate rows without granting model fluency or score proof authority.",
+  "confidence_is_not_proof": true,
+  "generated_text_is_not_proof": true,
+  "gpt2_comparison_claim": false,
+  "gpt2_fixture_case_count": 16,
+  "output_path": "data/v4_2_gpt2_output_fixture_adapter/adapted_gpt2_external_backend_candidates_v42.jsonl",
+  "source_model": "gpt2_fixture",
+  "version": "v4.2-gpt2-output-fixture-adapter"
+}
