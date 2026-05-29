@@ -1,0 +1,20 @@
+{
+  "abstention_case_count": 5,
+  "abstention_correctness": 1.0,
+  "accepted_without_typed_support_count": 0,
+  "candidate_count": 50,
+  "candidate_graph_contamination_count": 0,
+  "claim": "External-format rows translate into typed verifier traces without granting benchmark text or answer keys proof authority.",
+  "confidence_top_accuracy": 0.0,
+  "external_benchmark_victory_claim": false,
+  "live_tensionlm_runtime_loaded": false,
+  "source_case_count": 20,
+  "source_metadata_preservation_rate": 1.0,
+  "trace_schema_validity": 1.0,
+  "translated_case_count": 20,
+  "translation_success_rate": 1.0,
+  "verifier_overrode_confidence_count": 20,
+  "verifier_selection_accuracy": 1.0,
+  "version": "v3.8-external-benchmark-translation-pack",
+  "wrong_accept_count": 0
+}
