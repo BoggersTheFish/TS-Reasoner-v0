@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v4.1.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.1.0)
+[![Release](https://img.shields.io/badge/release-v4.2.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.2.0)
 
 TS-Reasoner is a verifier-first reasoning system.
 
@@ -27,9 +27,9 @@ It separates candidate generation, learned/advisory ranking, typed proof verific
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.1.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.2.0
 
-v4.1.0 proves the external JSONL backend path: externally emitted candidate rows can enter the live proposer sandbox while typed verifier support remains proof authority.
+v4.2.0 adds a GPT-2-shaped output fixture adapter: generated text rows are converted into external JSONL candidate rows and verified without granting fluency or score proof authority.
 
 It adds:
 
@@ -44,6 +44,7 @@ It adds:
 - v3.9 live proposer dry-run interface
 - v4.0 live proposer sandbox
 - v4.1 external JSONL backend proof
+- v4.2 GPT-2 output fixture adapter
 
 ## Flagship evidence
 
@@ -54,28 +55,29 @@ v3.3 external adapter:
     accepted_without_typed_support_count: 0
     trace_schema_validity: 1.0
 
-v4.1 external JSONL backend proof:
+v4.2 GPT-2 output fixture adapter:
 
-    sandbox_case_count: 8
-    emitted_candidate_count: 16
-    backend_contract_validity: 1.0
+    gpt2_fixture_case_count: 16
+    adapted_candidate_count: 16
+    adapter_success_rate: 1.0
+    source_model: gpt2_fixture
+    gpt2_comparison_claim: false
+    confidence_is_not_proof: true
+    generated_text_is_not_proof: true
+
     backend_kind: external_jsonl
-    backend_name: external_jsonl_proposer_backend_v1
-    live_proposer_sandbox_executed: true
+    backend_contract_validity: 1.0
     verifier_selection_accuracy: 1.0
     confidence_top_accuracy: 0.0
-    verifier_overrode_confidence_count: 8
     wrong_accept_count: 0
     accepted_without_typed_support_count: 0
     candidate_graph_contamination_count: 0
     provenance_preservation_rate: 1.0
-    confidence_is_not_proof: true
-    live_tensionlm_runtime_loaded: false
-    production_runtime_claim: false
+    trace_schema_validity: 1.0
 
 Interpretation:
 
-Across 8 sandbox cases and 16 external JSONL candidate rows, TS-Reasoner proves the external backend path while keeping confidence outside the proof boundary.
+Across 16 GPT-2-shaped output fixture rows, TS-Reasoner adapts generated text into external candidate rows and verifies them while keeping fluency and score outside the proof boundary.
 
 ## Run the current receipts
 
@@ -88,6 +90,8 @@ Across 8 sandbox cases and 16 external JSONL candidate rows, TS-Reasoner proves 
     python3 scripts/v3_9/evaluate_live_proposer_dry_run_interface_v39.py
     python3 scripts/v4_0/run_live_proposer_sandbox_v40.py
     python3 scripts/v4_0/run_live_proposer_sandbox_v40.py --external-jsonl-backend data/v4_1_external_jsonl_backend_proof/external_backend_candidates_v41.jsonl
+    python3 scripts/v4_2/adapt_gpt2_output_fixtures_v42.py
+    python3 scripts/v4_0/run_live_proposer_sandbox_v40.py --external-jsonl-backend data/v4_2_gpt2_output_fixture_adapter/adapted_gpt2_external_backend_candidates_v42.jsonl
     python3 -m unittest discover -q
 
 ## What this is
@@ -138,6 +142,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 - `docs/v3_9/LIVE_PROPOSER_DRY_RUN_INTERFACE.md`
 - `docs/v4_0/LIVE_PROPOSER_SANDBOX.md`
 - `docs/v4_1/EXTERNAL_JSONL_BACKEND_PROOF.md`
+- `docs/v4_2/GPT2_OUTPUT_FIXTURE_ADAPTER.md`
 
 ## Release ladder
 
@@ -153,6 +158,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 | v3.9 | live proposer dry-run interface | v4 runtime contract is ready, but not live yet |
 | v4.0 | live proposer sandbox | bounded backend emits candidates, TS verifies |
 | v4.1 | external JSONL backend proof | external candidate rows enter the sandbox safely |
+| v4.2 | GPT-2 output fixture adapter | GPT-2-shaped generated text becomes candidate data |
 
 ## One-command baseline
 
