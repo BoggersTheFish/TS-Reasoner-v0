@@ -1,0 +1,12 @@
+{"nl_case_id":"nl-v43-001","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, cats are animals because mammals are animals.","baseline_answer":"yes","baseline_claim":"All cats are animals.","confidence_proxy":0.64}
+{"nl_case_id":"nl-v43-002","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, animals are cats in this example.","baseline_answer":"yes","baseline_claim":"All animals are cats.","confidence_proxy":0.78}
+{"nl_case_id":"nl-v43-003","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, A implies C.","baseline_answer":"yes","baseline_claim":"All A are C.","confidence_proxy":0.66}
+{"nl_case_id":"nl-v43-004","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, A implies Y from the given facts.","baseline_answer":"yes","baseline_claim":"All A are Y.","confidence_proxy":0.81}
+{"nl_case_id":"nl-v43-005","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, proofs are traces.","baseline_answer":"yes","baseline_claim":"All proofs are traces.","confidence_proxy":0.61}
+{"nl_case_id":"nl-v43-006","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, traces are proofs.","baseline_answer":"yes","baseline_claim":"All traces are proofs.","confidence_proxy":0.74}
+{"nl_case_id":"nl-v43-007","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, sparks are energy.","baseline_answer":"yes","baseline_claim":"All sparks are energy.","confidence_proxy":0.62}
+{"nl_case_id":"nl-v43-008","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, energy is sparks.","baseline_answer":"yes","baseline_claim":"All energy are sparks.","confidence_proxy":0.77}
+{"nl_case_id":"nl-v43-009","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, red things are active.","baseline_answer":"yes","baseline_claim":"All red things are active.","confidence_proxy":0.59}
+{"nl_case_id":"nl-v43-010","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, people are students.","baseline_answer":"yes","baseline_claim":"All people are students.","confidence_proxy":0.73}
+{"nl_case_id":"nl-v43-011","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, notes are evidence.","baseline_answer":"yes","baseline_claim":"All notes are evidence.","confidence_proxy":0.57}
+{"nl_case_id":"nl-v43-012","source_model":"gpt2_baseline_fixture","baseline_output":"Yes, rain is heat.","baseline_answer":"yes","baseline_claim":"All rain are heat.","confidence_proxy":0.82}
