@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.9.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.9.0)
+[![Release](https://img.shields.io/badge/release-v4.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.0.0)
 
 TS-Reasoner is a verifier-first reasoning system.
 
@@ -27,9 +27,9 @@ It separates candidate generation, learned/advisory ranking, typed proof verific
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.9.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.0.0
 
-v3.9.0 adds the final pre-v4 live-proposer dry-run interface: a runtime-shaped contract that emits candidates while typed verifier channels remain proof authority.
+v4.0.0 adds the first bounded live proposer sandbox: a proposer backend emits candidate claims through a narrow interface, and TS-Reasoner still requires typed verifier support before acceptance.
 
 It adds:
 
@@ -42,6 +42,7 @@ It adds:
 - v3.7 real exported candidate batch
 - v3.8 external benchmark translation pack
 - v3.9 live proposer dry-run interface
+- v4.0 live proposer sandbox
 
 ## Flagship evidence
 
@@ -52,25 +53,27 @@ v3.3 external adapter:
     accepted_without_typed_support_count: 0
     trace_schema_validity: 1.0
 
-v3.9 live proposer dry-run interface:
+v4.0 live proposer sandbox:
 
-    input_case_count: 10
-    emitted_candidate_count: 18
-    interface_contract_validity: 1.0
+    sandbox_case_count: 8
+    emitted_candidate_count: 16
+    backend_contract_validity: 1.0
+    backend_kind: fixture
+    live_proposer_sandbox_executed: true
     verifier_selection_accuracy: 1.0
-    confidence_top_accuracy: 0.1
-    verifier_overrode_confidence_count: 9
+    confidence_top_accuracy: 0.0
+    verifier_overrode_confidence_count: 8
     wrong_accept_count: 0
     accepted_without_typed_support_count: 0
     candidate_graph_contamination_count: 0
     provenance_preservation_rate: 1.0
+    confidence_is_not_proof: true
     live_tensionlm_runtime_loaded: false
-    live_runtime_integration_claim: false
-    v4_runtime_contract_ready: true
+    production_runtime_claim: false
 
 Interpretation:
 
-Across 10 dry-run live-proposer inputs and 18 emitted candidates, TS-Reasoner validates the v4 runtime contract while keeping confidence outside the proof boundary.
+Across 8 sandbox cases and 16 emitted candidates, TS-Reasoner runs a bounded live-proposer sandbox while keeping confidence outside the proof boundary.
 
 ## Run the current receipts
 
@@ -81,6 +84,7 @@ Across 10 dry-run live-proposer inputs and 18 emitted candidates, TS-Reasoner va
     python3 scripts/v3_7/evaluate_real_exported_candidate_batch_v37.py
     python3 scripts/v3_8/evaluate_external_benchmark_translation_pack_v38.py
     python3 scripts/v3_9/evaluate_live_proposer_dry_run_interface_v39.py
+    python3 scripts/v4_0/run_live_proposer_sandbox_v40.py
     python3 -m unittest discover -q
 
 ## What this is
@@ -129,6 +133,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 - `docs/v3_7/REAL_EXPORTED_CANDIDATE_BATCH.md`
 - `docs/v3_8/EXTERNAL_BENCHMARK_TRANSLATION_PACK.md`
 - `docs/v3_9/LIVE_PROPOSER_DRY_RUN_INTERFACE.md`
+- `docs/v4_0/LIVE_PROPOSER_SANDBOX.md`
 
 ## Release ladder
 
@@ -142,6 +147,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 | v3.7 | real exported candidate batch | provenance survives the proof boundary |
 | v3.8 | external benchmark translation pack | answer keys remain metadata, not proof |
 | v3.9 | live proposer dry-run interface | v4 runtime contract is ready, but not live yet |
+| v4.0 | live proposer sandbox | bounded backend emits candidates, TS verifies |
 
 ## One-command baseline
 
