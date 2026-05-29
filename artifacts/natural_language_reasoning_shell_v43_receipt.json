@@ -1,0 +1,28 @@
+{
+  "abstention_case_count": 2,
+  "abstention_correctness": 1.0,
+  "accepted_without_typed_support_count": 0,
+  "broad_nlp_claim": false,
+  "candidate_generation_success_rate": 1.0,
+  "candidate_graph_contamination_count": 0,
+  "claim": "Bounded natural-language prompts are extracted into relation candidates and verified through typed support before answer rendering.",
+  "confidence_is_not_proof": true,
+  "extraction_success_rate": 1.0,
+  "gates": {
+    "accepted_without_typed_support_count_is_0": true,
+    "broad_nlp_claim_is_false": true,
+    "candidate_graph_contamination_count_is_0": true,
+    "confidence_is_not_proof": true,
+    "extraction_success_rate_is_1": true,
+    "gpt2_comparison_claim_is_false": true,
+    "trace_schema_validity_is_1": true,
+    "wrong_accept_count_is_0": true
+  },
+  "gpt2_comparison_claim": false,
+  "natural_language_answer_accuracy": 0.9166666666666666,
+  "nl_case_count": 12,
+  "trace_schema_validity": 1.0,
+  "verifier_selection_accuracy": 0.9166666666666666,
+  "version": "v4.3-natural-language-reasoning-shell",
+  "wrong_accept_count": 0
+}

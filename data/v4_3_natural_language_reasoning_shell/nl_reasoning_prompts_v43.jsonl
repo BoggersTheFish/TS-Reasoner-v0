@@ -1,0 +1,12 @@
+{"nl_case_id":"nl-v43-001","prompt":"If all cats are mammals and all mammals are animals, are cats animals?","expected_answer":"yes","expected_claim":"All cats are animals."}
+{"nl_case_id":"nl-v43-002","prompt":"If all cats are mammals and all mammals are animals, are animals cats?","expected_answer":"no","expected_claim":null}
+{"nl_case_id":"nl-v43-003","prompt":"Given all A are B and all B are C, does A imply C?","expected_answer":"yes","expected_claim":"All A are C."}
+{"nl_case_id":"nl-v43-004","prompt":"Given all A are B and all X are Y, does A imply Y?","expected_answer":"unknown","expected_claim":null}
+{"nl_case_id":"nl-v43-005","prompt":"Given all proofs are traces, are proofs traces?","expected_answer":"yes","expected_claim":"All proofs are traces."}
+{"nl_case_id":"nl-v43-006","prompt":"Given all proofs are traces, are traces proofs?","expected_answer":"no","expected_claim":null}
+{"nl_case_id":"nl-v43-007","prompt":"If all sparks are fires, all fires are heat, and all heat is energy, are sparks energy?","expected_answer":"yes","expected_claim":"All sparks are energy."}
+{"nl_case_id":"nl-v43-008","prompt":"If all sparks are fires, all fires are heat, and all heat is energy, is energy sparks?","expected_answer":"no","expected_claim":null}
+{"nl_case_id":"nl-v43-009","prompt":"Given all red things are warm things and all warm things are active things, are red things active?","expected_answer":"yes","expected_claim":"All red things are active."}
+{"nl_case_id":"nl-v43-010","prompt":"Given all students are learners and all learners are people, are people students?","expected_answer":"no","expected_claim":null}
+{"nl_case_id":"nl-v43-011","prompt":"If all notes are records and all records are evidence, are notes evidence?","expected_answer":"yes","expected_claim":"All notes are evidence."}
+{"nl_case_id":"nl-v43-012","prompt":"If all rain is water and all fire is heat, is rain heat?","expected_answer":"unknown","expected_claim":null}
