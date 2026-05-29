@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.7.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.7.0)
+[![Release](https://img.shields.io/badge/release-v3.8.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.8.0)
 
 TS-Reasoner is a verifier-first reasoning system.
 
@@ -27,9 +27,9 @@ It separates candidate generation, learned/advisory ranking, typed proof verific
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.7.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.8.0
 
-v3.7.0 extends the proposer/verifier boundary into a 24-case, 51-candidate real-export-shaped batch with preserved provenance.
+v3.8.0 adds an external benchmark translation pack that converts 20 external-format rows into typed verifier traces without granting answer keys or confidence proof authority.
 
 It adds:
 
@@ -40,6 +40,7 @@ It adds:
 - v3.5 TensionLM proposer boundary
 - v3.6 scaled proposer boundary evaluation
 - v3.7 real exported candidate batch
+- v3.8 external benchmark translation pack
 
 ## Flagship evidence
 
@@ -50,22 +51,25 @@ v3.3 external adapter:
     accepted_without_typed_support_count: 0
     trace_schema_validity: 1.0
 
-v3.7 real exported candidate batch:
+v3.8 external benchmark translation pack:
 
-    case_count: 24
-    candidate_count: 51
+    source_case_count: 20
+    translated_case_count: 20
+    candidate_count: 50
+    translation_success_rate: 1.0
+    source_metadata_preservation_rate: 1.0
     verifier_selection_accuracy: 1.0
-    confidence_top_accuracy: 0.0416666667
-    verifier_overrode_confidence_count: 23
+    confidence_top_accuracy: 0.0
+    verifier_overrode_confidence_count: 20
     wrong_accept_count: 0
     accepted_without_typed_support_count: 0
     candidate_graph_contamination_count: 0
-    provenance_preservation_rate: 1.0
+    external_benchmark_victory_claim: false
     live_tensionlm_runtime_loaded: false
 
 Interpretation:
 
-Across 24 export-shaped cases and 51 candidates, TS-Reasoner preserves candidate provenance, blocks unsupported accepts, and keeps confidence outside the proof boundary.
+Across 20 external-format rows and 50 translated candidates, TS-Reasoner preserves source metadata, blocks unsupported accepts, and keeps benchmark answer keys outside the proof boundary.
 
 ## Run the current receipts
 
@@ -74,6 +78,7 @@ Across 24 export-shaped cases and 51 candidates, TS-Reasoner preserves candidate
     python3 scripts/v3_5/evaluate_tensionlm_proposer_boundary_v35.py
     python3 scripts/v3_6/evaluate_scaled_proposer_boundary_v36.py
     python3 scripts/v3_7/evaluate_real_exported_candidate_batch_v37.py
+    python3 scripts/v3_8/evaluate_external_benchmark_translation_pack_v38.py
     python3 -m unittest discover -q
 
 ## What this is
@@ -120,6 +125,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 - `docs/v3_5/TENSIONLM_PROPOSER_BOUNDARY.md`
 - `docs/v3_6/SCALED_PROPOSER_BOUNDARY.md`
 - `docs/v3_7/REAL_EXPORTED_CANDIDATE_BATCH.md`
+- `docs/v3_8/EXTERNAL_BENCHMARK_TRANSLATION_PACK.md`
 
 ## Release ladder
 
@@ -131,6 +137,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 | v3.5 | public surface, cold demo, external adapter, proposer boundary | confidence is not proof |
 | v3.6 | scaled proposer boundary evaluation | high-confidence candidates remain candidate data |
 | v3.7 | real exported candidate batch | provenance survives the proof boundary |
+| v3.8 | external benchmark translation pack | answer keys remain metadata, not proof |
 
 ## One-command baseline
 
