@@ -1,0 +1,32 @@
+{
+  "abstention_case_count": 3,
+  "abstention_correctness": 1.0,
+  "accepted_without_typed_support_count": 0,
+  "candidate_graph_contamination_count": 0,
+  "claim": "Live-proposer-shaped dry-run interface emits candidates while typed verifier remains proof authority.",
+  "confidence_top_accuracy": 0.1,
+  "emitted_candidate_count": 18,
+  "gates": {
+    "accepted_without_typed_support_count_is_0": true,
+    "candidate_graph_contamination_count_is_0": true,
+    "confidence_is_not_proof": true,
+    "interface_contract_validity_is_1": true,
+    "live_runtime_integration_claim_is_false": true,
+    "live_tensionlm_runtime_loaded_is_false": true,
+    "provenance_preservation_rate_is_1": true,
+    "trace_schema_validity_is_1": true,
+    "v4_runtime_contract_ready_is_true": true,
+    "wrong_accept_count_is_0": true
+  },
+  "input_case_count": 10,
+  "interface_contract_validity": 1.0,
+  "live_runtime_integration_claim": false,
+  "live_tensionlm_runtime_loaded": false,
+  "provenance_preservation_rate": 1.0,
+  "trace_schema_validity": 1.0,
+  "v4_runtime_contract_ready": true,
+  "verifier_overrode_confidence_count": 9,
+  "verifier_selection_accuracy": 1.0,
+  "version": "v3.9-live-proposer-dry-run-interface",
+  "wrong_accept_count": 0
+}
