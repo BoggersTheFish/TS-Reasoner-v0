@@ -38,7 +38,7 @@ It adds:
 - v3.3 external mini-benchmark adapter
 - v3.4 verifier-first reasoning draft
 - v3.5 TensionLM proposer boundary
-- v3.6 scaled proposer boundary evaluation smoke
+- v3.6 scaled proposer boundary evaluation
 
 ## Flagship evidence
 
