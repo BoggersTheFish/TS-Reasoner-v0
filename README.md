@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.6.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.6.0)
+[![Release](https://img.shields.io/badge/release-v3.7.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.7.0)
 
 TS-Reasoner is a verifier-first reasoning system.
 
@@ -27,9 +27,9 @@ It separates candidate generation, learned/advisory ranking, typed proof verific
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.6.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v3.7.0
 
-v3.6.0 scales the proposer/verifier boundary from a tiny smoke test into a 12-case adversarial candidate-proposal evaluation.
+v3.7.0 extends the proposer/verifier boundary into a 24-case, 51-candidate real-export-shaped batch with preserved provenance.
 
 It adds:
 
@@ -39,6 +39,7 @@ It adds:
 - v3.4 verifier-first reasoning draft
 - v3.5 TensionLM proposer boundary
 - v3.6 scaled proposer boundary evaluation
+- v3.7 real exported candidate batch
 
 ## Flagship evidence
 
@@ -49,20 +50,22 @@ v3.3 external adapter:
     accepted_without_typed_support_count: 0
     trace_schema_validity: 1.0
 
-v3.6 scaled proposer-boundary evaluation:
+v3.7 real exported candidate batch:
 
-    case_count: 12
+    case_count: 24
+    candidate_count: 51
     verifier_selection_accuracy: 1.0
-    confidence_top_accuracy: 0.0
-    verifier_overrode_confidence_count: 12
+    confidence_top_accuracy: 0.0416666667
+    verifier_overrode_confidence_count: 23
     wrong_accept_count: 0
     accepted_without_typed_support_count: 0
     candidate_graph_contamination_count: 0
+    provenance_preservation_rate: 1.0
     live_tensionlm_runtime_loaded: false
 
 Interpretation:
 
-Across 12 adversarial proposer cases, confidence selects the wrong candidate every time while TS-Reasoner still selects or abstains according to typed support.
+Across 24 export-shaped cases and 51 candidates, TS-Reasoner preserves candidate provenance, blocks unsupported accepts, and keeps confidence outside the proof boundary.
 
 ## Run the current receipts
 
@@ -70,6 +73,7 @@ Across 12 adversarial proposer cases, confidence selects the wrong candidate eve
     python3 scripts/v3_3/evaluate_external_minibench_v33.py
     python3 scripts/v3_5/evaluate_tensionlm_proposer_boundary_v35.py
     python3 scripts/v3_6/evaluate_scaled_proposer_boundary_v36.py
+    python3 scripts/v3_7/evaluate_real_exported_candidate_batch_v37.py
     python3 -m unittest discover -q
 
 ## What this is
@@ -115,6 +119,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 - `docs/v3_4/VERIFIER_FIRST_REASONING_DRAFT.md`
 - `docs/v3_5/TENSIONLM_PROPOSER_BOUNDARY.md`
 - `docs/v3_6/SCALED_PROPOSER_BOUNDARY.md`
+- `docs/v3_7/REAL_EXPORTED_CANDIDATE_BATCH.md`
 
 ## Release ladder
 
@@ -125,6 +130,7 @@ A model may propose or rank a candidate claim, but the claim is not accepted unl
 | v3.0 | verifier-guided candidate model | typed verifier remains proof authority |
 | v3.5 | public surface, cold demo, external adapter, proposer boundary | confidence is not proof |
 | v3.6 | scaled proposer boundary evaluation | high-confidence candidates remain candidate data |
+| v3.7 | real exported candidate batch | provenance survives the proof boundary |
 
 ## One-command baseline
 
