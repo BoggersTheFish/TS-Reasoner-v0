@@ -1,0 +1,16 @@
+{
+  "accepted_after_typed_repair_count": 1,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "compiled_provenance_records": 8,
+  "compiled_repair_curriculum_rows": 1,
+  "compiled_replay_rows": 11,
+  "external_llm_used": false,
+  "record_count": 6,
+  "rejected_requested_claim_count": 1,
+  "release": "v7.1.0",
+  "repair_target_count": 1,
+  "resolved_repair_count": 1,
+  "schema": "ts_reasoner_v7_1_unified_runtime_report",
+  "turn_count": 11
+}

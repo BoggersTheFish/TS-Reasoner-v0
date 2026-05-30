@@ -1,4 +1,4 @@
-"""TS-Chat v0.5.
+"""TS-Chat v7.1 live surface.
 
 Scratch TS-native bounded chat loop with a common-ground manager.
 
@@ -371,10 +371,11 @@ def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
 def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> int:
     session = TSChatSession()
 
-    print("TS-Chat v0.5")
-    print("Scratch TS-native bounded chat with common-ground, repair resolution, and candidate language rules. Type 'exit' to quit.")
+    print("TS-Chat v7.1")
+    print("Unified verifier-first bounded chat with common-ground, repair resolution, and compilable session receipts. Type 'exit' to quit.")
     print("Try: all dogs are mammals. all mammals are animals. are all dogs animals?")
     print("Commands: what do we know? | why? | what is unsupported? | /repairs | /graph | /clear")
+    print("After exit: python3 -m ts_reasoner.cli compile-session --session artifacts/ts_chat_v0_2_latest_session.json")
     print()
 
     while True:
