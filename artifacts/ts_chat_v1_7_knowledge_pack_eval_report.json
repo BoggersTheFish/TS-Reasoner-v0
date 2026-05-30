@@ -1,0 +1,13 @@
+{
+  "accepted_claims_preserved": true,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 1,
+  "external_llm_used": false,
+  "pack_validity": 1.0,
+  "provenance_preserved": true,
+  "release": "v6.7.0",
+  "repair_targets_preserved": true,
+  "revision_bundles_preserved": true,
+  "roundtrip_validity": 1.0
+}
