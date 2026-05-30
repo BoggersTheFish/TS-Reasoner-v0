@@ -1,4 +1,4 @@
-"""TS-Chat v0.2.
+"""TS-Chat v0.5.
 
 Scratch TS-native bounded chat loop with a common-ground manager.
 
@@ -24,6 +24,11 @@ from typing import Any
 from ts_reasoner.answer_arena import Relation, extract_all_relation, extract_question_relation, normalize_term
 from ts_reasoner.common_ground import CommonGround, human_relation
 from ts_reasoner.chat_repair import parse_repair_target, repair_to_dict
+from ts_reasoner.candidate_language import (
+    candidate_selection_to_dict,
+    generate_response_candidates,
+    select_response_candidate,
+)
 
 
 ASK_RE = re.compile(r"\b(?:are|is)\s+all\s+.+?[?]", re.IGNORECASE)
@@ -55,6 +60,7 @@ class ChatTurnReceipt:
     requested_claims: list[dict[str, str]]
     discourse_markers: list[str]
     records_created: list[dict[str, Any]]
+    candidate_selection: dict[str, Any]
     response: str
     common_ground: dict[str, Any]
     parse_warnings: list[str]
@@ -89,6 +95,7 @@ def receipt_to_dict(receipt: ChatTurnReceipt) -> dict[str, Any]:
         "requested_claims": receipt.requested_claims,
         "discourse_markers": receipt.discourse_markers,
         "records_created": receipt.records_created,
+        "candidate_selection": receipt.candidate_selection,
         "decisions": receipt.records_created,
         "response": receipt.response,
         "common_ground": receipt.common_ground,
@@ -112,21 +119,28 @@ class TSChatSession:
         turn_id = self.common_ground.next_turn()
         parsed = parse_turn(user_text)
         created_records: list[dict[str, Any]] = []
+        candidate_selection: dict[str, Any] = {}
 
         if parsed.command == "summary":
             response = self.common_ground.summary()
+            candidate_selection = {"selected": {"rule_id": "command_summary", "text": response, "score": 1.0, "reasons": ["summary command"]}, "candidates": []}
         elif parsed.command == "unsupported":
             response = self.common_ground.unsupported_summary()
+            candidate_selection = {"selected": {"rule_id": "command_unsupported", "text": response, "score": 1.0, "reasons": ["unsupported command"]}, "candidates": []}
         elif parsed.command == "why":
             response = self.common_ground.why_summary()
+            candidate_selection = {"selected": {"rule_id": "command_why", "text": response, "score": 1.0, "reasons": ["why command"]}, "candidates": []}
         elif parsed.command == "graph":
             response = json.dumps(self.common_ground.to_dict(), indent=2, sort_keys=True)
+            candidate_selection = {"selected": {"rule_id": "command_graph", "text": response, "score": 1.0, "reasons": ["graph command"]}, "candidates": []}
         elif parsed.command == "repairs":
             response = self.common_ground.repair_summary()
+            candidate_selection = {"selected": {"rule_id": "command_repairs", "text": response, "score": 1.0, "reasons": ["repairs command"]}, "candidates": []}
         elif parsed.command == "clear":
             self.common_ground = CommonGround()
             self.common_ground.turn_id = turn_id
             response = "Common ground cleared."
+            candidate_selection = {"selected": {"rule_id": "command_clear", "text": response, "score": 1.0, "reasons": ["clear command"]}, "candidates": []}
         else:
             for premise in parsed.premises:
                 before_resolved_count = len(self.common_ground.last_resolved_repairs)
@@ -166,7 +180,20 @@ class TSChatSession:
                 self.common_ground.repair_targets.append(repair)
                 created_records.append({"repair_target": repair_to_dict(repair)})
 
-            response = compose_response(parsed, created_records)
+            fallback_response = compose_response(parsed, created_records)
+            claim_records = [record for record in created_records if "kind" in record]
+            repair_records = [record["repair_target"] for record in created_records if "repair_target" in record]
+            candidates = generate_response_candidates(
+                parsed_command=parsed.command,
+                records=claim_records,
+                repair_records=repair_records,
+                parse_warnings=parsed.parse_warnings,
+                discourse_markers=parsed.discourse_markers,
+                fallback_text=fallback_response,
+            )
+            selected_candidate = select_response_candidate(candidates)
+            candidate_selection = candidate_selection_to_dict(candidates)
+            response = selected_candidate.text
 
         receipt = ChatTurnReceipt(
             turn_id=turn_id,
@@ -177,6 +204,7 @@ class TSChatSession:
             requested_claims=[relation_to_dict(r) for r in parsed.requested_claims],
             discourse_markers=parsed.discourse_markers,
             records_created=created_records,
+            candidate_selection=candidate_selection,
             response=response,
             common_ground=self.common_ground.to_dict(),
             parse_warnings=parsed.parse_warnings,
@@ -343,8 +371,8 @@ def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
 def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> int:
     session = TSChatSession()
 
-    print("TS-Chat v0.2")
-    print("Scratch TS-native bounded chat with common-ground manager. Type 'exit' to quit.")
+    print("TS-Chat v0.5")
+    print("Scratch TS-native bounded chat with common-ground, repair resolution, and candidate language rules. Type 'exit' to quit.")
     print("Try: all dogs are mammals. all mammals are animals. are all dogs animals?")
     print("Commands: what do we know? | why? | what is unsupported? | /repairs | /graph | /clear")
     print()
@@ -499,6 +527,49 @@ def demo_v0_3() -> dict[str, Any]:
 def demo_v0_4() -> dict[str, Any]:
     """Alias for the v0.4 repair-resolution demo."""
     return demo_v0_4_repair_resolution()
+
+
+def demo_v0_5_candidate_language_rules() -> dict[str, Any]:
+    """v0.5 candidate-language deterministic demo."""
+    session = TSChatSession()
+    turns = [
+        "all dogs are mammals. all mammals are animals. are all dogs animals?",
+        "also say all dogs are reptiles.",
+        "/repairs",
+        "all dogs are canines. all canines are reptiles.",
+        "penguin banana sideways",
+        "what do we know?",
+    ]
+
+    receipts = [session.process(turn) for turn in turns]
+    selected_rules = [
+        receipt.candidate_selection.get("selected", {}).get("rule_id")
+        for receipt in receipts
+        if receipt.candidate_selection
+    ]
+
+    return {
+        "version": "ts-chat-v0.5-candidate-language-rules",
+        "claim": "bounded scratch TS-native chat loop with inspectable candidate language rules",
+        "external_llm_used": False,
+        "turn_count": len(receipts),
+        "record_count": len(session.common_ground.records),
+        "repair_target_count": len(session.common_ground.repair_targets),
+        "selected_rule_count": len([rule for rule in selected_rules if rule]),
+        "selected_rules": selected_rules,
+        "has_candidate_selection": all(bool(receipt.candidate_selection) for receipt in receipts),
+        "has_reject_rule": (
+            "reject_unsupported_requested_claim" in selected_rules
+            or "discourse_marker_append" in selected_rules
+        ),
+        "has_parse_rule": "parse_failure_repair" in selected_rules,
+        "receipts": [receipt_to_dict(r) for r in receipts],
+    }
+
+
+def demo_v0_5() -> dict[str, Any]:
+    """Alias for v0.5 candidate-language demo."""
+    return demo_v0_5_candidate_language_rules()
 
 def main() -> int:
     return run_chat()
