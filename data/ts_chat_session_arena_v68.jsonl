@@ -1,0 +1,10 @@
+{"case_id":"persistence_roundtrip","category":"persistence","description":"Accepted claims and repair targets survive save/load."}
+{"case_id":"repair_memory_query","category":"repair_memory","description":"Open repair targets remain queryable after reload."}
+{"case_id":"accepted_explanation_trace","category":"explanations","description":"Accepted claims have valid explanation traces."}
+{"case_id":"unsupported_explanation_trace","category":"explanations","description":"Unsupported claims explain missing typed verifier support."}
+{"case_id":"direct_contradiction","category":"contradictions","description":"Direct contradictions are detected."}
+{"case_id":"transitive_contradiction","category":"contradictions","description":"Transitive contradictions are detected through support paths."}
+{"case_id":"contradiction_guard","category":"contradictions","description":"Contradictory claims are rejected and create repair targets."}
+{"case_id":"revision_candidates","category":"revision","description":"Contradiction repair targets generate bounded revision candidates."}
+{"case_id":"provenance_snapshot","category":"provenance","description":"Claims, repairs, and candidates receive provenance records."}
+{"case_id":"knowledge_pack_roundtrip","category":"knowledge_pack","description":"Knowledge packs export/import state without proof promotion."}
