@@ -1,0 +1,28 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 23,
+  "case_type_counts": {
+    "accepted_edge_regression": 4,
+    "accepted_question_support_path": 1,
+    "knowledge_pack_boundary": 1,
+    "pack_rejected_record_regression": 1,
+    "pack_repair_regression": 1,
+    "rejected_claim_boundary": 1,
+    "repair_lifecycle": 1,
+    "repair_resolution": 1,
+    "repair_target_boundary": 2,
+    "turn_replay": 10
+  },
+  "external_llm_used": false,
+  "invalid_case_count": 0,
+  "release": "v7.2.0",
+  "schema": "ts_reasoner_v7_2_self_curriculum_report",
+  "source_counts": {
+    "compiled_knowledge_pack": 7,
+    "compiled_provenance": 4,
+    "compiled_repair_curriculum": 2,
+    "compiled_replay": 10
+  },
+  "valid_case_count": 23
+}

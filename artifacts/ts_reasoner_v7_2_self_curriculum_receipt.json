@@ -1,0 +1,62 @@
+{
+  "all_gates_passed": true,
+  "boundary": {
+    "broad_natural_language_understanding": false,
+    "compiled_artifacts_are_proof": false,
+    "external_benchmark_victory": false,
+    "generated_curriculum_is_proof": false,
+    "live_tensionlm_runtime": false,
+    "neural_training": false,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  "candidate_graph_contamination_count": 0,
+  "case_count": 23,
+  "case_type_counts": {
+    "accepted_edge_regression": 4,
+    "accepted_question_support_path": 1,
+    "knowledge_pack_boundary": 1,
+    "pack_rejected_record_regression": 1,
+    "pack_repair_regression": 1,
+    "rejected_claim_boundary": 1,
+    "repair_lifecycle": 1,
+    "repair_resolution": 1,
+    "repair_target_boundary": 2,
+    "turn_replay": 10
+  },
+  "compiled_artifacts_are_not_proof": true,
+  "compiled_dir": "artifacts/compiled_sessions/v7_2_demo",
+  "compiler_receipt_path": "artifacts/compiled_sessions/v7_2_demo/v7_2_demo_compiler_receipt.json",
+  "curriculum_dir": "artifacts/self_curriculum/v7_2_demo",
+  "curriculum_eval_report_path": "artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum_eval_report.json",
+  "curriculum_path": "artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum.jsonl",
+  "external_llm_used": false,
+  "gates": {
+    "candidate_graph_contamination_count_is_zero": true,
+    "compiler_gates_passed": true,
+    "curriculum_eval_gates_passed": true,
+    "curriculum_eval_report_written": true,
+    "curriculum_generated": true,
+    "external_llm_used_false": true,
+    "has_accepted_question_support_cases": true,
+    "has_knowledge_pack_boundary_cases": true,
+    "has_rejected_claim_boundary_cases": true,
+    "has_repair_lifecycle_cases": true,
+    "has_repair_resolution_cases": true,
+    "has_turn_replay_cases": true
+  },
+  "generated_curriculum_is_not_proof": true,
+  "invalid_case_count": 0,
+  "milestone": "Self-Curriculum Generator",
+  "release": "v7.2.0",
+  "schema": "ts_reasoner_v7_2_self_curriculum_receipt",
+  "source_counts": {
+    "compiled_knowledge_pack": 7,
+    "compiled_provenance": 4,
+    "compiled_repair_curriculum": 2,
+    "compiled_replay": 10
+  },
+  "typed_verifier_remains_proof_authority": true,
+  "user_confirmation_is_not_proof": true,
+  "valid_case_count": 23
+}
