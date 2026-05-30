@@ -1,0 +1,372 @@
+{
+  "all_gates_passed": true,
+  "answer_accuracy": 1.0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 10,
+  "category_pass_rates": {
+    "contradictions": 1.0,
+    "explanations": 1.0,
+    "knowledge_pack": 1.0,
+    "persistence": 1.0,
+    "provenance": 1.0,
+    "repair_memory": 1.0,
+    "revision": 1.0
+  },
+  "contradiction_detection_rate": 1.0,
+  "explanation_trace_validity": 1.0,
+  "external_llm_used": false,
+  "failed_count": 0,
+  "generated_text_is_not_proof": true,
+  "knowledge_pack_roundtrip_validity": 1.0,
+  "pass_rate": 1.0,
+  "passed_count": 10,
+  "provenance_validity": 1.0,
+  "release": "v6.8.0",
+  "repair_target_accuracy": 1.0,
+  "results": [
+    {
+      "case_id": "persistence_roundtrip",
+      "category": "persistence",
+      "details": {
+        "accepted_after": [
+          "all cats are animals",
+          "all animals are mortal"
+        ],
+        "accepted_before": [
+          "all cats are animals",
+          "all animals are mortal"
+        ],
+        "repair_targets_after": 1,
+        "repair_targets_before": 1
+      },
+      "expected": "accepted claims and repair targets preserved without proof promotion",
+      "observed": "passed",
+      "passed": true
+    },
+    {
+      "case_id": "repair_memory_query",
+      "category": "repair_memory",
+      "details": {
+        "repair_snapshot": {
+          "external_llm_used": false,
+          "open_repair_target_count": 1,
+          "open_repair_targets": [
+            {
+              "claim_text": "all cats are robots",
+              "reason": "missing typed verifier support",
+              "repair_id": "repair_001",
+              "source_turn_id": "turn_003",
+              "status": "open"
+            }
+          ],
+          "rejected_repair_target_count": 0,
+          "release": "v6.2.0",
+          "repair_target_count": 1,
+          "repair_targets": [
+            {
+              "claim_text": "all cats are robots",
+              "reason": "missing typed verifier support",
+              "repair_id": "repair_001",
+              "source_turn_id": "turn_003",
+              "status": "open"
+            }
+          ],
+          "resolved_repair_target_count": 0,
+          "schema": "ts_chat_repair_memory_v1",
+          "session_id": "ts_chat_v1_1_demo_session"
+        }
+      },
+      "expected": "one open repair target remains queryable",
+      "observed": "1 open repair targets",
+      "passed": true
+    },
+    {
+      "case_id": "accepted_explanation_trace",
+      "category": "explanations",
+      "details": {
+        "trace": {
+          "claim_id": "claim_001",
+          "claim_text": "all cats are animals",
+          "creates_proof": false,
+          "decision": "accepted",
+          "external_llm_used": false,
+          "proof_authority": "typed_verifier",
+          "reason": "accepted through recorded verifier/common-ground channel",
+          "release": "v6.3.0",
+          "schema": "ts_chat_explanation_trace_v1",
+          "session_id": "ts_chat_v1_1_demo_session",
+          "source": "user",
+          "status": "accepted",
+          "support_paths": [],
+          "trace_type": "claim_decision",
+          "turn_id": "turn_001",
+          "verifier_channels": [
+            "user_asserted_common_ground"
+          ]
+        }
+      },
+      "expected": "accepted trace is valid and creates no proof",
+      "observed": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "unsupported_explanation_trace",
+      "category": "explanations",
+      "details": {
+        "trace": {
+          "claim_id": "claim_003",
+          "claim_text": "all cats are robots",
+          "creates_proof": false,
+          "decision": "unsupported",
+          "external_llm_used": false,
+          "proof_authority": "typed_verifier",
+          "reason": "missing typed verifier support",
+          "release": "v6.3.0",
+          "schema": "ts_chat_explanation_trace_v1",
+          "session_id": "ts_chat_v1_1_demo_session",
+          "source": "user",
+          "status": "unsupported",
+          "support_paths": [],
+          "trace_type": "claim_decision",
+          "turn_id": "turn_003",
+          "verifier_channels": []
+        }
+      },
+      "expected": "unsupported trace reports missing typed verifier support",
+      "observed": "missing typed verifier support",
+      "passed": true
+    },
+    {
+      "case_id": "direct_contradiction",
+      "category": "contradictions",
+      "details": {
+        "trace": {
+          "claim_text": "no cats are animals",
+          "contradiction_detected": true,
+          "contradiction_type": "direct_contradiction",
+          "creates_proof": false,
+          "external_llm_used": false,
+          "parsed": true,
+          "parsed_claim": {
+            "object": "animals",
+            "polarity": "negative",
+            "quantifier": "no",
+            "subject": "cats"
+          },
+          "proof_authority": "typed_verifier",
+          "reason": "negative claim conflicts with accepted positive support path",
+          "release": "v6.4.0",
+          "schema": "ts_chat_contradiction_trace_v1",
+          "support_path": [
+            "all cats are animals"
+          ]
+        }
+      },
+      "expected": "direct contradiction detected",
+      "observed": "direct_contradiction",
+      "passed": true
+    },
+    {
+      "case_id": "transitive_contradiction",
+      "category": "contradictions",
+      "details": {
+        "trace": {
+          "claim_text": "no cats are mortal",
+          "contradiction_detected": true,
+          "contradiction_type": "transitive_contradiction",
+          "creates_proof": false,
+          "external_llm_used": false,
+          "parsed": true,
+          "parsed_claim": {
+            "object": "mortal",
+            "polarity": "negative",
+            "quantifier": "no",
+            "subject": "cats"
+          },
+          "proof_authority": "typed_verifier",
+          "reason": "negative claim conflicts with accepted positive support path",
+          "release": "v6.4.0",
+          "schema": "ts_chat_contradiction_trace_v1",
+          "support_path": [
+            "all cats are animals",
+            "all animals are mortal"
+          ]
+        }
+      },
+      "expected": "transitive contradiction detected through accepted support path",
+      "observed": "transitive_contradiction",
+      "passed": true
+    },
+    {
+      "case_id": "contradiction_guard",
+      "category": "contradictions",
+      "details": {
+        "rejected_trace": {
+          "claim_id": "claim_004",
+          "claim_text": "no cats are mortal",
+          "creates_proof": false,
+          "decision": "rejected",
+          "external_llm_used": false,
+          "proof_authority": "typed_verifier",
+          "reason": "claim is rejected or blocked by current verifier state",
+          "release": "v6.3.0",
+          "schema": "ts_chat_explanation_trace_v1",
+          "session_id": "ts_chat_v1_1_demo_session",
+          "source": "user",
+          "status": "rejected",
+          "support_paths": [
+            [
+              "all cats are animals",
+              "all animals are mortal"
+            ]
+          ],
+          "trace_type": "claim_decision",
+          "turn_id": "turn_004",
+          "verifier_channels": [
+            "contradiction"
+          ]
+        }
+      },
+      "expected": "contradictory claim rejected and repair target created",
+      "observed": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "revision_candidates",
+      "category": "revision",
+      "details": {
+        "revision_bundle": {
+          "all_candidates_create_no_proof": true,
+          "all_candidates_not_auto_accepted": true,
+          "all_candidates_require_typed_verifier": true,
+          "all_candidates_require_user_confirmation": true,
+          "candidate_count": 5,
+          "candidates": [
+            {
+              "action": "reject_new_claim",
+              "auto_accept": false,
+              "candidate_id": "revision_001",
+              "claim_text": "no cats are mortal",
+              "creates_proof": false,
+              "description": "Keep the contradictory/unsupported claim rejected unless typed support changes.",
+              "repair_id": "repair_002",
+              "requires_typed_verifier": true,
+              "requires_user_confirmation": true
+            },
+            {
+              "action": "challenge_existing_support_path",
+              "auto_accept": false,
+              "candidate_id": "revision_002",
+              "claim_text": "no cats are mortal",
+              "creates_proof": false,
+              "description": "Inspect the existing support path that caused the contradiction and mark a premise disputed only if independently justified.",
+              "repair_id": "repair_002",
+              "requires_typed_verifier": true,
+              "requires_user_confirmation": true
+            },
+            {
+              "action": "split_or_refine_subject",
+              "auto_accept": false,
+              "candidate_id": "revision_003",
+              "claim_text": "no cats are mortal",
+              "creates_proof": false,
+              "description": "Split or refine the subject/object into a narrower bounded claim before re-verification.",
+              "repair_id": "repair_002",
+              "requires_typed_verifier": true,
+              "requires_user_confirmation": true
+            },
+            {
+              "action": "request_typed_support",
+              "auto_accept": false,
+              "candidate_id": "revision_004",
+              "claim_text": "no cats are mortal",
+              "creates_proof": false,
+              "description": "Ask for verifier-checkable support before allowing the claim into common ground.",
+              "repair_id": "repair_002",
+              "requires_typed_verifier": true,
+              "requires_user_confirmation": true
+            },
+            {
+              "action": "keep_open_repair_target",
+              "auto_accept": false,
+              "candidate_id": "revision_005",
+              "claim_text": "no cats are mortal",
+              "creates_proof": false,
+              "description": "Leave the repair target open and preserve it for later repair memory.",
+              "repair_id": "repair_002",
+              "requires_typed_verifier": true,
+              "requires_user_confirmation": true
+            }
+          ],
+          "claim_text": "no cats are mortal",
+          "contradiction_type": "transitive_contradiction",
+          "creates_proof": false,
+          "external_llm_used": false,
+          "proof_authority": "typed_verifier",
+          "release": "v6.5.0",
+          "repair_id": "repair_002",
+          "repair_reason": "contradiction detected: transitive_contradiction",
+          "repair_status": "open",
+          "schema": "ts_chat_revision_candidates_v1",
+          "session_id": "ts_chat_v1_1_demo_session",
+          "support_path": [
+            "all cats are animals",
+            "all animals are mortal"
+          ]
+        }
+      },
+      "expected": "bounded candidates generated without auto-accept/proof creation",
+      "observed": "5 candidates",
+      "passed": true
+    },
+    {
+      "case_id": "provenance_snapshot",
+      "category": "provenance",
+      "details": {
+        "provenance_summary": {
+          "claim_record_count": 4,
+          "record_count": 11,
+          "repair_record_count": 2,
+          "revision_candidate_record_count": 5
+        }
+      },
+      "expected": "claims, repairs, and candidates have valid provenance",
+      "observed": "11 provenance records",
+      "passed": true
+    },
+    {
+      "case_id": "knowledge_pack_roundtrip",
+      "category": "knowledge_pack",
+      "details": {
+        "roundtrip": {
+          "accepted_claims_preserved": true,
+          "candidate_graph_contamination_count": 0,
+          "claim_count_preserved": true,
+          "external_llm_used": false,
+          "generated_text_is_not_proof": true,
+          "imported_session_path": "artifacts/ts_chat_session_arena_v68/arena_imported_session.json",
+          "imported_session_saved": true,
+          "knowledge_pack_import_is_not_proof": true,
+          "knowledge_pack_valid": true,
+          "pack_exported": true,
+          "pack_imported": true,
+          "pack_path": "artifacts/ts_chat_session_arena_v68/arena_knowledge_pack.json",
+          "release": "v6.7.0",
+          "repair_targets_preserved": true,
+          "schema": "ts_chat_knowledge_pack_roundtrip_v1",
+          "typed_verifier_remains_proof_authority": true,
+          "unsupported_claims_not_promoted": true,
+          "user_confirmation_is_not_proof": true
+        }
+      },
+      "expected": "pack exports/imports without proof promotion",
+      "observed": "roundtrip valid",
+      "passed": true
+    }
+  ],
+  "schema": "ts_chat_session_arena_v1",
+  "status_accuracy": 1.0,
+  "typed_verifier_remains_proof_authority": true,
+  "unsupported_claims_not_promoted": true,
+  "user_confirmation_is_not_proof": true
+}
