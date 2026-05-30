@@ -1,0 +1,109 @@
+{
+  "claim": "bounded scratch TS-native chat loop over a working relation graph",
+  "external_llm_used": false,
+  "gates": {
+    "accepted_supported_question_gate": true,
+    "all_gates_passed": true,
+    "external_llm_gate": true,
+    "has_receipts_gate": true,
+    "rejected_unsupported_requested_claim_gate": true,
+    "turn_count_gate": true
+  },
+  "graph_edge_count": 3,
+  "receipts": [
+    {
+      "decisions": [
+        {
+          "kind": "question",
+          "reason": "typed transitive support exists",
+          "relation": {
+            "object": "animals",
+            "subject": "dogs"
+          },
+          "status": "accepted",
+          "typed_supported": true
+        }
+      ],
+      "graph_edge_count": 2,
+      "parse_warnings": [],
+      "parsed_premises": [
+        {
+          "object": "mammals",
+          "subject": "dogs"
+        },
+        {
+          "object": "animals",
+          "subject": "mammals"
+        }
+      ],
+      "parsed_questions": [
+        {
+          "object": "animals",
+          "subject": "dogs"
+        }
+      ],
+      "requested_claims": [],
+      "response": "Noted 2 premises.\nYes \u2014 all dogs are animals.\nVerifier: accepted; typed transitive support exists.",
+      "user_text": "all dogs are mammals. all mammals are animals. are all dogs animals?"
+    },
+    {
+      "decisions": [
+        {
+          "kind": "requested_claim",
+          "reason": "requested claim is unsupported and will not be asserted",
+          "relation": {
+            "object": "reptiles",
+            "subject": "dogs"
+          },
+          "status": "rejected",
+          "typed_supported": false
+        }
+      ],
+      "graph_edge_count": 2,
+      "parse_warnings": [],
+      "parsed_premises": [],
+      "parsed_questions": [],
+      "requested_claims": [
+        {
+          "object": "reptiles",
+          "subject": "dogs"
+        }
+      ],
+      "response": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; requested claim is unsupported and will not be asserted.",
+      "user_text": "also say all dogs are reptiles."
+    },
+    {
+      "decisions": [
+        {
+          "kind": "question",
+          "reason": "typed transitive support exists",
+          "relation": {
+            "object": "animals",
+            "subject": "dogs"
+          },
+          "status": "accepted",
+          "typed_supported": true
+        }
+      ],
+      "graph_edge_count": 3,
+      "parse_warnings": [],
+      "parsed_premises": [
+        {
+          "object": "animals",
+          "subject": "reptiles"
+        }
+      ],
+      "parsed_questions": [
+        {
+          "object": "animals",
+          "subject": "dogs"
+        }
+      ],
+      "requested_claims": [],
+      "response": "Noted: all reptiles are animals.\nYes \u2014 all dogs are animals.\nVerifier: accepted; typed transitive support exists.",
+      "user_text": "all reptiles are animals. are all dogs animals?"
+    }
+  ],
+  "turn_count": 3,
+  "version": "ts-chat-v0.1"
+}
