@@ -23,6 +23,8 @@ class RepairTarget:
     relation: Relation | None = None
     missing_support_hint: list[dict[str, str]] | None = None
     source_turn_id: int | None = None
+    resolved_turn_id: int | None = None
+    resolution_reason: str = ""
 
 
 def relation_to_dict(relation: Relation) -> dict[str, str]:
@@ -38,6 +40,8 @@ def repair_to_dict(repair: RepairTarget) -> dict[str, Any]:
         "relation": None if repair.relation is None else relation_to_dict(repair.relation),
         "missing_support_hint": repair.missing_support_hint or [],
         "source_turn_id": repair.source_turn_id,
+        "resolved_turn_id": repair.resolved_turn_id,
+        "resolution_reason": repair.resolution_reason,
     }
 
 
@@ -90,4 +94,24 @@ def parse_repair_target(
                 )
             }
         ],
+    )
+
+
+
+def resolve_repair_target(
+    repair: RepairTarget,
+    *,
+    resolved_turn_id: int,
+    resolution_reason: str,
+) -> RepairTarget:
+    return RepairTarget(
+        repair_id=repair.repair_id,
+        kind=repair.kind,
+        status="resolved",
+        message=repair.message,
+        relation=repair.relation,
+        missing_support_hint=repair.missing_support_hint,
+        source_turn_id=repair.source_turn_id,
+        resolved_turn_id=resolved_turn_id,
+        resolution_reason=resolution_reason,
     )

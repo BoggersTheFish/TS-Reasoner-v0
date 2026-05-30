@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Any
 
 from ts_reasoner.answer_arena import Relation, transitive_closure
-from ts_reasoner.chat_repair import RepairTarget, repair_to_dict, support_repair_target
+from ts_reasoner.chat_repair import RepairTarget, repair_to_dict, resolve_repair_target, support_repair_target
 
 
 @dataclass(frozen=True)
@@ -76,6 +76,7 @@ class CommonGround:
         self.last_answer_record: ClaimRecord | None = None
         self.last_support_path: list[dict[str, str]] = []
         self.repair_targets: list[RepairTarget] = []
+        self.last_resolved_repairs: list[RepairTarget] = []
 
     def next_turn(self) -> int:
         self.turn_id += 1
@@ -89,6 +90,31 @@ class CommonGround:
 
     def closure(self) -> set[tuple[str, str]]:
         return transitive_closure(set(self.accepted_edges))
+
+    def resolve_supported_repairs(self) -> list[RepairTarget]:
+        """Resolve open missing-support repairs that now have typed support."""
+        resolved_now: list[RepairTarget] = []
+        updated_repairs: list[RepairTarget] = []
+
+        for repair in self.repair_targets:
+            if repair.status != "open" or repair.kind != "missing_support" or repair.relation is None:
+                updated_repairs.append(repair)
+                continue
+
+            if self.is_supported(repair.relation):
+                resolved = resolve_repair_target(
+                    repair,
+                    resolved_turn_id=self.turn_id,
+                    resolution_reason="new common-ground premises created typed support",
+                )
+                updated_repairs.append(resolved)
+                resolved_now.append(resolved)
+            else:
+                updated_repairs.append(repair)
+
+        self.repair_targets = updated_repairs
+        self.last_resolved_repairs = resolved_now
+        return resolved_now
 
     def add_asserted_premise(
         self,
@@ -110,6 +136,7 @@ class CommonGround:
             reason="accepted into common ground as user-provided premise",
         )
         self.records.append(record)
+        self.resolve_supported_repairs()
         return record
 
     def support_path(self, relation: Relation) -> list[dict[str, str]]:
@@ -234,6 +261,16 @@ class CommonGround:
         for record in accepted:
             if record.kind == "asserted_premise":
                 lines.append(f"- {human_relation(record.relation)} [{record.claim_id}]")
+        return "\n".join(lines)
+
+    def resolved_repair_summary(self) -> str:
+        if not self.last_resolved_repairs:
+            return "No repairs were resolved on this turn."
+
+        lines = ["Resolved repair targets:"]
+        for repair in self.last_resolved_repairs:
+            lines.append(f"- {repair.repair_id}: {repair.message}")
+            lines.append(f"  resolved: {repair.resolution_reason}")
         return "\n".join(lines)
 
     def repair_summary(self) -> str:

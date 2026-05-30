@@ -129,11 +129,15 @@ class TSChatSession:
             response = "Common ground cleared."
         else:
             for premise in parsed.premises:
+                before_resolved_count = len(self.common_ground.last_resolved_repairs)
                 record = self.common_ground.add_asserted_premise(
                     premise,
                     discourse_markers=parsed.discourse_markers,
                 )
                 created_records.append(record_to_dict(record))
+                # Add any repairs resolved by this new premise/support path.
+                for repair in self.common_ground.last_resolved_repairs[before_resolved_count:]:
+                    created_records.append({"repair_target": repair_to_dict(repair)})
 
             for question in parsed.questions:
                 record = self.common_ground.record_question_result(
@@ -153,9 +157,10 @@ class TSChatSession:
                     created_records.append({"repair_target": repair_to_dict(repair)})
 
             for warning in parsed.parse_warnings:
+                raw_warning_text = warning.removeprefix("Could not parse bounded TS-Chat structure: ")
                 repair = parse_repair_target(
                     self.common_ground._next_repair_id(),
-                    warning,
+                    raw_warning_text,
                     source_turn_id=turn_id,
                 )
                 self.common_ground.repair_targets.append(repair)
@@ -309,9 +314,17 @@ def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
                 lines.append("Verifier: rejected; unsupported requested claim was not added to common ground.")
 
     if repair_records:
-        lines.append("Repair targets:")
-        for repair in repair_records:
-            lines.append(f"- {repair['repair_id']}: {repair['message']}")
+        open_repairs = [repair for repair in repair_records if repair.get("status") == "open"]
+        resolved_repairs = [repair for repair in repair_records if repair.get("status") == "resolved"]
+        if open_repairs:
+            lines.append("Repair targets:")
+            for repair in open_repairs:
+                lines.append(f"- {repair['repair_id']}: {repair['message']}")
+        if resolved_repairs:
+            lines.append("Resolved repair targets:")
+            for repair in resolved_repairs:
+                lines.append(f"- {repair['repair_id']}: {repair['message']}")
+                lines.append(f"  resolved: {repair.get('resolution_reason')}")
 
     if parsed.discourse_markers:
         lines.append(f"Discourse markers noticed: {', '.join(parsed.discourse_markers)}.")
@@ -381,7 +394,9 @@ def demo_v0_2_common_ground() -> dict[str, Any]:
         "receipts": [receipt_to_dict(r) for r in receipts],
     }
 
+
 def demo_v0_3_repair_targets() -> dict[str, Any]:
+    """v0.3-compatible repair-target demo."""
     session = TSChatSession()
     turns = [
         "all dogs are mammals. all mammals are animals. are all dogs animals?",
@@ -396,6 +411,35 @@ def demo_v0_3_repair_targets() -> dict[str, Any]:
     receipts = [session.process(turn) for turn in turns]
     return {
         "version": "ts-chat-v0.3-repair-targets",
+        "claim": "bounded scratch TS-native chat loop with repair targets",
+        "external_llm_used": False,
+        "turn_count": len(receipts),
+        "repair_target_count": len(session.common_ground.repair_targets),
+        "record_count": len(session.common_ground.records),
+        "accepted_edge_count": len(session.common_ground.accepted_edges),
+        "has_repairs_command": any(r.command == "repairs" for r in receipts),
+        "has_why_command": any(r.command == "why" for r in receipts),
+        "has_summary_command": any(r.command == "summary" for r in receipts),
+        "has_unsupported_command": any(r.command == "unsupported" for r in receipts),
+        "receipts": [receipt_to_dict(r) for r in receipts],
+    }
+
+def demo_v0_4_repair_resolution() -> dict[str, Any]:
+    session = TSChatSession()
+    turns = [
+        "all dogs are mammals. all mammals are animals. are all dogs animals?",
+        "why?",
+        "also say all dogs are reptiles.",
+        "/repairs",
+        "all dogs are canines. all canines are reptiles.",
+        "/repairs",
+        "penguin banana sideways",
+        "what do we know?",
+    ]
+
+    receipts = [session.process(turn) for turn in turns]
+    return {
+        "version": "ts-chat-v0.4-repair-resolution",
         "claim": "bounded scratch TS-native chat loop with common-ground claim records",
         "external_llm_used": False,
         "turn_count": len(receipts),
@@ -450,6 +494,11 @@ def demo_v0_2() -> dict[str, Any]:
 def demo_v0_3() -> dict[str, Any]:
     """Alias for the v0.3 repair-target demo."""
     return demo_v0_3_repair_targets()
+
+
+def demo_v0_4() -> dict[str, Any]:
+    """Alias for the v0.4 repair-resolution demo."""
+    return demo_v0_4_repair_resolution()
 
 def main() -> int:
     return run_chat()
