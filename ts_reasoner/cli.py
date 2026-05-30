@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -112,6 +112,13 @@ def main() -> int:
 
         report = run_self_curriculum(args.curriculum)
         print(json.dumps(report, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "branch-worlds":
+        from .branching_worlds import run_branching_worlds_demo
+
+        receipt = run_branching_worlds_demo(args.out_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
 
     if not args.question:
