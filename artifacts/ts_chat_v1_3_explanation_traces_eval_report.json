@@ -1,0 +1,13 @@
+{
+  "accepted_claim_has_trace": true,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 5,
+  "explanation_trace_validity": 1.0,
+  "external_llm_used": false,
+  "last_trace_available": true,
+  "missing_claim_abstains": true,
+  "release": "v6.3.0",
+  "repair_target_has_trace": true,
+  "unsupported_claim_has_missing_support_trace": true
+}
