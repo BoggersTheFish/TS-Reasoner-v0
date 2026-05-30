@@ -1,0 +1,12 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 1,
+  "external_llm_used": false,
+  "open_repair_count_after_reload": 1,
+  "open_repair_count_before_reload": 1,
+  "open_repairs_survive_reload": true,
+  "release": "v6.2.0",
+  "repair_memory_queryable_after_reload": true,
+  "repair_revisit_available": true
+}

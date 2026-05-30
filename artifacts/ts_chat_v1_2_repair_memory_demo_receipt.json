@@ -1,0 +1,120 @@
+{
+  "all_gates_passed": true,
+  "boundary": {
+    "broad_natural_language_understanding": false,
+    "external_benchmark_victory": false,
+    "generated_text_is_proof": false,
+    "live_tensionlm_runtime": false,
+    "neural_training": false,
+    "repair_suggestion_is_proof": false,
+    "repair_target_is_proof": false,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "gates": {
+    "candidate_graph_contamination_count_is_zero": true,
+    "external_llm_used_false": true,
+    "open_repairs_survive_reload": true,
+    "repair_memory_queryable_after_reload": true,
+    "repair_revisit_available": true,
+    "repair_targets_are_not_proof": true,
+    "session_loaded": true,
+    "session_saved": true,
+    "unsupported_claims_do_not_become_proof": true
+  },
+  "milestone": "Multi-Turn Repair Memory",
+  "open_repairs_survive_reload": true,
+  "release": "v6.2.0",
+  "repair_memory_after_reload": {
+    "external_llm_used": false,
+    "open_repair_target_count": 1,
+    "open_repair_targets": [
+      {
+        "claim_text": "all cats are robots",
+        "reason": "missing typed verifier support",
+        "repair_id": "repair_001",
+        "source_turn_id": "turn_003",
+        "status": "open"
+      }
+    ],
+    "rejected_repair_target_count": 0,
+    "release": "v6.2.0",
+    "repair_target_count": 1,
+    "repair_targets": [
+      {
+        "claim_text": "all cats are robots",
+        "reason": "missing typed verifier support",
+        "repair_id": "repair_001",
+        "source_turn_id": "turn_003",
+        "status": "open"
+      }
+    ],
+    "resolved_repair_target_count": 0,
+    "schema": "ts_chat_repair_memory_v1",
+    "session_id": "ts_chat_v1_1_demo_session"
+  },
+  "repair_memory_before_reload": {
+    "external_llm_used": false,
+    "open_repair_target_count": 1,
+    "open_repair_targets": [
+      {
+        "claim_text": "all cats are robots",
+        "reason": "missing typed verifier support",
+        "repair_id": "repair_001",
+        "source_turn_id": "turn_003",
+        "status": "open"
+      }
+    ],
+    "rejected_repair_target_count": 0,
+    "release": "v6.2.0",
+    "repair_target_count": 1,
+    "repair_targets": [
+      {
+        "claim_text": "all cats are robots",
+        "reason": "missing typed verifier support",
+        "repair_id": "repair_001",
+        "source_turn_id": "turn_003",
+        "status": "open"
+      }
+    ],
+    "resolved_repair_target_count": 0,
+    "schema": "ts_chat_repair_memory_v1",
+    "session_id": "ts_chat_v1_1_demo_session"
+  },
+  "repair_memory_queryable_after_reload": true,
+  "repair_revisit": {
+    "candidate_actions": [
+      {
+        "action": "provide_typed_support",
+        "creates_proof_without_verifier": false,
+        "description": "Add verifier-checkable support for the missing claim."
+      },
+      {
+        "action": "reject_claim",
+        "creates_proof_without_verifier": false,
+        "description": "Keep the claim rejected/unsupported if no support is available."
+      },
+      {
+        "action": "split_or_refine_claim",
+        "creates_proof_without_verifier": false,
+        "description": "Rewrite the claim into a more precise bounded form before verification."
+      }
+    ],
+    "claim_text": "all cats are robots",
+    "creates_proof": false,
+    "reason": "missing typed verifier support",
+    "release": "v6.2.0",
+    "repair_id": "repair_001",
+    "schema": "ts_chat_repair_revisit_v1",
+    "session_id": "ts_chat_v1_1_demo_session",
+    "source_turn_id": "turn_003",
+    "status": "open"
+  },
+  "repair_revisit_available": true,
+  "repair_targets_are_not_proof": true,
+  "schema": "ts_chat_v1_2_repair_memory_receipt",
+  "session_path": "artifacts/ts_chat_sessions/ts_chat_v1_2_repair_memory_session.json",
+  "unsupported_claims_do_not_become_proof": true
+}
