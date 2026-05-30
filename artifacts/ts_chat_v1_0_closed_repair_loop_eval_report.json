@@ -1,0 +1,19 @@
+{
+  "metrics": {
+    "accepted_with_verifier_support": 1,
+    "all_gates_passed": true,
+    "case_count": 2,
+    "external_llm_used": false,
+    "final_open_repairs": 1,
+    "improvement_detected": true,
+    "initial_open_repairs": 2,
+    "ledger_updated": true,
+    "open_repairs_non_increasing": true,
+    "rejected_without_contamination": 1,
+    "repairs_closed_this_run": 1,
+    "zero_candidate_graph_contamination": true
+  },
+  "name": "TS-Chat Closed Repair Loop Evaluation",
+  "receipt_path": "artifacts/ts_chat_v1_0_closed_repair_loop_receipt.json",
+  "release": "v6.0.0"
+}

@@ -1,0 +1,56 @@
+{
+  "accepted_with_verifier_support": 1,
+  "all_gates_passed": true,
+  "boundary": {
+    "broad_nlp": false,
+    "external_llm_used": false,
+    "general_english_understanding": false,
+    "generated_text_is_proof": false,
+    "neural_training": false,
+    "typed_verifier_support_required_for_proof": true,
+    "user_confirmation_is_proof": false
+  },
+  "case_count": 2,
+  "cases": [
+    {
+      "accepted_as_proof": true,
+      "boundary_note": "Closed-loop status is bounded to typed verifier outcomes. Generated text and user confirmation are not proof by themselves.",
+      "candidate_graph_contaminated": false,
+      "case_id": "closed_loop_case_001",
+      "closed_this_run": true,
+      "confirmation_id": "confirmation_001_suggestion_001_repair_missing_support_001",
+      "curriculum_entry_id": "curriculum_001_repair_missing_support_001",
+      "final_repair_status": "resolved",
+      "initial_repair_status": "open",
+      "repair_target_id": "repair_missing_support_001",
+      "repair_type": "missing_support",
+      "suggestion_id": "suggestion_001_repair_missing_support_001",
+      "verifier_status": "verifier_accepted"
+    },
+    {
+      "accepted_as_proof": false,
+      "boundary_note": "Closed-loop status is bounded to typed verifier outcomes. Generated text and user confirmation are not proof by themselves.",
+      "candidate_graph_contaminated": false,
+      "case_id": "closed_loop_case_002",
+      "closed_this_run": false,
+      "confirmation_id": "confirmation_002_suggestion_002_repair_parse_failure_001",
+      "curriculum_entry_id": "curriculum_002_repair_parse_failure_001",
+      "final_repair_status": "open",
+      "initial_repair_status": "open",
+      "repair_target_id": "repair_parse_failure_001",
+      "repair_type": "parse_failure",
+      "suggestion_id": "suggestion_002_repair_parse_failure_001",
+      "verifier_status": "verifier_rejected"
+    }
+  ],
+  "created_by_version": "ts_chat_v1.0",
+  "final_open_repairs": 1,
+  "improvement_detected": true,
+  "initial_open_repairs": 2,
+  "ledger_updated": true,
+  "name": "TS-Chat Closed Repair Loop",
+  "rejected_without_contamination": 1,
+  "release": "v6.0.0",
+  "repairs_closed_this_run": 1,
+  "zero_candidate_graph_contamination": true
+}
