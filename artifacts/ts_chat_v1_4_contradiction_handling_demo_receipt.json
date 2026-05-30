@@ -1,0 +1,174 @@
+{
+  "all_gates_passed": true,
+  "applied_trace": {
+    "claim_text": "no cats are mortal",
+    "contradiction_detected": true,
+    "contradiction_type": "transitive_contradiction",
+    "creates_proof": false,
+    "external_llm_used": false,
+    "parsed": true,
+    "parsed_claim": {
+      "object": "mortal",
+      "polarity": "negative",
+      "quantifier": "no",
+      "subject": "cats"
+    },
+    "proof_authority": "typed_verifier",
+    "reason": "negative claim conflicts with accepted positive support path",
+    "release": "v6.4.0",
+    "schema": "ts_chat_contradiction_trace_v1",
+    "support_path": [
+      "all cats are animals",
+      "all animals are mortal"
+    ]
+  },
+  "boundary": {
+    "broad_natural_language_understanding": false,
+    "contradiction_trace_is_proof": false,
+    "external_benchmark_victory": false,
+    "generated_text_is_proof": false,
+    "live_tensionlm_runtime": false,
+    "neural_training": false,
+    "repair_target_is_proof": false,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  "candidate_graph_contamination_count": 0,
+  "contradiction_repair_target_created": true,
+  "contradiction_survives_reload": true,
+  "contradictory_claim_rejected": true,
+  "direct_contradiction_detected": true,
+  "direct_trace": {
+    "claim_text": "no cats are animals",
+    "contradiction_detected": true,
+    "contradiction_type": "direct_contradiction",
+    "creates_proof": false,
+    "external_llm_used": false,
+    "parsed": true,
+    "parsed_claim": {
+      "object": "animals",
+      "polarity": "negative",
+      "quantifier": "no",
+      "subject": "cats"
+    },
+    "proof_authority": "typed_verifier",
+    "reason": "negative claim conflicts with accepted positive support path",
+    "release": "v6.4.0",
+    "schema": "ts_chat_contradiction_trace_v1",
+    "support_path": [
+      "all cats are animals"
+    ]
+  },
+  "external_llm_used": false,
+  "gates": {
+    "all_contradiction_traces_valid": true,
+    "candidate_graph_contamination_count_is_zero": true,
+    "contradiction_repair_target_created": true,
+    "contradiction_survives_reload": true,
+    "contradictory_claim_rejected": true,
+    "contradictory_claims_not_accepted": true,
+    "direct_contradiction_detected": true,
+    "external_llm_used_false": true,
+    "loaded_rejected_explanation_valid": true,
+    "rejected_explanation_valid": true,
+    "safe_claim_not_flagged": true,
+    "transitive_contradiction_detected": true
+  },
+  "loaded_rejected_explanation": {
+    "claim_id": "claim_004",
+    "claim_text": "no cats are mortal",
+    "creates_proof": false,
+    "decision": "rejected",
+    "external_llm_used": false,
+    "proof_authority": "typed_verifier",
+    "reason": "claim is rejected or blocked by current verifier state",
+    "release": "v6.3.0",
+    "schema": "ts_chat_explanation_trace_v1",
+    "session_id": "ts_chat_v1_1_demo_session",
+    "source": "user",
+    "status": "rejected",
+    "support_paths": [
+      [
+        "all cats are animals",
+        "all animals are mortal"
+      ]
+    ],
+    "trace_type": "claim_decision",
+    "turn_id": "turn_004",
+    "verifier_channels": [
+      "contradiction"
+    ]
+  },
+  "milestone": "Contradiction Handling",
+  "rejected_explanation": {
+    "claim_id": "claim_004",
+    "claim_text": "no cats are mortal",
+    "creates_proof": false,
+    "decision": "rejected",
+    "external_llm_used": false,
+    "proof_authority": "typed_verifier",
+    "reason": "claim is rejected or blocked by current verifier state",
+    "release": "v6.3.0",
+    "schema": "ts_chat_explanation_trace_v1",
+    "session_id": "ts_chat_v1_1_demo_session",
+    "source": "user",
+    "status": "rejected",
+    "support_paths": [
+      [
+        "all cats are animals",
+        "all animals are mortal"
+      ]
+    ],
+    "trace_type": "claim_decision",
+    "turn_id": "turn_004",
+    "verifier_channels": [
+      "contradiction"
+    ]
+  },
+  "release": "v6.4.0",
+  "safe_claim_not_flagged": true,
+  "safe_trace": {
+    "claim_text": "all cats are mammals",
+    "contradiction_detected": false,
+    "contradiction_type": "none",
+    "creates_proof": false,
+    "external_llm_used": false,
+    "parsed": true,
+    "parsed_claim": {
+      "object": "mammals",
+      "polarity": "positive",
+      "quantifier": "all",
+      "subject": "cats"
+    },
+    "proof_authority": "typed_verifier",
+    "reason": "no contradiction found against accepted common ground",
+    "release": "v6.4.0",
+    "schema": "ts_chat_contradiction_trace_v1",
+    "support_path": []
+  },
+  "schema": "ts_chat_v1_4_contradiction_handling_receipt",
+  "session_path": "artifacts/ts_chat_sessions/ts_chat_v1_4_contradiction_handling_session.json",
+  "transitive_contradiction_detected": true,
+  "transitive_trace": {
+    "claim_text": "no cats are mortal",
+    "contradiction_detected": true,
+    "contradiction_type": "transitive_contradiction",
+    "creates_proof": false,
+    "external_llm_used": false,
+    "parsed": true,
+    "parsed_claim": {
+      "object": "mortal",
+      "polarity": "negative",
+      "quantifier": "no",
+      "subject": "cats"
+    },
+    "proof_authority": "typed_verifier",
+    "reason": "negative claim conflicts with accepted positive support path",
+    "release": "v6.4.0",
+    "schema": "ts_chat_contradiction_trace_v1",
+    "support_path": [
+      "all cats are animals",
+      "all animals are mortal"
+    ]
+  }
+}

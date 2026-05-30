@@ -1,0 +1,14 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 3,
+  "contradiction_detection_rate": 1.0,
+  "contradiction_repair_target_created": true,
+  "contradictory_claim_rejected": true,
+  "direct_contradiction_detected": true,
+  "external_llm_used": false,
+  "false_positive_count": 0,
+  "release": "v6.4.0",
+  "safe_claim_not_flagged": true,
+  "transitive_contradiction_detected": true
+}
