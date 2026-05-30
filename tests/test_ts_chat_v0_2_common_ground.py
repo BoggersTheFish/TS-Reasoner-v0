@@ -5,7 +5,7 @@ from pathlib import Path
 
 from ts_reasoner.common_ground import CommonGround
 from ts_reasoner.answer_arena import Relation
-from ts_reasoner.ts_chat import TSChatSession, demo_v0_2, parse_turn
+from ts_reasoner.ts_chat import TSChatSession, demo_v0_2_common_ground, parse_turn
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,7 +50,7 @@ class TestTSChatV02CommonGround(unittest.TestCase):
         self.assertIn("rejected", unsupported.response)
 
     def test_demo_gates(self):
-        report = demo_v0_2()
+        report = demo_v0_2_common_ground()
 
         self.assertEqual(report["version"], "ts-chat-v0.2-common-ground")
         self.assertFalse(report["external_llm_used"])

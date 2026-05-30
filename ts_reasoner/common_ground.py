@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any
 
 from ts_reasoner.answer_arena import Relation, transitive_closure
+from ts_reasoner.chat_repair import RepairTarget, repair_to_dict, support_repair_target
 
 
 @dataclass(frozen=True)
@@ -74,6 +75,7 @@ class CommonGround:
         self.last_question: Relation | None = None
         self.last_answer_record: ClaimRecord | None = None
         self.last_support_path: list[dict[str, str]] = []
+        self.repair_targets: list[RepairTarget] = []
 
     def next_turn(self) -> int:
         self.turn_id += 1
@@ -81,6 +83,9 @@ class CommonGround:
 
     def _next_claim_id(self) -> str:
         return f"cg_{len(self.records) + 1:04d}"
+
+    def _next_repair_id(self) -> str:
+        return f"repair_{len(self.repair_targets) + 1:04d}"
 
     def closure(self) -> set[tuple[str, str]]:
         return transitive_closure(set(self.accepted_edges))
@@ -200,6 +205,14 @@ class CommonGround:
         if supported:
             self.last_answer_record = record
             self.last_support_path = support_path
+        else:
+            self.repair_targets.append(
+                support_repair_target(
+                    self._next_repair_id(),
+                    relation,
+                    source_turn_id=self.turn_id,
+                )
+            )
         return record
 
     def accepted_records(self) -> list[ClaimRecord]:
@@ -221,6 +234,18 @@ class CommonGround:
         for record in accepted:
             if record.kind == "asserted_premise":
                 lines.append(f"- {human_relation(record.relation)} [{record.claim_id}]")
+        return "\n".join(lines)
+
+    def repair_summary(self) -> str:
+        open_repairs = [repair for repair in self.repair_targets if repair.status == "open"]
+        if not open_repairs:
+            return "No open repair targets."
+
+        lines = ["Open repair targets:"]
+        for repair in open_repairs:
+            lines.append(f"- {repair.repair_id}: {repair.message}")
+            for hint in repair.missing_support_hint or []:
+                lines.append(f"  hint: {hint.get('suggestion')}")
         return "\n".join(lines)
 
     def unsupported_summary(self) -> str:
@@ -260,6 +285,7 @@ class CommonGround:
             "records": [claim_record_to_dict(record) for record in self.records],
             "last_question": None if self.last_question is None else relation_to_dict(self.last_question),
             "last_support_path": self.last_support_path,
+            "repair_targets": [repair_to_dict(repair) for repair in self.repair_targets],
         }
 
     def save(self, path: str | Path) -> Path:
