@@ -1,0 +1,578 @@
+{
+  "claims": [
+    {
+      "claim_id": "claim_001",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all cats are animals",
+      "turn_id": "turn_001",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_002",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all animals are mortal",
+      "turn_id": "turn_002",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_003",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all dogs are animals",
+      "turn_id": "turn_003",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_004",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all birds are animals",
+      "turn_id": "turn_004",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_005",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all fish are animals",
+      "turn_id": "turn_005",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_006",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "stress_turn_001",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_007",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all dogs are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no dogs are mortal",
+      "turn_id": "stress_turn_002",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_008",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all birds are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no birds are mortal",
+      "turn_id": "stress_turn_003",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_009",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all fish are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no fish are mortal",
+      "turn_id": "stress_turn_004",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_010",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "stress_turn_005",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_011",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all dogs are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no dogs are mortal",
+      "turn_id": "stress_turn_006",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_012",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all birds are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no birds are mortal",
+      "turn_id": "stress_turn_007",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_013",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all fish are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no fish are mortal",
+      "turn_id": "stress_turn_008",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_014",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "stress_turn_009",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_015",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all dogs are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no dogs are mortal",
+      "turn_id": "stress_turn_010",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_016",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all birds are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no birds are mortal",
+      "turn_id": "stress_turn_011",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_017",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all fish are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no fish are mortal",
+      "turn_id": "stress_turn_012",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_018",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "stress_turn_013",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_019",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all dogs are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no dogs are mortal",
+      "turn_id": "stress_turn_014",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_020",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all birds are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no birds are mortal",
+      "turn_id": "stress_turn_015",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_021",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all fish are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no fish are mortal",
+      "turn_id": "stress_turn_016",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_022",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "stress_turn_017",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_023",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all dogs are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no dogs are mortal",
+      "turn_id": "stress_turn_018",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_024",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all birds are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no birds are mortal",
+      "turn_id": "stress_turn_019",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_025",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all fish are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no fish are mortal",
+      "turn_id": "stress_turn_020",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_026",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "stress_turn_021",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    },
+    {
+      "claim_id": "claim_027",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all dogs are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no dogs are mortal",
+      "turn_id": "stress_turn_022",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    }
+  ],
+  "external_llm_used": false,
+  "release": "v6.1.0",
+  "repair_targets": [
+    {
+      "claim_text": "all cats are robots",
+      "reason": "missing typed verifier support",
+      "repair_id": "repair_001",
+      "source_turn_id": "turn_006",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_002",
+      "source_turn_id": "stress_turn_001",
+      "status": "open"
+    },
+    {
+      "claim_text": "no dogs are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_003",
+      "source_turn_id": "stress_turn_002",
+      "status": "open"
+    },
+    {
+      "claim_text": "no birds are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_004",
+      "source_turn_id": "stress_turn_003",
+      "status": "open"
+    },
+    {
+      "claim_text": "no fish are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_005",
+      "source_turn_id": "stress_turn_004",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_006",
+      "source_turn_id": "stress_turn_005",
+      "status": "open"
+    },
+    {
+      "claim_text": "no dogs are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_007",
+      "source_turn_id": "stress_turn_006",
+      "status": "open"
+    },
+    {
+      "claim_text": "no birds are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_008",
+      "source_turn_id": "stress_turn_007",
+      "status": "open"
+    },
+    {
+      "claim_text": "no fish are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_009",
+      "source_turn_id": "stress_turn_008",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_010",
+      "source_turn_id": "stress_turn_009",
+      "status": "open"
+    },
+    {
+      "claim_text": "no dogs are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_011",
+      "source_turn_id": "stress_turn_010",
+      "status": "open"
+    },
+    {
+      "claim_text": "no birds are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_012",
+      "source_turn_id": "stress_turn_011",
+      "status": "open"
+    },
+    {
+      "claim_text": "no fish are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_013",
+      "source_turn_id": "stress_turn_012",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_014",
+      "source_turn_id": "stress_turn_013",
+      "status": "open"
+    },
+    {
+      "claim_text": "no dogs are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_015",
+      "source_turn_id": "stress_turn_014",
+      "status": "open"
+    },
+    {
+      "claim_text": "no birds are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_016",
+      "source_turn_id": "stress_turn_015",
+      "status": "open"
+    },
+    {
+      "claim_text": "no fish are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_017",
+      "source_turn_id": "stress_turn_016",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_018",
+      "source_turn_id": "stress_turn_017",
+      "status": "open"
+    },
+    {
+      "claim_text": "no dogs are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_019",
+      "source_turn_id": "stress_turn_018",
+      "status": "open"
+    },
+    {
+      "claim_text": "no birds are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_020",
+      "source_turn_id": "stress_turn_019",
+      "status": "open"
+    },
+    {
+      "claim_text": "no fish are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_021",
+      "source_turn_id": "stress_turn_020",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_022",
+      "source_turn_id": "stress_turn_021",
+      "status": "open"
+    },
+    {
+      "claim_text": "no dogs are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_023",
+      "source_turn_id": "stress_turn_022",
+      "status": "open"
+    }
+  ],
+  "schema": "ts_chat_session_v1",
+  "session_id": "ts_chat_v1_9_long_run_stress_session"
+}
