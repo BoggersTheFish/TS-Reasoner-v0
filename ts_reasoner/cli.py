@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from .milestone import print_milestone_receipt
@@ -18,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat"],
-        help="Optional command. Use milestone/firewall to print release receipts.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -38,6 +39,21 @@ def main() -> int:
         default=None,
         help="Optional learned coupling matrix JSON artifact.",
     )
+    parser.add_argument(
+        "--session",
+        default="artifacts/ts_chat_v0_2_latest_session.json",
+        help="TS-Chat receipt JSON to compile with compile-session.",
+    )
+    parser.add_argument(
+        "--out-dir",
+        default="artifacts/compiled_sessions/latest",
+        help="Output directory for compile-session artifacts.",
+    )
+    parser.add_argument(
+        "--label",
+        default="latest_session",
+        help="Artifact label for compile-session outputs.",
+    )
     args = parser.parse_args()
 
     if args.command == "milestone":
@@ -50,6 +66,25 @@ def main() -> int:
 
     if args.command == "chat":
         return run_chat()
+
+    if args.command == "v7":
+        receipt_path = Path("artifacts/ts_reasoner_v7_0_self_improving_chat_receipt.json")
+        if receipt_path.exists():
+            print(receipt_path.read_text(encoding="utf-8").strip())
+            return 0
+
+        from ts_chat.v7_milestone import evaluate_v7_milestone
+
+        report = evaluate_v7_milestone("artifacts/ts_reasoner_v7_milestone_cli", stress_cycles=40)
+        print(json.dumps(report, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "compile-session":
+        from .session_compiler import compile_session_file
+
+        receipt = compile_session_file(args.session, args.out_dir, label=args.label)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
 
     if not args.question:
         parser.error("--question is required unless using the milestone/firewall/chat command")
