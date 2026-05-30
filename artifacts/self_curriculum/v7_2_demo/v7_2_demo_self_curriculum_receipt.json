@@ -1,0 +1,37 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 23,
+  "case_type_counts": {
+    "accepted_edge_regression": 4,
+    "accepted_question_support_path": 1,
+    "knowledge_pack_boundary": 1,
+    "pack_rejected_record_regression": 1,
+    "pack_repair_regression": 1,
+    "rejected_claim_boundary": 1,
+    "repair_lifecycle": 1,
+    "repair_resolution": 1,
+    "repair_target_boundary": 2,
+    "turn_replay": 10
+  },
+  "compiled_artifacts_are_not_proof": true,
+  "compiled_receipt_path": "artifacts/compiled_sessions/v7_2_demo/v7_2_demo_compiler_receipt.json",
+  "curriculum_path": "artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum.jsonl",
+  "eval_all_gates_passed": true,
+  "eval_report_path": "artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum_eval_report.json",
+  "external_llm_used": false,
+  "generated_curriculum_is_not_proof": true,
+  "label": "v7_2_demo",
+  "out_dir": "artifacts/self_curriculum/v7_2_demo",
+  "receipt_path": "artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum_receipt.json",
+  "release": "v7.2.0",
+  "schema": "ts_reasoner_self_curriculum_generator_receipt_v1",
+  "source_counts": {
+    "compiled_knowledge_pack": 7,
+    "compiled_provenance": 4,
+    "compiled_repair_curriculum": 2,
+    "compiled_replay": 10
+  },
+  "typed_verifier_remains_proof_authority": true,
+  "user_confirmation_is_not_proof": true
+}

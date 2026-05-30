@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -54,6 +54,16 @@ def main() -> int:
         default="latest_session",
         help="Artifact label for compile-session outputs.",
     )
+    parser.add_argument(
+        "--compiled",
+        default="artifacts/compiled_sessions/v7_1_demo/v7_1_demo_compiler_receipt.json",
+        help="Compiler receipt path for generate-curriculum.",
+    )
+    parser.add_argument(
+        "--curriculum",
+        default="artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum.jsonl",
+        help="Self-curriculum JSONL path for run-curriculum.",
+    )
     args = parser.parse_args()
 
     if args.command == "milestone":
@@ -84,6 +94,24 @@ def main() -> int:
 
         receipt = compile_session_file(args.session, args.out_dir, label=args.label)
         print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "generate-curriculum":
+        from .self_curriculum import generate_self_curriculum_from_compiler_receipt
+
+        receipt = generate_self_curriculum_from_compiler_receipt(
+            args.compiled,
+            args.out_dir,
+            label=args.label,
+        )
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "run-curriculum":
+        from .self_curriculum import run_self_curriculum
+
+        report = run_self_curriculum(args.curriculum)
+        print(json.dumps(report, indent=2, sort_keys=True))
         return 0
 
     if not args.question:

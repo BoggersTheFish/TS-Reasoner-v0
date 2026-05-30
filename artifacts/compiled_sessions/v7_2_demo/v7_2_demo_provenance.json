@@ -1,0 +1,207 @@
+[
+  {
+    "claim_id": "cg_0001",
+    "creates_proof": false,
+    "discourse_markers": [],
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "asserted_premise",
+    "reason": "accepted into common ground as user-provided premise",
+    "record_type": "claim_record",
+    "relation": {
+      "object": "animals",
+      "subject": "cats"
+    },
+    "release": "v7.1.0",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "user",
+    "status": "accepted",
+    "support_path": [
+      {
+        "object": "animals",
+        "subject": "cats"
+      }
+    ],
+    "turn_id": 1,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "claim_id": "cg_0002",
+    "creates_proof": false,
+    "discourse_markers": [],
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "asserted_premise",
+    "reason": "accepted into common ground as user-provided premise",
+    "record_type": "claim_record",
+    "relation": {
+      "object": "mortal",
+      "subject": "animals"
+    },
+    "release": "v7.1.0",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "user",
+    "status": "accepted",
+    "support_path": [
+      {
+        "object": "mortal",
+        "subject": "animals"
+      }
+    ],
+    "turn_id": 2,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "claim_id": "cg_0003",
+    "creates_proof": false,
+    "discourse_markers": [
+      "also"
+    ],
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "requested_claim",
+    "reason": "requested claim is unsupported and was not added to common ground",
+    "record_type": "claim_record",
+    "relation": {
+      "object": "robots",
+      "subject": "cats"
+    },
+    "release": "v7.1.0",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "user",
+    "status": "rejected",
+    "support_path": [],
+    "turn_id": 3,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "creates_proof": false,
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "missing_support",
+    "reason": "Missing support for requested claim: all cats are robots.",
+    "record_type": "repair_target",
+    "relation": {
+      "object": "robots",
+      "subject": "cats"
+    },
+    "release": "v7.1.0",
+    "repair_id": "repair_0001",
+    "resolution_reason": "",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "repair_memory",
+    "status": "open",
+    "turn_id": 3,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "claim_id": "cg_0004",
+    "creates_proof": false,
+    "discourse_markers": [],
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "asserted_premise",
+    "reason": "accepted into common ground as user-provided premise",
+    "record_type": "claim_record",
+    "relation": {
+      "object": "machines",
+      "subject": "cats"
+    },
+    "release": "v7.1.0",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "user",
+    "status": "accepted",
+    "support_path": [
+      {
+        "object": "machines",
+        "subject": "cats"
+      }
+    ],
+    "turn_id": 5,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "claim_id": "cg_0005",
+    "creates_proof": false,
+    "discourse_markers": [],
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "asserted_premise",
+    "reason": "accepted into common ground as user-provided premise",
+    "record_type": "claim_record",
+    "relation": {
+      "object": "robots",
+      "subject": "machines"
+    },
+    "release": "v7.1.0",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "user",
+    "status": "accepted",
+    "support_path": [
+      {
+        "object": "robots",
+        "subject": "machines"
+      }
+    ],
+    "turn_id": 6,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "creates_proof": false,
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "missing_support",
+    "reason": "Missing support for requested claim: all cats are robots.",
+    "record_type": "repair_target",
+    "relation": {
+      "object": "robots",
+      "subject": "cats"
+    },
+    "release": "v7.1.0",
+    "repair_id": "repair_0001",
+    "resolution_reason": "new common-ground premises created typed support",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "repair_memory",
+    "status": "resolved",
+    "turn_id": 3,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  {
+    "claim_id": "cg_0006",
+    "creates_proof": false,
+    "discourse_markers": [],
+    "external_llm_used": false,
+    "generated_text_is_proof": false,
+    "kind": "question",
+    "reason": "question answered from common-ground support path",
+    "record_type": "claim_record",
+    "relation": {
+      "object": "robots",
+      "subject": "cats"
+    },
+    "release": "v7.1.0",
+    "schema": "ts_chat_compiled_provenance_record_v1",
+    "source": "user",
+    "status": "accepted",
+    "support_path": [
+      {
+        "object": "machines",
+        "subject": "cats"
+      },
+      {
+        "object": "robots",
+        "subject": "machines"
+      }
+    ],
+    "turn_id": 8,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  }
+]
