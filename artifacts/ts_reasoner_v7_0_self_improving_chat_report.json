@@ -1,0 +1,125 @@
+{
+  "all_gates_passed": true,
+  "arena": {
+    "answer_accuracy": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 10,
+    "contradiction_detection_rate": 1.0,
+    "explanation_trace_validity": 1.0,
+    "failed_count": 0,
+    "knowledge_pack_roundtrip_validity": 1.0,
+    "pass_rate": 1.0,
+    "passed_count": 10,
+    "provenance_validity": 1.0,
+    "repair_target_accuracy": 1.0,
+    "status_accuracy": 1.0,
+    "valid": true
+  },
+  "boundary": {
+    "arena_report_is_proof": false,
+    "broad_natural_language_understanding": false,
+    "external_benchmark_victory": false,
+    "generated_text_is_proof": false,
+    "knowledge_pack_import_is_proof": false,
+    "live_tensionlm_runtime": false,
+    "neural_training": false,
+    "provenance_record_is_proof": false,
+    "repair_target_is_proof": false,
+    "revision_candidate_is_proof": false,
+    "stress_report_is_proof": false,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false,
+    "v7_report_is_proof": false
+  },
+  "capability_count": 9,
+  "capability_ladder": [
+    {
+      "capability": "Persistent Session Memory",
+      "claim": "TS-Chat sessions can be saved and reloaded without proof promotion.",
+      "release": "v6.1.0"
+    },
+    {
+      "capability": "Multi-Turn Repair Memory",
+      "claim": "Open repair targets survive reload and remain queryable.",
+      "release": "v6.2.0"
+    },
+    {
+      "capability": "Explanation Traces",
+      "claim": "Accepted, unsupported, missing, and repair decisions expose typed traces.",
+      "release": "v6.3.0"
+    },
+    {
+      "capability": "Contradiction Handling",
+      "claim": "Direct and transitive contradictions are rejected and create repair targets.",
+      "release": "v6.4.0"
+    },
+    {
+      "capability": "Belief Revision Candidates",
+      "claim": "Contradiction repairs generate bounded candidate actions that are not proof.",
+      "release": "v6.5.0"
+    },
+    {
+      "capability": "Provenance-Aware Common Ground",
+      "claim": "Claims, repairs, and candidates receive provenance records.",
+      "release": "v6.6.0"
+    },
+    {
+      "capability": "Knowledge Packs",
+      "claim": "Bounded session state can be exported/imported without proof promotion.",
+      "release": "v6.7.0"
+    },
+    {
+      "capability": "Session Evaluation Arena",
+      "claim": "The session stack is tested as a reusable arena.",
+      "release": "v6.8.0"
+    },
+    {
+      "capability": "Long-Run Self-Repair Stress Test",
+      "claim": "Repeated repair cycles preserve zero wrong accepts and zero contamination.",
+      "release": "v6.9.0"
+    }
+  ],
+  "claim": {
+    "belief_revision_candidates_present": true,
+    "contradiction_handling_present": true,
+    "explanation_traces_present": true,
+    "knowledge_packs_present": true,
+    "long_run_stress_present": true,
+    "persistent_memory_present": true,
+    "provenance_present": true,
+    "repair_memory_present": true,
+    "self_improving_loop_present": true,
+    "session_arena_present": true
+  },
+  "combined": {
+    "combined_pass_rate": 1.0,
+    "proof_boundary_preserved": true,
+    "total_arena_cases": 10,
+    "total_checks": 50,
+    "total_failed": 0,
+    "total_passed": 50,
+    "total_stress_cycles": 40,
+    "zero_candidate_graph_contamination": true,
+    "zero_wrong_accepts": true
+  },
+  "external_llm_used": false,
+  "milestone": "Self-Improving Verifier-First Chat System",
+  "release": "v7.0.0",
+  "schema": "ts_reasoner_v7_milestone_report_v1",
+  "stress": {
+    "candidate_graph_contamination_count": 0,
+    "cycle_pass_rate": 1.0,
+    "cycles": 40,
+    "failed_cycles": 0,
+    "final_open_repairs": 41,
+    "initial_open_repairs": 1,
+    "knowledge_pack_roundtrip_failures": 0,
+    "passed_cycles": 40,
+    "provenance_failures": 0,
+    "repair_targets_created": 40,
+    "revision_candidate_failures": 0,
+    "session_reload_failures": 0,
+    "valid": true,
+    "wrong_accept_count": 0
+  }
+}

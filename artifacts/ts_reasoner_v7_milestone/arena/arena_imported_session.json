@@ -1,0 +1,71 @@
+{
+  "claims": [
+    {
+      "claim_id": "claim_001",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all cats are animals",
+      "turn_id": "turn_001",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_002",
+      "source": "user",
+      "status": "accepted",
+      "support_paths": [],
+      "text": "all animals are mortal",
+      "turn_id": "turn_002",
+      "verifier_channels": [
+        "user_asserted_common_ground"
+      ]
+    },
+    {
+      "claim_id": "claim_003",
+      "source": "user",
+      "status": "unsupported",
+      "support_paths": [],
+      "text": "all cats are robots",
+      "turn_id": "turn_003",
+      "verifier_channels": []
+    },
+    {
+      "claim_id": "claim_004",
+      "source": "user",
+      "status": "rejected",
+      "support_paths": [
+        [
+          "all cats are animals",
+          "all animals are mortal"
+        ]
+      ],
+      "text": "no cats are mortal",
+      "turn_id": "turn_004",
+      "verifier_channels": [
+        "contradiction"
+      ]
+    }
+  ],
+  "external_llm_used": false,
+  "release": "v6.1.0",
+  "repair_targets": [
+    {
+      "claim_text": "all cats are robots",
+      "reason": "missing typed verifier support",
+      "repair_id": "repair_001",
+      "source_turn_id": "turn_003",
+      "status": "open"
+    },
+    {
+      "claim_text": "no cats are mortal",
+      "reason": "contradiction detected: transitive_contradiction",
+      "repair_id": "repair_002",
+      "source_turn_id": "turn_004",
+      "status": "open"
+    }
+  ],
+  "schema": "ts_chat_session_v1",
+  "session_id": "ts_chat_v1_1_demo_session"
+}

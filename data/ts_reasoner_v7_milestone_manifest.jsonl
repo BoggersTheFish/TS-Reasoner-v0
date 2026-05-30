@@ -1,0 +1,10 @@
+{"release":"v6.1.0","capability":"Persistent Session Memory","included_in_v7":true}
+{"release":"v6.2.0","capability":"Multi-Turn Repair Memory","included_in_v7":true}
+{"release":"v6.3.0","capability":"Explanation Traces","included_in_v7":true}
+{"release":"v6.4.0","capability":"Contradiction Handling","included_in_v7":true}
+{"release":"v6.5.0","capability":"Belief Revision Candidates","included_in_v7":true}
+{"release":"v6.6.0","capability":"Provenance-Aware Common Ground","included_in_v7":true}
+{"release":"v6.7.0","capability":"Knowledge Packs","included_in_v7":true}
+{"release":"v6.8.0","capability":"Session Evaluation Arena","included_in_v7":true}
+{"release":"v6.9.0","capability":"Long-Run Self-Repair Stress Test","included_in_v7":true}
+{"release":"v7.0.0","capability":"Self-Improving Verifier-First Chat System","included_in_v7":true}
