@@ -1,0 +1,13 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 1,
+  "claim_record_count": 4,
+  "external_llm_used": false,
+  "provenance_roundtrip_validity": 1.0,
+  "provenance_snapshot_validity": 1.0,
+  "record_count": 11,
+  "release": "v6.6.0",
+  "repair_record_count": 2,
+  "revision_candidate_record_count": 5
+}
