@@ -1,0 +1,17 @@
+{
+  "accepted_confirmation_rate": 0.5,
+  "confirmation_count": 2,
+  "confirmed_candidate_count": 2,
+  "created_by_version": "ts_chat_v0.9",
+  "curriculum_entry_count": 2,
+  "improvement_summary": "TS-Chat has a measurable repair loop: curriculum entries produce suggestions, suggestions produce confirmed candidates, and verifier outcomes are tracked without candidate graph contamination.",
+  "ledger_id": "ts_chat_v0_9_improvement_ledger",
+  "measurable_loop_coverage_rate": 1.0,
+  "open_repair_count": 1,
+  "repair_suggestion_count": 2,
+  "resolved_repair_count": 1,
+  "verifier_accepted_count": 1,
+  "verifier_boundary_note": "Improvement ledger metrics measure repair-loop workflow progress, not broad NLP. Typed verifier support remains proof authority.",
+  "verifier_rejected_count": 1,
+  "zero_candidate_graph_contamination": true
+}
