@@ -1,0 +1,26 @@
+{
+  "boundary": {
+    "curriculum_entries_are_proof": false,
+    "external_llm_used": false,
+    "general_english_understanding": false,
+    "neural_training": false,
+    "typed_verifier_remains_proof_authority": true
+  },
+  "curriculum_path": "data/ts_chat_repair_curriculum_v0_6.jsonl",
+  "metrics": {
+    "all_gates_passed": true,
+    "candidate_graph_contamination_count": 0,
+    "curriculum_entry_count": 2,
+    "external_llm_used": false,
+    "missing_support_entry_count": 1,
+    "parse_failure_entry_count": 1,
+    "parse_failures_remain_repairable": true,
+    "repair_target_link_rate": 1.0,
+    "resolved_repairs_preserved": true,
+    "source_turn_link_rate": 1.0,
+    "unsupported_claims_do_not_become_proof": true
+  },
+  "name": "TS-Chat Repair Curriculum",
+  "release": "v5.6.0",
+  "session_id": "ts_chat_v0_6_demo_session"
+}
