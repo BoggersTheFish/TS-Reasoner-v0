@@ -1,0 +1,28 @@
+{
+  "boundary": {
+    "external_llm_used": false,
+    "general_english_understanding": false,
+    "neural_training": false,
+    "typed_verifier_support_required_for_proof": true,
+    "user_confirmation_is_proof": false
+  },
+  "confirmations_path": "data/ts_chat_suggestion_confirmations_v0_8.jsonl",
+  "metrics": {
+    "accepted_only_with_verifier_support": true,
+    "all_gates_passed": true,
+    "candidate_graph_contamination_count": 0,
+    "confirmation_count": 2,
+    "confirmed_candidate_count": 2,
+    "curriculum_entry_link_rate": 1.0,
+    "external_llm_used": false,
+    "rejected_candidates_not_proof": true,
+    "repair_target_link_rate": 1.0,
+    "suggestion_link_rate": 1.0,
+    "user_confirmation_is_not_proof": true,
+    "verifier_accepted_count": 1,
+    "verifier_rejected_count": 1
+  },
+  "name": "TS-Chat Suggestion Confirmation",
+  "release": "v5.8.0",
+  "suggestions_path": "data/ts_chat_repair_suggestions_v0_7.jsonl"
+}
