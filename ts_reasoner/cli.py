@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .milestone import print_milestone_receipt
 from .pipeline import run_reasoner
 from .tension_agents import TensionCoordinator
 from .trace import write_json
@@ -12,7 +13,13 @@ from .trace import write_json
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run the TS-Reasoner-v0 toy pipeline.")
-    parser.add_argument("--question", required=True, help="Question to reason about.")
+    parser.add_argument(
+        "command",
+        nargs="?",
+        choices=["milestone"],
+        help="Optional command. Use 'milestone' to print the verifier-first milestone receipt.",
+    )
+    parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
         "--premise",
         action="append",
@@ -30,6 +37,13 @@ def main() -> int:
         help="Optional learned coupling matrix JSON artifact.",
     )
     args = parser.parse_args()
+
+    if args.command == "milestone":
+        print(print_milestone_receipt())
+        return 0
+
+    if not args.question:
+        parser.error("--question is required unless using the 'milestone' command")
 
     coordinator = TensionCoordinator.from_json(args.coupling_matrix) if args.coupling_matrix else None
     output = run_reasoner(args.question, args.premise, tension_coordinator=coordinator)
@@ -57,3 +71,7 @@ def main() -> int:
 
 
 __all__ = ["main"]
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
