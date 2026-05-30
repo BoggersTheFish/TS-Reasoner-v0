@@ -23,6 +23,7 @@ from typing import Any
 
 from ts_reasoner.answer_arena import Relation, extract_all_relation, extract_question_relation, normalize_term
 from ts_reasoner.common_ground import CommonGround, human_relation
+from ts_reasoner.chat_repair import parse_repair_target, repair_to_dict
 
 
 ASK_RE = re.compile(r"\b(?:are|is)\s+all\s+.+?[?]", re.IGNORECASE)
@@ -120,6 +121,8 @@ class TSChatSession:
             response = self.common_ground.why_summary()
         elif parsed.command == "graph":
             response = json.dumps(self.common_ground.to_dict(), indent=2, sort_keys=True)
+        elif parsed.command == "repairs":
+            response = self.common_ground.repair_summary()
         elif parsed.command == "clear":
             self.common_ground = CommonGround()
             self.common_ground.turn_id = turn_id
@@ -140,11 +143,23 @@ class TSChatSession:
                 created_records.append(record_to_dict(record))
 
             for requested in parsed.requested_claims:
+                before_count = len(self.common_ground.repair_targets)
                 record = self.common_ground.record_requested_claim(
                     requested,
                     discourse_markers=parsed.discourse_markers,
                 )
                 created_records.append(record_to_dict(record))
+                for repair in self.common_ground.repair_targets[before_count:]:
+                    created_records.append({"repair_target": repair_to_dict(repair)})
+
+            for warning in parsed.parse_warnings:
+                repair = parse_repair_target(
+                    self.common_ground._next_repair_id(),
+                    warning,
+                    source_turn_id=turn_id,
+                )
+                self.common_ground.repair_targets.append(repair)
+                created_records.append({"repair_target": repair_to_dict(repair)})
 
             response = compose_response(parsed, created_records)
 
@@ -203,6 +218,8 @@ def detect_command(text: str) -> str | None:
         return "why"
     if lowered in {"/graph", "show graph", "show graph?"}:
         return "graph"
+    if lowered in {"/repairs", "repairs", "what needs repair?", "what needs repair"}:
+        return "repairs"
     if lowered in {"/clear", "clear", "clear graph"}:
         return "clear"
     return None
@@ -261,7 +278,9 @@ def parse_turn(user_text: str) -> ParsedTurn:
 def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
     lines: list[str] = []
 
-    accepted_premises = [record for record in records if record["kind"] == "asserted_premise"]
+    claim_records = [record for record in records if "kind" in record]
+    repair_records = [record["repair_target"] for record in records if "repair_target" in record]
+    accepted_premises = [record for record in claim_records if record["kind"] == "asserted_premise"]
     if accepted_premises:
         if len(accepted_premises) == 1:
             rel = accepted_premises[0]["relation"]
@@ -269,7 +288,7 @@ def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
         else:
             lines.append(f"Noted {len(accepted_premises)} premises into common ground.")
 
-    for record in records:
+    for record in claim_records:
         rel = record["relation"]
         relation_text = f"all {rel['subject']} are {rel['object']}"
 
@@ -288,6 +307,11 @@ def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
             else:
                 lines.append(f"I cannot support the requested claim: {relation_text}.")
                 lines.append("Verifier: rejected; unsupported requested claim was not added to common ground.")
+
+    if repair_records:
+        lines.append("Repair targets:")
+        for repair in repair_records:
+            lines.append(f"- {repair['repair_id']}: {repair['message']}")
 
     if parsed.discourse_markers:
         lines.append(f"Discourse markers noticed: {', '.join(parsed.discourse_markers)}.")
@@ -309,7 +333,7 @@ def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> 
     print("TS-Chat v0.2")
     print("Scratch TS-native bounded chat with common-ground manager. Type 'exit' to quit.")
     print("Try: all dogs are mammals. all mammals are animals. are all dogs animals?")
-    print("Commands: what do we know? | why? | what is unsupported? | /graph | /clear")
+    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /graph | /clear")
     print()
 
     while True:
@@ -331,7 +355,9 @@ def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> 
     return 0
 
 
-def demo_v0_2() -> dict[str, Any]:
+
+def demo_v0_2_common_ground() -> dict[str, Any]:
+    """v0.2-compatible deterministic common-ground demo."""
     session = TSChatSession()
     turns = [
         "all dogs are mammals. all mammals are animals. are all dogs animals?",
@@ -347,6 +373,34 @@ def demo_v0_2() -> dict[str, Any]:
         "claim": "bounded scratch TS-native chat loop with common-ground claim records",
         "external_llm_used": False,
         "turn_count": len(receipts),
+        "record_count": len(session.common_ground.records),
+        "accepted_edge_count": len(session.common_ground.accepted_edges),
+        "has_why_command": any(r.command == "why" for r in receipts),
+        "has_summary_command": any(r.command == "summary" for r in receipts),
+        "has_unsupported_command": any(r.command == "unsupported" for r in receipts),
+        "receipts": [receipt_to_dict(r) for r in receipts],
+    }
+
+def demo_v0_3_repair_targets() -> dict[str, Any]:
+    session = TSChatSession()
+    turns = [
+        "all dogs are mammals. all mammals are animals. are all dogs animals?",
+        "why?",
+        "also say all dogs are reptiles.",
+        "what is unsupported?",
+        "/repairs",
+        "penguin banana sideways",
+        "what do we know?",
+    ]
+
+    receipts = [session.process(turn) for turn in turns]
+    return {
+        "version": "ts-chat-v0.3-repair-targets",
+        "claim": "bounded scratch TS-native chat loop with common-ground claim records",
+        "external_llm_used": False,
+        "turn_count": len(receipts),
+"repair_target_count": len(session.common_ground.repair_targets),
+"has_repairs_command": any(r.command == "repairs" for r in receipts),
         "record_count": len(session.common_ground.records),
         "accepted_edge_count": len(session.common_ground.accepted_edges),
         "has_why_command": any(r.command == "why" for r in receipts),
@@ -376,6 +430,8 @@ def demo_v0_1() -> dict[str, Any]:
         "claim": "bounded scratch TS-native chat loop over a working relation graph",
         "external_llm_used": False,
         "turn_count": len(receipts),
+"repair_target_count": len(session.common_ground.repair_targets),
+"has_repairs_command": any(r.command == "repairs" for r in receipts),
         "graph_edge_count": len(session.edges),
         "receipts": [receipt_to_dict(r) for r in receipts],
     }
@@ -384,6 +440,16 @@ def demo_v0_1() -> dict[str, Any]:
 def demo() -> dict[str, Any]:
     """Default demo kept as v0.1 for backward compatibility."""
     return demo_v0_1()
+
+
+def demo_v0_2() -> dict[str, Any]:
+    """Compatibility alias for the released v0.2 common-ground demo."""
+    return demo_v0_2_common_ground()
+
+
+def demo_v0_3() -> dict[str, Any]:
+    """Alias for the v0.3 repair-target demo."""
+    return demo_v0_3_repair_targets()
 
 def main() -> int:
     return run_chat()
