@@ -1,0 +1,10 @@
+{
+  "accepted_claim_preservation_rate": 1.0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 1,
+  "external_llm_used": false,
+  "release": "v6.1.0",
+  "repair_target_preservation_rate": 1.0,
+  "save_load_roundtrip_passed": true
+}
