@@ -1,0 +1,4 @@
+{"case_id":"cycle_001","claim":"no cats are mortal","expected":"rejected_with_repair_target"}
+{"case_id":"cycle_002","claim":"no dogs are mortal","expected":"rejected_with_repair_target"}
+{"case_id":"cycle_003","claim":"no birds are mortal","expected":"rejected_with_repair_target"}
+{"case_id":"cycle_004","claim":"no fish are mortal","expected":"rejected_with_repair_target"}
