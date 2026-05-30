@@ -1,0 +1,16 @@
+{
+  "ledger_path": "artifacts/ts_chat_v0_9_improvement_ledger.json",
+  "metrics": {
+    "accepted_confirmation_rate": 0.5,
+    "all_gates_passed": true,
+    "external_llm_used": false,
+    "has_accepted_and_rejected_verifier_outcomes": true,
+    "has_confirmations": true,
+    "has_curriculum_entries": true,
+    "has_repair_suggestions": true,
+    "measurable_loop_coverage_rate": 1.0,
+    "zero_candidate_graph_contamination": true
+  },
+  "name": "TS-Chat Improvement Ledger Evaluation",
+  "release": "v5.9.0"
+}
