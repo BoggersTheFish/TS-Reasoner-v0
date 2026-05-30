@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "accepted_without_confirmation_count": 0,
+    "all_gates_passed": true,
+    "all_suggestions_not_accepted": true,
+    "candidate_graph_contamination_count": 0,
+    "curriculum_entry_link_rate": 1.0,
+    "external_llm_used": false,
+    "missing_support_repair_suggestion_count": 1,
+    "missing_support_suggestion_rule_present": true,
+    "parse_repair_suggestion_count": 1,
+    "parse_suggestion_rule_present": true,
+    "repair_suggestion_count": 2,
+    "repair_target_link_rate": 1.0,
+    "source_turn_link_rate": 1.0
+  },
+  "name": "TS-Chat Repair Suggestions Evaluation",
+  "release": "v5.7.0",
+  "suggestions_path": "data/ts_chat_repair_suggestions_v0_7.jsonl"
+}
