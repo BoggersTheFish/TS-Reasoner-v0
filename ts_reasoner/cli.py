@@ -10,6 +10,7 @@ from .firewall_receipt import print_firewall_receipt
 from .pipeline import run_reasoner
 from .tension_agents import TensionCoordinator
 from .trace import write_json
+from .ts_chat import run_chat
 
 
 def main() -> int:
@@ -17,7 +18,7 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall"],
+        choices=["milestone", "firewall", "chat"],
         help="Optional command. Use milestone/firewall to print release receipts.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
@@ -47,8 +48,11 @@ def main() -> int:
         print(print_firewall_receipt())
         return 0
 
+    if args.command == "chat":
+        return run_chat()
+
     if not args.question:
-        parser.error("--question is required unless using the milestone/firewall command")
+        parser.error("--question is required unless using the milestone/firewall/chat command")
 
     coordinator = TensionCoordinator.from_json(args.coupling_matrix) if args.coupling_matrix else None
     output = run_reasoner(args.question, args.premise, tension_coordinator=coordinator)
