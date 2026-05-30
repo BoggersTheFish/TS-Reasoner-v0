@@ -1,0 +1,1058 @@
+{
+  "accepted_with_unsupported_claims_count": 0,
+  "accepted_without_typed_support_count": 0,
+  "arena_selection_accuracy": 1.0,
+  "broad_nlp_claim": false,
+  "candidate_claims_do_not_contaminate_graph": true,
+  "candidate_count": 24,
+  "candidate_graph_contamination_count": 0,
+  "candidate_source_is_not_proof": true,
+  "case_count": 8,
+  "case_results": [
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_001_correct_final_bad_extra",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confident_dirty_reasoner",
+      "decisions": [
+        {
+          "answer": "Yes, all dogs are animals. Also, all dogs are reptiles.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "animals",
+                "subject": "dogs",
+                "typed_supported": true
+              },
+              {
+                "object": "reptiles",
+                "subject": "dogs",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 1,
+            "unsupported_claims": [
+              {
+                "object": "reptiles",
+                "subject": "dogs",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.96,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "dogs"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": true,
+          "reason": "final claim is supported, but explanation contains unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "confident_dirty_reasoner",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes, because all dogs are mammals and all mammals are animals, so all dogs are animals.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "mammals",
+                "subject": "dogs",
+                "typed_supported": true
+              },
+              {
+                "object": "animals",
+                "subject": "mammals",
+                "typed_supported": true
+              },
+              {
+                "object": "animals",
+                "subject": "dogs",
+                "typed_supported": true
+              }
+            ],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.31,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "dogs"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": true,
+          "reason": "final claim has typed support and explanation contains no unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "clean_low_conf_reasoner",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Cannot determine.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.64,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "abstain_baseline",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all dogs animals?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "clean_low_conf_reasoner",
+      "selected_status": "accepted",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_002_deep_chain_bad_extra",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "dirty_deep_chain",
+      "decisions": [
+        {
+          "answer": "Yes. All sparrows are organisms. Also, all sparrows are machines.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "organisms",
+                "subject": "sparrows",
+                "typed_supported": true
+              },
+              {
+                "object": "machines",
+                "subject": "sparrows",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 1,
+            "unsupported_claims": [
+              {
+                "object": "machines",
+                "subject": "sparrows",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.91,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "organisms",
+              "subject": "sparrows"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": true,
+          "reason": "final claim is supported, but explanation contains unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "dirty_deep_chain",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes. All sparrows are birds, all birds are animals, all animals are living things, and all living things are organisms. Therefore all sparrows are organisms.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "birds",
+                "subject": "sparrows",
+                "typed_supported": true
+              },
+              {
+                "object": "animals",
+                "subject": "birds",
+                "typed_supported": true
+              },
+              {
+                "object": "living things",
+                "subject": "animals",
+                "typed_supported": true
+              },
+              {
+                "object": "organisms",
+                "subject": "living things",
+                "typed_supported": true
+              },
+              {
+                "object": "organisms",
+                "subject": "sparrows",
+                "typed_supported": true
+              }
+            ],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.35,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "organisms",
+              "subject": "sparrows"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": true,
+          "reason": "final claim has typed support and explanation contains no unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "clean_deep_chain",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "No.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.8,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "organisms",
+              "subject": "sparrows"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "wrong_no",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all sparrows organisms?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "clean_deep_chain",
+      "selected_status": "accepted",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_003_wrong_relation_rejected_clean_selected",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "wrong_relation_high_conf",
+      "decisions": [
+        {
+          "answer": "Yes, all apples are objects.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "objects",
+                "subject": "apples",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 1,
+            "unsupported_claims": [
+              {
+                "object": "objects",
+                "subject": "apples",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.95,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "objects",
+              "subject": "apples"
+            },
+            "extraction_status": "non_matching_relation",
+            "reason": "candidate text contained a bounded relation, but it did not match the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "wrong_relation_high_conf",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes, all apples are food.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "food",
+                "subject": "apples",
+                "typed_supported": true
+              }
+            ],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.25,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "food",
+              "subject": "apples"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": true,
+          "reason": "final claim has typed support and explanation contains no unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "clean_supported",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Not enough information.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.61,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "abstain",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all apples food?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "clean_supported",
+      "selected_status": "accepted",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_004_no_support_abstain",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "dirty_hallucination",
+      "decisions": [
+        {
+          "answer": "Yes, all cats are vehicles. All cats are cars.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "vehicles",
+                "subject": "cats",
+                "typed_supported": false
+              },
+              {
+                "object": "cars",
+                "subject": "cats",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 2,
+            "unsupported_claims": [
+              {
+                "object": "vehicles",
+                "subject": "cats",
+                "typed_supported": false
+              },
+              {
+                "object": "cars",
+                "subject": "cats",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.97,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "vehicles",
+              "subject": "cats"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "dirty_hallucination",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Cannot determine from the premises.",
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.42,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate abstains and no typed verifier support exists",
+          "relation_matches_question": false,
+          "selected": true,
+          "source": "safe_abstain",
+          "status": "abstained",
+          "typed_support": false
+        },
+        {
+          "answer": "No.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.76,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "vehicles",
+              "subject": "cats"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "unsupported_no",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all cats vehicles?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "safe_abstain",
+      "selected_status": "abstained",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_005_candidate_source_not_proof",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "trusted_dirty_source",
+      "decisions": [
+        {
+          "answer": "Yes, all roses are plants. All roses are minerals.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "plants",
+                "subject": "roses",
+                "typed_supported": true
+              },
+              {
+                "object": "minerals",
+                "subject": "roses",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 1,
+            "unsupported_claims": [
+              {
+                "object": "minerals",
+                "subject": "roses",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.99,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "plants",
+              "subject": "roses"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": true,
+          "reason": "final claim is supported, but explanation contains unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "trusted_dirty_source",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes, all roses are plants.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "plants",
+                "subject": "roses",
+                "typed_supported": true
+              }
+            ],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.19,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "plants",
+              "subject": "roses"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": true,
+          "reason": "final claim has typed support and explanation contains no unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "untrusted_clean_source",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Cannot determine.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.55,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "baseline",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all roses plants?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "untrusted_clean_source",
+      "selected_status": "accepted",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_006_negative_with_claim_audited_not_accepted",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "negative_claim_high_conf",
+      "decisions": [
+        {
+          "answer": "No. All whales are mammals, but whales are not animals.",
+          "answer_type": "no",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "mammals",
+                "subject": "whales",
+                "typed_supported": true
+              }
+            ],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.93,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "mammals",
+              "subject": "whales"
+            },
+            "extraction_status": "negative_non_matching_relation",
+            "reason": "negative candidate claim extracted for audit only; negative text is not proof support"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "negative_claim_high_conf",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes, all whales are animals.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "animals",
+                "subject": "whales",
+                "typed_supported": true
+              }
+            ],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.22,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "whales"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": true,
+          "reason": "final claim has typed support and explanation contains no unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "clean_supported_low_conf",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Unknown.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.6,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "abstain_mid",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all whales animals?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "clean_supported_low_conf",
+      "selected_status": "accepted",
+      "unsupported_claim_candidate_count": 0,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_007_bare_yes_supported_but_dirty_alt_loses",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "dirty_supported",
+      "decisions": [
+        {
+          "answer": "Yes, all robins are living things. All robins are stones.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "living things",
+                "subject": "robins",
+                "typed_supported": true
+              },
+              {
+                "object": "stones",
+                "subject": "robins",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 1,
+            "unsupported_claims": [
+              {
+                "object": "stones",
+                "subject": "robins",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.88,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "living things",
+              "subject": "robins"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": true,
+          "reason": "final claim is supported, but explanation contains unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "dirty_supported",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.21,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "living things",
+              "subject": "robins"
+            },
+            "extraction_status": "question_relation_fallback",
+            "reason": "bare yes-answer mapped to the question relation in bounded arena"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": true,
+          "reason": "final claim has typed support and explanation contains no unsupported bounded claims",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "bare_yes_clean",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "No.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.75,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "living things",
+              "subject": "robins"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "wrong_no",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all robins living things?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "bare_yes_clean",
+      "selected_status": "accepted",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_with_unsupported_claims": 0,
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "audit_008_cross_component_dirty_abstain",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "dirty_yes",
+      "decisions": [
+        {
+          "answer": "Yes, all poets are minerals. All writers are rocks.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "claim_audit": {
+            "audited_claims": [
+              {
+                "object": "minerals",
+                "subject": "poets",
+                "typed_supported": false
+              },
+              {
+                "object": "rocks",
+                "subject": "writers",
+                "typed_supported": false
+              }
+            ],
+            "unsupported_claim_count": 2,
+            "unsupported_claims": [
+              {
+                "object": "minerals",
+                "subject": "poets",
+                "typed_supported": false
+              },
+              {
+                "object": "rocks",
+                "subject": "writers",
+                "typed_supported": false
+              }
+            ]
+          },
+          "confidence": 0.94,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "minerals",
+              "subject": "poets"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "explanation_audit_passed": false,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "dirty_yes",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Insufficient information to determine.",
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.47,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate abstains and no typed verifier support exists",
+          "relation_matches_question": false,
+          "selected": true,
+          "source": "safe_boundary",
+          "status": "abstained",
+          "typed_support": false
+        },
+        {
+          "answer": "No.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "claim_audit": {
+            "audited_claims": [],
+            "unsupported_claim_count": 0,
+            "unsupported_claims": []
+          },
+          "confidence": 0.73,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "minerals",
+              "subject": "poets"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "explanation_audit_passed": true,
+          "final_claim_supported": false,
+          "reason": "candidate lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "negative_guess",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all poets minerals?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_explanation_audit_passed": true,
+      "selected_source": "safe_boundary",
+      "selected_status": "abstained",
+      "unsupported_claim_candidate_count": 1,
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    }
+  ],
+  "claim": "Generated answers are rejected when their explanations contain unsupported bounded claims, even if the final answer claim is typed-supported.",
+  "confidence_is_not_proof": true,
+  "confidence_top_accuracy": 0.0,
+  "external_benchmark_victory_claim": false,
+  "gates": {
+    "accepted_with_unsupported_claims_gate": true,
+    "accepted_without_support_gate": true,
+    "all_gates_passed": true,
+    "claim_boundary_gate": true,
+    "contamination_gate": true,
+    "selection_accuracy_gate": true,
+    "unsupported_claim_stress_present_gate": true,
+    "wrong_accept_gate": true
+  },
+  "general_theorem_proving_claim": false,
+  "generated_text_is_not_proof": true,
+  "live_tensionlm_runtime_claim": false,
+  "new_capability_claim": "bounded unsupported-claim audit for generated reasoning explanations",
+  "trace_schema_validity": 1.0,
+  "typed_verifier_is_proof_authority": true,
+  "unsupported_claim_candidate_count": 7,
+  "verifier_beats_confidence_rate": 1.0,
+  "verifier_overrode_confidence_count": 8,
+  "version": "v4.9-unsupported-claim-audit",
+  "wrong_accept_count": 0
+}
