@@ -1,0 +1,423 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "arena_selection_accuracy": 1.0,
+  "broad_nlp_claim": false,
+  "candidate_count": 24,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 8,
+  "case_results": [
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_001_confident_wrong_reverse",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confident_wrong_generator",
+      "decisions": [
+        {
+          "answer_type": "no",
+          "candidate_id": "a",
+          "confidence": 0.94,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "confident_wrong_generator",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.31,
+          "reason": "typed transitive support exists for the question relation",
+          "selected": true,
+          "source": "low_confidence_correct_generator",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.66,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "abstention_baseline",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all dogs animals?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "low_confidence_correct_generator",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_002_low_conf_supported_vs_high_conf_abstain",
+      "confidence_top_answer_type": "abstain",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "abstention_baseline",
+      "decisions": [
+        {
+          "answer_type": "abstain",
+          "candidate_id": "a",
+          "confidence": 0.88,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "abstention_baseline",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.24,
+          "reason": "typed transitive support exists for the question relation",
+          "selected": true,
+          "source": "tiny_symbolic_generator",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.77,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "wrong_generator",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all robins living things?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "tiny_symbolic_generator",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_003_no_support_abstain",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "hallucinating_generator",
+      "decisions": [
+        {
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.91,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "hallucinating_generator",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "confidence": 0.42,
+          "reason": "no typed support exists, so abstention preserves boundary",
+          "selected": true,
+          "source": "boundary_generator",
+          "status": "abstained",
+          "typed_support": false
+        },
+        {
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.76,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "wrong_negative_generator",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all cats vehicles?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "boundary_generator",
+      "selected_status": "abstained",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_004_direct_support",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "high_conf_wrong",
+      "decisions": [
+        {
+          "answer_type": "no",
+          "candidate_id": "a",
+          "confidence": 0.83,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "high_conf_wrong",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.39,
+          "reason": "typed transitive support exists for the question relation",
+          "selected": true,
+          "source": "correct_low_conf",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.61,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "uncertain",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all apples fruit?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "correct_low_conf",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_005_deep_chain",
+      "confidence_top_answer_type": "abstain",
+      "confidence_top_candidate_id": "b",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confidence_trap",
+      "decisions": [
+        {
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.28,
+          "reason": "typed transitive support exists for the question relation",
+          "selected": true,
+          "source": "deep_chain_correct",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "confidence": 0.92,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "confidence_trap",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.81,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "reverse_trap",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all sparrows organisms?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "a",
+      "selected_correct": true,
+      "selected_source": "deep_chain_correct",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_006_cross_component_abstain",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "fluent_bad_generator",
+      "decisions": [
+        {
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.97,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "fluent_bad_generator",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "confidence": 0.55,
+          "reason": "no typed support exists, so abstention preserves boundary",
+          "selected": true,
+          "source": "safe_generator",
+          "status": "abstained",
+          "typed_support": false
+        },
+        {
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.74,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "negative_guess",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all poets minerals?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "safe_generator",
+      "selected_status": "abstained",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_007_relation_without_yes",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "b",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confident_wrong",
+      "decisions": [
+        {
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.44,
+          "reason": "typed transitive support exists for the question relation",
+          "selected": true,
+          "source": "relation_generator",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer_type": "no",
+          "candidate_id": "b",
+          "confidence": 0.93,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "confident_wrong",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.51,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "abstain_noise",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all whales animals?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "a",
+      "selected_correct": true,
+      "selected_source": "relation_generator",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "arena_008_no_candidates_safe",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "unsupported_yes",
+      "decisions": [
+        {
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.89,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "unsupported_yes",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "no",
+          "candidate_id": "b",
+          "confidence": 0.78,
+          "reason": "candidate answer lacks typed verifier support",
+          "selected": false,
+          "source": "unsupported_no",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.21,
+          "reason": "no typed support exists, so abstention preserves boundary",
+          "selected": true,
+          "source": "safe_abstain",
+          "status": "abstained",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all lamps furniture?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "c",
+      "selected_correct": true,
+      "selected_source": "safe_abstain",
+      "selected_status": "abstained",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    }
+  ],
+  "claim": "Competing generated answers enter as candidate data; TS-Reasoner selects, rejects, or abstains using typed verifier support rather than confidence.",
+  "confidence_is_not_proof": true,
+  "confidence_top_accuracy": 0.0,
+  "external_benchmark_victory_claim": false,
+  "gates": {
+    "accepted_without_support_gate": true,
+    "all_gates_passed": true,
+    "claim_boundary_gate": true,
+    "contamination_gate": true,
+    "selection_accuracy_gate": true,
+    "wrong_accept_gate": true
+  },
+  "generated_text_is_not_proof": true,
+  "live_tensionlm_runtime_claim": false,
+  "new_capability_claim": "bounded multi-proposer answer arena",
+  "trace_schema_validity": 1.0,
+  "typed_verifier_is_proof_authority": true,
+  "verifier_beats_confidence_rate": 1.0,
+  "verifier_overrode_confidence_count": 8,
+  "version": "v4.7-verifier-first-answer-arena",
+  "wrong_accept_count": 0
+}
