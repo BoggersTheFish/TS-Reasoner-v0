@@ -77,6 +77,9 @@ def generate_response_candidates(
     rejected_requests = [r for r in requested_records if r.get("status") == "rejected"]
     accepted_requests = [r for r in requested_records if r.get("status") == "accepted"]
 
+    contradiction_records = [r for r in records if r.get("kind") == "contradiction_claim"]
+    negative_records = [r for r in records if r.get("kind") == "negative_claim"]
+
     premise_records = [r for r in records if r.get("kind") == "asserted_premise"]
 
     open_repairs = [r for r in repair_records if r.get("status") == "open"]
@@ -145,6 +148,39 @@ def generate_response_candidates(
             "\n".join(lines),
             1.2 + 0.2 * len(open_repairs),
             ["blocks unsupported requested claim", "creates repair target"],
+        )
+
+    if contradiction_records:
+        lines = []
+        for record in contradiction_records:
+            relation = record["relation"]
+            lines.append(f"Rejected contradiction: no {relation['subject']} are {relation['object']}.")
+            lines.append("Verifier: rejected; negative claim conflicts with accepted common-ground support.")
+            if record.get("support_path"):
+                lines.append("Contradiction path:")
+                for edge in record["support_path"]:
+                    lines.append(f"- all {edge['subject']} are {edge['object']}")
+        for repair in open_repairs:
+            lines.append("Repair targets:")
+            lines.append(f"- {repair['repair_id']}: {repair['message']}")
+        add(
+            "reject_live_contradiction",
+            "\n".join(lines),
+            1.45 + 0.25 * len(contradiction_records),
+            ["blocks contradiction", "uses accepted support path", "creates repair target"],
+        )
+
+    if negative_records:
+        lines = []
+        for record in negative_records:
+            relation = record["relation"]
+            lines.append(f"I cannot accept the negative claim: no {relation['subject']} are {relation['object']}.")
+            lines.append("Verifier: abstained; no positive support path exists to contradict.")
+        add(
+            "abstain_negative_claim",
+            "\n".join(lines),
+            0.95,
+            ["negative claim is not accepted into common ground"],
         )
 
     if accepted_requests:

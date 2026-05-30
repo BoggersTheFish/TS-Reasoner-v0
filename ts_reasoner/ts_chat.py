@@ -23,6 +23,7 @@ from typing import Any
 
 from ts_reasoner.answer_arena import Relation, extract_all_relation, extract_question_relation, normalize_term
 from ts_reasoner.common_ground import CommonGround, human_relation
+from ts_reasoner.live_contradiction_firewall import negative_relation_text, parse_no_relation, record_negative_claim_result
 from ts_reasoner.chat_repair import parse_repair_target, repair_to_dict
 from ts_reasoner.candidate_language import (
     candidate_selection_to_dict,
@@ -46,6 +47,7 @@ class ParsedTurn:
     premises: list[Relation] = field(default_factory=list)
     questions: list[Relation] = field(default_factory=list)
     requested_claims: list[Relation] = field(default_factory=list)
+    negative_claims: list[Relation] = field(default_factory=list)
     discourse_markers: list[str] = field(default_factory=list)
     parse_warnings: list[str] = field(default_factory=list)
 
@@ -58,6 +60,7 @@ class ChatTurnReceipt:
     parsed_premises: list[dict[str, str]]
     parsed_questions: list[dict[str, str]]
     requested_claims: list[dict[str, str]]
+    negative_claims: list[dict[str, str]]
     discourse_markers: list[str]
     records_created: list[dict[str, Any]]
     candidate_selection: dict[str, Any]
@@ -93,6 +96,7 @@ def receipt_to_dict(receipt: ChatTurnReceipt) -> dict[str, Any]:
         "parsed_premises": receipt.parsed_premises,
         "parsed_questions": receipt.parsed_questions,
         "requested_claims": receipt.requested_claims,
+        "negative_claims": receipt.negative_claims,
         "discourse_markers": receipt.discourse_markers,
         "records_created": receipt.records_created,
         "candidate_selection": receipt.candidate_selection,
@@ -160,6 +164,16 @@ class TSChatSession:
                 )
                 created_records.append(record_to_dict(record))
 
+            for negative in parsed.negative_claims:
+                record, repair = record_negative_claim_result(
+                    self.common_ground,
+                    negative,
+                    discourse_markers=parsed.discourse_markers,
+                )
+                created_records.append(record_to_dict(record))
+                if repair is not None:
+                    created_records.append({"repair_target": repair_to_dict(repair)})
+
             for requested in parsed.requested_claims:
                 before_count = len(self.common_ground.repair_targets)
                 record = self.common_ground.record_requested_claim(
@@ -202,6 +216,7 @@ class TSChatSession:
             parsed_premises=[relation_to_dict(r) for r in parsed.premises],
             parsed_questions=[relation_to_dict(r) for r in parsed.questions],
             requested_claims=[relation_to_dict(r) for r in parsed.requested_claims],
+            negative_claims=[relation_to_dict(r) for r in parsed.negative_claims],
             discourse_markers=parsed.discourse_markers,
             records_created=created_records,
             candidate_selection=candidate_selection,
@@ -286,6 +301,11 @@ def parse_turn(user_text: str) -> ParsedTurn:
             parsed.questions.append(question)
             continue
 
+        negative = parse_no_relation(sentence)
+        if negative:
+            parsed.negative_claims.append(negative)
+            continue
+
         requested = parse_requested_claim(sentence)
         if requested:
             parsed.requested_claims.append(requested)
@@ -302,7 +322,7 @@ def parse_turn(user_text: str) -> ParsedTurn:
 
         parsed.parse_warnings.append(f"Could not parse bounded TS-Chat structure: {sentence}")
 
-    if not parsed.premises and not parsed.questions and not parsed.requested_claims and not parsed.parse_warnings:
+    if not parsed.premises and not parsed.questions and not parsed.requested_claims and not parsed.negative_claims and not parsed.parse_warnings:
         parsed.parse_warnings.append("No bounded premise, question, or requested claim detected.")
 
     return parsed
@@ -324,6 +344,19 @@ def compose_response(parsed: ParsedTurn, records: list[dict[str, Any]]) -> str:
     for record in claim_records:
         rel = record["relation"]
         relation_text = f"all {rel['subject']} are {rel['object']}"
+        negative_text = f"no {rel['subject']} are {rel['object']}"
+
+        if record["kind"] == "contradiction_claim":
+            lines.append(f"Rejected contradiction: {negative_text}.")
+            lines.append("Verifier: rejected; negative claim conflicts with accepted common-ground support.")
+            if record.get("support_path"):
+                lines.append("Contradiction path:")
+                for edge in record["support_path"]:
+                    lines.append(f"- all {edge['subject']} are {edge['object']}")
+
+        if record["kind"] == "negative_claim":
+            lines.append(f"I cannot accept the negative claim: {negative_text}.")
+            lines.append("Verifier: abstained; negative claims are not added to common ground.")
 
         if record["kind"] == "question":
             if record["status"] == "accepted":
