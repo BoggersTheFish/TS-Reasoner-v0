@@ -1,0 +1,13 @@
+{
+  "all_gates_passed": true,
+  "branch_count": 3,
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "post_merge_answer_accepted": true,
+  "release": "v7.3.0",
+  "safe_merge_added_edges": 2,
+  "safe_merge_allowed": true,
+  "safe_merge_resolved_repair": true,
+  "schema": "ts_reasoner_v7_3_branching_worlds_report",
+  "unsafe_merge_blocked": true
+}

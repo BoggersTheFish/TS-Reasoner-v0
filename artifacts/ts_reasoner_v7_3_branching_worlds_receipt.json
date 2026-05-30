@@ -1,0 +1,33 @@
+{
+  "all_gates_passed": true,
+  "boundary": {
+    "branch_is_proof": false,
+    "broad_natural_language_understanding": false,
+    "external_benchmark_victory": false,
+    "generated_branch_label_is_proof": false,
+    "live_tensionlm_runtime": false,
+    "merge_is_proof": false,
+    "neural_training": false,
+    "typed_verifier_remains_proof_authority": true
+  },
+  "branch_count": 3,
+  "branch_names": [
+    "direct_robots_world",
+    "machine_bridge_world",
+    "main"
+  ],
+  "branching_worlds_are_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "merge_is_not_proof": true,
+  "milestone": "Branching Worlds",
+  "out_dir": "artifacts/branching_worlds/v7_3_demo",
+  "post_merge_answer_accepted": true,
+  "release": "v7.3.0",
+  "safe_merge_added_edges": 2,
+  "safe_merge_allowed": true,
+  "safe_merge_resolved_repair": true,
+  "schema": "ts_reasoner_v7_3_branching_worlds_public_receipt",
+  "typed_verifier_remains_proof_authority": true,
+  "unsafe_merge_blocked": true
+}
