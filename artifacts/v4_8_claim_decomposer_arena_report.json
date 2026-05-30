@@ -1,0 +1,668 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "arena_selection_accuracy": 1.0,
+  "broad_nlp_claim": false,
+  "candidate_claims_do_not_contaminate_graph": true,
+  "candidate_count": 24,
+  "candidate_graph_contamination_count": 0,
+  "candidate_source_is_not_proof": true,
+  "case_count": 8,
+  "case_results": [
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_001_messy_explanation_correct_low_conf",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confident_wrong_fluent",
+      "decisions": [
+        {
+          "answer": "No. Mammals and animals are different words, so dogs are not animals.",
+          "answer_type": "no",
+          "candidate_id": "a",
+          "confidence": 0.94,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "dogs"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "confident_wrong_fluent",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes, because all dogs are mammals and all mammals are animals, so all dogs are animals.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.28,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "dogs"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "reason": "decomposed candidate claim matches question relation and has typed verifier support",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "messy_correct_low_conf",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Cannot determine from the premises.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.71,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "safe_but_unneeded",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all dogs animals?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "messy_correct_low_conf",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_002_direct_relation_no_yes",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "b",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confidence_trap",
+      "decisions": [
+        {
+          "answer": "All whales are animals.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.33,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "whales"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "reason": "decomposed candidate claim matches question relation and has typed verifier support",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "direct_relation_generator",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "No, whales are not animals.",
+          "answer_type": "no",
+          "candidate_id": "b",
+          "confidence": 0.93,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "animals",
+              "subject": "whales"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "confidence_trap",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Unknown.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.66,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "abstain_noise",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all whales animals?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "a",
+      "selected_correct": true,
+      "selected_source": "direct_relation_generator",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_003_question_fallback_yes",
+      "confidence_top_answer_type": "abstain",
+      "confidence_top_candidate_id": "b",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confident_abstain",
+      "decisions": [
+        {
+          "answer": "Yes.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.25,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "living things",
+              "subject": "robins"
+            },
+            "extraction_status": "question_relation_fallback",
+            "reason": "bare yes-answer mapped to the question relation in bounded arena"
+          },
+          "reason": "decomposed candidate claim matches question relation and has typed verifier support",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "bare_yes_low_conf",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Cannot determine.",
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "confidence": 0.89,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "confident_abstain",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "No, robins are not living things.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.74,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "living things",
+              "subject": "robins"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "wrong_no",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all robins living things?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "a",
+      "selected_correct": true,
+      "selected_source": "bare_yes_low_conf",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_004_unsupported_fluent_claim_abstain",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "fluent_bad",
+      "decisions": [
+        {
+          "answer": "Yes, because all cats are animals and all animals are vehicles.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.91,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "animals and all animals are vehicles",
+              "subject": "cats"
+            },
+            "extraction_status": "non_matching_relation",
+            "reason": "candidate text contained a bounded relation, but it did not match the question relation"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "fluent_bad",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Cannot determine from the premises.",
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "confidence": 0.43,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "candidate abstains and no typed verifier support exists",
+          "relation_matches_question": false,
+          "selected": true,
+          "source": "safe_boundary",
+          "status": "abstained",
+          "typed_support": false
+        },
+        {
+          "answer": "No.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.77,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "vehicles",
+              "subject": "cats"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "negative_guess",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all cats vehicles?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "safe_boundary",
+      "selected_status": "abstained",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_005_wrong_relation_rejected",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "wrong_relation_high_conf",
+      "decisions": [
+        {
+          "answer": "Yes, all apples are objects.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.96,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "objects",
+              "subject": "apples"
+            },
+            "extraction_status": "non_matching_relation",
+            "reason": "candidate text contained a bounded relation, but it did not match the question relation"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "wrong_relation_high_conf",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes: all apples are fruit and all fruit are food, so all apples are food.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.31,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "food",
+              "subject": "apples"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "reason": "decomposed candidate claim matches question relation and has typed verifier support",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "correct_explanation",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Not enough information.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.58,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "abstain_mid",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all apples food?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "correct_explanation",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_006_deep_chain_messy",
+      "confidence_top_answer_type": "abstain",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "confident_abstain",
+      "decisions": [
+        {
+          "answer": "Cannot determine.",
+          "answer_type": "abstain",
+          "candidate_id": "a",
+          "confidence": 0.9,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "confident_abstain",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes. The premises say all sparrows are birds, all birds are animals, all animals are living things, and all living things are organisms. Therefore all sparrows are organisms.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.37,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "organisms",
+              "subject": "sparrows"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "reason": "decomposed candidate claim matches question relation and has typed verifier support",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "messy_correct",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "No, organisms are broader than sparrows.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.82,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "organisms",
+              "subject": "sparrows"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "wrong_no",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all sparrows organisms?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "messy_correct",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_007_no_support_safe",
+      "confidence_top_answer_type": "yes",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "unsupported_yes",
+      "decisions": [
+        {
+          "answer": "Yes, all poets are minerals.",
+          "answer_type": "yes",
+          "candidate_id": "a",
+          "confidence": 0.95,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "minerals",
+              "subject": "poets"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "unsupported_yes",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Insufficient information to determine.",
+          "answer_type": "abstain",
+          "candidate_id": "b",
+          "confidence": 0.45,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "candidate abstains and no typed verifier support exists",
+          "relation_matches_question": false,
+          "selected": true,
+          "source": "safe_abstain",
+          "status": "abstained",
+          "typed_support": false
+        },
+        {
+          "answer": "No.",
+          "answer_type": "no",
+          "candidate_id": "c",
+          "confidence": 0.72,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "minerals",
+              "subject": "poets"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "unsupported_no",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all poets minerals?",
+      "selected_answer_type": "abstain",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "safe_abstain",
+      "selected_status": "abstained",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    },
+    {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination": 0,
+      "case_id": "decomp_008_candidate_source_not_proof",
+      "confidence_top_answer_type": "no",
+      "confidence_top_candidate_id": "a",
+      "confidence_top_correct": false,
+      "confidence_top_source": "trusted_source_but_wrong",
+      "decisions": [
+        {
+          "answer": "No, roses are not plants.",
+          "answer_type": "no",
+          "candidate_id": "a",
+          "confidence": 0.98,
+          "decomposed_claim": {
+            "answer_type": "no",
+            "extracted_relation": {
+              "object": "plants",
+              "subject": "roses"
+            },
+            "extraction_status": "negative_question_relation_fallback",
+            "reason": "negative answer mapped to the question relation for audit only"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": true,
+          "selected": false,
+          "source": "trusted_source_but_wrong",
+          "status": "rejected",
+          "typed_support": false
+        },
+        {
+          "answer": "Yes, all roses are plants.",
+          "answer_type": "yes",
+          "candidate_id": "b",
+          "confidence": 0.22,
+          "decomposed_claim": {
+            "answer_type": "yes",
+            "extracted_relation": {
+              "object": "plants",
+              "subject": "roses"
+            },
+            "extraction_status": "question_matching_relation",
+            "reason": "candidate text contained a bounded relation matching the question relation"
+          },
+          "reason": "decomposed candidate claim matches question relation and has typed verifier support",
+          "relation_matches_question": true,
+          "selected": true,
+          "source": "untrusted_source_but_supported",
+          "status": "accepted",
+          "typed_support": true
+        },
+        {
+          "answer": "Cannot determine.",
+          "answer_type": "abstain",
+          "candidate_id": "c",
+          "confidence": 0.62,
+          "decomposed_claim": {
+            "answer_type": "abstain",
+            "extracted_relation": null,
+            "extraction_status": "no_claim",
+            "reason": "candidate abstains, so no positive claim is extracted"
+          },
+          "reason": "decomposed candidate claim lacks matching typed verifier support",
+          "relation_matches_question": false,
+          "selected": false,
+          "source": "baseline_abstain",
+          "status": "rejected",
+          "typed_support": false
+        }
+      ],
+      "question": "Are all roses plants?",
+      "selected_answer_type": "yes",
+      "selected_candidate_id": "b",
+      "selected_correct": true,
+      "selected_source": "untrusted_source_but_supported",
+      "selected_status": "accepted",
+      "verifier_overrode_confidence": true,
+      "wrong_accept": false
+    }
+  ],
+  "claim": "Messy generated answers are decomposed into bounded relation claims before TS-Reasoner selects, rejects, or abstains using typed verifier support.",
+  "claim_extraction_rate": 0.6666666666666666,
+  "confidence_is_not_proof": true,
+  "confidence_top_accuracy": 0.0,
+  "external_benchmark_victory_claim": false,
+  "extracted_claim_count": 16,
+  "gates": {
+    "accepted_without_support_gate": true,
+    "all_gates_passed": true,
+    "claim_boundary_gate": true,
+    "claim_extraction_gate": true,
+    "contamination_gate": true,
+    "selection_accuracy_gate": true,
+    "wrong_accept_gate": true
+  },
+  "generated_text_is_not_proof": true,
+  "live_tensionlm_runtime_claim": false,
+  "new_capability_claim": "bounded claim decomposition before answer-arena verification",
+  "trace_schema_validity": 1.0,
+  "typed_verifier_is_proof_authority": true,
+  "verifier_beats_confidence_rate": 1.0,
+  "verifier_overrode_confidence_count": 8,
+  "version": "v4.8-claim-decomposer-answer-arena",
+  "wrong_accept_count": 0
+}
