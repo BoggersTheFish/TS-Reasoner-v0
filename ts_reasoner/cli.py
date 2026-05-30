@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 
 from .milestone import print_milestone_receipt
+from .firewall_receipt import print_firewall_receipt
 from .pipeline import run_reasoner
 from .tension_agents import TensionCoordinator
 from .trace import write_json
@@ -16,8 +17,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone"],
-        help="Optional command. Use 'milestone' to print the verifier-first milestone receipt.",
+        choices=["milestone", "firewall"],
+        help="Optional command. Use milestone/firewall to print release receipts.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -42,8 +43,12 @@ def main() -> int:
         print(print_milestone_receipt())
         return 0
 
+    if args.command == "firewall":
+        print(print_firewall_receipt())
+        return 0
+
     if not args.question:
-        parser.error("--question is required unless using the 'milestone' command")
+        parser.error("--question is required unless using the milestone/firewall command")
 
     coordinator = TensionCoordinator.from_json(args.coupling_matrix) if args.coupling_matrix else None
     output = run_reasoner(args.question, args.premise, tension_coordinator=coordinator)
