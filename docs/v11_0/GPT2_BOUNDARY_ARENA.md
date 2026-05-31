@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.2.0, Relation Phrase Parser
+Current release: v11.3.0, Paragraph Claim Decomposer
 
-This document is the required internal release-authority surface for v11.2.0.
-The current release title is Relation Phrase Parser.
+This document is the required internal release-authority surface for v11.3.0.
+The current release title is Paragraph Claim Decomposer.
 
 Boundary:
 - Generated text is not proof.

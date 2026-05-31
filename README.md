@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v11.2.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.2.0)
+[![Release](https://img.shields.io/badge/release-v11.3.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.3.0)
 
 TS-Reasoner is a verifier-first reasoning runtime.
 
@@ -33,7 +33,7 @@ candidate event
 
 ## Current Release
 
-Current release: v11.2.0, Relation Phrase Parser
+Current release: v11.3.0, Paragraph Claim Decomposer
 
 v11.0.0 provides a reproducible verifier-first arena comparing TS-Reasoner
 against GPT-2-small on controlled reasoning tasks. GPT-2-small is treated as a
@@ -51,6 +51,8 @@ Boundary:
 v10.0.0 remains the unified verifier-first reasoning OS/runtime base.
 
 v11.2.0 expands bounded claim normalization into relation phrases such as belongs to, kind of, type of, counts as, implies, supports, requires, cannot be, and excludes while preserving the typed verifier boundary.
+
+v11.3.0 adds bounded paragraph decomposition: short natural-language reasoning paragraphs become canonical verifier premises and target claims while preserving the typed verifier boundary.
 
 ## What This Is
 
@@ -145,6 +147,7 @@ python3 -m unittest discover -q
 | v11.0.0 | GPT-2 boundary arena | Controlled verifier-first reasoning comparison against frozen GPT-2-small fixture |
 | v11.1.0 | Natural claim surface normalization | Bounded natural surfaces normalize before typed verifier support is checked |
 | v11.2.0 | Relation phrase parser | Bounded relation phrases normalize before typed verifier support is checked |
+| v11.3.0 | Paragraph claim decomposer | Bounded paragraphs decompose into verifier premises and target claims |
 | v10.6.0 | Typed support objects | Fake support strings stop counting as proof |
 | v10.7.0 | Support path verifier | Bounded premise graphs create typed verifier traces |
 | v10.8.0 | GPT-2 boundary task format | The battlefield is frozen before comparison |
