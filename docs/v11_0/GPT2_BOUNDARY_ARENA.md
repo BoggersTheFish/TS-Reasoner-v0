@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.8.0, TS-Proposer-Mini Baseline
+Current release: v11.9.0, Neural TS-Proposer Tiny
 
-This document is the required internal release-authority surface for v11.8.0.
-The current release title is TS-Proposer-Mini Baseline.
+This document is the required internal release-authority surface for v11.9.0.
+The current release title is Neural TS-Proposer Tiny.
 
 Boundary:
 - Generated text is not proof.
