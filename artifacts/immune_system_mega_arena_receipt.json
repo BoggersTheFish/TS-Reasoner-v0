@@ -1,0 +1,15 @@
+{
+  "all_gates_passed": true,
+  "branches_do_not_auto_merge": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 5,
+  "generated_text_is_not_proof": true,
+  "hostile_inputs_do_not_contaminate_common_ground": true,
+  "mega_arena_accuracy": 1.0,
+  "patches_are_audit_records_not_proof": true,
+  "receipt_type": "immune_system_mega_arena",
+  "release": "v8.9.0",
+  "repair_targets_are_not_proof": true,
+  "typed_verifier_support_remains_proof_boundary": true
+}
