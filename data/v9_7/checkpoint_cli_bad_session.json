@@ -1,0 +1,5 @@
+{
+  "case_id": "checkpoint_cli_bad_session",
+  "events": [],
+  "initial_state": "not-a-state-object"
+}

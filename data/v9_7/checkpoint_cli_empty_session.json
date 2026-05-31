@@ -1,0 +1,13 @@
+{
+  "case_id": "checkpoint_cli_empty",
+  "events": [],
+  "initial_state": {
+    "accepted_claims": [
+      "all fish are animals"
+    ],
+    "branch_worlds": [],
+    "patches": [],
+    "quarantined_claims": [],
+    "repair_targets": []
+  }
+}
