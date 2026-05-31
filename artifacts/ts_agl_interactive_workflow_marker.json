@@ -1,0 +1,6 @@
+{
+  "artifact": "ts_agl_interactive_workflow_marker",
+  "claim": "pending action executed only after workflow confirmation",
+  "language_layer_is_proof_authority": false,
+  "requires_confirmation": true
+}

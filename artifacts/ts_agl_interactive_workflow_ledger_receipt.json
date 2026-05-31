@@ -1,0 +1,247 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_interactive_workflow_ledger",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_execution_succeeded": true,
+  "confirmed_mutation_count": 1,
+  "confirmed_result": {
+    "data": {
+      "bytes_written": 205,
+      "existed_before": true,
+      "path": "artifacts/ts_agl_interactive_workflow_marker.json",
+      "previous_content_sha_known": true,
+      "reversible_write": true
+    },
+    "error": null,
+    "mutated_state": true,
+    "operation": "write_text_file",
+    "result_id": "result_7dabd1e4f8a0",
+    "status": "success",
+    "system": "filesystem"
+  },
+  "event_count": 4,
+  "executed_count": 1,
+  "external_llm_used": false,
+  "ledger": {
+    "event_count": 4,
+    "events": [
+      {
+        "action_id": "action_345a576e586e",
+        "created_at": 1780271309.9584386,
+        "event_type": "stage",
+        "message": "Staged filesystem.write_text_file with risk reversible_write.",
+        "status": "pending"
+      },
+      {
+        "action_id": "action_345a576e586e",
+        "created_at": 1780271309.958455,
+        "event_type": "execute_blocked",
+        "message": "Execution blocked because confirmation token was missing or wrong.",
+        "status": "needs_confirmation"
+      },
+      {
+        "action_id": "action_345a576e586e",
+        "created_at": 1780271309.958469,
+        "event_type": "execute_blocked",
+        "message": "Execution blocked because confirmation token was missing or wrong.",
+        "status": "needs_confirmation"
+      },
+      {
+        "action_id": "action_345a576e586e",
+        "created_at": 1780271309.9588444,
+        "event_type": "execute_confirmed",
+        "message": "Confirmed execution returned success.",
+        "status": "success"
+      }
+    ],
+    "executed_count": 1,
+    "failed_count": 0,
+    "pending_actions": {
+      "action_345a576e586e": {
+        "action_id": "action_345a576e586e",
+        "call": {
+          "args": {
+            "content": "{\n  \"artifact\": \"ts_agl_interactive_workflow_marker\",\n  \"claim\": \"pending action executed only after workflow confirmation\",\n  \"language_layer_is_proof_authority\": false,\n  \"requires_confirmation\": true\n}\n",
+            "path": "artifacts/ts_agl_interactive_workflow_marker.json"
+          },
+          "call_id": "call_5faa61e28f34",
+          "missing_slots": [],
+          "operation": "write_text_file",
+          "requires_confirmation": true,
+          "risk": "reversible_write",
+          "source_move": {
+            "confidence": 1.0,
+            "content": null,
+            "domain_hint": "filesystem",
+            "move_type": "EXECUTE",
+            "operation_hint": "write_text_file",
+            "raw_text": "stage a safe workflow marker and wait for confirmation",
+            "slots": {
+              "content": "{\n  \"artifact\": \"ts_agl_interactive_workflow_marker\",\n  \"claim\": \"pending action executed only after workflow confirmation\",\n  \"language_layer_is_proof_authority\": false,\n  \"requires_confirmation\": true\n}\n",
+              "path": "artifacts/ts_agl_interactive_workflow_marker.json"
+            },
+            "target": "artifacts/ts_agl_interactive_workflow_marker.json",
+            "unresolved_slots": []
+          },
+          "system": "filesystem"
+        },
+        "confirmation_token": "confirm_5740019495b1",
+        "created_at": 1780271309.958436,
+        "executed_at": 1780271309.958843,
+        "result": {
+          "data": {
+            "bytes_written": 205,
+            "existed_before": true,
+            "path": "artifacts/ts_agl_interactive_workflow_marker.json",
+            "previous_content_sha_known": true,
+            "reversible_write": true
+          },
+          "error": null,
+          "mutated_state": true,
+          "operation": "write_text_file",
+          "result_id": "result_7dabd1e4f8a0",
+          "status": "success",
+          "system": "filesystem"
+        },
+        "status": "executed"
+      }
+    },
+    "pending_count": 0
+  },
+  "missing_confirmation_blocked": true,
+  "missing_confirmation_result": {
+    "data": {
+      "action_id": "action_345a576e586e",
+      "confirmation_token_matched": false,
+      "confirmation_token_required": true,
+      "requires_confirmation": true,
+      "risk": "reversible_write"
+    },
+    "error": null,
+    "mutated_state": false,
+    "operation": "write_text_file",
+    "result_id": "result_f1ec1b8e0db3",
+    "status": "needs_confirmation",
+    "system": "filesystem"
+  },
+  "staged_action_id": "action_345a576e586e",
+  "trace": {
+    "all_gates_passed": true,
+    "calls": [
+      {
+        "args": {
+          "content": "{\n  \"artifact\": \"ts_agl_interactive_workflow_marker\",\n  \"claim\": \"pending action executed only after workflow confirmation\",\n  \"language_layer_is_proof_authority\": false,\n  \"requires_confirmation\": true\n}\n",
+          "path": "artifacts/ts_agl_interactive_workflow_marker.json"
+        },
+        "call_id": "call_5faa61e28f34",
+        "missing_slots": [],
+        "operation": "write_text_file",
+        "requires_confirmation": true,
+        "risk": "reversible_write",
+        "source_move": {
+          "confidence": 1.0,
+          "content": null,
+          "domain_hint": "filesystem",
+          "move_type": "EXECUTE",
+          "operation_hint": "write_text_file",
+          "raw_text": "stage a safe workflow marker and wait for confirmation",
+          "slots": {
+            "content": "{\n  \"artifact\": \"ts_agl_interactive_workflow_marker\",\n  \"claim\": \"pending action executed only after workflow confirmation\",\n  \"language_layer_is_proof_authority\": false,\n  \"requires_confirmation\": true\n}\n",
+            "path": "artifacts/ts_agl_interactive_workflow_marker.json"
+          },
+          "target": "artifacts/ts_agl_interactive_workflow_marker.json",
+          "unresolved_slots": []
+        },
+        "system": "filesystem"
+      }
+    ],
+    "candidate_graph_contamination_count": 0,
+    "created_at": 1780271309.9588475,
+    "external_llm_used": false,
+    "moves": [
+      {
+        "confidence": 1.0,
+        "content": null,
+        "domain_hint": "filesystem",
+        "move_type": "EXECUTE",
+        "operation_hint": "write_text_file",
+        "raw_text": "stage a safe workflow marker and wait for confirmation",
+        "slots": {
+          "content": "{\n  \"artifact\": \"ts_agl_interactive_workflow_marker\",\n  \"claim\": \"pending action executed only after workflow confirmation\",\n  \"language_layer_is_proof_authority\": false,\n  \"requires_confirmation\": true\n}\n",
+          "path": "artifacts/ts_agl_interactive_workflow_marker.json"
+        },
+        "target": "artifacts/ts_agl_interactive_workflow_marker.json",
+        "unresolved_slots": []
+      }
+    ],
+    "raw_text": "stage a safe workflow marker and wait for confirmation",
+    "rendered_reply": "Interactive workflow ledger staged one reversible action, blocked unconfirmed attempts, and executed only after the correct confirmation token.",
+    "results": [
+      {
+        "data": {
+          "action_id": "action_345a576e586e",
+          "confirmation_token_matched": false,
+          "confirmation_token_required": true,
+          "requires_confirmation": true,
+          "risk": "reversible_write"
+        },
+        "error": null,
+        "mutated_state": false,
+        "operation": "write_text_file",
+        "result_id": "result_f1ec1b8e0db3",
+        "status": "needs_confirmation",
+        "system": "filesystem"
+      },
+      {
+        "data": {
+          "action_id": "action_345a576e586e",
+          "confirmation_token_matched": false,
+          "confirmation_token_required": true,
+          "requires_confirmation": true,
+          "risk": "reversible_write"
+        },
+        "error": null,
+        "mutated_state": false,
+        "operation": "write_text_file",
+        "result_id": "result_f1ec1b8e0db3",
+        "status": "needs_confirmation",
+        "system": "filesystem"
+      },
+      {
+        "data": {
+          "bytes_written": 205,
+          "existed_before": true,
+          "path": "artifacts/ts_agl_interactive_workflow_marker.json",
+          "previous_content_sha_known": true,
+          "reversible_write": true
+        },
+        "error": null,
+        "mutated_state": true,
+        "operation": "write_text_file",
+        "result_id": "result_7dabd1e4f8a0",
+        "status": "success",
+        "system": "filesystem"
+      }
+    ],
+    "wrong_state_mutation_count": 0
+  },
+  "write_path": "artifacts/ts_agl_interactive_workflow_marker.json",
+  "write_path_exists": true,
+  "wrong_confirmation_blocked": true,
+  "wrong_confirmation_result": {
+    "data": {
+      "action_id": "action_345a576e586e",
+      "confirmation_token_matched": false,
+      "confirmation_token_required": true,
+      "requires_confirmation": true,
+      "risk": "reversible_write"
+    },
+    "error": null,
+    "mutated_state": false,
+    "operation": "write_text_file",
+    "result_id": "result_f1ec1b8e0db3",
+    "status": "needs_confirmation",
+    "system": "filesystem"
+  },
+  "wrong_unconfirmed_mutation_count": 0
+}
