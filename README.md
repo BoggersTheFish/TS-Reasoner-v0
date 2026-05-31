@@ -140,11 +140,22 @@ python3 -m unittest discover -q
 | v9.x | Runtime kernel, CLI, replay, ledger, checkpoint, restore, policy contracts, recovery drill | Runtime integrity remains separate from claim truth |
 | v10.0.0 | Unified verifier-first reasoning OS/runtime surface | Typed verifier support remains proof authority |
 | v10.5.0 | TS-OS Alpha microkernel, userspace proposers, branch worlds, proof-grid receipts | Generated text, model confidence, and runtime integrity remain non-proof |
+| v11.0.0 | GPT-2 boundary arena | Controlled verifier-first reasoning comparison against frozen GPT-2-small fixture |
+| v11.1.0 | Natural claim surface normalization | Bounded natural surfaces normalize before typed verifier support is checked |
 | v10.6.0 | Typed support objects | Fake support strings stop counting as proof |
 | v10.7.0 | Support path verifier | Bounded premise graphs create typed verifier traces |
 | v10.8.0 | GPT-2 boundary task format | The battlefield is frozen before comparison |
 | v10.9.0 | GPT-2-small baseline harness | GPT-2-small is measured as an untrusted proposer |
 | v11.0.0 | GPT-2 Boundary Arena | TS beats GPT-2-small on verifier-first controlled reasoning |
+
+## Key v11 Files
+
+- `ts_reasoner/claim_normalizer.py`
+- `ts_reasoner/support_path_verifier.py`
+- `benchmarks/gpt2_boundary/`
+- `docs/v11_1/NATURAL_CLAIM_NORMALIZATION.md`
+- `scripts/v11_1/evaluate_claim_normalizer.py`
+- `artifacts/v11_1/claim_normalizer_receipt.json`
 
 ## Key v10 Files
 

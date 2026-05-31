@@ -5,6 +5,7 @@ from collections import deque
 from dataclasses import dataclass
 from typing import Any, Iterable
 
+from ts_reasoner.claim_normalizer import canonicalize_claim_surface
 from ts_reasoner.runtime_kernel import normalize_claim
 from ts_reasoner.typed_support import make_typed_support, validate_typed_support
 
@@ -21,7 +22,7 @@ class ParsedClaim:
 
 
 def parse_claim(text: str) -> ParsedClaim | None:
-    claim = normalize_claim(text)
+    claim = canonicalize_claim_surface(text)
     match = ALL_RE.match(claim)
     if match:
         return ParsedClaim("all", match.group(1), match.group(2))
@@ -58,10 +59,10 @@ def _all_path(premises: list[ParsedClaim], source: str, target: str) -> list[Par
 
 
 def derive_typed_support(premises: Iterable[str], claim: str) -> dict[str, Any]:
-    normalized_premises = [normalize_claim(item) for item in premises]
+    normalized_premises = [canonicalize_claim_surface(item) for item in premises]
     parsed_premises = [parsed for item in normalized_premises if (parsed := parse_claim(item)) is not None]
     target = parse_claim(claim)
-    normalized_claim = normalize_claim(claim)
+    normalized_claim = canonicalize_claim_surface(claim)
 
     if target is None:
         return {"status": "rejected", "reason": "unparseable_claim", "claim": normalized_claim}
