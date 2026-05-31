@@ -1,0 +1,12 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "canonical_equivalence_accuracy": 1.0,
+  "claim": "TS-Reasoner accepts natural is/are/every/each/any/no/not claim surfaces while preserving typed verifier behavior.",
+  "natural_behavior_accuracy": 1.0,
+  "receipt_type": "v11_1_claim_normalizer_receipt",
+  "release": "v11.1.0",
+  "surface_parse_accuracy": 1.0,
+  "wrong_accept_count": 0
+}

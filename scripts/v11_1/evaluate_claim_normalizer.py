@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import Any
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from ts_reasoner.claim_normalizer import normalize_claim_surface
 from ts_reasoner.support_path_verifier import verify_support_path

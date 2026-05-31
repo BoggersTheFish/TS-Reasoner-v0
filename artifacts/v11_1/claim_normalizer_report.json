@@ -1,0 +1,151 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "behavior_case_count": 5,
+  "behavior_results": [
+    {
+      "name": "natural_transitive_is_every",
+      "observed_channel": "transitive_all",
+      "observed_reason": null,
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "name": "natural_negative_is",
+      "observed_channel": "negative_exclusion",
+      "observed_reason": null,
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "name": "natural_reverse_rejected",
+      "observed_channel": null,
+      "observed_reason": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "name": "natural_unsupported_abstained",
+      "observed_channel": null,
+      "observed_reason": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "name": "identity_still_blocked",
+      "observed_channel": null,
+      "observed_reason": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    }
+  ],
+  "candidate_graph_contamination_count": 0,
+  "canonical_equivalence_accuracy": 1.0,
+  "case_count": 11,
+  "natural_behavior_accuracy": 1.0,
+  "quantifier_accuracy": 1.0,
+  "release": "v11.1.0",
+  "results": [
+    {
+      "case_id": "v11_1_all_are",
+      "expected_canonical": "all generated outputs are candidate data",
+      "observed_canonical": "all generated outputs are candidate data",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "all generated outputs are candidate data"
+    },
+    {
+      "case_id": "v11_1_all_is",
+      "expected_canonical": "all generated text are candidate data",
+      "observed_canonical": "all generated text are candidate data",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "all generated text is candidate data"
+    },
+    {
+      "case_id": "v11_1_every_is",
+      "expected_canonical": "all generated output are candidate data",
+      "observed_canonical": "all generated output are candidate data",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "every generated output is candidate data"
+    },
+    {
+      "case_id": "v11_1_each_is",
+      "expected_canonical": "all unsupported claim are repair target",
+      "observed_canonical": "all unsupported claim are repair target",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "each unsupported claim is repair target"
+    },
+    {
+      "case_id": "v11_1_any_is",
+      "expected_canonical": "all model confidence signal are generated signal",
+      "observed_canonical": "all model confidence signal are generated signal",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "any model confidence signal is generated signal"
+    },
+    {
+      "case_id": "v11_1_no_are",
+      "expected_canonical": "no generated signals are proof",
+      "observed_canonical": "no generated signals are proof",
+      "observed_quantifier": "no",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "no generated signals are proof"
+    },
+    {
+      "case_id": "v11_1_no_is",
+      "expected_canonical": "no generated signal are proof",
+      "observed_canonical": "no generated signal are proof",
+      "observed_quantifier": "no",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "no generated signal is proof"
+    },
+    {
+      "case_id": "v11_1_not_is",
+      "expected_canonical": "no model confidence are proof",
+      "observed_canonical": "no model confidence are proof",
+      "observed_quantifier": "no",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "model confidence is not proof"
+    },
+    {
+      "case_id": "v11_1_nothing_that_is",
+      "expected_canonical": "no generated signal are proof",
+      "observed_canonical": "no generated signal are proof",
+      "observed_quantifier": "no",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "nothing that is generated signal is proof"
+    },
+    {
+      "case_id": "v11_1_bare_is",
+      "expected_canonical": "all generated text are candidate data",
+      "observed_canonical": "all generated text are candidate data",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "generated text is candidate data"
+    },
+    {
+      "case_id": "v11_1_bare_are",
+      "expected_canonical": "all generated outputs are candidate data",
+      "observed_canonical": "all generated outputs are candidate data",
+      "observed_quantifier": "all",
+      "observed_status": "parsed",
+      "passed": true,
+      "surface": "generated outputs are candidate data"
+    }
+  ],
+  "surface_parse_accuracy": 1.0,
+  "wrong_accept_count": 0
+}
