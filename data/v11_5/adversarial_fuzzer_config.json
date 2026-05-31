@@ -1,0 +1,6 @@
+{
+  "seed": 115,
+  "source_task_count": 1200,
+  "fuzzed_case_count": 3000,
+  "entity_count": 700
+}
