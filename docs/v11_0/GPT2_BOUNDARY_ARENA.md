@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.1.0, Natural Claim Surface Normalization
+Current release: v11.2.0, Relation Phrase Parser
 
-This document is the required internal release-authority surface for v11.1.0.
-The current release title is Natural Claim Surface Normalization.
+This document is the required internal release-authority surface for v11.2.0.
+The current release title is Relation Phrase Parser.
 
 Boundary:
 - Generated text is not proof.
