@@ -1,0 +1,12 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "pack_count": 3,
+  "post_merge_answer_accepted": true,
+  "release": "v7.6.0",
+  "safe_merge_added_edges": 2,
+  "safe_merge_allowed": true,
+  "schema": "ts_reasoner_v7_6_knowledge_pack_library_report",
+  "unsafe_merge_blocked": true
+}
