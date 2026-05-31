@@ -19,7 +19,7 @@
     "public_surface_overclaim_count_zero": true,
     "readme_current_release_matches_authority": true
   },
-  "generated_at": "2026-05-31T12:51:33.543609+00:00",
+  "generated_at": "2026-05-31T12:53:22.869464+00:00",
   "optional_external_surfaces": [
     {
       "current_release_present": false,
@@ -43,13 +43,13 @@
     }
   ],
   "previous_v8_0_metrics": {
-    "note": "v8.0.0 already exists as Local Verifier-First Reasoning OS; v8.0.1 is the canonical authority sync hotfix.",
-    "release": "v8.0.0",
+    "note": "v8.0.0 already exists as Local Verifier-First Reasoning OS; v8.0.2 is the canonical authority sync hotfix.",
+    "release": "v8.0.1",
     "status": "existing_public_release"
   },
-  "previous_verified_release": "v8.0.0",
+  "previous_verified_release": "v8.0.1",
   "public_surface_overclaim_count": 0,
-  "release": "v8.0.1",
+  "release": "v8.0.2",
   "stale_current_release_markers": [],
-  "title": "Canonical Release Authority Sync"
+  "title": "Canonical Release Authority Test Repair"
 }

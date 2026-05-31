@@ -81,7 +81,7 @@ def main() -> int:
     docs = read_text(ROOT / "docs" / "v8_0" / "CANONICAL_RELEASE_AUTHORITY.md")
 
     current_section = extract_section(readme, "Current flagship release")
-    authority_json_valid = authority.get("schema_version") == "1.0" and release == "v8.0.1"
+    authority_json_valid = authority.get("schema_version") == "1.0" and release == "v8.0.2"
     readme_current_release_matches_authority = release in readme and "Canonical Release Authority" in readme
     docs_current_release_matches_authority = release in docs and "machine-readable release authority" in docs
 
@@ -90,11 +90,11 @@ def main() -> int:
         if marker in current_section
     ]
 
-    previous_v8_0_receipt_visible = previous_release == "v8.0.0"
+    previous_v8_0_receipt_visible = previous_release == "v8.0.1"
     previous_v8_0_metrics: dict[str, Any] = {
         "release": previous_release,
         "status": "existing_public_release",
-        "note": "v8.0.0 already exists as Local Verifier-First Reasoning OS; v8.0.1 is the canonical authority sync hotfix."
+        "note": "v8.0.0 already exists as Local Verifier-First Reasoning OS; v8.0.2 is the canonical authority sync hotfix."
     }
 
     hits = forbidden_hits("\n".join([current_section, docs]), forbidden)

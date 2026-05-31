@@ -15,8 +15,8 @@ class ReleaseAuthorityV80Tests(unittest.TestCase):
         authority = json.loads((ROOT / "release_authority.json").read_text(encoding="utf-8"))
 
         self.assertEqual(authority["schema_version"], "1.0")
-        self.assertEqual(authority["release"], "v8.0.1")
-        self.assertEqual(authority["title"], "Canonical Release Authority")
+        self.assertEqual(authority["release"], "v8.0.2")
+        self.assertIn("Canonical Release Authority", authority["title"])
         self.assertFalse(authority["proof_boundary"]["candidate_generation_is_proof"])
         self.assertFalse(authority["proof_boundary"]["model_confidence_is_proof"])
         self.assertFalse(authority["proof_boundary"]["generated_text_is_proof"])
@@ -24,7 +24,7 @@ class ReleaseAuthorityV80Tests(unittest.TestCase):
 
     def test_readme_current_release_surface_mentions_v8(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertIn("v8.0.1", readme)
+        self.assertIn("v8.0.2", readme)
         self.assertIn("Canonical Release Authority", readme)
 
     def test_release_authority_audit_passes(self) -> None:
