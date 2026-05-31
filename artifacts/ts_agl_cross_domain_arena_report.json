@@ -1,0 +1,44 @@
+{
+  "actual_domains": [
+    "filesystem",
+    "git_repo",
+    "ts_reasoner"
+  ],
+  "actual_operations": [
+    "filesystem.list_files",
+    "git_repo.current_tag",
+    "git_repo.git_status",
+    "git_repo.next_safe_release_action",
+    "ts_reasoner.summarize_session"
+  ],
+  "all_calls_read_only": true,
+  "all_gates_passed": true,
+  "artifact": "ts_agl_cross_domain_arena_report",
+  "call_count": 5,
+  "candidate_graph_contamination_count": 0,
+  "domain_coverage_rate": 1.0,
+  "expected_domains": [
+    "filesystem",
+    "git_repo",
+    "ts_reasoner"
+  ],
+  "expected_operations": [
+    "filesystem.list_files",
+    "git_repo.current_tag",
+    "git_repo.git_status",
+    "git_repo.next_safe_release_action",
+    "ts_reasoner.summarize_session"
+  ],
+  "external_llm_used": false,
+  "operation_coverage_rate": 1.0,
+  "rendered_reply_present": true,
+  "request": "Check the repo, inspect the release state, inspect the docs folder, summarise the TS-AGL session, and tell me the next safe action.",
+  "statuses": [
+    "success",
+    "success",
+    "success",
+    "success",
+    "success"
+  ],
+  "wrong_state_mutation_count": 0
+}
