@@ -1,0 +1,14 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_router_dataset_receipt",
+  "candidate_graph_contamination_count": 0,
+  "dataset_path": "artifacts/ts_agl_router_dataset.jsonl",
+  "domain_example_routing_accuracy": 1.0,
+  "external_llm_used": false,
+  "hard_negative_abstention_accuracy": 1.0,
+  "has_external_side_effect_rows": true,
+  "has_reversible_write_rows": true,
+  "has_trace_mined_rows": true,
+  "row_count": 45,
+  "wrong_state_mutation_count": 0
+}

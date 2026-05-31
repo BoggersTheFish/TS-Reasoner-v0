@@ -1,3 +1,28 @@
+## v18.0.0: TS-AGL Trace-Mined Router Dataset
+
+v18.0.0 adds a trace-mined router dataset for TS-AGL. The system turns validated domain-pack language examples, arena traces, workflow traces, and hard-negative abstention cases into a reusable JSONL router dataset.
+
+Artifacts:
+
+- `ts_agl/training/router_dataset.py`
+- `scripts/build_ts_agl_router_dataset.py`
+- `scripts/evaluate_ts_agl_router_dataset.py`
+- `tests/test_ts_agl_router_dataset.py`
+- `docs/ts_agl_trace_mined_router_dataset.md`
+- `artifacts/ts_agl_router_dataset.jsonl`
+- `artifacts/ts_agl_router_dataset_build_report.json`
+- `artifacts/ts_agl_router_dataset_report.json`
+- `artifacts/ts_agl_router_dataset_receipt.json`
+
+Boundary:
+
+- This is dataset construction, not a learned router yet.
+- No external LLM is used.
+- No model training is performed.
+- Dataset rows are routing supervision only.
+- The language layer is not proof authority.
+- Candidate graph contamination remains zero.
+
 ## v17.0.0: TS-AGL Domain Pack Generator
 
 v17.0.0 adds a bounded TS-AGL Domain Pack Generator. The system converts structured teaching input into a validated domain manifest, verifies risk/confirmation rules, and proves the generated pack can teach example-based routing.

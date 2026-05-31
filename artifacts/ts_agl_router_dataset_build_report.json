@@ -1,0 +1,30 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_router_dataset_build_report",
+  "candidate_graph_contamination_count": 0,
+  "dataset_path": "artifacts/ts_agl_router_dataset.jsonl",
+  "domain_counts": {
+    "external_service": 4,
+    "filesystem": 10,
+    "git_repo": 14,
+    "ts_reasoner": 17
+  },
+  "external_llm_used": false,
+  "has_abstain_rows": true,
+  "has_route_rows": true,
+  "label_counts": {
+    "abstain": 6,
+    "route": 39
+  },
+  "row_count": 45,
+  "source_counts": {
+    "domain_example": 29,
+    "hard_negative": 6,
+    "trace:ts_agl_cross_domain_arena_receipt.json": 5,
+    "trace:ts_agl_demo_receipt.json": 2,
+    "trace:ts_agl_external_side_effect_staging_receipt.json": 1,
+    "trace:ts_agl_interactive_workflow_ledger_receipt.json": 1,
+    "trace:ts_agl_safe_write_arena_receipt.json": 1
+  },
+  "wrong_state_mutation_count": 0
+}
