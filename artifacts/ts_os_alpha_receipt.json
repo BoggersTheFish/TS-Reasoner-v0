@@ -1,0 +1,15 @@
+{
+  "accepted_common_ground_mutated_only_through_kernel_gate": true,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "claim": "TS-OS Alpha treats probabilistic models as untrusted userspace proposers, routes all mutations through a verifier microkernel, isolates contradictions into branch worlds, and exchanges receipt-backed knowledge packs through local verifier gates.",
+  "continuum_world_count": 2,
+  "generated_text_is_not_proof": true,
+  "model_confidence_is_not_proof": true,
+  "proof_grid_import_action": "imported",
+  "receipt_hash": "501cf15491d3f29cd4783169f69dc8b3d0206476fd0db957c54316e8893b8b7c",
+  "receipt_type": "ts_os_alpha_receipt",
+  "release": "v10.5",
+  "runtime_integrity_is_not_claim_truth": true,
+  "userspace_action": "userspace_completed"
+}

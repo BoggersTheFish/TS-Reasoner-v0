@@ -1,3 +1,40 @@
+## v10.5.0: TS-OS Alpha
+
+v10.5.0 adds the bounded TS-OS Alpha flow: immutable verifier microkernel,
+protocol-sandboxed subprocess proposers, infrastructure-grid branch-world
+continuum, local file proof-grid exchange, and an integrated alpha receipt.
+
+Artifacts:
+
+- `ts_reasoner/ts_os.py`
+- `ts_reasoner/runtime_os_cli.py`
+- `scripts/v10_1/evaluate_ts_os_microkernel.py`
+- `scripts/v10_2/evaluate_ts_os_userspace.py`
+- `scripts/v10_3/evaluate_ts_os_continuum.py`
+- `scripts/v10_4/evaluate_ts_os_proof_grid.py`
+- `scripts/v10_5/evaluate_ts_os_alpha.py`
+- `tests/test_v10_1_ts_os_microkernel.py`
+- `tests/test_v10_2_ts_os_userspace.py`
+- `tests/test_v10_3_ts_os_continuum.py`
+- `tests/test_v10_4_ts_os_proof_grid.py`
+- `tests/test_v10_5_ts_os_alpha.py`
+- `data/v10_2/userspace_session.json`
+- `data/v10_3/infrastructure_grid_scenario.json`
+- `data/v10_5/ts_os_alpha_scenario.json`
+- `docs/v10_1/EPISTEMIC_MICROKERNEL.md`
+- `docs/v10_2/UNTRUSTED_USERSPACE_APPS.md`
+- `docs/v10_3/MULTI_WORLD_CONTINUUM.md`
+- `docs/v10_4/DECOUPLED_PROOF_GRID.md`
+- `docs/v10_5/TS_OS_ALPHA.md`
+
+Boundary:
+
+- Generated text is not proof.
+- Model confidence is not proof.
+- Runtime integrity is not claim truth.
+- Accepted common ground mutates only through kernel verifier gates.
+- Proof-grid identity signing is metadata-only until real signatures are added.
+
 ## v10.0.0: Verifier-First Reasoning OS
 
 v10.0.0 packages replay, policy contracts, tamper-evident audit ledger,

@@ -15,8 +15,8 @@ class ReleaseAuthorityV80Tests(unittest.TestCase):
         authority = json.loads((ROOT / "release_authority.json").read_text(encoding="utf-8"))
 
         self.assertEqual(authority["schema_version"], "1.0")
-        self.assertEqual(authority["release"], "v10.0.0")
-        self.assertIn("Verifier-First Reasoning OS", authority["title"])
+        self.assertEqual(authority["release"], "v10.5.0")
+        self.assertIn("TS-OS Alpha", authority["title"])
         self.assertFalse(authority["proof_boundary"]["candidate_generation_is_proof"])
         self.assertFalse(authority["proof_boundary"]["model_confidence_is_proof"])
         self.assertFalse(authority["proof_boundary"]["generated_text_is_proof"])
@@ -24,8 +24,8 @@ class ReleaseAuthorityV80Tests(unittest.TestCase):
 
     def test_readme_current_release_surface_mentions_v10(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertIn("v10.0.0", readme)
-        self.assertIn("Verifier-First Reasoning OS", readme)
+        self.assertIn("v10.5.0", readme)
+        self.assertIn("TS-OS Alpha", readme)
 
     def test_release_authority_audit_passes(self) -> None:
         result = subprocess.run(

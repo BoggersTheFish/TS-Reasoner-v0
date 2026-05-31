@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ts-reasoner-v0"
-version = "10.0.0"
-description = "Verifier-first reasoning runtime with typed proof-boundary traces, audit ledger, and checkpoint restore."
+version = "10.5.0"
+description = "Verifier-first TS-OS alpha with microkernel gates, userspace proposers, branch worlds, and proof-grid receipts."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

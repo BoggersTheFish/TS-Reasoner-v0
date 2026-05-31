@@ -1,0 +1,14 @@
+{
+  "action": "userspace_completed",
+  "candidate_count": 1,
+  "candidate_graph_contamination_count": 0,
+  "generated_text_is_not_proof": true,
+  "model_confidence_is_not_proof": true,
+  "next_budget": 3,
+  "receipt_hash": "2e496d97fec0e5ed280fe0a1c2ecf7ceddce4176174acf30f2e85d33ddad2611",
+  "receipt_type": "ts_os_userspace_receipt",
+  "release": "v10.2",
+  "repair_targets_created": 0,
+  "schema": "ts_os_userspace_app_v1",
+  "supported_candidates": 1
+}

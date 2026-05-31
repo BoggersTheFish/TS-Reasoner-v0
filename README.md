@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v10.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v10.0.0)
+[![Release](https://img.shields.io/badge/release-v10.5.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v10.5.0)
 
 TS-Reasoner is a verifier-first reasoning runtime.
 
@@ -33,24 +33,18 @@ candidate event
 
 ## Current Release
 
-Current release: v10.0.0, Verifier-First Reasoning OS
+Current release: v10.5.0, TS-OS Alpha
 
-v10.0.0 packages the v9 runtime line into one bounded verifier-first runtime
-surface:
+v10.5.0 packages the v10 runtime line into a bounded TS-OS Alpha surface:
 
-- ordered replay
-- runtime policy contracts
-- append-only audit ledger
-- tamper-evident hash chain
-- checkpoint and restore
-- recovery drill
-- unified runtime session receipt
+- immutable epistemic microkernel
+- protocol-sandboxed userspace proposer subprocesses
+- deterministic proposal budget scheduling
+- infrastructure-grid branch-world continuum
+- local file proof-grid packs with canonical JSON SHA-256 integrity
+- integrated TS-OS Alpha receipt
 
-v9.8.0 added runtime policy contracts.
-
-v9.9.0 added runtime recovery drills.
-
-v10.0.0 unifies those pieces into the verifier-first reasoning OS surface.
+v10.0.0 remains the unified verifier-first reasoning OS/runtime base.
 
 ## What This Is
 
@@ -100,12 +94,19 @@ python3 -m ts_reasoner.runtime_os_cli suite --session @data/v10_0/runtime_os_ses
 python3 -m ts_reasoner.cli v10
 ```
 
+Run the TS-OS Alpha flow:
+
+```bash
+python3 -m ts_reasoner.runtime_os_cli alpha --scenario @data/v10_5/ts_os_alpha_scenario.json
+```
+
 Run the latest milestone receipts:
 
 ```bash
 python3 scripts/v9_8/evaluate_runtime_policy_contracts.py
 python3 scripts/v9_9/evaluate_runtime_recovery_drill.py
 python3 scripts/v10_0/evaluate_runtime_os.py
+python3 scripts/v10_5/evaluate_ts_os_alpha.py
 ```
 
 Run all tests:
@@ -127,15 +128,21 @@ python3 -m unittest discover -q
 | v8.x | Canonical release authority and immune-system runtime pieces | Public release truth is machine-audited |
 | v9.x | Runtime kernel, CLI, replay, ledger, checkpoint, restore, policy contracts, recovery drill | Runtime integrity remains separate from claim truth |
 | v10.0.0 | Unified verifier-first reasoning OS/runtime surface | Typed verifier support remains proof authority |
+| v10.5.0 | TS-OS Alpha microkernel, userspace proposers, branch worlds, proof-grid receipts | Generated text, model confidence, and runtime integrity remain non-proof |
 
 ## Key v10 Files
 
+- `ts_reasoner/ts_os.py`
 - `ts_reasoner/runtime_os.py`
 - `ts_reasoner/runtime_os_cli.py`
 - `ts_reasoner/runtime_policy_contracts.py`
 - `ts_reasoner/runtime_recovery_drill.py`
+- `docs/v10_5/TS_OS_ALPHA.md`
 - `docs/v10_0/VERIFIER_FIRST_REASONING_OS.md`
+- `data/v10_5/ts_os_alpha_scenario.json`
 - `data/v10_0/runtime_os_cases.jsonl`
+- `scripts/v10_5/evaluate_ts_os_alpha.py`
 - `scripts/v10_0/evaluate_runtime_os.py`
+- `tests/test_v10_5_ts_os_alpha.py`
 - `tests/test_v10_0_runtime_os.py`
 - `artifacts/runtime_os_receipt.json`

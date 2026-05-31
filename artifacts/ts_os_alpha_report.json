@@ -1,0 +1,126 @@
+{
+  "action": "ts_os_alpha_completed",
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "continuum": {
+    "all_gates_passed": true,
+    "collapsed_worlds": [],
+    "contamination_count": 0,
+    "fork_receipts": [
+      {
+        "candidate_graph_contamination_count": 0,
+        "isolated_claims": [
+          "hospital has power",
+          "hospital lacks power"
+        ],
+        "reason": "contradiction",
+        "receipt_hash": "5a609303c928929aa8ab953b6a87ff9fe8681573f4a832cbe7fea16d0448a2ef",
+        "receipt_type": "world_fork",
+        "release": "v10.3",
+        "world_id": "alpha_world_contradiction"
+      }
+    ],
+    "merge_candidates": [
+      "alpha_world_contradiction",
+      "alpha_world_revision"
+    ],
+    "outcomes": [
+      {
+        "merge_allowed": true,
+        "outcome": "merge_candidate",
+        "reason": "verifier_supported",
+        "stability_score": 1,
+        "tension_score": 2,
+        "world_id": "alpha_world_contradiction"
+      },
+      {
+        "merge_allowed": true,
+        "outcome": "merge_candidate",
+        "reason": "verifier_supported",
+        "stability_score": 2,
+        "tension_score": 0,
+        "world_id": "alpha_world_revision"
+      }
+    ],
+    "quarantined_worlds": [],
+    "release": "v10.3",
+    "stable_worlds": [],
+    "unresolved_repairs": 0,
+    "world_count": 2
+  },
+  "proof_grid_import": {
+    "accepted_claims": [
+      "power supports hospital",
+      "network reroute supports hospital"
+    ],
+    "action": "imported",
+    "candidate_graph_contamination_count": 0,
+    "hash_integrity_checked": true,
+    "identity_signing_is_metadata_only": true,
+    "node_id": "alpha_node_b",
+    "quarantined_claims": [],
+    "reason": "local_verifier_gate",
+    "receipt_hash": "36fdfe43a165e4508d34e4854b55c439de8b1bbc966e0a952c728d3e2874212e",
+    "receipt_type": "proof_grid_receipt",
+    "release": "v10.4"
+  },
+  "proof_grid_pack": {
+    "accepted_claims": [
+      "power supports hospital",
+      "network reroute supports hospital"
+    ],
+    "branch_worlds": [
+      {
+        "auto_merge_allowed": false,
+        "branch_reason": "contradiction",
+        "claims": [
+          "hospital has contradictory power status"
+        ],
+        "parent_world_id": "main",
+        "world_id": "alpha_branch_power"
+      }
+    ],
+    "channel_manifest": {
+      "channel_contracts": [
+        "identity_preservation",
+        "proof_boundary"
+      ],
+      "verifier_contract_ids": [
+        "typed_verifier_support"
+      ]
+    },
+    "created_at": "2026-05-31T20:16:32Z",
+    "issuer": "local_alpha",
+    "ledger_head_hash": "04fd3ae48aa222438dea38cde7f5ba3a944e775122429dde883286567528391d",
+    "node_id": "alpha_node_a",
+    "pack_hash": "5f743992e6484f7b54d3339a4d6d08678730bdf7c717e21b570393d1eb410f0b",
+    "provenance": {
+      "transport": "local_file_exchange"
+    },
+    "receipt_chain": [],
+    "release_authority_snapshot": {
+      "proof_boundary": "typed_verifier_support",
+      "release": "v10.5"
+    },
+    "repair_targets": [],
+    "schema": "ts_os_knowledge_pack_v2",
+    "signature_placeholder": "unsigned_metadata_only"
+  },
+  "receipt": {
+    "accepted_common_ground_mutated_only_through_kernel_gate": true,
+    "all_gates_passed": true,
+    "candidate_graph_contamination_count": 0,
+    "claim": "TS-OS Alpha treats probabilistic models as untrusted userspace proposers, routes all mutations through a verifier microkernel, isolates contradictions into branch worlds, and exchanges receipt-backed knowledge packs through local verifier gates.",
+    "continuum_world_count": 2,
+    "generated_text_is_not_proof": true,
+    "model_confidence_is_not_proof": true,
+    "proof_grid_import_action": "imported",
+    "receipt_hash": "501cf15491d3f29cd4783169f69dc8b3d0206476fd0db957c54316e8893b8b7c",
+    "receipt_type": "ts_os_alpha_receipt",
+    "release": "v10.5",
+    "runtime_integrity_is_not_claim_truth": true,
+    "userspace_action": "userspace_completed"
+  },
+  "release": "v10.5",
+  "userspace": {}
+}

@@ -1,0 +1,79 @@
+{
+  "case_id": "v10_5_ts_os_alpha",
+  "userspace_session": {
+    "base_budget": 3,
+    "initial_state": {
+      "accepted_common_ground": [
+        "power supports hospital"
+      ],
+      "branch_worlds": [],
+      "ledger_head": "",
+      "policy_version": "v10.5",
+      "quarantined_claims": [],
+      "repair_targets": []
+    },
+    "candidates": [
+      {
+        "requested_action": "accept_claim",
+        "payload": {
+          "claim": "network reroute supports hospital",
+          "support": [
+            "typed_verifier_support"
+          ]
+        }
+      },
+      {
+        "requested_action": "branch_world",
+        "payload": {
+          "claim": "hospital has contradictory power status",
+          "branch_reason": "contradiction",
+          "world_id": "alpha_branch_power"
+        }
+      }
+    ]
+  },
+  "continuum_scenario": {
+    "nodes": [
+      "power",
+      "water",
+      "network",
+      "hospital",
+      "transport"
+    ],
+    "edges": [
+      {
+        "from": "power",
+        "to": "hospital"
+      },
+      {
+        "from": "network",
+        "to": "hospital"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "contradiction",
+        "world_id": "alpha_world_contradiction",
+        "claims": [
+          "hospital has power",
+          "hospital lacks power"
+        ],
+        "support": 3,
+        "affected": [
+          "hospital"
+        ]
+      },
+      {
+        "event_type": "trusted_revision",
+        "world_id": "alpha_world_revision",
+        "claims": [
+          "network reroute supports hospital"
+        ],
+        "support": 2,
+        "affected": [
+          "network"
+        ]
+      }
+    ]
+  }
+}

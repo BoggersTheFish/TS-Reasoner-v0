@@ -1,0 +1,31 @@
+{
+  "accepted_claims": [
+    "power supports hospital"
+  ],
+  "branch_worlds": [],
+  "channel_manifest": {
+    "channel_contracts": [
+      "identity_preservation",
+      "proof_boundary"
+    ],
+    "verifier_contract_ids": [
+      "typed_verifier_support"
+    ]
+  },
+  "created_at": "2026-05-31T20:17:46Z",
+  "issuer": "local_issuer",
+  "ledger_head_hash": "",
+  "node_id": "local_node",
+  "pack_hash": "7b2ec3b8e97f8d03f2c69ea147061c7a1815450638a4ba754eec93bc850bc94a",
+  "provenance": {
+    "transport": "local_file_exchange"
+  },
+  "receipt_chain": [],
+  "release_authority_snapshot": {
+    "proof_boundary": "typed_verifier_support",
+    "release": "v10.5"
+  },
+  "repair_targets": [],
+  "schema": "ts_os_knowledge_pack_v2",
+  "signature_placeholder": "unsigned_metadata_only"
+}

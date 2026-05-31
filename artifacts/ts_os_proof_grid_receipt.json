@@ -1,0 +1,15 @@
+{
+  "accepted_claims": [
+    "power supports hospital"
+  ],
+  "action": "imported",
+  "candidate_graph_contamination_count": 0,
+  "hash_integrity_checked": true,
+  "identity_signing_is_metadata_only": true,
+  "node_id": "local_node",
+  "quarantined_claims": [],
+  "reason": "local_verifier_gate",
+  "receipt_hash": "21dee65fe3b7b98091d83e6466d18a0ffb42b187e0ab45278017b7bf34275404",
+  "receipt_type": "proof_grid_receipt",
+  "release": "v10.4"
+}

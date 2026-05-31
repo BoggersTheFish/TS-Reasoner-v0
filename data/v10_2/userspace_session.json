@@ -1,0 +1,14 @@
+{
+  "base_budget": 2,
+  "case_id": "v10_2_userspace_fixture",
+  "initial_state": {
+    "accepted_common_ground": [
+      "power supports hospital"
+    ],
+    "branch_worlds": [],
+    "ledger_head": "",
+    "policy_version": "v10.2",
+    "quarantined_claims": [],
+    "repair_targets": []
+  }
+}

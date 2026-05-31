@@ -1,0 +1,56 @@
+{
+  "all_gates_passed": true,
+  "collapsed_worlds": [],
+  "contamination_count": 0,
+  "fork_receipts": [
+    {
+      "candidate_graph_contamination_count": 0,
+      "isolated_claims": [
+        "hospital has full power",
+        "hospital has no power"
+      ],
+      "reason": "conflicting_infrastructure_claims",
+      "receipt_hash": "2f0015e92916d7d78174d614adb90ddba6c555bb6503dd7e6c65a0a501a375e6",
+      "receipt_type": "world_fork",
+      "release": "v10.3",
+      "world_id": "world_contradiction"
+    }
+  ],
+  "merge_candidates": [
+    "world_contradiction",
+    "world_supported_revision"
+  ],
+  "outcomes": [
+    {
+      "merge_allowed": true,
+      "outcome": "merge_candidate",
+      "reason": "verifier_supported",
+      "stability_score": 1,
+      "tension_score": 2,
+      "world_id": "world_contradiction"
+    },
+    {
+      "merge_allowed": true,
+      "outcome": "merge_candidate",
+      "reason": "verifier_supported",
+      "stability_score": 2,
+      "tension_score": 0,
+      "world_id": "world_supported_revision"
+    },
+    {
+      "merge_allowed": false,
+      "outcome": "quarantined",
+      "reason": "unresolved_repairs",
+      "stability_score": -2,
+      "tension_score": 1,
+      "world_id": "world_water_shock"
+    }
+  ],
+  "quarantined_worlds": [
+    "world_water_shock"
+  ],
+  "release": "v10.3",
+  "stable_worlds": [],
+  "unresolved_repairs": 2,
+  "world_count": 3
+}

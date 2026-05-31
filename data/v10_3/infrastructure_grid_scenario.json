@@ -1,0 +1,62 @@
+{
+  "case_id": "v10_3_infrastructure_grid",
+  "nodes": [
+    "power",
+    "water",
+    "network",
+    "hospital",
+    "transport"
+  ],
+  "edges": [
+    {
+      "from": "power",
+      "to": "hospital"
+    },
+    {
+      "from": "power",
+      "to": "water"
+    },
+    {
+      "from": "network",
+      "to": "hospital"
+    }
+  ],
+  "events": [
+    {
+      "event_type": "contradiction",
+      "world_id": "world_contradiction",
+      "claims": [
+        "hospital has full power",
+        "hospital has no power"
+      ],
+      "reason": "conflicting_infrastructure_claims",
+      "support": 3,
+      "affected": [
+        "hospital"
+      ]
+    },
+    {
+      "event_type": "trusted_revision",
+      "world_id": "world_supported_revision",
+      "claims": [
+        "network reroute supports hospital"
+      ],
+      "support": 2,
+      "affected": [
+        "network"
+      ]
+    },
+    {
+      "event_type": "shock",
+      "world_id": "world_water_shock",
+      "claims": [
+        "power and water are both unavailable"
+      ],
+      "support": 1,
+      "affected": [
+        "power",
+        "water"
+      ]
+    }
+  ]
+}
