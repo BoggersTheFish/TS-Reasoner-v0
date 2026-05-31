@@ -1,0 +1,12 @@
+{
+  "adversarial_state_fuzzer_accuracy": 1.0,
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "generated_text_is_not_proof": true,
+  "hostile_mutations_do_not_contaminate_common_ground": true,
+  "receipt_type": "adversarial_state_fuzzer",
+  "release": "v8.8.0",
+  "typed_verifier_support_remains_proof_boundary": true
+}
