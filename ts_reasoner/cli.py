@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -132,6 +132,13 @@ def main() -> int:
         from .knowledge_pack_library import run_knowledge_pack_library_demo
 
         receipt = run_knowledge_pack_library_demo(args.out_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "trust-pressure":
+        from .trust_pressure import run_trust_pressure_demo
+
+        receipt = run_trust_pressure_demo(args.out_dir)
         print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
 

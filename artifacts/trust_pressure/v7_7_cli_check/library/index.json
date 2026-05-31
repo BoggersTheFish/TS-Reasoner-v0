@@ -1,0 +1,52 @@
+{
+  "candidate_graph_contamination_count": 0,
+  "entries": {
+    "low_direct_robots": {
+      "accepted_edge_count": 1,
+      "external_llm_used": false,
+      "label": "low_direct_robots",
+      "pack_import_is_proof": false,
+      "pack_merge_is_proof": false,
+      "path": "artifacts/trust_pressure/v7_7_cli_check/packs/low_trust_direct_robots.json",
+      "rejected_or_unsupported_record_count": 0,
+      "release": "v7.6.0",
+      "repair_target_count": 0,
+      "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+      "typed_verifier_remains_proof_authority": true
+    },
+    "low_dispute_pack": {
+      "accepted_edge_count": 1,
+      "external_llm_used": false,
+      "label": "low_dispute_pack",
+      "pack_import_is_proof": false,
+      "pack_merge_is_proof": false,
+      "path": "artifacts/trust_pressure/v7_7_cli_check/packs/low_dispute_pack.json",
+      "rejected_or_unsupported_record_count": 1,
+      "release": "v7.6.0",
+      "repair_target_count": 0,
+      "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+      "typed_verifier_remains_proof_authority": true
+    },
+    "medium_machine_bridge": {
+      "accepted_edge_count": 2,
+      "external_llm_used": false,
+      "label": "medium_machine_bridge",
+      "pack_import_is_proof": false,
+      "pack_merge_is_proof": false,
+      "path": "artifacts/trust_pressure/v7_7_cli_check/packs/medium_trust_machine_bridge.json",
+      "rejected_or_unsupported_record_count": 0,
+      "release": "v7.6.0",
+      "repair_target_count": 0,
+      "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+      "typed_verifier_remains_proof_authority": true
+    }
+  },
+  "external_llm_used": false,
+  "library_dir": "artifacts/trust_pressure/v7_7_cli_check/library",
+  "pack_count": 3,
+  "pack_import_is_proof": false,
+  "pack_merge_is_proof": false,
+  "release": "v7.6.0",
+  "schema": "ts_reasoner_knowledge_pack_library_v1",
+  "typed_verifier_remains_proof_authority": true
+}

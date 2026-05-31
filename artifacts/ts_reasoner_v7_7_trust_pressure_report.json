@@ -1,0 +1,13 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "pack_compare_pressure_record_count": 1,
+  "post_merge_answer_accepted": true,
+  "release": "v7.7.0",
+  "safe_merge_allowed": true,
+  "schema": "ts_reasoner_v7_7_trust_pressure_report",
+  "source_count": 4,
+  "unsafe_merge_blocked": true,
+  "unsafe_pressure_detected": true
+}

@@ -1,0 +1,52 @@
+{
+  "accepted_edges": [
+    {
+      "object": "robots",
+      "subject": "cats"
+    }
+  ],
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "knowledge_pack_import_is_proof": false,
+  "label": "low_dispute_pack",
+  "pack_merge_is_proof": false,
+  "records": [
+    {
+      "claim_id": "pack_0001",
+      "discourse_markers": [],
+      "kind": "asserted_premise",
+      "reason": "accepted premise stored in bounded knowledge pack",
+      "relation": {
+        "object": "robots",
+        "subject": "cats"
+      },
+      "source": "knowledge_pack",
+      "status": "accepted",
+      "support_path": [
+        {
+          "object": "robots",
+          "subject": "cats"
+        }
+      ],
+      "turn_id": 1
+    },
+    {
+      "claim_id": "pack_0002",
+      "discourse_markers": [],
+      "kind": "requested_claim",
+      "reason": "rejected record stored in bounded knowledge pack",
+      "relation": {
+        "object": "machines",
+        "subject": "cats"
+      },
+      "source": "knowledge_pack",
+      "status": "rejected",
+      "support_path": [],
+      "turn_id": 2
+    }
+  ],
+  "release": "v7.6.0",
+  "repair_targets": [],
+  "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+  "typed_verifier_remains_proof_authority": true
+}
