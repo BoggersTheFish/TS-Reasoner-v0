@@ -1,0 +1,14 @@
+{
+  "accepted_common_ground_not_mutated_by_candidates": true,
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 3,
+  "generated_text_is_not_proof": true,
+  "multi_event_sessions_route_through_kernel": true,
+  "receipt_type": "runtime_replay_harness",
+  "release": "v9.2.0",
+  "replay_preserves_event_order": true,
+  "runtime_replay_accuracy": 1.0,
+  "typed_verifier_support_remains_proof_boundary": true
+}

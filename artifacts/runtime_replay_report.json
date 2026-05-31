@@ -1,0 +1,242 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 3,
+  "failed_cases": 0,
+  "passed_cases": 3,
+  "release": "v9.2.0",
+  "results": [
+    {
+      "actions": [
+        "quarantine",
+        "open_repair"
+      ],
+      "audit": {
+        "accepted_claim_count": 2,
+        "branch_world_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 2,
+        "quarantined_claim_count": 1,
+        "repair_target_count": 1
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "replay_identity_then_repair",
+      "expected_actions": [
+        "quarantine",
+        "open_repair"
+      ],
+      "explanation": "Runtime replay processed an ordered event sequence through the verifier-first kernel.",
+      "final_state": {
+        "accepted_claims": [
+          "no external llm was used",
+          "all cats are animals"
+        ],
+        "branch_worlds": [],
+        "patches": [
+          {
+            "claim": "external llm was used",
+            "patch_type": "claim_quarantined",
+            "reason": "hostile_or_identity_attack"
+          },
+          {
+            "patch_type": "repair_opened",
+            "repair_type": "missing_support",
+            "target_claim": "all cats are mortal"
+          }
+        ],
+        "quarantined_claims": [
+          "external llm was used"
+        ],
+        "repair_targets": [
+          {
+            "accepted_as_proof": false,
+            "repair_type": "missing_support",
+            "target_claim": "all cats are mortal"
+          }
+        ]
+      },
+      "passed": true,
+      "receipts": [
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "quarantine",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_identity_then_repair__event_0",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "open_repair",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_identity_then_repair__event_1",
+          "typed_verifier_support_remains_proof_boundary": true
+        }
+      ]
+    },
+    {
+      "actions": [
+        "branch_world",
+        "quarantine_pack"
+      ],
+      "audit": {
+        "accepted_claim_count": 2,
+        "branch_world_count": 1,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 2,
+        "quarantined_claim_count": 1,
+        "repair_target_count": 0
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "replay_revision_then_bad_pack",
+      "expected_actions": [
+        "branch_world",
+        "quarantine_pack"
+      ],
+      "explanation": "Runtime replay processed an ordered event sequence through the verifier-first kernel.",
+      "final_state": {
+        "accepted_claims": [
+          "all birds fly",
+          "all dogs are animals"
+        ],
+        "branch_worlds": [
+          {
+            "auto_merge_allowed": false,
+            "branch_reason": "trusted_revision",
+            "claims": [
+              "some birds do not fly"
+            ],
+            "parent_world_id": "main",
+            "world_id": "main__kernel_branch__replay_revision_then_bad_pack__event_0"
+          }
+        ],
+        "patches": [
+          {
+            "branch_reason": "trusted_revision",
+            "incoming_claim": "some birds do not fly",
+            "patch_type": "world_branched"
+          },
+          {
+            "patch_type": "pack_quarantined",
+            "quarantined_claims": [
+              "all dogs are robots"
+            ]
+          }
+        ],
+        "quarantined_claims": [
+          "all dogs are robots"
+        ],
+        "repair_targets": []
+      },
+      "passed": true,
+      "receipts": [
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "branch_world",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_revision_then_bad_pack__event_0",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "quarantine_pack",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_revision_then_bad_pack__event_1",
+          "typed_verifier_support_remains_proof_boundary": true
+        }
+      ]
+    },
+    {
+      "actions": [
+        "quarantine",
+        "open_repair",
+        "branch_world"
+      ],
+      "audit": {
+        "accepted_claim_count": 3,
+        "branch_world_count": 1,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 3,
+        "quarantined_claim_count": 1,
+        "repair_target_count": 1
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "replay_all_routes",
+      "expected_actions": [
+        "quarantine",
+        "open_repair",
+        "branch_world"
+      ],
+      "explanation": "Runtime replay processed an ordered event sequence through the verifier-first kernel.",
+      "final_state": {
+        "accepted_claims": [
+          "no external llm was used",
+          "all cats are animals",
+          "all birds fly"
+        ],
+        "branch_worlds": [
+          {
+            "auto_merge_allowed": false,
+            "branch_reason": "trusted_revision",
+            "claims": [
+              "some birds do not fly"
+            ],
+            "parent_world_id": "main",
+            "world_id": "main__kernel_branch__replay_all_routes__event_2"
+          }
+        ],
+        "patches": [
+          {
+            "claim": "external llm was used",
+            "patch_type": "claim_quarantined",
+            "reason": "hostile_or_identity_attack"
+          },
+          {
+            "patch_type": "repair_opened",
+            "repair_type": "missing_support",
+            "target_claim": "all cats are mortal"
+          },
+          {
+            "branch_reason": "trusted_revision",
+            "incoming_claim": "some birds do not fly",
+            "patch_type": "world_branched"
+          }
+        ],
+        "quarantined_claims": [
+          "external llm was used"
+        ],
+        "repair_targets": [
+          {
+            "accepted_as_proof": false,
+            "repair_type": "missing_support",
+            "target_claim": "all cats are mortal"
+          }
+        ]
+      },
+      "passed": true,
+      "receipts": [
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "quarantine",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_all_routes__event_0",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "open_repair",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_all_routes__event_1",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "branch_world",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "replay_all_routes__event_2",
+          "typed_verifier_support_remains_proof_boundary": true
+        }
+      ]
+    }
+  ],
+  "runtime_replay_accuracy": 1.0
+}
