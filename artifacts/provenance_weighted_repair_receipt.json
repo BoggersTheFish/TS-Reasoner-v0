@@ -1,0 +1,15 @@
+{
+  "accepted_claims_preserved": true,
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "correlated_sources_are_downweighted": true,
+  "generated_text_is_not_proof": true,
+  "incoming_claims_not_auto_accepted": true,
+  "model_confidence_is_not_proof": true,
+  "provenance_decision_accuracy": 1.0,
+  "receipt_type": "provenance_weighted_repair_decisions",
+  "release": "v8.3.0",
+  "typed_verifier_support_remains_proof_boundary": true
+}

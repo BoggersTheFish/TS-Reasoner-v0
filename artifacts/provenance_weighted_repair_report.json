@@ -1,0 +1,102 @@
+{
+  "accepted_claims_preserved": true,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "failed_cases": 0,
+  "incoming_claims_not_auto_accepted": true,
+  "passed_cases": 4,
+  "provenance_decision_accuracy": 1.0,
+  "release": "v8.3.0",
+  "results": [
+    {
+      "accepted_claim_preserved": true,
+      "action": "reject_and_quarantine",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "canonical_beats_correlated_hostile",
+      "claim_scores": {
+        "external llm was used": 0.2,
+        "no external llm was used": 1.2
+      },
+      "cluster_counts": {
+        "canonical": 1,
+        "hostile_cluster": 2
+      },
+      "dependency_penalty_applied": true,
+      "expected_action": "reject_and_quarantine",
+      "expected_dependency_penalty_applied": true,
+      "expected_winning_claim": "no external llm was used",
+      "explanation": "Canonical or higher-weight accepted identity claim wins; contradictory incoming claim is quarantined.",
+      "incoming_claim_accepted": false,
+      "passed": true,
+      "winning_claim": "no external llm was used"
+    },
+    {
+      "accepted_claim_preserved": true,
+      "action": "branch_worlds",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "trusted_independent_revision_branches",
+      "claim_scores": {
+        "all birds fly": 0.6,
+        "some birds do not fly": 0.9
+      },
+      "cluster_counts": {
+        "field_observation": 1,
+        "legacy": 1
+      },
+      "dependency_penalty_applied": false,
+      "expected_action": "branch_worlds",
+      "expected_dependency_penalty_applied": false,
+      "expected_winning_claim": "some birds do not fly",
+      "explanation": "Trusted independent revision wins provenance pressure but is branched rather than directly accepted.",
+      "incoming_claim_accepted": false,
+      "passed": true,
+      "winning_claim": "some birds do not fly"
+    },
+    {
+      "accepted_claim_preserved": true,
+      "action": "reject_and_open_repair",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "majority_correlated_does_not_win",
+      "claim_scores": {
+        "all cats are animals": 1.15,
+        "no cats are animals": 0.44999999999999996
+      },
+      "cluster_counts": {
+        "copied_blog": 3,
+        "verifier": 1
+      },
+      "dependency_penalty_applied": true,
+      "expected_action": "reject_and_open_repair",
+      "expected_dependency_penalty_applied": true,
+      "expected_winning_claim": "all cats are animals",
+      "explanation": "Accepted claim has stronger independent provenance; incoming contradiction becomes a repair target.",
+      "incoming_claim_accepted": false,
+      "passed": true,
+      "winning_claim": "all cats are animals"
+    },
+    {
+      "accepted_claim_preserved": true,
+      "action": "branch_worlds",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "independent_trusted_sources_trigger_branch",
+      "claim_scores": {
+        "all swans are white": 0.55,
+        "some swans are not white": 1.65
+      },
+      "cluster_counts": {
+        "legacy": 1,
+        "observation_a": 1,
+        "observation_b": 1
+      },
+      "dependency_penalty_applied": false,
+      "expected_action": "branch_worlds",
+      "expected_dependency_penalty_applied": false,
+      "expected_winning_claim": "some swans are not white",
+      "explanation": "Trusted independent revision wins provenance pressure but is branched rather than directly accepted.",
+      "incoming_claim_accepted": false,
+      "passed": true,
+      "winning_claim": "some swans are not white"
+    }
+  ]
+}
