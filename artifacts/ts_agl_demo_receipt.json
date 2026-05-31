@@ -43,7 +43,7 @@
     }
   ],
   "candidate_graph_contamination_count": 0,
-  "created_at": 1780270274.252256,
+  "created_at": 1780270578.0632367,
   "external_llm_used": false,
   "moves": [
     {
@@ -70,29 +70,33 @@
     }
   ],
   "raw_text": "Check where we are in the repo and tell me the next safe release action.",
-  "rendered_reply": "Repo is not clean. Current branch: experiment/v7-3-domain-example-router. Dirty entries: 6. HEAD is not currently tagged. Latest reachable tag: v12.0.0.",
+  "rendered_reply": "Repo is not clean. Current branch: experiment/v12-1-agl-example-router-release-surface. Dirty entries: 10. HEAD is not currently tagged. Latest reachable tag: v12.0.0.",
   "results": [
     {
       "data": {
-        "branch": "experiment/v7-3-domain-example-router",
+        "branch": "experiment/v12-1-agl-example-router-release-surface",
         "clean": false,
         "cwd": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0",
         "git_status_returncode": 0,
         "git_status_stderr": "",
         "status_short": [
-          "M ts_agl/router/__init__.py",
-          "?? artifacts/ts_agl_example_router_report.json",
-          "?? docs/domain_example_router.md",
-          "?? scripts/evaluate_ts_agl_example_router.py",
-          "?? tests/test_ts_agl_example_router.py",
-          "?? ts_agl/router/example_router.py"
+          "M README.md",
+          " M RELEASE_NOTES.md",
+          " M artifacts/active_learning_loop_v29_receipt.json",
+          " M artifacts/benchmark_harness_receipt.json",
+          " M artifacts/candidate_model_v2_receipt.json",
+          " M artifacts/natural_language_claim_ingestion_receipt.json",
+          " M artifacts/release_authority_audit_report.json",
+          " M artifacts/v3/verifier_guided_candidate_model_receipt.json",
+          " M artifacts/verifier_trace_training_data_receipt.json",
+          " M pyproject.toml"
         ],
         "upstream": null
       },
       "error": null,
       "mutated_state": false,
       "operation": "git_status",
-      "result_id": "result_81139da51eb5",
+      "result_id": "result_1f11c7501926",
       "status": "success",
       "system": "git_repo"
     },
