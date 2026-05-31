@@ -1,0 +1,6 @@
+{"case_id":"one_hop_taxonomy_bridge","known_claims":["all cats are animals"],"target_claim":"all cats are mortal","expected_missing_bridges":["all animals are mortal"],"expected_bridge_count":1}
+{"case_id":"two_hop_taxonomy_bridge","known_claims":["all cats are mammals"],"target_claim":"all cats are mortal","expected_missing_bridges":["all mammals are animals","all animals are mortal"],"expected_bridge_count":2}
+{"case_id":"already_supported_direct","known_claims":["all cats are mortal"],"target_claim":"all cats are mortal","expected_missing_bridges":[],"expected_bridge_count":0}
+{"case_id":"already_supported_transitive","known_claims":["all cats are mammals","all mammals are mortal"],"target_claim":"all cats are mortal","expected_missing_bridges":[],"expected_bridge_count":0}
+{"case_id":"reverse_not_allowed_bridge","known_claims":["all mammals are animals"],"target_claim":"all animals are mammals","expected_missing_bridges":["all animals are mammals"],"expected_bridge_count":1}
+{"case_id":"missing_identity_bridge","known_claims":["a is b"],"target_claim":"a is c","expected_missing_bridges":["b is c"],"expected_bridge_count":1}
