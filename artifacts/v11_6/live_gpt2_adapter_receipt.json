@@ -1,0 +1,16 @@
+{
+  "adapter_contract_passed": true,
+  "all_gates_passed": true,
+  "claim": "TS-Reasoner provides an optional live GPT-2-small adapter for verifier-first boundary comparison.",
+  "live_gpt2_answer_accuracy": null,
+  "live_gpt2_available": false,
+  "live_gpt2_generation_completed_rate": 0.0,
+  "live_gpt2_requested": false,
+  "model_name": "gpt2",
+  "receipt_type": "v11_6_live_gpt2_adapter_receipt",
+  "release": "v11.6.0",
+  "task_count": 48,
+  "ts_reasoner_accepted_without_typed_support_count": 0,
+  "ts_reasoner_candidate_graph_contamination_count": 0,
+  "ts_reasoner_wrong_accept_count": 0
+}
