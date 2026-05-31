@@ -1,3 +1,24 @@
+## v11.8.0: TS-Proposer-Mini Baseline
+
+v11.8.0 adds TS-Proposer-Mini, a tiny stdlib hashed-perceptron proposer trained on v11.7 verifier trace data. It predicts answer/status/channel labels, then routes proposed yes answers through the typed verifier gate so wrong accepts remain blocked.
+
+Artifacts:
+
+- `training/v11_8/ts_proposer_mini.py`
+- `data/v11_8/ts_proposer_mini_config.json`
+- `scripts/v11_8/evaluate_ts_proposer_mini.py`
+- `tests/test_v11_8_ts_proposer_mini.py`
+- `docs/v11_8/TS_PROPOSER_MINI.md`
+- `artifacts/v11_8/ts_proposer_mini_model.json`
+- `artifacts/v11_8/ts_proposer_mini_report.json`
+- `artifacts/v11_8/ts_proposer_mini_receipt.json`
+
+Boundary:
+
+- This is a tiny trained proposer baseline, not a neural language model.
+- The verifier remains proof authority.
+- Generated text, proposed labels, and model confidence remain non-proof.
+
 ## v11.7.0: Verifier Trace Training Dataset
 
 v11.7.0 generates verifier-labelled JSONL train/valid/test data for future proposer models. Labels are replayed from the typed verifier and include answer, status, claim, support channel/reason, support premises, and trace hashes for accepted claims.
