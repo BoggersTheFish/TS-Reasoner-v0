@@ -1,0 +1,15 @@
+{
+  "all_gates_passed": true,
+  "auto_merge_count": 0,
+  "base_worlds_preserved": true,
+  "branching_is_not_acceptance": true,
+  "branching_world_accuracy": 1.0,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 5,
+  "generated_text_is_not_proof": true,
+  "model_confidence_is_not_proof": true,
+  "receipt_type": "branching_worlds_runtime",
+  "release": "v8.4.0",
+  "typed_verifier_support_remains_proof_boundary": true
+}

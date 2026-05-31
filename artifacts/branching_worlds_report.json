@@ -1,0 +1,178 @@
+{
+  "all_gates_passed": true,
+  "auto_merge_count": 0,
+  "base_worlds_preserved": true,
+  "branching_world_accuracy": 1.0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 5,
+  "failed_cases": 0,
+  "passed_cases": 5,
+  "release": "v8.4.0",
+  "results": [
+    {
+      "auto_merge": false,
+      "base_preserved": true,
+      "base_world_id": "main",
+      "branch_contains_incoming": true,
+      "branch_world_id": "main__branch__trusted_revision_branches_birds",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "trusted_revision_branches_birds",
+      "expected_auto_merge": false,
+      "expected_base_preserved": true,
+      "expected_branch_contains_incoming": true,
+      "expected_world_count": 2,
+      "explanation": "Incoming claim is isolated into a branch world. Base common ground remains preserved and no automatic merge occurs.",
+      "passed": true,
+      "world_count": 2,
+      "worlds": [
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": null,
+          "claims": [
+            "all birds fly"
+          ],
+          "parent_world_id": null,
+          "world_id": "main"
+        },
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": "trusted_revision_contradiction",
+          "claims": [
+            "all birds fly",
+            "some birds do not fly"
+          ],
+          "parent_world_id": "main",
+          "world_id": "main__branch__trusted_revision_branches_birds"
+        }
+      ]
+    },
+    {
+      "auto_merge": false,
+      "base_preserved": true,
+      "base_world_id": "main",
+      "branch_contains_incoming": false,
+      "branch_world_id": null,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "identity_violation_quarantines_not_branch",
+      "expected_auto_merge": false,
+      "expected_base_preserved": true,
+      "expected_branch_contains_incoming": false,
+      "expected_world_count": 1,
+      "explanation": "Identity violation is quarantined instead of branched into accepted world state.",
+      "passed": true,
+      "world_count": 1,
+      "worlds": [
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": null,
+          "claims": [
+            "no external llm was used"
+          ],
+          "parent_world_id": null,
+          "world_id": "main"
+        }
+      ]
+    },
+    {
+      "auto_merge": false,
+      "base_preserved": true,
+      "base_world_id": "main",
+      "branch_contains_incoming": true,
+      "branch_world_id": "main__branch__missing_support_opens_repair_world",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "missing_support_opens_repair_world",
+      "expected_auto_merge": false,
+      "expected_base_preserved": true,
+      "expected_branch_contains_incoming": true,
+      "expected_world_count": 2,
+      "explanation": "Incoming claim is isolated into a branch world. Base common ground remains preserved and no automatic merge occurs.",
+      "passed": true,
+      "world_count": 2,
+      "worlds": [
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": null,
+          "claims": [
+            "all cats are animals"
+          ],
+          "parent_world_id": null,
+          "world_id": "main"
+        },
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": "missing_support_repair",
+          "claims": [
+            "all cats are animals",
+            "all cats are mortal"
+          ],
+          "parent_world_id": "main",
+          "world_id": "main__branch__missing_support_opens_repair_world"
+        }
+      ]
+    },
+    {
+      "auto_merge": false,
+      "base_preserved": true,
+      "base_world_id": "main",
+      "branch_contains_incoming": true,
+      "branch_world_id": null,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "same_claim_no_branch",
+      "expected_auto_merge": false,
+      "expected_base_preserved": true,
+      "expected_branch_contains_incoming": true,
+      "expected_world_count": 1,
+      "explanation": "Incoming claim already exists in base world, so no branch is created.",
+      "passed": true,
+      "world_count": 1,
+      "worlds": [
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": null,
+          "claims": [
+            "all fish are animals"
+          ],
+          "parent_world_id": null,
+          "world_id": "main"
+        }
+      ]
+    },
+    {
+      "auto_merge": false,
+      "base_preserved": true,
+      "base_world_id": "main",
+      "branch_contains_incoming": true,
+      "branch_world_id": "main__branch__revision_world_keeps_parent_link",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "revision_world_keeps_parent_link",
+      "expected_auto_merge": false,
+      "expected_base_preserved": true,
+      "expected_branch_contains_incoming": true,
+      "expected_world_count": 2,
+      "explanation": "Incoming claim is isolated into a branch world. Base common ground remains preserved and no automatic merge occurs.",
+      "passed": true,
+      "world_count": 2,
+      "worlds": [
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": null,
+          "claims": [
+            "all swans are white"
+          ],
+          "parent_world_id": null,
+          "world_id": "main"
+        },
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": "trusted_revision_contradiction",
+          "claims": [
+            "all swans are white",
+            "some swans are not white"
+          ],
+          "parent_world_id": "main",
+          "world_id": "main__branch__revision_world_keeps_parent_link"
+        }
+      ]
+    }
+  ]
+}
