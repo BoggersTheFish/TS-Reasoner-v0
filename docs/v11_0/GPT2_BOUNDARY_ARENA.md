@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.6.0, Live GPT-2-small Adapter
+Current release: v11.7.0, Verifier Trace Training Dataset
 
-This document is the required internal release-authority surface for v11.6.0.
-The current release title is Live GPT-2-small Adapter.
+This document is the required internal release-authority surface for v11.7.0.
+The current release title is Verifier Trace Training Dataset.
 
 Boundary:
 - Generated text is not proof.

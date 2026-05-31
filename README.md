@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v11.6.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.6.0)
+[![Release](https://img.shields.io/badge/release-v11.7.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.7.0)
 
 TS-Reasoner is a verifier-first reasoning runtime.
 
@@ -33,7 +33,7 @@ candidate event
 
 ## Current Release
 
-Current release: v11.6.0, Live GPT-2-small Adapter
+Current release: v11.7.0, Verifier Trace Training Dataset
 
 v11.0.0 provides a reproducible verifier-first arena comparing TS-Reasoner
 against GPT-2-small on controlled reasoning tasks. GPT-2-small is treated as a
@@ -59,6 +59,8 @@ v11.4.0 adds deterministic procedural reasoning curriculum generation from graph
 v11.5.0 adds deterministic adversarial fuzzing over procedural verifier-first reasoning tasks, attacking brittleness with confidence bait, malformed claims, contradiction injection, noise wrappers, duplicates, and premise-order mutations while preserving verifier-first proof boundaries.
 
 v11.6.0 adds an optional live GPT-2-small adapter for controlled verifier-first boundary comparison while keeping the default repo lightweight and CI-safe.
+
+v11.7.0 creates verifier-labelled JSONL training data for future proposer models. Labels replay through typed verifier traces, not model confidence or generated text.
 
 ## What This Is
 
@@ -157,6 +159,7 @@ python3 -m unittest discover -q
 | v11.4.0 | Procedural reasoning curriculum | Deterministic synthetic curricula reduce dependence on hand-built task sets |
 | v11.5.0 | Adversarial claim fuzzer | Deterministic hostile mutations stress verifier-first safety gates |
 | v11.6.0 | Live GPT-2-small adapter | Optional live GPT-2 baseline for controlled verifier-first comparison |
+| v11.7.0 | Verifier trace training dataset | Train/valid/test JSONL labels replay through typed verifier traces |
 | v10.6.0 | Typed support objects | Fake support strings stop counting as proof |
 | v10.7.0 | Support path verifier | Bounded premise graphs create typed verifier traces |
 | v10.8.0 | GPT-2 boundary task format | The battlefield is frozen before comparison |
