@@ -1,0 +1,173 @@
+{
+  "all_gates_passed": true,
+  "audit_cockpit_accuracy": 1.0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "failed_cases": 0,
+  "passed_cases": 6,
+  "release": "v8.7.0",
+  "results": [
+    {
+      "candidate_graph_contamination_count": 0,
+      "case_id": "status_summary",
+      "command": "status",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_keys": [
+        "accepted_claim_count",
+        "repair_target_count",
+        "branch_world_count",
+        "quarantined_claim_count",
+        "patch_count"
+      ],
+      "explanation": "Audit cockpit reports state without modifying accepted common ground.",
+      "output": {
+        "accepted_claim_count": 1,
+        "branch_world_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 0,
+        "quarantined_claim_count": 0,
+        "repair_target_count": 0
+      },
+      "passed": true
+    },
+    {
+      "candidate_graph_contamination_count": 0,
+      "case_id": "repair_summary",
+      "command": "repairs",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_keys": [
+        "repair_targets",
+        "repair_target_count"
+      ],
+      "explanation": "Audit cockpit reports state without modifying accepted common ground.",
+      "output": {
+        "candidate_graph_contamination_count": 0,
+        "repair_target_count": 1,
+        "repair_targets": [
+          {
+            "repair_type": "missing_bridge",
+            "target_claim": "all cats are mortal"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "candidate_graph_contamination_count": 0,
+      "case_id": "world_summary",
+      "command": "worlds",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_keys": [
+        "branch_worlds",
+        "branch_world_count"
+      ],
+      "explanation": "Audit cockpit reports state without modifying accepted common ground.",
+      "output": {
+        "branch_world_count": 1,
+        "branch_worlds": [
+          {
+            "claims": [
+              "some birds do not fly"
+            ],
+            "parent_world_id": "main",
+            "world_id": "main__branch__birds"
+          }
+        ],
+        "candidate_graph_contamination_count": 0
+      },
+      "passed": true
+    },
+    {
+      "candidate_graph_contamination_count": 0,
+      "case_id": "quarantine_summary",
+      "command": "quarantine",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_keys": [
+        "quarantined_claims",
+        "quarantined_claim_count"
+      ],
+      "explanation": "Audit cockpit reports state without modifying accepted common ground.",
+      "output": {
+        "candidate_graph_contamination_count": 0,
+        "quarantined_claim_count": 1,
+        "quarantined_claims": [
+          "external llm was used"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "candidate_graph_contamination_count": 0,
+      "case_id": "patch_summary",
+      "command": "patches",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_keys": [
+        "patches",
+        "patch_count"
+      ],
+      "explanation": "Audit cockpit reports state without modifying accepted common ground.",
+      "output": {
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 1,
+        "patches": [
+          {
+            "claim": "all cats are animals",
+            "patch_type": "claim_added"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "candidate_graph_contamination_count": 0,
+      "case_id": "full_audit_summary",
+      "command": "audit",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_keys": [
+        "accepted_claim_count",
+        "repair_target_count",
+        "branch_world_count",
+        "quarantined_claim_count",
+        "patch_count",
+        "candidate_graph_contamination_count"
+      ],
+      "explanation": "Audit cockpit reports state without modifying accepted common ground.",
+      "output": {
+        "accepted_claim_count": 1,
+        "accepted_claims": [
+          "all cats are animals"
+        ],
+        "branch_world_count": 1,
+        "branch_worlds": [
+          {
+            "claims": [
+              "all cats are mortal"
+            ],
+            "parent_world_id": "main",
+            "world_id": "main__branch__cats"
+          }
+        ],
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 1,
+        "patches": [
+          {
+            "patch_type": "repair_opened",
+            "target_claim": "all cats are mortal"
+          }
+        ],
+        "quarantined_claim_count": 1,
+        "quarantined_claims": [
+          "all cats are robots"
+        ],
+        "repair_target_count": 1,
+        "repair_targets": [
+          {
+            "repair_type": "missing_bridge",
+            "target_claim": "all cats are mortal"
+          }
+        ]
+      },
+      "passed": true
+    }
+  ]
+}
