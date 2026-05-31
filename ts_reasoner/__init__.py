@@ -7,9 +7,29 @@ from .coupling_learner import train_residual_coupling_matrix
 from .benchmark import BenchmarkRunner, BenchmarkTask, load_benchmark
 from .tensionproof_smoke import evaluate_tensionproof_smoke
 from .types import ReasonerOutput, TensionAgentSignal
-from .candidate_bridge import run_tensionlm_candidate_bridge
 from .candidates import CandidateClaim, CandidateVerification
-from .tensionlm_adapter import load_tensionlm_export_jsonl, run_tensionlm_export_jsonl
+
+
+def run_tensionlm_candidate_bridge(*args, **kwargs):
+    """Load the optional TS-Core-backed candidate bridge only when invoked."""
+    from .candidate_bridge import run_tensionlm_candidate_bridge as _run_tensionlm_candidate_bridge
+
+    return _run_tensionlm_candidate_bridge(*args, **kwargs)
+
+
+def load_tensionlm_export_jsonl(*args, **kwargs):
+    """Load the optional TensionLM adapter only when invoked."""
+    from .tensionlm_adapter import load_tensionlm_export_jsonl as _load_tensionlm_export_jsonl
+
+    return _load_tensionlm_export_jsonl(*args, **kwargs)
+
+
+def run_tensionlm_export_jsonl(*args, **kwargs):
+    """Load the optional TensionLM adapter only when invoked."""
+    from .tensionlm_adapter import run_tensionlm_export_jsonl as _run_tensionlm_export_jsonl
+
+    return _run_tensionlm_export_jsonl(*args, **kwargs)
+
 
 __all__ = [
     "BenchmarkRunner",
