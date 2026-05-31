@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.4.0, Procedural Reasoning Curriculum
+Current release: v11.5.0, Adversarial Claim Fuzzer
 
-This document is the required internal release-authority surface for v11.4.0.
-The current release title is Procedural Reasoning Curriculum.
+This document is the required internal release-authority surface for v11.5.0.
+The current release title is Adversarial Claim Fuzzer.
 
 Boundary:
 - Generated text is not proof.
