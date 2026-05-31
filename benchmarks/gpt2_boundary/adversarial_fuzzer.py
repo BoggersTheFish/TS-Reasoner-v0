@@ -71,6 +71,14 @@ def _contradict_claim(claim: str) -> str | None:
     return None
 
 
+def _contradict_existing_premise(premises: list[str]) -> str | None:
+    for premise in premises:
+        contradiction = _contradict_claim(premise)
+        if contradiction is not None:
+            return contradiction
+    return None
+
+
 def _base_expected(task: dict[str, Any]) -> tuple[str, str]:
     required = task["required_channel"]
     if required in {"direct_support", "transitive_all", "negative_exclusion"}:
@@ -138,9 +146,15 @@ def mutate_confidence_bait_prefix(task: dict[str, Any], rng: random.Random, case
 
 def mutate_contradiction_injection(task: dict[str, Any], rng: random.Random, case_id: str) -> dict[str, Any]:
     row = _clone(task, case_id=case_id, mutation_type="contradiction_injection")
-    contradiction = _contradict_claim(task["expected_claim"])
+
+    # Inject a contradiction against an actual existing premise so the direct
+    # contradiction detector has a real all/no pair in the premise set.
+    contradiction = _contradict_existing_premise(row["premises"])
+    if contradiction is None:
+        contradiction = _contradict_claim(task["expected_claim"])
     if contradiction is None:
         contradiction = _irrelevant_premise(rng)
+
     row["premises"].insert(rng.randrange(len(row["premises"]) + 1), contradiction)
     row["expected_status"] = "rejected"
     row["expected_reason_or_channel"] = "contradiction_rejection"
