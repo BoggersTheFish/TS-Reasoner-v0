@@ -1,0 +1,1759 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 120,
+  "claim": "TS-Reasoner packages paragraph decomposition, trained proposer prediction, verifier gating, and traceable final answers into one end-to-end stack.",
+  "config": {
+    "case_count": 120,
+    "dim": 1024,
+    "epochs": 3,
+    "hidden": 24,
+    "learning_rate": 0.035,
+    "seed": 120,
+    "train_limit": 1400
+  },
+  "decomposition_success_rate": 1.0,
+  "final_answer_accuracy": 1.0,
+  "final_channel_accuracy": 1.0,
+  "final_status_accuracy": 1.0,
+  "final_wrong_accept_count": 0,
+  "proposer_answer_accuracy": 0.9416666666666667,
+  "proposer_channel_accuracy": 0.4583333333333333,
+  "proposer_status_accuracy": 0.9666666666666667,
+  "raw_wrong_yes_count": 0,
+  "release": "v12.0.0",
+  "results_sample": [
+    {
+      "case_id": "v12_stack_0000",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "every class0263 is class0265. class0375 is a type of class0301. Are all class0263 class0265?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00000_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0001",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "all class0343 are class0347. class0347 belongs to class0351. every class0114 is class0128. Are all class0343 class0351?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00001_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0002",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0370 belongs to class0373. class0373 is a type of class0376. every class0376 is class0379. all class0361 are class0344. Are all class0370 class0379?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00002_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0003",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "every class0162 is class0165. class0165 belongs to class0168. class0168 belongs to class0171. class0171 belongs to class0174. every class0174 is class0177. every class0257 is class0260. Are all class0162 class0177?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00003_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0004",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0378 counts as class0379. no class0379 are class0380. every class0358 is class0015. Are class0378 not class0380?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00004_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0005",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0048 counts as class0049. Are all class0049 class0048?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "reverse_inference_block"
+      },
+      "source_case_id": "proc_00005_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0006",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "every class0196 is class0196. Are all class0196 class0196?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00006_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0007",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "class0352 counts as class0356. Are all class0352 class0360?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00007_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0008",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "all class0278 are class0282. no class0278 are class0282. Are all class0278 class0282?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00008_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0009",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0166 belongs to class0170. class0353 belongs to class0218. Are all class0166 class0170?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00012_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0010",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0143 is a type of class0146. class0146 counts as class0149. class0257 belongs to class0411. Are all class0143 class0149?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00013_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0011",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "all class0259 are class0262. class0262 belongs to class0265. class0265 is a kind of class0268. every class0277 is class0121. Are all class0259 class0268?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00014_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0012",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0171 is a kind of class0174. class0174 belongs to class0177. every class0177 is class0180. class0180 is a kind of class0183. class0183 is a kind of class0186. all class0003 are class0329. Are all class0171 class0186?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00015_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0013",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0172 is a kind of class0174. no class0174 are class0176. every class0068 is class0212. Are class0172 not class0176?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00016_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0014",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0330 is a kind of class0331. Are all class0331 class0330?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00017_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0015",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "every class0073 is class0073. Are all class0073 class0073?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "identity_block"
+      },
+      "source_case_id": "proc_00018_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0016",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "all class0043 are class0047. Are all class0043 class0051?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00019_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0017",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "every class0055 is class0057. class0055 excludes class0057. Are all class0055 class0057?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00020_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0018",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "every class0011 is class0015. class0082 counts as class0165. Are all class0011 class0015?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00024_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0019",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0229 is a type of class0232. all class0232 are class0235. class0235 counts as class0202. Are all class0229 class0235?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00025_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0020",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0119 is a type of class0122. all class0122 are class0125. class0125 is a type of class0128. all class0257 are class0156. Are all class0119 class0128?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00026_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0021",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0041 is a type of class0045. class0045 belongs to class0049. class0049 counts as class0053. class0053 is a type of class0057. class0057 is a type of class0061. every class0262 is class0149. Are all class0041 class0061?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00027_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0022",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "all class0326 are class0328. no class0328 are class0330. class0026 is a type of class0087. Are class0326 not class0330?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00028_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0023",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "every class0126 is class0127. Are all class0127 class0126?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00029_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0024",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "all class0273 are class0273. Are all class0273 class0273?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "identity_block"
+      },
+      "source_case_id": "proc_00030_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0025",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "every class0387 is class0390. Are all class0387 class0393?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00031_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0026",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0062 is a type of class0065. class0062 cannot be class0065. Are all class0062 class0065?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00032_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0027",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0206 counts as class0209. class0170 is a kind of class0124. Are all class0206 class0209?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00036_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0028",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0109 counts as class0110. class0110 belongs to class0111. class0171 is a kind of class0330. Are all class0109 class0111?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00037_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0029",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0140 is a kind of class0142. class0142 is a type of class0144. class0144 belongs to class0146. every class0159 is class0048. Are all class0140 class0146?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00038_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0030",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0220 belongs to class0222. class0222 is a kind of class0224. class0224 is a kind of class0226. class0226 is a kind of class0228. class0228 is a kind of class0230. all class0412 are class0278. Are all class0220 class0230?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00039_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0031",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0396 is a kind of class0398. class0398 can not be class0400. all class0366 are class0071. Are class0396 not class0400?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00040_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0032",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0124 belongs to class0125. Are all class0125 class0124?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00041_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0033",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "every class0043 is class0043. Are all class0043 class0043?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00042_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0034",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "class0203 counts as class0205. Are all class0203 class0207?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00043_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0035",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0218 is a kind of class0222. no class0218 are class0222. Are all class0218 class0222?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "direct_support"
+      },
+      "source_case_id": "proc_00044_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0036",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "every class0331 is class0332. class0355 counts as class0346. Are all class0331 class0332?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00048_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0037",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0322 counts as class0324. class0324 is a kind of class0326. class0022 is a kind of class0047. Are all class0322 class0326?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00049_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0038",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0065 belongs to class0066. class0066 is a kind of class0067. class0067 is a type of class0068. class0388 counts as class0400. Are all class0065 class0068?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00050_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0039",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0050 is a type of class0054. every class0054 is class0058. all class0058 are class0062. every class0062 is class0066. class0066 counts as class0070. every class0273 is class0316. Are all class0050 class0070?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00051_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0040",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "every class0107 is class0111. no class0111 are class0115. all class0261 are class0369. Are class0107 not class0115?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00052_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0041",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "all class0025 are class0027. Are all class0027 class0025?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "unsupported_claim"
+      },
+      "source_case_id": "proc_00053_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0042",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "every class0399 is class0399. Are all class0399 class0399?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00054_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0043",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "class0197 counts as class0200. Are all class0197 class0203?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00055_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0044",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0301 is a type of class0304. class0301 can not be class0304. Are all class0301 class0304?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00056_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0045",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0108 counts as class0109. all class0268 are class0030. Are all class0108 class0109?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00060_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0046",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "every class0107 is class0108. class0108 counts as class0109. class0067 counts as class0221. Are all class0107 class0109?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00061_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0047",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0075 belongs to class0079. every class0079 is class0083. class0083 counts as class0087. class0190 is a type of class0316. Are all class0075 class0087?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00062_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0048",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0176 is a kind of class0178. every class0178 is class0180. class0180 is a kind of class0182. class0182 is a type of class0184. class0184 counts as class0186. class0268 belongs to class0362. Are all class0176 class0186?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00063_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0049",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0185 is a type of class0189. no class0189 are class0193. class0114 counts as class0020. Are class0185 not class0193?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00064_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0050",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0381 belongs to class0385. Are all class0385 class0381?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00065_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0051",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "all class0313 are class0313. Are all class0313 class0313?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00066_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0052",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "class0041 belongs to class0043. Are all class0041 class0045?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00067_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0053",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0132 counts as class0133. no class0132 are class0133. Are all class0132 class0133?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00068_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0054",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0234 belongs to class0238. class0196 belongs to class0043. Are all class0234 class0238?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00072_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0055",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0227 is a kind of class0229. class0229 belongs to class0231. every class0041 is class0055. Are all class0227 class0231?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00073_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0056",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0172 is a type of class0175. class0175 belongs to class0178. class0178 is a kind of class0181. class0010 is a kind of class0080. Are all class0172 class0181?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00074_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0057",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0157 is a kind of class0158. class0158 is a kind of class0159. all class0159 are class0160. class0160 counts as class0161. class0161 belongs to class0162. class0140 belongs to class0182. Are all class0157 class0162?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00075_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0058",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0263 is a kind of class0265. no class0265 are class0267. class0221 is a kind of class0175. Are class0263 not class0267?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00076_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0059",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0340 is a type of class0342. Are all class0342 class0340?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00077_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0060",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "every class0332 is class0332. Are all class0332 class0332?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "identity_block"
+      },
+      "source_case_id": "proc_00078_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0061",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "all class0249 are class0250. Are all class0249 class0251?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "unsupported_claim"
+      },
+      "source_case_id": "proc_00079_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0062",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "all class0312 are class0316. class0312 cannot be class0316. Are all class0312 class0316?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "direct_support"
+      },
+      "source_case_id": "proc_00080_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0063",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0113 counts as class0115. class0282 is a kind of class0353. Are all class0113 class0115?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00084_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0064",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0102 is a type of class0103. class0103 is a type of class0104. class0234 belongs to class0310. Are all class0102 class0104?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00085_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0065",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "every class0256 is class0257. class0257 is a kind of class0258. class0258 is a type of class0259. class0237 belongs to class0208. Are all class0256 class0259?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00086_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0066",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0188 counts as class0189. class0189 is a kind of class0190. class0190 is a kind of class0191. class0191 is a type of class0192. all class0192 are class0193. all class0364 are class0154. Are all class0188 class0193?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00087_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0067",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0052 is a kind of class0056. class0056 excludes class0060. class0019 belongs to class0280. Are class0052 not class0060?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00088_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0068",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0043 is a type of class0047. Are all class0047 class0043?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00089_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0069",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "all class0134 are class0134. Are all class0134 class0134?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00090_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0070",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "class0214 counts as class0216. Are all class0214 class0218?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00091_unsupported",
+      "source_family": "unsupported_target"
+    },
+    {
+      "case_id": "v12_stack_0071",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "every class0194 is class0198. no class0194 are class0198. Are all class0194 class0198?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00092_direct_contradiction",
+      "source_family": "direct_contradiction"
+    },
+    {
+      "case_id": "v12_stack_0072",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "direct_support",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "direct_support",
+        "status": "accepted"
+      },
+      "paragraph": "class0052 is a type of class0056. class0165 belongs to class0378. Are all class0052 class0056?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00096_direct_support",
+      "source_family": "direct_support"
+    },
+    {
+      "case_id": "v12_stack_0073",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "all class0278 are class0279. all class0279 are class0280. all class0074 are class0353. Are all class0278 class0280?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00097_transitive_2",
+      "source_family": "transitive_2"
+    },
+    {
+      "case_id": "v12_stack_0074",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "all class0345 are class0347. class0347 is a kind of class0349. class0349 is a type of class0351. class0043 counts as class0005. Are all class0345 class0351?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00098_transitive_3",
+      "source_family": "transitive_3"
+    },
+    {
+      "case_id": "v12_stack_0075",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "transitive_all",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "transitive_all",
+        "status": "accepted"
+      },
+      "paragraph": "class0043 is a type of class0045. class0045 is a kind of class0047. class0047 is a kind of class0049. all class0049 are class0051. class0051 is a type of class0053. class0349 is a type of class0006. Are all class0043 class0053?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00099_transitive_5",
+      "source_family": "transitive_5"
+    },
+    {
+      "case_id": "v12_stack_0076",
+      "decomposition_status": "parsed",
+      "expected_answer": "yes",
+      "expected_channel_or_reason": "negative_exclusion",
+      "expected_status": "accepted",
+      "final": {
+        "accepted_with_typed_support": true,
+        "answer": "yes",
+        "channel_or_reason": "negative_exclusion",
+        "status": "accepted"
+      },
+      "paragraph": "class0011 is a type of class0013. class0013 can not be class0015. class0305 belongs to class0234. Are class0011 not class0015?",
+      "proposer": {
+        "answer": "yes",
+        "status": "accepted",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00100_negative_exclusion",
+      "source_family": "negative_exclusion"
+    },
+    {
+      "case_id": "v12_stack_0077",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "reverse_inference_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "reverse_inference_block",
+        "status": "rejected"
+      },
+      "paragraph": "class0027 counts as class0031. Are all class0031 class0027?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00101_reverse_inference",
+      "source_family": "reverse_inference_trap"
+    },
+    {
+      "case_id": "v12_stack_0078",
+      "decomposition_status": "parsed",
+      "expected_answer": "no",
+      "expected_channel_or_reason": "identity_block",
+      "expected_status": "rejected",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "no",
+        "channel_or_reason": "identity_block",
+        "status": "rejected"
+      },
+      "paragraph": "all class0004 are class0004. Are all class0004 class0004?",
+      "proposer": {
+        "answer": "no",
+        "status": "rejected",
+        "support_channel": "identity_block"
+      },
+      "source_case_id": "proc_00102_identity",
+      "source_family": "identity_trap"
+    },
+    {
+      "case_id": "v12_stack_0079",
+      "decomposition_status": "parsed",
+      "expected_answer": "abstain",
+      "expected_channel_or_reason": "unsupported_claim",
+      "expected_status": "abstained",
+      "final": {
+        "accepted_with_typed_support": false,
+        "answer": "abstain",
+        "channel_or_reason": "unsupported_claim",
+        "status": "abstained"
+      },
+      "paragraph": "all class0039 are class0042. Are all class0039 class0045?",
+      "proposer": {
+        "answer": "abstain",
+        "status": "abstained",
+        "support_channel": "transitive_all"
+      },
+      "source_case_id": "proc_00103_unsupported",
+      "source_family": "unsupported_target"
+    }
+  ],
+  "stack_case_hash": "8aa3e6bfe5a0d6fb230686eda52d17e8726799177d60bc398031ec882973d863",
+  "stack_result_hash": "225ccfbb47fb8119953c4025f98adfd230f211d49899eece8c80c680ce6d6bea",
+  "train_row_count": 1400,
+  "training_summary": {
+    "answer": {
+      "epoch_losses": [
+        0.44271669299720007,
+        0.14618490297215986,
+        0.054266935325070466
+      ],
+      "labels": [
+        "abstain",
+        "no",
+        "yes"
+      ],
+      "loss_decreased": true,
+      "target_key": "answer"
+    },
+    "channel": {
+      "epoch_losses": [
+        0.7406377727338088,
+        0.16545078563539067,
+        0.04626815340727029
+      ],
+      "labels": [
+        "direct_support",
+        "identity_block",
+        "negative_exclusion",
+        "reverse_inference_block",
+        "transitive_all",
+        "unparseable_claim",
+        "unsupported_claim"
+      ],
+      "loss_decreased": true,
+      "target_key": "support_channel"
+    },
+    "status": {
+      "epoch_losses": [
+        0.44432613544248095,
+        0.1394299748895955,
+        0.050080289993289
+      ],
+      "labels": [
+        "abstained",
+        "accepted",
+        "rejected"
+      ],
+      "loss_decreased": true,
+      "target_key": "status"
+    }
+  }
+}

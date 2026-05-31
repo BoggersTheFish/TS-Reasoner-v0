@@ -1,0 +1,21 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 120,
+  "claim": "TS-Reasoner runs paragraph decomposition, trained proposer prediction, verifier gating, and traceable final answers as one end-to-end stack.",
+  "decomposition_success_rate": 1.0,
+  "final_answer_accuracy": 1.0,
+  "final_channel_accuracy": 1.0,
+  "final_status_accuracy": 1.0,
+  "final_wrong_accept_count": 0,
+  "proposer_answer_accuracy": 0.9416666666666667,
+  "proposer_channel_accuracy": 0.4583333333333333,
+  "proposer_status_accuracy": 0.9666666666666667,
+  "raw_wrong_yes_count": 0,
+  "receipt_type": "v12_0_verifier_gated_proposer_stack_receipt",
+  "release": "v12.0.0",
+  "stack_case_hash": "8aa3e6bfe5a0d6fb230686eda52d17e8726799177d60bc398031ec882973d863",
+  "stack_result_hash": "225ccfbb47fb8119953c4025f98adfd230f211d49899eece8c80c680ce6d6bea",
+  "train_row_count": 1400
+}
