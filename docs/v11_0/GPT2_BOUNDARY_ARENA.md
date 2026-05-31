@@ -32,3 +32,16 @@ Run:
 python3 scripts/v11_0/evaluate_gpt2_boundary_arena.py
 python3 -m unittest discover -q
 ```
+
+## Current Release Authority
+
+Current release: v11.1.0, Natural Claim Surface Normalization
+
+This document is the required internal release-authority surface for v11.1.0.
+The current release title is Natural Claim Surface Normalization.
+
+Boundary:
+- Generated text is not proof.
+- Model confidence is not proof.
+- Candidate generation is not proof.
+- Typed verifier support remains the proof boundary.
