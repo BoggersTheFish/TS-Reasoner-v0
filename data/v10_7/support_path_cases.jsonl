@@ -1,0 +1,40 @@
+{"case_id": "path_direct_001", "claim": "all A1 are B1", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A1 are B1"]}
+{"case_id": "path_transitive_001", "claim": "all A1 are C1", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A1 are B1", "all B1 are C1"]}
+{"case_id": "path_negative_001", "claim": "no A1 are C1", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A1 are B1", "no B1 are C1"]}
+{"case_id": "path_reverse_001", "claim": "all B1 are A1", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A1 are B1"]}
+{"case_id": "path_identity_001", "claim": "all A1 are A1", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A1 are A1"]}
+{"case_id": "path_direct_002", "claim": "all A2 are B2", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A2 are B2"]}
+{"case_id": "path_transitive_002", "claim": "all A2 are C2", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A2 are B2", "all B2 are C2"]}
+{"case_id": "path_negative_002", "claim": "no A2 are C2", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A2 are B2", "no B2 are C2"]}
+{"case_id": "path_reverse_002", "claim": "all B2 are A2", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A2 are B2"]}
+{"case_id": "path_identity_002", "claim": "all A2 are A2", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A2 are A2"]}
+{"case_id": "path_direct_003", "claim": "all A3 are B3", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A3 are B3"]}
+{"case_id": "path_transitive_003", "claim": "all A3 are C3", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A3 are B3", "all B3 are C3"]}
+{"case_id": "path_negative_003", "claim": "no A3 are C3", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A3 are B3", "no B3 are C3"]}
+{"case_id": "path_reverse_003", "claim": "all B3 are A3", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A3 are B3"]}
+{"case_id": "path_identity_003", "claim": "all A3 are A3", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A3 are A3"]}
+{"case_id": "path_direct_004", "claim": "all A4 are B4", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A4 are B4"]}
+{"case_id": "path_transitive_004", "claim": "all A4 are C4", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A4 are B4", "all B4 are C4"]}
+{"case_id": "path_negative_004", "claim": "no A4 are C4", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A4 are B4", "no B4 are C4"]}
+{"case_id": "path_reverse_004", "claim": "all B4 are A4", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A4 are B4"]}
+{"case_id": "path_identity_004", "claim": "all A4 are A4", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A4 are A4"]}
+{"case_id": "path_direct_005", "claim": "all A5 are B5", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A5 are B5"]}
+{"case_id": "path_transitive_005", "claim": "all A5 are C5", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A5 are B5", "all B5 are C5"]}
+{"case_id": "path_negative_005", "claim": "no A5 are C5", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A5 are B5", "no B5 are C5"]}
+{"case_id": "path_reverse_005", "claim": "all B5 are A5", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A5 are B5"]}
+{"case_id": "path_identity_005", "claim": "all A5 are A5", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A5 are A5"]}
+{"case_id": "path_direct_006", "claim": "all A6 are B6", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A6 are B6"]}
+{"case_id": "path_transitive_006", "claim": "all A6 are C6", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A6 are B6", "all B6 are C6"]}
+{"case_id": "path_negative_006", "claim": "no A6 are C6", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A6 are B6", "no B6 are C6"]}
+{"case_id": "path_reverse_006", "claim": "all B6 are A6", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A6 are B6"]}
+{"case_id": "path_identity_006", "claim": "all A6 are A6", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A6 are A6"]}
+{"case_id": "path_direct_007", "claim": "all A7 are B7", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A7 are B7"]}
+{"case_id": "path_transitive_007", "claim": "all A7 are C7", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A7 are B7", "all B7 are C7"]}
+{"case_id": "path_negative_007", "claim": "no A7 are C7", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A7 are B7", "no B7 are C7"]}
+{"case_id": "path_reverse_007", "claim": "all B7 are A7", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A7 are B7"]}
+{"case_id": "path_identity_007", "claim": "all A7 are A7", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A7 are A7"]}
+{"case_id": "path_direct_008", "claim": "all A8 are B8", "expected_channel": "direct_support", "expected_status": "accepted", "premises": ["all A8 are B8"]}
+{"case_id": "path_transitive_008", "claim": "all A8 are C8", "expected_channel": "transitive_all", "expected_status": "accepted", "premises": ["all A8 are B8", "all B8 are C8"]}
+{"case_id": "path_negative_008", "claim": "no A8 are C8", "expected_channel": "negative_exclusion", "expected_status": "accepted", "premises": ["all A8 are B8", "no B8 are C8"]}
+{"case_id": "path_reverse_008", "claim": "all B8 are A8", "expected_channel": "reverse_inference_block", "expected_status": "rejected", "premises": ["all A8 are B8"]}
+{"case_id": "path_identity_008", "claim": "all A8 are A8", "expected_channel": "identity_block", "expected_status": "rejected", "premises": ["all A8 are A8"]}

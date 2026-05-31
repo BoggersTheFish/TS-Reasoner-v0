@@ -6,7 +6,7 @@ TS-Reasoner is a verifier-first reasoning runtime. It accepts candidate events,
 routes them through bounded runtime policies and typed verifier boundaries,
 records audit receipts, and preserves the rule that candidate data is not proof.
 
-Current release: v10.0.0.
+Current release: v11.0.0.
 
 ## Intended Use
 

@@ -1,0 +1,7 @@
+{
+  "baseline_source": "frozen_offline_gpt2_small_boundary_fixture",
+  "model": "gpt2-small",
+  "network_required": false,
+  "prompt_format": "ANSWER/CLAIM/SUPPORT/STATUS",
+  "task_file": "data/v10_8/gpt2_boundary_tasks.jsonl"
+}

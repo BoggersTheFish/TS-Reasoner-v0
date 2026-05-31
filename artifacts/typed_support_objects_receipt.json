@@ -1,0 +1,17 @@
+{
+  "all_gates_passed": true,
+  "claim": "v10.6 replaces symbolic support strings with typed, hash-checked verifier support objects.",
+  "metrics": {
+    "accepted_without_typed_support_count": 0,
+    "all_gates_passed": true,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 20,
+    "empty_support_rejection_rate": 1.0,
+    "fake_support_rejection_rate": 1.0,
+    "mismatched_claim_rejection_rate": 1.0,
+    "release": "v10.6.0",
+    "valid_support_acceptance_rate": 1.0
+  },
+  "release": "v10.6.0",
+  "report_hash": "f51a0c1d6441d416959bfc9385dc8db1746044bd319b6248e10aa7a82a7e7cac"
+}

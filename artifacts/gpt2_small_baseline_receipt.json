@@ -1,0 +1,21 @@
+{
+  "all_gates_passed": true,
+  "baseline_frozen": true,
+  "claim": "v10.9 freezes a reproducible GPT-2-small baseline on the TS verifier-first boundary task suite.",
+  "config_hash": "6189d68c1171e476f508d114a3a4565a325f309247606adc285f2e5f20811fab",
+  "metrics": {
+    "answer_accuracy": 0.5,
+    "baseline_frozen": true,
+    "claim_accuracy": 0.5,
+    "contradiction_rejection_rate": 0.0,
+    "format_parse_rate": 1.0,
+    "model": "gpt2-small",
+    "support_path_accuracy": 0.0,
+    "task_count": 100,
+    "unsupported_abstention_rate": 0.0,
+    "wrong_accept_count": 100
+  },
+  "outputs_hash": "7435d2781b306408284915e18eb3362974af755c862638530642ac481b6ebcc5",
+  "release": "v10.9.0",
+  "report_hash": "62a88307be8337351d3396091979335266550b5f9bb9eb70ac73511458284c13"
+}

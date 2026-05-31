@@ -1,0 +1,173 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 20,
+  "empty_support_rejection_rate": 1.0,
+  "fake_support_rejection_rate": 1.0,
+  "mismatched_claim_rejection_rate": 1.0,
+  "release": "v10.6.0",
+  "results": [
+    {
+      "case_id": "typed_valid_001",
+      "case_type": "valid_support",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "reason": "typed_verifier_support"
+    },
+    {
+      "case_id": "typed_fake_001",
+      "case_type": "fake_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "trace_hash_failed"
+    },
+    {
+      "case_id": "typed_mismatch_001",
+      "case_type": "mismatched_claim",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "mismatched_claim"
+    },
+    {
+      "case_id": "typed_empty_001",
+      "case_type": "empty_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "support_not_object"
+    },
+    {
+      "case_id": "typed_valid_002",
+      "case_type": "valid_support",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "reason": "typed_verifier_support"
+    },
+    {
+      "case_id": "typed_fake_002",
+      "case_type": "fake_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "trace_hash_failed"
+    },
+    {
+      "case_id": "typed_mismatch_002",
+      "case_type": "mismatched_claim",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "mismatched_claim"
+    },
+    {
+      "case_id": "typed_empty_002",
+      "case_type": "empty_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "support_not_object"
+    },
+    {
+      "case_id": "typed_valid_003",
+      "case_type": "valid_support",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "reason": "typed_verifier_support"
+    },
+    {
+      "case_id": "typed_fake_003",
+      "case_type": "fake_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "trace_hash_failed"
+    },
+    {
+      "case_id": "typed_mismatch_003",
+      "case_type": "mismatched_claim",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "mismatched_claim"
+    },
+    {
+      "case_id": "typed_empty_003",
+      "case_type": "empty_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "support_not_object"
+    },
+    {
+      "case_id": "typed_valid_004",
+      "case_type": "valid_support",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "reason": "typed_verifier_support"
+    },
+    {
+      "case_id": "typed_fake_004",
+      "case_type": "fake_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "trace_hash_failed"
+    },
+    {
+      "case_id": "typed_mismatch_004",
+      "case_type": "mismatched_claim",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "mismatched_claim"
+    },
+    {
+      "case_id": "typed_empty_004",
+      "case_type": "empty_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "support_not_object"
+    },
+    {
+      "case_id": "typed_valid_005",
+      "case_type": "valid_support",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "reason": "typed_verifier_support"
+    },
+    {
+      "case_id": "typed_fake_005",
+      "case_type": "fake_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "trace_hash_failed"
+    },
+    {
+      "case_id": "typed_mismatch_005",
+      "case_type": "mismatched_claim",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "mismatched_claim"
+    },
+    {
+      "case_id": "typed_empty_005",
+      "case_type": "empty_support",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "reason": "support_not_object"
+    }
+  ],
+  "valid_support_acceptance_rate": 1.0
+}

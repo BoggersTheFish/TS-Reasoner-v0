@@ -48,8 +48,8 @@
     "python3 scripts/export_verifier_trace_training_data.py",
     "python3 -m unittest discover -q"
   ],
-  "commit": "eb5893e",
-  "date": "2026-05-28T19:17:21.018199+00:00",
+  "commit": "d6854e0",
+  "date": "2026-05-31T21:23:04.548871+00:00",
   "inputs": [
     "artifacts/candidate_model_v2_report.json"
   ],

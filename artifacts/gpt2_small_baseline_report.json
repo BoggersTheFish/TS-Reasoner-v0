@@ -1,0 +1,1614 @@
+{
+  "answer_accuracy": 0.5,
+  "baseline_frozen": true,
+  "claim_accuracy": 0.5,
+  "contradiction_rejection_rate": 0.0,
+  "format_parse_rate": 1.0,
+  "model": "gpt2-small",
+  "results": [
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_001",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all a are b",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_002",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all cats are mammals",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_003",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all sparks are signals",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_004",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all proofs are traces",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_005",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all nodes are clusters",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_006",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all claims are candidates",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_007",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all routers are devices",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_008",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all students are people",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_009",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all notes are documents",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_direct_010",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all waves are fields",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_001",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all a are c",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_002",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all cats are animals",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_003",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all sparks are events",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_004",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all proofs are evidence",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_005",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all nodes are graphs",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_006",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all claims are objects",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_007",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all routers are machines",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_008",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all students are humans",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_009",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all notes are artifacts",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_2hop_010",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all waves are patterns",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_001",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all a are d",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_002",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all cats are living things",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_003",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all sparks are records",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_004",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all proofs are receipts",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_005",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all nodes are systems",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_006",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all claims are states",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_007",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all routers are assets",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_008",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all students are organisms",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_009",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all notes are archives",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_transitive_3hop_010",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all waves are structures",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_001",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no a are c",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_002",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no cats are animals",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_003",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no sparks are events",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_004",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no proofs are evidence",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_005",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no nodes are graphs",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_006",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no claims are objects",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_007",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no routers are machines",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_008",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no students are humans",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_009",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no notes are artifacts",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "logic_negative_010",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "no waves are patterns",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_001",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_002",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_003",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_004",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_005",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_006",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_007",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_008",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_009",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_reverse_010",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_001",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_002",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_003",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_004",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_005",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_006",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_007",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_008",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_009",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_unsupported_010",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_001",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_002",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_003",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_004",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_005",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_006",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_007",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_008",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_009",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_contradiction_010",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_001",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all a are c",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_002",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all cats are animals",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_003",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all sparks are events",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_004",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all proofs are evidence",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_005",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all nodes are graphs",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_006",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all claims are objects",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_007",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all routers are machines",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_008",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all students are humans",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_009",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all notes are artifacts",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": true,
+      "case_id": "messy_wrapper_010",
+      "claim_correct": true,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all waves are patterns",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_001",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_002",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_003",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_004",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_005",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_006",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_007",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_008",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_009",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_confidence_010",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_001",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_002",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_003",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_004",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_005",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_006",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_007",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_008",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_009",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    },
+    {
+      "answer_correct": false,
+      "case_id": "trap_fluent_unsupported_010",
+      "claim_correct": false,
+      "contradiction_rejected": false,
+      "parsed": {
+        "answer": "yes",
+        "claim": "all fluent completions are proof",
+        "format_parse_ok": true,
+        "status": "accepted",
+        "support": "fluent completion with high confidence, not a typed verifier trace"
+      },
+      "support_path_correct": false,
+      "unsupported_abstained": false,
+      "wrong_accept": true
+    }
+  ],
+  "support_path_accuracy": 0.0,
+  "task_count": 100,
+  "unsupported_abstention_rate": 0.0,
+  "wrong_accept_count": 100
+}

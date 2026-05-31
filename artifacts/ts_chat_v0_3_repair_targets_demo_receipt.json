@@ -1,6 +1,6 @@
 {
   "accepted_edge_count": 2,
-  "claim": "bounded scratch TS-native chat loop with common-ground claim records",
+  "claim": "bounded scratch TS-native chat loop with repair targets",
   "external_llm_used": false,
   "gates": {
     "all_gates_passed": true,
@@ -18,6 +18,40 @@
   "has_why_command": true,
   "receipts": [
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "uses accepted common-ground support",
+              "concise answer rule"
+            ],
+            "rule_id": "supported_answer_concise",
+            "score": 1.2,
+            "text": "Noted 2 premises into common ground.\nYes \u2014 all dogs are animals.\nVerifier: accepted from common-ground support."
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "uses support path",
+              "more explanatory but longer"
+            ],
+            "rule_id": "supported_answer_with_path",
+            "score": 1.15,
+            "text": "Yes \u2014 all dogs are animals.\nSupport path:\n- all dogs are mammals\n- all mammals are animals"
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0001",
+          "reasons": [
+            "uses accepted common-ground support",
+            "concise answer rule"
+          ],
+          "rule_id": "supported_answer_concise",
+          "score": 1.2,
+          "text": "Noted 2 premises into common ground.\nYes \u2014 all dogs are animals.\nVerifier: accepted from common-ground support."
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -167,6 +201,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [
         {
@@ -253,6 +288,17 @@
       "user_text": "all dogs are mammals. all mammals are animals. are all dogs animals?"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "why command"
+          ],
+          "rule_id": "command_why",
+          "score": 1.0,
+          "text": "all dogs are animals is supported by:\n- all dogs are mammals\n- all mammals are animals"
+        }
+      },
       "command": "why",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -340,6 +386,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -350,6 +397,42 @@
       "user_text": "why?"
     },
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "blocks unsupported requested claim",
+              "creates repair target"
+            ],
+            "rule_id": "reject_unsupported_requested_claim",
+            "score": 1.4,
+            "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles."
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "blocks unsupported requested claim",
+              "creates repair target",
+              "discourse marker surfaced"
+            ],
+            "rule_id": "discourse_marker_append",
+            "score": 1.45,
+            "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also."
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0002",
+          "reasons": [
+            "blocks unsupported requested claim",
+            "creates repair target",
+            "discourse marker surfaced"
+          ],
+          "rule_id": "discourse_marker_append",
+          "score": 1.45,
+          "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also."
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -461,6 +544,8 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           }
@@ -498,6 +583,8 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           }
@@ -507,6 +594,7 @@
         "also"
       ],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -541,6 +629,8 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           }
@@ -557,6 +647,17 @@
       "user_text": "also say all dogs are reptiles."
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "unsupported command"
+          ],
+          "rule_id": "command_unsupported",
+          "score": 1.0,
+          "text": "Unsupported / unresolved claims:\n- all dogs are reptiles: rejected (requested claim is unsupported and was not added to common ground) [cg_0004]"
+        }
+      },
       "command": "unsupported",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -668,6 +769,8 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           }
@@ -677,6 +780,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -687,6 +791,17 @@
       "user_text": "what is unsupported?"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "repairs command"
+          ],
+          "rule_id": "command_repairs",
+          "score": 1.0,
+          "text": "Open repair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\n  hint: Add premises that create a support path from dogs to reptiles."
+        }
+      },
       "command": "repairs",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -798,6 +913,8 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           }
@@ -807,6 +924,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -817,6 +935,30 @@
       "user_text": "/repairs"
     },
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "parse failure exposed",
+              "repair target created"
+            ],
+            "rule_id": "parse_failure_repair",
+            "score": 1.15,
+            "text": "Repair targets:\n- repair_0002: Could not parse bounded TS-Chat structure: penguin banana sideways\nParse notes:\n- Could not parse bounded TS-Chat structure: penguin banana sideways"
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0001",
+          "reasons": [
+            "parse failure exposed",
+            "repair target created"
+          ],
+          "rule_id": "parse_failure_repair",
+          "score": 1.15,
+          "text": "Repair targets:\n- repair_0002: Could not parse bounded TS-Chat structure: penguin banana sideways\nParse notes:\n- Could not parse bounded TS-Chat structure: penguin banana sideways"
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -928,12 +1070,14 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           },
           {
             "kind": "parse_failure",
-            "message": "Could not parse bounded TS-Chat structure: Could not parse bounded TS-Chat structure: penguin banana sideways",
+            "message": "Could not parse bounded TS-Chat structure: penguin banana sideways",
             "missing_support_hint": [
               {
                 "suggestion": "Use bounded forms like 'all dogs are mammals', 'are all dogs animals?', or 'also say all dogs are reptiles'."
@@ -941,6 +1085,8 @@
             ],
             "relation": null,
             "repair_id": "repair_0002",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 6,
             "status": "open"
           }
@@ -951,7 +1097,7 @@
         {
           "repair_target": {
             "kind": "parse_failure",
-            "message": "Could not parse bounded TS-Chat structure: Could not parse bounded TS-Chat structure: penguin banana sideways",
+            "message": "Could not parse bounded TS-Chat structure: penguin banana sideways",
             "missing_support_hint": [
               {
                 "suggestion": "Use bounded forms like 'all dogs are mammals', 'are all dogs animals?', or 'also say all dogs are reptiles'."
@@ -959,6 +1105,8 @@
             ],
             "relation": null,
             "repair_id": "repair_0002",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 6,
             "status": "open"
           }
@@ -966,6 +1114,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [
         "Could not parse bounded TS-Chat structure: penguin banana sideways"
       ],
@@ -975,7 +1124,7 @@
         {
           "repair_target": {
             "kind": "parse_failure",
-            "message": "Could not parse bounded TS-Chat structure: Could not parse bounded TS-Chat structure: penguin banana sideways",
+            "message": "Could not parse bounded TS-Chat structure: penguin banana sideways",
             "missing_support_hint": [
               {
                 "suggestion": "Use bounded forms like 'all dogs are mammals', 'are all dogs animals?', or 'also say all dogs are reptiles'."
@@ -983,17 +1132,30 @@
             ],
             "relation": null,
             "repair_id": "repair_0002",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 6,
             "status": "open"
           }
         }
       ],
       "requested_claims": [],
-      "response": "Repair targets:\n- repair_0002: Could not parse bounded TS-Chat structure: Could not parse bounded TS-Chat structure: penguin banana sideways\nParse notes:\n- Could not parse bounded TS-Chat structure: penguin banana sideways",
+      "response": "Repair targets:\n- repair_0002: Could not parse bounded TS-Chat structure: penguin banana sideways\nParse notes:\n- Could not parse bounded TS-Chat structure: penguin banana sideways",
       "turn_id": 6,
       "user_text": "penguin banana sideways"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "summary command"
+          ],
+          "rule_id": "command_summary",
+          "score": 1.0,
+          "text": "Current common ground:\n- all dogs are mammals [cg_0001]\n- all mammals are animals [cg_0002]"
+        }
+      },
       "command": "summary",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -1105,12 +1267,14 @@
               "subject": "dogs"
             },
             "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 3,
             "status": "open"
           },
           {
             "kind": "parse_failure",
-            "message": "Could not parse bounded TS-Chat structure: Could not parse bounded TS-Chat structure: penguin banana sideways",
+            "message": "Could not parse bounded TS-Chat structure: penguin banana sideways",
             "missing_support_hint": [
               {
                 "suggestion": "Use bounded forms like 'all dogs are mammals', 'are all dogs animals?', or 'also say all dogs are reptiles'."
@@ -1118,6 +1282,8 @@
             ],
             "relation": null,
             "repair_id": "repair_0002",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
             "source_turn_id": 6,
             "status": "open"
           }
@@ -1127,6 +1293,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],

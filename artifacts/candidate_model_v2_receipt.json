@@ -55,8 +55,8 @@
     "python3 scripts/evaluate_candidate_model_v2.py",
     "python3 -m unittest discover -q"
   ],
-  "commit": "3751fe1",
-  "date": "2026-05-28T19:05:49.734095+00:00",
+  "commit": "d6854e0",
+  "date": "2026-05-31T21:22:58.825816+00:00",
   "inputs": [
     "data/candidate_model_v2_train.jsonl",
     "data/candidate_model_v2_eval.jsonl",

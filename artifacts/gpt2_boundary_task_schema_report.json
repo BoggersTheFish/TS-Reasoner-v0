@@ -1,0 +1,511 @@
+{
+  "all_gates_passed": true,
+  "expected_claim_parse_rate": 1.0,
+  "release": "v10.8.0",
+  "required_channel_coverage": 1.0,
+  "results": [
+    {
+      "case_id": "logic_direct_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_direct_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_2hop_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_transitive_3hop_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "logic_negative_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_reverse_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_unsupported_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_contradiction_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "messy_wrapper_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_confidence_010",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_001",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_002",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_003",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_004",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_005",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_006",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_007",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_008",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_009",
+      "reason": "schema_valid",
+      "valid": true
+    },
+    {
+      "case_id": "trap_fluent_unsupported_010",
+      "reason": "schema_valid",
+      "valid": true
+    }
+  ],
+  "schema_validity": 1.0,
+  "task_count": 100,
+  "trap_label_coverage": 1.0
+}

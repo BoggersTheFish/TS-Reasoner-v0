@@ -18,6 +18,40 @@
   "open_repair_count_final": 4,
   "receipts": [
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "uses accepted common-ground support",
+              "concise answer rule"
+            ],
+            "rule_id": "supported_answer_concise",
+            "score": 1.2,
+            "text": "Noted 2 premises into common ground.\nYes \u2014 all dogs are animals.\nVerifier: accepted from common-ground support."
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "uses support path",
+              "more explanatory but longer"
+            ],
+            "rule_id": "supported_answer_with_path",
+            "score": 1.15,
+            "text": "Yes \u2014 all dogs are animals.\nSupport path:\n- all dogs are mammals\n- all mammals are animals"
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0001",
+          "reasons": [
+            "uses accepted common-ground support",
+            "concise answer rule"
+          ],
+          "rule_id": "supported_answer_concise",
+          "score": 1.2,
+          "text": "Noted 2 premises into common ground.\nYes \u2014 all dogs are animals.\nVerifier: accepted from common-ground support."
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -167,6 +201,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [
         {
@@ -253,6 +288,17 @@
       "user_text": "all dogs are mammals. all mammals are animals. are all dogs animals?"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "why command"
+          ],
+          "rule_id": "command_why",
+          "score": 1.0,
+          "text": "all dogs are animals is supported by:\n- all dogs are mammals\n- all mammals are animals"
+        }
+      },
       "command": "why",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -340,6 +386,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -350,6 +397,42 @@
       "user_text": "why?"
     },
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "blocks unsupported requested claim",
+              "creates repair target"
+            ],
+            "rule_id": "reject_unsupported_requested_claim",
+            "score": 1.4,
+            "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles."
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "blocks unsupported requested claim",
+              "creates repair target",
+              "discourse marker surfaced"
+            ],
+            "rule_id": "discourse_marker_append",
+            "score": 1.45,
+            "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also."
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0002",
+          "reasons": [
+            "blocks unsupported requested claim",
+            "creates repair target",
+            "discourse marker surfaced"
+          ],
+          "rule_id": "discourse_marker_append",
+          "score": 1.45,
+          "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also."
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -511,6 +594,7 @@
         "also"
       ],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -563,6 +647,17 @@
       "user_text": "also say all dogs are reptiles."
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "repairs command"
+          ],
+          "rule_id": "command_repairs",
+          "score": 1.0,
+          "text": "Open repair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\n  hint: Add premises that create a support path from dogs to reptiles."
+        }
+      },
       "command": "repairs",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -685,6 +780,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -695,6 +791,39 @@
       "user_text": "/repairs"
     },
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "uses accepted common-ground support",
+              "concise answer rule"
+            ],
+            "rule_id": "supported_answer_concise",
+            "score": 1.15,
+            "text": "Noted 2 premises into common ground.\nResolved repair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\n  resolved: new common-ground premises created typed support"
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "repair target resolved"
+            ],
+            "rule_id": "list_resolved_repairs",
+            "score": 1.0,
+            "text": "Resolved repair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\n  resolved: new common-ground premises created typed support"
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0001",
+          "reasons": [
+            "uses accepted common-ground support",
+            "concise answer rule"
+          ],
+          "rule_id": "supported_answer_concise",
+          "score": 1.15,
+          "text": "Noted 2 premises into common ground.\nResolved repair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\n  resolved: new common-ground premises created typed support"
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 4,
@@ -914,6 +1043,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [
         {
@@ -992,6 +1122,17 @@
       "user_text": "all dogs are canines. all canines are reptiles."
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "repairs command"
+          ],
+          "rule_id": "command_repairs",
+          "score": 1.0,
+          "text": "No open repair targets."
+        }
+      },
       "command": "repairs",
       "common_ground": {
         "accepted_edge_count": 4,
@@ -1152,6 +1293,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -1162,6 +1304,30 @@
       "user_text": "/repairs"
     },
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "parse failure exposed",
+              "repair target created"
+            ],
+            "rule_id": "parse_failure_repair",
+            "score": 1.15,
+            "text": "Repair targets:\n- repair_0002: Could not parse bounded TS-Chat structure: penguin banana sideways\nParse notes:\n- Could not parse bounded TS-Chat structure: penguin banana sideways"
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0001",
+          "reasons": [
+            "parse failure exposed",
+            "repair target created"
+          ],
+          "rule_id": "parse_failure_repair",
+          "score": 1.15,
+          "text": "Repair targets:\n- repair_0002: Could not parse bounded TS-Chat structure: penguin banana sideways\nParse notes:\n- Could not parse bounded TS-Chat structure: penguin banana sideways"
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 4,
@@ -1355,6 +1521,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [
         "Could not parse bounded TS-Chat structure: penguin banana sideways"
       ],
@@ -1385,6 +1552,17 @@
       "user_text": "penguin banana sideways"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "summary command"
+          ],
+          "rule_id": "command_summary",
+          "score": 1.0,
+          "text": "Current common ground:\n- all dogs are mammals [cg_0001]\n- all mammals are animals [cg_0002]\n- all dogs are canines [cg_0005]\n- all canines are reptiles [cg_0006]"
+        }
+      },
       "command": "summary",
       "common_ground": {
         "accepted_edge_count": 4,
@@ -1560,6 +1738,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],

@@ -1,0 +1,8 @@
+{
+  "release": "v11.0.0",
+  "task_source": "data/v10_8/gpt2_boundary_tasks.jsonl",
+  "gpt2_baseline_config": "data/v10_9/gpt2_small_baseline_config.json",
+  "ts_outputs": "artifacts/ts_reasoner_gpt2_boundary_outputs.jsonl",
+  "report": "artifacts/ts_reasoner_vs_gpt2_boundary_report.json",
+  "receipt": "artifacts/v11_0_gpt2_boundary_arena_receipt.json"
+}

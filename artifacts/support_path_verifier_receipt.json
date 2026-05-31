@@ -1,0 +1,18 @@
+{
+  "all_gates_passed": true,
+  "claim": "v10.7 creates typed support traces from bounded premise graphs instead of trusting supplied support labels.",
+  "metrics": {
+    "accepted_without_typed_support_count": 0,
+    "all_gates_passed": true,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 40,
+    "direct_support_accuracy": 1.0,
+    "identity_collapse_count": 0,
+    "negative_exclusion_accuracy": 1.0,
+    "release": "v10.7.0",
+    "transitive_support_accuracy": 1.0,
+    "wrong_reverse_rejection_rate": 1.0
+  },
+  "release": "v10.7.0",
+  "report_hash": "3ec5c67c5149b2f13bbb19fffe22967540f29f3782820df9bfc18522941b7974"
+}

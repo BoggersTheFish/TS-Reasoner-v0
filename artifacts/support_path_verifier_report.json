@@ -1,0 +1,334 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 40,
+  "direct_support_accuracy": 1.0,
+  "identity_collapse_count": 0,
+  "negative_exclusion_accuracy": 1.0,
+  "release": "v10.7.0",
+  "results": [
+    {
+      "case_id": "path_direct_001",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_001",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_001",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_001",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_001",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_002",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_002",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_002",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_002",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_002",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_003",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_003",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_003",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_003",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_003",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_004",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_004",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_004",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_004",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_004",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_005",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_005",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_005",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_005",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_005",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_006",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_006",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_006",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_006",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_006",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_007",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_007",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_007",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_007",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_007",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_direct_008",
+      "expected_channel": "direct_support",
+      "expected_status": "accepted",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_transitive_008",
+      "expected_channel": "transitive_all",
+      "expected_status": "accepted",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_negative_008",
+      "expected_channel": "negative_exclusion",
+      "expected_status": "accepted",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "path_reverse_008",
+      "expected_channel": "reverse_inference_block",
+      "expected_status": "rejected",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "path_identity_008",
+      "expected_channel": "identity_block",
+      "expected_status": "rejected",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    }
+  ],
+  "transitive_support_accuracy": 1.0,
+  "wrong_reverse_rejection_rate": 1.0
+}

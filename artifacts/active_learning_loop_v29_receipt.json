@@ -32,8 +32,8 @@
     "python3 scripts/run_active_learning_loop_v29.py",
     "python3 -m unittest discover -q"
   ],
-  "commit": "6217bc6",
-  "date": "2026-05-28T19:49:49.683904+00:00",
+  "commit": "d6854e0",
+  "date": "2026-05-31T21:22:57.944907+00:00",
   "known_limitations": [
     "Synthetic challenge rows.",
     "Smoke-scale linear model only.",

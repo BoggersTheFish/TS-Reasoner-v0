@@ -199,6 +199,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [
         {
@@ -482,6 +483,7 @@
         "also"
       ],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -667,6 +669,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -929,6 +932,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [
         {
@@ -1224,6 +1228,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [
         "Could not parse bounded TS-Chat structure: penguin banana sideways"
       ],
@@ -1440,6 +1445,7 @@
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 4,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],

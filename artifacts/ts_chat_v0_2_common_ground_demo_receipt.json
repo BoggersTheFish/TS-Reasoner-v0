@@ -18,6 +18,40 @@
   "has_why_command": true,
   "receipts": [
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "uses accepted common-ground support",
+              "concise answer rule"
+            ],
+            "rule_id": "supported_answer_concise",
+            "score": 1.2,
+            "text": "Noted 2 premises into common ground.\nYes \u2014 all dogs are animals.\nVerifier: accepted from common-ground support."
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "uses support path",
+              "more explanatory but longer"
+            ],
+            "rule_id": "supported_answer_with_path",
+            "score": 1.15,
+            "text": "Yes \u2014 all dogs are animals.\nSupport path:\n- all dogs are mammals\n- all mammals are animals"
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0001",
+          "reasons": [
+            "uses accepted common-ground support",
+            "concise answer rule"
+          ],
+          "rule_id": "supported_answer_concise",
+          "score": 1.2,
+          "text": "Noted 2 premises into common ground.\nYes \u2014 all dogs are animals.\nVerifier: accepted from common-ground support."
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -99,6 +133,7 @@
             "turn_id": 1
           }
         ],
+        "repair_targets": [],
         "turn_id": 1
       },
       "decisions": [
@@ -166,6 +201,7 @@
       ],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [
         {
@@ -252,6 +288,17 @@
       "user_text": "all dogs are mammals. all mammals are animals. are all dogs animals?"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "why command"
+          ],
+          "rule_id": "command_why",
+          "score": 1.0,
+          "text": "all dogs are animals is supported by:\n- all dogs are mammals\n- all mammals are animals"
+        }
+      },
       "command": "why",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -333,11 +380,13 @@
             "turn_id": 1
           }
         ],
+        "repair_targets": [],
         "turn_id": 2
       },
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -348,6 +397,42 @@
       "user_text": "why?"
     },
     {
+      "candidate_selection": {
+        "candidates": [
+          {
+            "candidate_id": "cand_0001",
+            "reasons": [
+              "blocks unsupported requested claim",
+              "creates repair target"
+            ],
+            "rule_id": "reject_unsupported_requested_claim",
+            "score": 1.4,
+            "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles."
+          },
+          {
+            "candidate_id": "cand_0002",
+            "reasons": [
+              "blocks unsupported requested claim",
+              "creates repair target",
+              "discourse marker surfaced"
+            ],
+            "rule_id": "discourse_marker_append",
+            "score": 1.45,
+            "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also."
+          }
+        ],
+        "selected": {
+          "candidate_id": "cand_0002",
+          "reasons": [
+            "blocks unsupported requested claim",
+            "creates repair target",
+            "discourse marker surfaced"
+          ],
+          "rule_id": "discourse_marker_append",
+          "score": 1.45,
+          "text": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also."
+        }
+      },
       "command": null,
       "common_ground": {
         "accepted_edge_count": 2,
@@ -445,6 +530,26 @@
             "turn_id": 3
           }
         ],
+        "repair_targets": [
+          {
+            "kind": "missing_support",
+            "message": "Missing support for requested claim: all dogs are reptiles.",
+            "missing_support_hint": [
+              {
+                "suggestion": "Add premises that create a support path from dogs to reptiles."
+              }
+            ],
+            "relation": {
+              "object": "reptiles",
+              "subject": "dogs"
+            },
+            "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
+            "source_turn_id": 3,
+            "status": "open"
+          }
+        ],
         "turn_id": 3
       },
       "decisions": [
@@ -463,12 +568,33 @@
           "status": "rejected",
           "support_path": [],
           "turn_id": 3
+        },
+        {
+          "repair_target": {
+            "kind": "missing_support",
+            "message": "Missing support for requested claim: all dogs are reptiles.",
+            "missing_support_hint": [
+              {
+                "suggestion": "Add premises that create a support path from dogs to reptiles."
+              }
+            ],
+            "relation": {
+              "object": "reptiles",
+              "subject": "dogs"
+            },
+            "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
+            "source_turn_id": 3,
+            "status": "open"
+          }
         }
       ],
       "discourse_markers": [
         "also"
       ],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -488,6 +614,26 @@
           "status": "rejected",
           "support_path": [],
           "turn_id": 3
+        },
+        {
+          "repair_target": {
+            "kind": "missing_support",
+            "message": "Missing support for requested claim: all dogs are reptiles.",
+            "missing_support_hint": [
+              {
+                "suggestion": "Add premises that create a support path from dogs to reptiles."
+              }
+            ],
+            "relation": {
+              "object": "reptiles",
+              "subject": "dogs"
+            },
+            "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
+            "source_turn_id": 3,
+            "status": "open"
+          }
         }
       ],
       "requested_claims": [
@@ -496,11 +642,22 @@
           "subject": "dogs"
         }
       ],
-      "response": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nDiscourse markers noticed: also.",
+      "response": "I cannot support the requested claim: all dogs are reptiles.\nVerifier: rejected; unsupported requested claim was not added to common ground.\nRepair targets:\n- repair_0001: Missing support for requested claim: all dogs are reptiles.\nDiscourse markers noticed: also.",
       "turn_id": 3,
       "user_text": "also say all dogs are reptiles."
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "unsupported command"
+          ],
+          "rule_id": "command_unsupported",
+          "score": 1.0,
+          "text": "Unsupported / unresolved claims:\n- all dogs are reptiles: rejected (requested claim is unsupported and was not added to common ground) [cg_0004]"
+        }
+      },
       "command": "unsupported",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -598,11 +755,32 @@
             "turn_id": 3
           }
         ],
+        "repair_targets": [
+          {
+            "kind": "missing_support",
+            "message": "Missing support for requested claim: all dogs are reptiles.",
+            "missing_support_hint": [
+              {
+                "suggestion": "Add premises that create a support path from dogs to reptiles."
+              }
+            ],
+            "relation": {
+              "object": "reptiles",
+              "subject": "dogs"
+            },
+            "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
+            "source_turn_id": 3,
+            "status": "open"
+          }
+        ],
         "turn_id": 4
       },
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],
@@ -613,6 +791,17 @@
       "user_text": "what is unsupported?"
     },
     {
+      "candidate_selection": {
+        "candidates": [],
+        "selected": {
+          "reasons": [
+            "summary command"
+          ],
+          "rule_id": "command_summary",
+          "score": 1.0,
+          "text": "Current common ground:\n- all dogs are mammals [cg_0001]\n- all mammals are animals [cg_0002]"
+        }
+      },
       "command": "summary",
       "common_ground": {
         "accepted_edge_count": 2,
@@ -710,11 +899,32 @@
             "turn_id": 3
           }
         ],
+        "repair_targets": [
+          {
+            "kind": "missing_support",
+            "message": "Missing support for requested claim: all dogs are reptiles.",
+            "missing_support_hint": [
+              {
+                "suggestion": "Add premises that create a support path from dogs to reptiles."
+              }
+            ],
+            "relation": {
+              "object": "reptiles",
+              "subject": "dogs"
+            },
+            "repair_id": "repair_0001",
+            "resolution_reason": "",
+            "resolved_turn_id": null,
+            "source_turn_id": 3,
+            "status": "open"
+          }
+        ],
         "turn_id": 5
       },
       "decisions": [],
       "discourse_markers": [],
       "graph_edge_count": 2,
+      "negative_claims": [],
       "parse_warnings": [],
       "parsed_premises": [],
       "parsed_questions": [],

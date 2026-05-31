@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v10.5.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v10.5.0)
+[![Release](https://img.shields.io/badge/release-v11.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.0.0)
 
 TS-Reasoner is a verifier-first reasoning runtime.
 
@@ -33,16 +33,20 @@ candidate event
 
 ## Current Release
 
-Current release: v10.5.0, TS-OS Alpha
+Current release: v11.0.0, GPT-2 Boundary Arena
 
-v10.5.0 packages the v10 runtime line into a bounded TS-OS Alpha surface:
+v11.0.0 provides a reproducible verifier-first arena comparing TS-Reasoner
+against GPT-2-small on controlled reasoning tasks. GPT-2-small is treated as a
+raw language proposer. TS-Reasoner wins where typed proof authority matters:
+support-path recovery, contradiction rejection, unsupported-claim abstention,
+and zero accepted claims without typed verifier support.
 
-- immutable epistemic microkernel
-- protocol-sandboxed userspace proposer subprocesses
-- deterministic proposal budget scheduling
-- infrastructure-grid branch-world continuum
-- local file proof-grid packs with canonical JSON SHA-256 integrity
-- integrated TS-OS Alpha receipt
+Boundary:
+
+- This is not a broad chatbot victory.
+- This is not a full language-model replacement claim.
+- This is a verifier-first reasoning boundary result.
+- GPT-2 generates; TS verifies.
 
 v10.0.0 remains the unified verifier-first reasoning OS/runtime base.
 
@@ -100,6 +104,12 @@ Run the TS-OS Alpha flow:
 python3 -m ts_reasoner.runtime_os_cli alpha --scenario @data/v10_5/ts_os_alpha_scenario.json
 ```
 
+Run the GPT-2 boundary arena:
+
+```bash
+python3 scripts/v11_0/evaluate_gpt2_boundary_arena.py
+```
+
 Run the latest milestone receipts:
 
 ```bash
@@ -107,6 +117,7 @@ python3 scripts/v9_8/evaluate_runtime_policy_contracts.py
 python3 scripts/v9_9/evaluate_runtime_recovery_drill.py
 python3 scripts/v10_0/evaluate_runtime_os.py
 python3 scripts/v10_5/evaluate_ts_os_alpha.py
+python3 scripts/v11_0/evaluate_gpt2_boundary_arena.py
 ```
 
 Run all tests:
@@ -129,6 +140,11 @@ python3 -m unittest discover -q
 | v9.x | Runtime kernel, CLI, replay, ledger, checkpoint, restore, policy contracts, recovery drill | Runtime integrity remains separate from claim truth |
 | v10.0.0 | Unified verifier-first reasoning OS/runtime surface | Typed verifier support remains proof authority |
 | v10.5.0 | TS-OS Alpha microkernel, userspace proposers, branch worlds, proof-grid receipts | Generated text, model confidence, and runtime integrity remain non-proof |
+| v10.6.0 | Typed support objects | Fake support strings stop counting as proof |
+| v10.7.0 | Support path verifier | Bounded premise graphs create typed verifier traces |
+| v10.8.0 | GPT-2 boundary task format | The battlefield is frozen before comparison |
+| v10.9.0 | GPT-2-small baseline harness | GPT-2-small is measured as an untrusted proposer |
+| v11.0.0 | GPT-2 Boundary Arena | TS beats GPT-2-small on verifier-first controlled reasoning |
 
 ## Key v10 Files
 
@@ -146,3 +162,17 @@ python3 -m unittest discover -q
 - `tests/test_v10_5_ts_os_alpha.py`
 - `tests/test_v10_0_runtime_os.py`
 - `artifacts/runtime_os_receipt.json`
+
+## Key v11 Files
+
+- `ts_reasoner/typed_support.py`
+- `ts_reasoner/support_path_verifier.py`
+- `benchmarks/gpt2_boundary/task_schema.py`
+- `benchmarks/gpt2_boundary/run_gpt2_small_baseline.py`
+- `benchmarks/gpt2_boundary/run_ts_reasoner_arena.py`
+- `benchmarks/gpt2_boundary/compare_ts_vs_gpt2.py`
+- `data/v10_8/gpt2_boundary_tasks.jsonl`
+- `scripts/v11_0/evaluate_gpt2_boundary_arena.py`
+- `docs/v11_0/GPT2_BOUNDARY_ARENA.md`
+- `artifacts/ts_reasoner_vs_gpt2_boundary_report.json`
+- `artifacts/v11_0_gpt2_boundary_arena_receipt.json`

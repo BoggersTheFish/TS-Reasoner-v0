@@ -1,0 +1,15 @@
+{
+  "all_gates_passed": true,
+  "claim": "v10.8 introduces a frozen GPT-2 boundary task format for comparing raw language completion against verifier-first reasoning.",
+  "metrics": {
+    "all_gates_passed": true,
+    "expected_claim_parse_rate": 1.0,
+    "release": "v10.8.0",
+    "required_channel_coverage": 1.0,
+    "schema_validity": 1.0,
+    "task_count": 100,
+    "trap_label_coverage": 1.0
+  },
+  "release": "v10.8.0",
+  "report_hash": "260fbcd666521fd5951c6adb712620a2759ced02b0b8b5c059ff57472e6a3fc2"
+}

@@ -1,3 +1,21 @@
+## v11.0.0: GPT-2 Boundary Arena
+
+v11.0.0 adds the first GPT-2 boundary-crossing release. It introduces typed
+support objects, bounded support-path verification, a frozen GPT-2 boundary
+task format, a reproducible GPT-2-small baseline harness, and a receipt-backed
+TS-vs-GPT-2 arena.
+
+Claim:
+
+TS-Reasoner beats GPT-2-small on verifier-first controlled reasoning.
+
+Boundary:
+
+- This is not a broad chatbot victory.
+- This is not a full language-model replacement claim.
+- GPT-2 generates; TS verifies.
+- Accepted TS claims require typed verifier support.
+
 ## v10.5.0: TS-OS Alpha
 
 v10.5.0 adds the bounded TS-OS Alpha flow: immutable verifier microkernel,
