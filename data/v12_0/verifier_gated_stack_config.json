@@ -1,0 +1,9 @@
+{
+  "seed": 120,
+  "train_limit": 1400,
+  "case_count": 120,
+  "dim": 1024,
+  "hidden": 24,
+  "epochs": 3,
+  "learning_rate": 0.035
+}
