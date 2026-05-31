@@ -1,3 +1,28 @@
+## v14.0.0: TS-AGL Safe Write Arena
+
+v14.0.0 adds the TS-AGL Safe Write Arena. The system now stages a reversible filesystem write through the same `LanguageMove -> TSCall -> risk gate -> ResultPacket -> receipt` surface, blocks it without confirmation, executes it with explicit confirmation, and records the boundary in report/receipt artifacts.
+
+Artifacts:
+
+- `ts_agl/arena/safe_write_arena.py`
+- `scripts/run_ts_agl_safe_write_arena.py`
+- `scripts/evaluate_ts_agl_safe_write_arena.py`
+- `tests/test_ts_agl_safe_write_arena.py`
+- `docs/ts_agl_safe_write_arena.md`
+- `artifacts/ts_agl_safe_write_arena_report.json`
+- `artifacts/ts_agl_safe_write_arena_receipt.json`
+- `artifacts/ts_agl_safe_write_marker.json`
+
+Boundary:
+
+- This is confirmed reversible action, not autonomous agency.
+- No external LLM is used.
+- The safe write target is restricted to `artifacts/`.
+- Unconfirmed writes are blocked.
+- Confirmed writes are traceable.
+- The language layer is not proof authority.
+- Candidate graph contamination remains zero.
+
 ## v13.0.0: Cross-Domain TS-AGL Arena
 
 v13.0.0 adds the Cross-Domain TS-AGL Arena. One natural-language request now coordinates multiple taught domains through the same `LanguageMove -> TSCall -> ResultPacket -> rendered reply` surface.
