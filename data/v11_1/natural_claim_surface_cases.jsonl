@@ -1,0 +1,11 @@
+{"case_id":"v11_1_all_are","surface":"all generated outputs are candidate data","expected_canonical":"all generated outputs are candidate data","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_1_all_is","surface":"all generated text is candidate data","expected_canonical":"all generated text are candidate data","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_1_every_is","surface":"every generated output is candidate data","expected_canonical":"all generated output are candidate data","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_1_each_is","surface":"each unsupported claim is repair target","expected_canonical":"all unsupported claim are repair target","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_1_any_is","surface":"any model confidence signal is generated signal","expected_canonical":"all model confidence signal are generated signal","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_1_no_are","surface":"no generated signals are proof","expected_canonical":"no generated signals are proof","expected_status":"parsed","expected_quantifier":"no"}
+{"case_id":"v11_1_no_is","surface":"no generated signal is proof","expected_canonical":"no generated signal are proof","expected_status":"parsed","expected_quantifier":"no"}
+{"case_id":"v11_1_not_is","surface":"model confidence is not proof","expected_canonical":"no model confidence are proof","expected_status":"parsed","expected_quantifier":"no"}
+{"case_id":"v11_1_nothing_that_is","surface":"nothing that is generated signal is proof","expected_canonical":"no generated signal are proof","expected_status":"parsed","expected_quantifier":"no"}
+{"case_id":"v11_1_bare_is","surface":"generated text is candidate data","expected_canonical":"all generated text are candidate data","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_1_bare_are","surface":"generated outputs are candidate data","expected_canonical":"all generated outputs are candidate data","expected_status":"parsed","expected_quantifier":"all"}

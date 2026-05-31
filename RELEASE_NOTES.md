@@ -1,3 +1,23 @@
+## v11.1.0: Natural Claim Surface Normalization
+
+v11.1.0 expands bounded claim parsing from strict `all X are Y` / `no X are Y` surfaces to natural `is/are/every/each/any/no/not` variants while preserving the same typed verifier boundary.
+
+Artifacts:
+
+- `ts_reasoner/claim_normalizer.py`
+- `data/v11_1/natural_claim_surface_cases.jsonl`
+- `scripts/v11_1/evaluate_claim_normalizer.py`
+- `tests/test_v11_1_claim_normalizer.py`
+- `docs/v11_1/NATURAL_CLAIM_NORMALIZATION.md`
+- `artifacts/v11_1/claim_normalizer_report.json`
+- `artifacts/v11_1/claim_normalizer_receipt.json`
+
+Boundary:
+
+- This is bounded surface normalization, not broad natural-language understanding.
+- Accepted claims still require typed verifier support.
+- Reverse inference, unsupported claims, and identity loops remain blocked.
+
 ## v11.0.0: GPT-2 Boundary Arena
 
 v11.0.0 adds the first GPT-2 boundary-crossing release. It introduces typed
