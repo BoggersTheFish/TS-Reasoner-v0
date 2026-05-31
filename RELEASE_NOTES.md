@@ -1,3 +1,25 @@
+## v11.9.0: Neural TS-Proposer Tiny
+
+v11.9.0 adds a tiny pure-stdlib neural proposer baseline over verifier-labelled traces. It uses hashed sparse features, a tanh hidden layer, softmax classifiers, and verifier-gated proposed yes answers.
+
+Artifacts:
+
+- `training/v11_9/neural_ts_proposer_tiny.py`
+- `data/v11_9/neural_ts_proposer_tiny_config.json`
+- `scripts/v11_9/evaluate_neural_ts_proposer_tiny.py`
+- `tests/test_v11_9_neural_ts_proposer_tiny.py`
+- `docs/v11_9/NEURAL_TS_PROPOSER_TINY.md`
+- `artifacts/v11_9/neural_ts_proposer_tiny_model.json`
+- `artifacts/v11_9/neural_ts_proposer_tiny_report.json`
+- `artifacts/v11_9/neural_ts_proposer_tiny_receipt.json`
+
+Boundary:
+
+- This is a tiny neural proposer baseline, not a broad neural language model.
+- Proposed labels are not proof.
+- The verifier remains proof authority.
+- Generated text and model confidence remain non-proof.
+
 ## v11.8.0: TS-Proposer-Mini Baseline
 
 v11.8.0 adds TS-Proposer-Mini, a tiny stdlib hashed-perceptron proposer trained on v11.7 verifier trace data. It predicts answer/status/channel labels, then routes proposed yes answers through the typed verifier gate so wrong accepts remain blocked.
