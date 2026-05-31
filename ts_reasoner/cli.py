@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -146,6 +146,13 @@ def main() -> int:
         from .proof_repair_search import run_proof_repair_search_demo
 
         receipt = run_proof_repair_search_demo(args.out_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "self-audit":
+        from .self_audit import run_self_audit_demo
+
+        receipt = run_self_audit_demo(args.out_dir)
         print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
 

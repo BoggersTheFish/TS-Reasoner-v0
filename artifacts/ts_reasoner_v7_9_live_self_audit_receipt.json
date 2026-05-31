@@ -1,0 +1,32 @@
+{
+  "accepted_edge_count": 2,
+  "all_gates_passed": true,
+  "audit_metrics_are_not_proof": true,
+  "audit_output_is_not_proof": true,
+  "boundary": {
+    "audit_metrics_are_proof": false,
+    "audit_output_is_proof": false,
+    "broad_natural_language_understanding": false,
+    "external_benchmark_victory": false,
+    "live_tensionlm_runtime": false,
+    "neural_training": false,
+    "risk_scores_are_proof": false,
+    "typed_verifier_remains_proof_authority": true
+  },
+  "candidate_graph_contamination_count": 0,
+  "contradiction_claim_count": 1,
+  "external_llm_used": false,
+  "milestone": "Live Self-Audit Mode",
+  "open_repair_count": 2,
+  "out_dir": "artifacts/self_audit/v7_9_demo",
+  "proof_boundary_preserved": true,
+  "record_count": 4,
+  "rejected_record_count": 2,
+  "release": "v7.9.0",
+  "resolved_repair_count": 0,
+  "risk_scores_are_not_proof": true,
+  "schema": "ts_reasoner_v7_9_live_self_audit_public_receipt",
+  "typed_verifier_remains_proof_authority": true,
+  "unsupported_promotion_count": 0,
+  "wrong_accept_count": 0
+}

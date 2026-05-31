@@ -1,0 +1,52 @@
+{
+  "abstained_record_count": 0,
+  "accepted_edge_count": 2,
+  "accepted_edges": [
+    {
+      "object": "mortal",
+      "subject": "animals"
+    },
+    {
+      "object": "animals",
+      "subject": "cats"
+    }
+  ],
+  "accepted_record_count": 2,
+  "all_gates_passed": true,
+  "audit_metrics_are_not_proof": true,
+  "audit_output_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "contradiction_claim_count": 1,
+  "contradiction_pressure": 2,
+  "external_llm_used": false,
+  "gates": {
+    "audit_output_is_not_proof": true,
+    "candidate_graph_contamination_count_is_zero": true,
+    "external_llm_used_false": true,
+    "proof_boundary_preserved": true,
+    "typed_verifier_remains_proof_authority": true,
+    "unsupported_promotion_count_is_zero": true,
+    "wrong_accept_count_is_zero": true
+  },
+  "negative_claim_record_count": 0,
+  "open_repair_count": 2,
+  "proof_boundary_preserved": true,
+  "question_record_count": 0,
+  "record_count": 4,
+  "rejected_record_count": 2,
+  "rejection_pressure": 2,
+  "release": "v7.9.0",
+  "repair_pressure": 2,
+  "repair_target_count": 2,
+  "requested_claim_record_count": 1,
+  "resolved_repair_count": 0,
+  "risk_scores_are_not_proof": true,
+  "schema": "ts_reasoner_live_self_audit_v1",
+  "turn_id": 8,
+  "typed_verifier_remains_proof_authority": true,
+  "unsupported_promotion_count": 0,
+  "unsupported_promotion_records": [],
+  "unsupported_record_count": 0,
+  "wrong_accept_count": 0,
+  "wrong_accept_records": []
+}
