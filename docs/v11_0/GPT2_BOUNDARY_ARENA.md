@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.5.0, Adversarial Claim Fuzzer
+Current release: v11.6.0, Live GPT-2-small Adapter
 
-This document is the required internal release-authority surface for v11.5.0.
-The current release title is Adversarial Claim Fuzzer.
+This document is the required internal release-authority surface for v11.6.0.
+The current release title is Live GPT-2-small Adapter.
 
 Boundary:
 - Generated text is not proof.
