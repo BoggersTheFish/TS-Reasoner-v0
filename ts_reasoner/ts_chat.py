@@ -26,6 +26,7 @@ from ts_reasoner.common_ground import CommonGround, human_relation
 from ts_reasoner.live_contradiction_firewall import negative_relation_text, parse_no_relation, record_negative_claim_result
 from ts_reasoner.repair_planner import generate_repair_plans, render_repair_plan_bundle
 from ts_reasoner.proof_repair_search import render_search_result, run_search_command
+from ts_reasoner.self_audit import audit_common_ground, render_self_audit
 from ts_reasoner.chat_repair import parse_repair_target, repair_to_dict
 from ts_reasoner.candidate_language import (
     candidate_selection_to_dict,
@@ -139,6 +140,10 @@ class TSChatSession:
         elif parsed.command == "graph":
             response = json.dumps(self.common_ground.to_dict(), indent=2, sort_keys=True)
             candidate_selection = {"selected": {"rule_id": "command_graph", "text": response, "score": 1.0, "reasons": ["graph command"]}, "candidates": []}
+        elif parsed.command == "audit":
+            audit = audit_common_ground(self.common_ground)
+            response = render_self_audit(audit)
+            candidate_selection = {"selected": {"rule_id": "command_audit", "text": response, "score": 1.0, "reasons": ["self-audit command"]}, "candidates": []}
         elif parsed.command == "repairs":
             response = self.common_ground.repair_summary()
             candidate_selection = {"selected": {"rule_id": "command_repairs", "text": response, "score": 1.0, "reasons": ["repairs command"]}, "candidates": []}
@@ -338,6 +343,8 @@ def detect_command(text: str) -> str | None:
         return "why"
     if lowered in {"/graph", "show graph", "show graph?"}:
         return "graph"
+    if lowered in {"/audit", "audit", "self audit", "self-audit"}:
+        return "audit"
     if lowered in {"/repairs", "repairs", "what needs repair?", "what needs repair"}:
         return "repairs"
     if lowered.startswith("/plan"):
@@ -489,7 +496,7 @@ def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> 
     print("TS-Chat v7.1")
     print("Unified verifier-first bounded chat with common-ground, repair resolution, and compilable session receipts. Type 'exit' to quit.")
     print("Try: all dogs are mammals. all mammals are animals. are all dogs animals?")
-    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /plan <repair_id> | /prove <claim> | /missing <claim> | /cut <claim> | /graph | /clear")
+    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /plan <repair_id> | /prove <claim> | /missing <claim> | /cut <claim> | /audit | /graph | /clear")
     print("After exit: python3 -m ts_reasoner.cli compile-session --session artifacts/ts_chat_v0_2_latest_session.json")
     print()
 
