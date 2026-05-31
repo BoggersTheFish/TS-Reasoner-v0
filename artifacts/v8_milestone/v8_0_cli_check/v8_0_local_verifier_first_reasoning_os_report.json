@@ -1,0 +1,23 @@
+{
+  "all_gates_passed": true,
+  "boundary_ok_count": 9,
+  "capabilities": [
+    "live runtime surface and session-to-artifact compiler",
+    "compiled sessions generate replay, repair, support-path, and boundary curriculum",
+    "branch-local common-ground worlds, comparisons, blocked unsafe merges, safe support merges",
+    "live no-X-are-Y contradiction rejection with support-path traces and repairs",
+    "bounded repair plans for missing-support and contradiction repairs",
+    "registered local knowledge packs, pack comparison, safe merge and blocked unsafe import",
+    "source trust tiers create merge pressure without becoming proof",
+    "live /prove, /missing, and /cut search over bounded common ground",
+    "live /audit for session health, boundary preservation, repair pressure, and contamination checks"
+  ],
+  "component_count": 9,
+  "component_gate_pass_count": 9,
+  "external_llm_used": false,
+  "failed_component_count": 0,
+  "missing_asset_count": 0,
+  "release": "v8.0.0",
+  "schema": "ts_reasoner_v8_0_local_verifier_first_reasoning_os_report",
+  "total_candidate_graph_contamination_count": 0
+}

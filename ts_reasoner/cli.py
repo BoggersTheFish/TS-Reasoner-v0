@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -153,6 +153,13 @@ def main() -> int:
         from .self_audit import run_self_audit_demo
 
         receipt = run_self_audit_demo(args.out_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "v8":
+        from .v8_milestone import run_v8_milestone
+
+        receipt = run_v8_milestone(args.out_dir)
         print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
 
