@@ -1,0 +1,13 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "claim": "TS-Reasoner decomposes bounded natural-language paragraphs into verifier premises and target claims while preserving abstention and typed proof boundaries.",
+  "premise_extraction_accuracy": 1.0,
+  "receipt_type": "v11_3_paragraph_decomposer_receipt",
+  "release": "v11.3.0",
+  "safe_abstain_on_ambiguous_input": 1.0,
+  "target_claim_extraction_accuracy": 1.0,
+  "verifier_behavior_accuracy": 1.0,
+  "wrong_accept_count": 0
+}

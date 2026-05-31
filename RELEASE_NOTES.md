@@ -1,3 +1,23 @@
+## v11.3.0: Paragraph Claim Decomposer
+
+v11.3.0 adds bounded paragraph decomposition: short natural-language reasoning paragraphs are decomposed into canonical verifier premises and a target claim/question, then routed through the existing typed support verifier.
+
+Artifacts:
+
+- `ts_reasoner/paragraph_decomposer.py`
+- `data/v11_3/paragraph_reasoning_cases.jsonl`
+- `scripts/v11_3/evaluate_paragraph_decomposer.py`
+- `tests/test_v11_3_paragraph_decomposer.py`
+- `docs/v11_3/PARAGRAPH_DECOMPOSER.md`
+- `artifacts/v11_3/paragraph_decomposer_report.json`
+- `artifacts/v11_3/paragraph_decomposer_receipt.json`
+
+Boundary:
+
+- This is bounded paragraph decomposition, not broad natural-language understanding.
+- The verifier remains proof authority.
+- Generated text and model confidence remain non-proof.
+
 ## v11.2.0: Relation Phrase Parser
 
 v11.2.0 expands bounded claim normalization from natural is/are surfaces into relation phrases such as belongs to, kind of, type of, counts as, implies, supports, requires, cannot be, and excludes.

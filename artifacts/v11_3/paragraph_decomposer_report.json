@@ -1,0 +1,199 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 12,
+  "decomposition_status_accuracy": 1.0,
+  "premise_extraction_accuracy": 1.0,
+  "release": "v11.3.0",
+  "results": [
+    {
+      "case_id": "v11_3_transitive_fish",
+      "claim_passed": true,
+      "observed_channel": "transitive_all",
+      "observed_claim": "all fish are organisms",
+      "observed_premises": [
+        "all fish are animals",
+        "all animals are organisms"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_relation_transitive",
+      "claim_passed": true,
+      "observed_channel": "transitive_all",
+      "observed_claim": "all generated text are untrusted material",
+      "observed_premises": [
+        "all generated text are candidate data",
+        "all candidate data are untrusted material"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_negative_direct",
+      "claim_passed": true,
+      "observed_channel": "direct_support",
+      "observed_claim": "no model confidence are proof",
+      "observed_premises": [
+        "no model confidence are proof"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_unsupported",
+      "claim_passed": true,
+      "observed_channel": null,
+      "observed_claim": "all generated text are proof",
+      "observed_premises": [
+        "all generated text are candidate data"
+      ],
+      "observed_reason": "unsupported_claim",
+      "observed_status": "parsed",
+      "observed_verifier_status": "abstained",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_reverse_trap",
+      "claim_passed": true,
+      "observed_channel": null,
+      "observed_claim": "all candidate data are generated text",
+      "observed_premises": [
+        "all generated text are candidate data"
+      ],
+      "observed_reason": "reverse_inference_block",
+      "observed_status": "parsed",
+      "observed_verifier_status": "rejected",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_negative_exclusion",
+      "claim_passed": true,
+      "observed_channel": "negative_exclusion",
+      "observed_claim": "no model confidence signals are proof",
+      "observed_premises": [
+        "all model confidence signals are generated signals",
+        "no generated signals are proof"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_kind_of_chain",
+      "claim_passed": true,
+      "observed_channel": "transitive_all",
+      "observed_claim": "all salmon are animals",
+      "observed_premises": [
+        "all salmon are fish",
+        "all fish are animals"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_excludes_direct",
+      "claim_passed": true,
+      "observed_channel": "direct_support",
+      "observed_claim": "no candidate data are proof",
+      "observed_premises": [
+        "no candidate data are proof"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_can_question_abstain",
+      "claim_passed": true,
+      "observed_channel": null,
+      "observed_claim": "all generated text are proof",
+      "observed_premises": [
+        "all generated text are candidate data"
+      ],
+      "observed_reason": "unsupported_claim",
+      "observed_status": "parsed",
+      "observed_verifier_status": "abstained",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_noise_ignored",
+      "claim_passed": true,
+      "observed_channel": "transitive_all",
+      "observed_claim": "all fish are organisms",
+      "observed_premises": [
+        "all fish are animals",
+        "all animals are organisms"
+      ],
+      "observed_reason": null,
+      "observed_status": "parsed",
+      "observed_verifier_status": "accepted",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_ambiguous_no_question",
+      "claim_passed": true,
+      "observed_channel": null,
+      "observed_claim": "",
+      "observed_premises": [
+        "all fish are animals",
+        "all animals are organisms"
+      ],
+      "observed_reason": "no_parseable_question",
+      "observed_status": "abstained",
+      "observed_verifier_status": "abstained",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    },
+    {
+      "case_id": "v11_3_malformed_nothing",
+      "claim_passed": true,
+      "observed_channel": null,
+      "observed_claim": "",
+      "observed_premises": [],
+      "observed_reason": "no_parseable_premises_or_question",
+      "observed_status": "abstained",
+      "observed_verifier_status": "abstained",
+      "premise_passed": true,
+      "status_passed": true,
+      "verifier_passed": true
+    }
+  ],
+  "safe_abstain_on_ambiguous_input": 1.0,
+  "target_claim_extraction_accuracy": 1.0,
+  "verifier_behavior_accuracy": 1.0,
+  "wrong_accept_count": 0
+}
