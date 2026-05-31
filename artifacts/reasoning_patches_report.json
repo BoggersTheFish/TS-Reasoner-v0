@@ -1,0 +1,150 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "failed_cases": 0,
+  "passed_cases": 6,
+  "reasoning_patch_accuracy": 1.0,
+  "release": "v8.6.0",
+  "results": [
+    {
+      "after_claims": [
+        "all cats are animals"
+      ],
+      "before_claims": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "accepted_claim_patch",
+      "expected_patch_type": "claim_added",
+      "expected_requires_verifier_support": true,
+      "expected_state_changed": true,
+      "explanation": "Reasoning patch records a typed state transition without treating candidate text as proof.",
+      "passed": true,
+      "patch_id": "patch__accepted_claim_patch",
+      "patch_type": "claim_added",
+      "payload": {
+        "claim": "all cats are animals",
+        "source": "typed_trace"
+      },
+      "requires_verifier_support": true,
+      "state_changed": true
+    },
+    {
+      "after_claims": [
+        "all cats are animals"
+      ],
+      "before_claims": [
+        "all cats are animals"
+      ],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "unsupported_claim_quarantine_patch",
+      "expected_patch_type": "claim_quarantined",
+      "expected_requires_verifier_support": false,
+      "expected_state_changed": false,
+      "explanation": "Reasoning patch records a typed state transition without treating candidate text as proof.",
+      "passed": true,
+      "patch_id": "patch__unsupported_claim_quarantine_patch",
+      "patch_type": "claim_quarantined",
+      "payload": {
+        "claim": "all cats are robots",
+        "reason": "unsupported"
+      },
+      "requires_verifier_support": false,
+      "state_changed": false
+    },
+    {
+      "after_claims": [
+        "all cats are animals"
+      ],
+      "before_claims": [
+        "all cats are animals"
+      ],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "repair_opened_patch",
+      "expected_patch_type": "repair_opened",
+      "expected_requires_verifier_support": false,
+      "expected_state_changed": false,
+      "explanation": "Reasoning patch records a typed state transition without treating candidate text as proof.",
+      "passed": true,
+      "patch_id": "patch__repair_opened_patch",
+      "patch_type": "repair_opened",
+      "payload": {
+        "repair_type": "missing_bridge",
+        "target_claim": "all cats are mortal"
+      },
+      "requires_verifier_support": false,
+      "state_changed": false
+    },
+    {
+      "after_claims": [
+        "all cats are animals",
+        "all animals are mortal"
+      ],
+      "before_claims": [
+        "all cats are animals"
+      ],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "repair_resolved_patch",
+      "expected_patch_type": "repair_resolved",
+      "expected_requires_verifier_support": true,
+      "expected_state_changed": true,
+      "explanation": "Reasoning patch records a typed state transition without treating candidate text as proof.",
+      "passed": true,
+      "patch_id": "patch__repair_resolved_patch",
+      "patch_type": "repair_resolved",
+      "payload": {
+        "resolved_by": [
+          "all animals are mortal"
+        ],
+        "target_claim": "all cats are mortal"
+      },
+      "requires_verifier_support": true,
+      "state_changed": true
+    },
+    {
+      "after_claims": [
+        "all birds fly"
+      ],
+      "before_claims": [
+        "all birds fly"
+      ],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "world_branched_patch",
+      "expected_patch_type": "world_branched",
+      "expected_requires_verifier_support": false,
+      "expected_state_changed": false,
+      "explanation": "Reasoning patch records a typed state transition without treating candidate text as proof.",
+      "passed": true,
+      "patch_id": "patch__world_branched_patch",
+      "patch_type": "world_branched",
+      "payload": {
+        "incoming_claim": "some birds do not fly",
+        "parent_world_id": "main",
+        "world_id": "main__branch__birds"
+      },
+      "requires_verifier_support": false,
+      "state_changed": false
+    },
+    {
+      "after_claims": [
+        "all fish are animals"
+      ],
+      "before_claims": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "knowledge_pack_import_patch",
+      "expected_patch_type": "pack_imported",
+      "expected_requires_verifier_support": false,
+      "expected_state_changed": true,
+      "explanation": "Reasoning patch records a typed state transition without treating candidate text as proof.",
+      "passed": true,
+      "patch_id": "patch__knowledge_pack_import_patch",
+      "patch_type": "pack_imported",
+      "payload": {
+        "accepted_claim_count": 1,
+        "pack_schema_version": "1.0",
+        "quarantined_claim_count": 0
+      },
+      "requires_verifier_support": false,
+      "state_changed": true
+    }
+  ]
+}
