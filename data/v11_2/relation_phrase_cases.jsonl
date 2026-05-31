@@ -1,0 +1,12 @@
+{"case_id":"v11_2_belongs_to","surface":"fish belongs to animals","expected_canonical":"all fish are animals","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_belong_to","surface":"fish belong to animals","expected_canonical":"all fish are animals","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_kind_of","surface":"salmon is a kind of fish","expected_canonical":"all salmon are fish","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_type_of","surface":"candidate data is a type of untrusted material","expected_canonical":"all candidate data are untrusted material","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_counts_as","surface":"generated text counts as candidate data","expected_canonical":"all generated text are candidate data","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_count_as","surface":"generated outputs count as candidate data","expected_canonical":"all generated outputs are candidate data","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_implies","surface":"typed support implies proof authority","expected_canonical":"all typed support are proof authority","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_supports","surface":"typed support supports accepted proof","expected_canonical":"all typed support are accepted proof","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_requires","surface":"accepted proof requires typed support","expected_canonical":"all accepted proof are typed support","expected_status":"parsed","expected_quantifier":"all"}
+{"case_id":"v11_2_cannot_be","surface":"model confidence cannot be proof","expected_canonical":"no model confidence are proof","expected_status":"parsed","expected_quantifier":"no"}
+{"case_id":"v11_2_can_not_be","surface":"generated text can not be proof","expected_canonical":"no generated text are proof","expected_status":"parsed","expected_quantifier":"no"}
+{"case_id":"v11_2_excludes","surface":"candidate data excludes proof","expected_canonical":"no candidate data are proof","expected_status":"parsed","expected_quantifier":"no"}

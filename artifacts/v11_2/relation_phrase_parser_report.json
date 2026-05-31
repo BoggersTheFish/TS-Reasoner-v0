@@ -1,0 +1,166 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "behavior_case_count": 4,
+  "behavior_results": [
+    {
+      "name": "relation_transitive_accept",
+      "observed_channel": "transitive_all",
+      "observed_reason": null,
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "name": "relation_negative_accept",
+      "observed_channel": "direct_support",
+      "observed_reason": null,
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "name": "relation_reverse_reject",
+      "observed_channel": null,
+      "observed_reason": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "name": "relation_unsupported_abstain",
+      "observed_channel": null,
+      "observed_reason": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    }
+  ],
+  "candidate_graph_contamination_count": 0,
+  "canonical_claim_validity": 1.0,
+  "case_count": 12,
+  "negative_relation_parse_accuracy": 1.0,
+  "quantifier_accuracy": 1.0,
+  "relation_behavior_accuracy": 1.0,
+  "relation_phrase_parse_accuracy": 1.0,
+  "release": "v11.2.0",
+  "results": [
+    {
+      "case_id": "v11_2_belongs_to",
+      "expected_canonical": "all fish are animals",
+      "normalizer_canonical": "all fish are animals",
+      "observed_canonical": "all fish are animals",
+      "observed_quantifier": "all",
+      "observed_relation": "belongs_to",
+      "passed": true,
+      "surface": "fish belongs to animals"
+    },
+    {
+      "case_id": "v11_2_belong_to",
+      "expected_canonical": "all fish are animals",
+      "normalizer_canonical": "all fish are animals",
+      "observed_canonical": "all fish are animals",
+      "observed_quantifier": "all",
+      "observed_relation": "belong_to",
+      "passed": true,
+      "surface": "fish belong to animals"
+    },
+    {
+      "case_id": "v11_2_kind_of",
+      "expected_canonical": "all salmon are fish",
+      "normalizer_canonical": "all salmon are fish",
+      "observed_canonical": "all salmon are fish",
+      "observed_quantifier": "all",
+      "observed_relation": "kind_of",
+      "passed": true,
+      "surface": "salmon is a kind of fish"
+    },
+    {
+      "case_id": "v11_2_type_of",
+      "expected_canonical": "all candidate data are untrusted material",
+      "normalizer_canonical": "all candidate data are untrusted material",
+      "observed_canonical": "all candidate data are untrusted material",
+      "observed_quantifier": "all",
+      "observed_relation": "type_of",
+      "passed": true,
+      "surface": "candidate data is a type of untrusted material"
+    },
+    {
+      "case_id": "v11_2_counts_as",
+      "expected_canonical": "all generated text are candidate data",
+      "normalizer_canonical": "all generated text are candidate data",
+      "observed_canonical": "all generated text are candidate data",
+      "observed_quantifier": "all",
+      "observed_relation": "counts_as",
+      "passed": true,
+      "surface": "generated text counts as candidate data"
+    },
+    {
+      "case_id": "v11_2_count_as",
+      "expected_canonical": "all generated outputs are candidate data",
+      "normalizer_canonical": "all generated outputs are candidate data",
+      "observed_canonical": "all generated outputs are candidate data",
+      "observed_quantifier": "all",
+      "observed_relation": "count_as",
+      "passed": true,
+      "surface": "generated outputs count as candidate data"
+    },
+    {
+      "case_id": "v11_2_implies",
+      "expected_canonical": "all typed support are proof authority",
+      "normalizer_canonical": "all typed support are proof authority",
+      "observed_canonical": "all typed support are proof authority",
+      "observed_quantifier": "all",
+      "observed_relation": "implies",
+      "passed": true,
+      "surface": "typed support implies proof authority"
+    },
+    {
+      "case_id": "v11_2_supports",
+      "expected_canonical": "all typed support are accepted proof",
+      "normalizer_canonical": "all typed support are accepted proof",
+      "observed_canonical": "all typed support are accepted proof",
+      "observed_quantifier": "all",
+      "observed_relation": "supports",
+      "passed": true,
+      "surface": "typed support supports accepted proof"
+    },
+    {
+      "case_id": "v11_2_requires",
+      "expected_canonical": "all accepted proof are typed support",
+      "normalizer_canonical": "all accepted proof are typed support",
+      "observed_canonical": "all accepted proof are typed support",
+      "observed_quantifier": "all",
+      "observed_relation": "requires",
+      "passed": true,
+      "surface": "accepted proof requires typed support"
+    },
+    {
+      "case_id": "v11_2_cannot_be",
+      "expected_canonical": "no model confidence are proof",
+      "normalizer_canonical": "no model confidence are proof",
+      "observed_canonical": "no model confidence are proof",
+      "observed_quantifier": "no",
+      "observed_relation": "cannot_be",
+      "passed": true,
+      "surface": "model confidence cannot be proof"
+    },
+    {
+      "case_id": "v11_2_can_not_be",
+      "expected_canonical": "no generated text are proof",
+      "normalizer_canonical": "no generated text are proof",
+      "observed_canonical": "no generated text are proof",
+      "observed_quantifier": "no",
+      "observed_relation": "can_not_be",
+      "passed": true,
+      "surface": "generated text can not be proof"
+    },
+    {
+      "case_id": "v11_2_excludes",
+      "expected_canonical": "no candidate data are proof",
+      "normalizer_canonical": "no candidate data are proof",
+      "observed_canonical": "no candidate data are proof",
+      "observed_quantifier": "no",
+      "observed_relation": "excludes",
+      "passed": true,
+      "surface": "candidate data excludes proof"
+    }
+  ],
+  "wrong_accept_count": 0
+}
