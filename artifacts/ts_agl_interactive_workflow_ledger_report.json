@@ -1,0 +1,16 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_interactive_workflow_ledger_report",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_execution_succeeded": true,
+  "confirmed_mutation_count": 1,
+  "event_count": 4,
+  "executed_count": 1,
+  "external_llm_used": false,
+  "missing_confirmation_blocked": true,
+  "staged_action_id": "action_345a576e586e",
+  "write_path": "artifacts/ts_agl_interactive_workflow_marker.json",
+  "write_path_exists": true,
+  "wrong_confirmation_blocked": true,
+  "wrong_unconfirmed_mutation_count": 0
+}

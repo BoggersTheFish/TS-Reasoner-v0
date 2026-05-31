@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v14.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v14.0.0)
+[![Release](https://img.shields.io/badge/release-v15.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v15.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,16 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v14.0.0 — TS-AGL Safe Write Arena
+Current release: v15.0.0 — TS-AGL Interactive Workflow Ledger
 
 
-The v14.0 release extends TS-AGL from read-only cross-domain routing into a bounded safe-write arena: a reversible filesystem write is staged, blocked without confirmation, executed with explicit confirmation, and recorded through typed `LanguageMove`, `TSCall`, `ResultPacket`, and receipt objects. Language remains an operation interface, not proof authority.
+The v15.0 release extends TS-AGL from single-step confirmed action into a bounded interactive workflow ledger: reversible actions can be staged as pending, blocked without the correct confirmation token, executed after confirmation, and recorded as replayable workflow events. Language remains an operation interface, not proof authority.
 
 Release assets:
 
+ts_agl_interactive_workflow_ledger_report.json
+ts_agl_interactive_workflow_ledger_receipt.json
+ts_agl_interactive_workflow_marker.json
 ts_agl_safe_write_arena_report.json
 ts_agl_safe_write_arena_receipt.json
 ts_agl_safe_write_marker.json

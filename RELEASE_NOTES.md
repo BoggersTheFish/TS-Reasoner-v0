@@ -1,3 +1,28 @@
+## v15.0.0: TS-AGL Interactive Workflow Ledger
+
+v15.0.0 adds a bounded interactive workflow ledger for TS-AGL. The system now stages a reversible action as pending, blocks missing confirmation, blocks wrong confirmation, executes only with the correct confirmation token, and records the full workflow event ledger in report/receipt artifacts.
+
+Artifacts:
+
+- `ts_agl/workflow/ledger.py`
+- `ts_agl/arena/interactive_workflow_arena.py`
+- `scripts/run_ts_agl_interactive_workflow_arena.py`
+- `scripts/evaluate_ts_agl_interactive_workflow_ledger.py`
+- `tests/test_ts_agl_workflow_ledger.py`
+- `docs/ts_agl_interactive_workflow_ledger.md`
+- `artifacts/ts_agl_interactive_workflow_ledger_report.json`
+- `artifacts/ts_agl_interactive_workflow_ledger_receipt.json`
+- `artifacts/ts_agl_interactive_workflow_marker.json`
+
+Boundary:
+
+- This is a bounded workflow ledger, not broad autonomous agency.
+- No external LLM is used.
+- Missing or wrong confirmation is blocked.
+- Confirmed execution is traceable.
+- The language layer is not proof authority.
+- Candidate graph contamination remains zero.
+
 ## v14.0.0: TS-AGL Safe Write Arena
 
 v14.0.0 adds the TS-AGL Safe Write Arena. The system now stages a reversible filesystem write through the same `LanguageMove -> TSCall -> risk gate -> ResultPacket -> receipt` surface, blocks it without confirmation, executes it with explicit confirmation, and records the boundary in report/receipt artifacts.
