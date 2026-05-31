@@ -1,0 +1,13 @@
+{
+  "accepted_common_ground_not_mutated_by_candidates": true,
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "generated_text_is_not_proof": true,
+  "kernel_routes_events_to_safe_actions": true,
+  "receipt_type": "verifier_first_runtime_kernel",
+  "release": "v9.0.0",
+  "runtime_kernel_accuracy": 1.0,
+  "typed_verifier_support_remains_proof_boundary": true
+}
