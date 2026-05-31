@@ -1,0 +1,2 @@
+{"case_id": "cli_replay_all_routes", "expected_actions": ["quarantine", "open_repair", "branch_world"], "expected_candidate_graph_contamination_count": 0, "expected_exit_code": 0, "session_path": "data/v9_3/runtime_replay_cli_session.json"}
+{"case_id": "cli_replay_bad_session", "expected_actions": [], "expected_candidate_graph_contamination_count": 0, "expected_exit_code": 2, "session_path": "data/v9_3/runtime_replay_cli_bad_session.json"}

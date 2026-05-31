@@ -1,0 +1,8 @@
+{
+  "case_id": "cli_replay_bad_session",
+  "events": [],
+  "expected_actions": [],
+  "expected_candidate_graph_contamination_count": 0,
+  "expected_exit_code": 2,
+  "initial_state": "not-a-state-object"
+}
