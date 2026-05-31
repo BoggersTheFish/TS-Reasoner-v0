@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v17.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v17.0.0)
+[![Release](https://img.shields.io/badge/release-v18.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v18.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,17 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v17.0.0 — TS-AGL Domain Pack Generator
+Current release: v18.0.0 — TS-AGL Trace-Mined Router Dataset
 
 
-The v17.0 release extends TS-AGL from validated domain packs into bounded domain-pack generation: structured teaching input can generate a valid domain manifest, enforce risk/confirmation rules, and prove example-router compatibility. Language remains an operation interface, not proof authority.
+The v18.0 release turns TS-AGL receipts and domain packs into reusable routing supervision: validated examples, arena traces, workflow traces, and hard negatives are compiled into a JSONL router dataset. Language remains an operation interface, not proof authority.
 
 Release assets:
 
+ts_agl_router_dataset.jsonl
+ts_agl_router_dataset_build_report.json
+ts_agl_router_dataset_report.json
+ts_agl_router_dataset_receipt.json
 ts_agl_domain_pack_generator_report.json
 ts_agl_domain_pack_generator_receipt.json
 research_notes.json
