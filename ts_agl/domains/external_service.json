@@ -1,0 +1,38 @@
+{
+  "description": "Dry-run external side-effect operations for TS-AGL safety testing.",
+  "domain": "external_service",
+  "edge_types": [
+    "sends_to",
+    "declares_effect",
+    "requires_confirmation"
+  ],
+  "failure_modes": [
+    "missing_confirmation",
+    "wrong_confirmation",
+    "network_disabled",
+    "external_side_effect_not_confirmed"
+  ],
+  "node_types": [
+    "external_service",
+    "notification",
+    "recipient",
+    "dry_run_effect"
+  ],
+  "operations": [
+    {
+      "description": "Stage and dry-run an external notification without performing a real network call.",
+      "examples": [
+        "send a dry run notification",
+        "stage an external side effect",
+        "notify the external service in dry run"
+      ],
+      "name": "send_notification_dry_run",
+      "required_inputs": [
+        "recipient",
+        "message"
+      ],
+      "requires_confirmation": true,
+      "risk": "external_side_effect"
+    }
+  ]
+}

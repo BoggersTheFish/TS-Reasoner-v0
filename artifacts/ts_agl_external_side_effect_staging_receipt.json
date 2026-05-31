@@ -1,0 +1,258 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_external_side_effect_staging_arena",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_execution_succeeded": true,
+  "confirmed_mutation_count": 0,
+  "confirmed_result": {
+    "data": {
+      "dry_run": true,
+      "external_side_effect_declared": true,
+      "language_layer_is_proof_authority": false,
+      "message": "TS-AGL external side-effect staging arena dry run.",
+      "network_call_performed": false,
+      "recipient": "dry-run-recipient",
+      "requires_confirmation": true,
+      "risk": "external_side_effect"
+    },
+    "error": null,
+    "mutated_state": false,
+    "operation": "send_notification_dry_run",
+    "result_id": "result_f9e6a3b0be70",
+    "status": "success",
+    "system": "external_service"
+  },
+  "dry_run": true,
+  "event_count": 4,
+  "executed_count": 1,
+  "external_llm_used": false,
+  "external_side_effect_declared": true,
+  "ledger": {
+    "event_count": 4,
+    "events": [
+      {
+        "action_id": "action_9b35b5001942",
+        "created_at": 1780271485.3855565,
+        "event_type": "stage",
+        "message": "Staged external_service.send_notification_dry_run with risk external_side_effect.",
+        "status": "pending"
+      },
+      {
+        "action_id": "action_9b35b5001942",
+        "created_at": 1780271485.3855736,
+        "event_type": "execute_blocked",
+        "message": "Execution blocked because confirmation token was missing or wrong.",
+        "status": "needs_confirmation"
+      },
+      {
+        "action_id": "action_9b35b5001942",
+        "created_at": 1780271485.3855882,
+        "event_type": "execute_blocked",
+        "message": "Execution blocked because confirmation token was missing or wrong.",
+        "status": "needs_confirmation"
+      },
+      {
+        "action_id": "action_9b35b5001942",
+        "created_at": 1780271485.3856096,
+        "event_type": "execute_confirmed",
+        "message": "Confirmed execution returned success.",
+        "status": "success"
+      }
+    ],
+    "executed_count": 1,
+    "failed_count": 0,
+    "pending_actions": {
+      "action_9b35b5001942": {
+        "action_id": "action_9b35b5001942",
+        "call": {
+          "args": {
+            "message": "TS-AGL external side-effect staging arena dry run.",
+            "recipient": "dry-run-recipient"
+          },
+          "call_id": "call_10f41b0d3d3b",
+          "missing_slots": [],
+          "operation": "send_notification_dry_run",
+          "requires_confirmation": true,
+          "risk": "external_side_effect",
+          "source_move": {
+            "confidence": 1.0,
+            "content": null,
+            "domain_hint": "external_service",
+            "move_type": "EXECUTE",
+            "operation_hint": "send_notification_dry_run",
+            "raw_text": "stage an external side effect dry run and wait for confirmation",
+            "slots": {
+              "message": "TS-AGL external side-effect staging arena dry run.",
+              "recipient": "dry-run-recipient"
+            },
+            "target": "external_service",
+            "unresolved_slots": []
+          },
+          "system": "external_service"
+        },
+        "confirmation_token": "confirm_ca3a6673ed68",
+        "created_at": 1780271485.3855538,
+        "executed_at": 1780271485.3856087,
+        "result": {
+          "data": {
+            "dry_run": true,
+            "external_side_effect_declared": true,
+            "language_layer_is_proof_authority": false,
+            "message": "TS-AGL external side-effect staging arena dry run.",
+            "network_call_performed": false,
+            "recipient": "dry-run-recipient",
+            "requires_confirmation": true,
+            "risk": "external_side_effect"
+          },
+          "error": null,
+          "mutated_state": false,
+          "operation": "send_notification_dry_run",
+          "result_id": "result_f9e6a3b0be70",
+          "status": "success",
+          "system": "external_service"
+        },
+        "status": "executed"
+      }
+    },
+    "pending_count": 0
+  },
+  "missing_confirmation_blocked": true,
+  "missing_confirmation_result": {
+    "data": {
+      "action_id": "action_9b35b5001942",
+      "confirmation_token_matched": false,
+      "confirmation_token_required": true,
+      "requires_confirmation": true,
+      "risk": "external_side_effect"
+    },
+    "error": null,
+    "mutated_state": false,
+    "operation": "send_notification_dry_run",
+    "result_id": "result_63c39b97d29d",
+    "status": "needs_confirmation",
+    "system": "external_service"
+  },
+  "network_call_performed": false,
+  "risk": "external_side_effect",
+  "staged_action_id": "action_9b35b5001942",
+  "trace": {
+    "all_gates_passed": true,
+    "calls": [
+      {
+        "args": {
+          "message": "TS-AGL external side-effect staging arena dry run.",
+          "recipient": "dry-run-recipient"
+        },
+        "call_id": "call_10f41b0d3d3b",
+        "missing_slots": [],
+        "operation": "send_notification_dry_run",
+        "requires_confirmation": true,
+        "risk": "external_side_effect",
+        "source_move": {
+          "confidence": 1.0,
+          "content": null,
+          "domain_hint": "external_service",
+          "move_type": "EXECUTE",
+          "operation_hint": "send_notification_dry_run",
+          "raw_text": "stage an external side effect dry run and wait for confirmation",
+          "slots": {
+            "message": "TS-AGL external side-effect staging arena dry run.",
+            "recipient": "dry-run-recipient"
+          },
+          "target": "external_service",
+          "unresolved_slots": []
+        },
+        "system": "external_service"
+      }
+    ],
+    "candidate_graph_contamination_count": 0,
+    "created_at": 1780271485.3856125,
+    "external_llm_used": false,
+    "moves": [
+      {
+        "confidence": 1.0,
+        "content": null,
+        "domain_hint": "external_service",
+        "move_type": "EXECUTE",
+        "operation_hint": "send_notification_dry_run",
+        "raw_text": "stage an external side effect dry run and wait for confirmation",
+        "slots": {
+          "message": "TS-AGL external side-effect staging arena dry run.",
+          "recipient": "dry-run-recipient"
+        },
+        "target": "external_service",
+        "unresolved_slots": []
+      }
+    ],
+    "raw_text": "stage an external side effect dry run and wait for confirmation",
+    "rendered_reply": "External side-effect staging arena blocked missing/wrong confirmation and executed only a confirmed dry-run external operation.",
+    "results": [
+      {
+        "data": {
+          "action_id": "action_9b35b5001942",
+          "confirmation_token_matched": false,
+          "confirmation_token_required": true,
+          "requires_confirmation": true,
+          "risk": "external_side_effect"
+        },
+        "error": null,
+        "mutated_state": false,
+        "operation": "send_notification_dry_run",
+        "result_id": "result_63c39b97d29d",
+        "status": "needs_confirmation",
+        "system": "external_service"
+      },
+      {
+        "data": {
+          "action_id": "action_9b35b5001942",
+          "confirmation_token_matched": false,
+          "confirmation_token_required": true,
+          "requires_confirmation": true,
+          "risk": "external_side_effect"
+        },
+        "error": null,
+        "mutated_state": false,
+        "operation": "send_notification_dry_run",
+        "result_id": "result_63c39b97d29d",
+        "status": "needs_confirmation",
+        "system": "external_service"
+      },
+      {
+        "data": {
+          "dry_run": true,
+          "external_side_effect_declared": true,
+          "language_layer_is_proof_authority": false,
+          "message": "TS-AGL external side-effect staging arena dry run.",
+          "network_call_performed": false,
+          "recipient": "dry-run-recipient",
+          "requires_confirmation": true,
+          "risk": "external_side_effect"
+        },
+        "error": null,
+        "mutated_state": false,
+        "operation": "send_notification_dry_run",
+        "result_id": "result_f9e6a3b0be70",
+        "status": "success",
+        "system": "external_service"
+      }
+    ],
+    "wrong_state_mutation_count": 0
+  },
+  "wrong_confirmation_blocked": true,
+  "wrong_confirmation_result": {
+    "data": {
+      "action_id": "action_9b35b5001942",
+      "confirmation_token_matched": false,
+      "confirmation_token_required": true,
+      "requires_confirmation": true,
+      "risk": "external_side_effect"
+    },
+    "error": null,
+    "mutated_state": false,
+    "operation": "send_notification_dry_run",
+    "result_id": "result_63c39b97d29d",
+    "status": "needs_confirmation",
+    "system": "external_service"
+  },
+  "wrong_unconfirmed_mutation_count": 0
+}
