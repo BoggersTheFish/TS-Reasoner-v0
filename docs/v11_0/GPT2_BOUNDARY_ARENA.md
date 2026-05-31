@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.9.0, Neural TS-Proposer Tiny
+Current release: v12.0.0, Verifier-Gated Proposer Stack
 
-This document is the required internal release-authority surface for v11.9.0.
-The current release title is Neural TS-Proposer Tiny.
+This document is the required internal release-authority surface for v12.0.0.
+The current release title is Verifier-Gated Proposer Stack.
 
 Boundary:
 - Generated text is not proof.

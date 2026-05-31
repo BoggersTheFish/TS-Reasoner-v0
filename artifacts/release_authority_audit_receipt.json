@@ -10,7 +10,7 @@
   "public_surface_overclaim_count": 0,
   "readme_current_release_matches_authority": true,
   "receipt_type": "canonical_release_authority",
-  "release": "v11.9.0",
+  "release": "v12.0.0",
   "release_receipts_required_for_public_claims": true,
   "typed_verifier_support_remains_proof_boundary": true
 }
