@@ -1,0 +1,14 @@
+{
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "generated_text_is_not_proof": true,
+  "knowledge_pack_contract_accuracy": 1.0,
+  "knowledge_pack_import_is_not_proof": true,
+  "receipt_type": "knowledge_pack_contracts",
+  "release": "v8.5.0",
+  "typed_verifier_support_remains_proof_boundary": true,
+  "unsupported_claims_not_promoted": true,
+  "unsupported_claims_promoted_count": 0
+}
