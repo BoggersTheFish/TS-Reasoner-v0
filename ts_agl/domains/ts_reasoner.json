@@ -1,0 +1,49 @@
+{
+  "domain": "ts_reasoner",
+  "description": "Verifier-first TS reasoning operations exposed to AGL.",
+  "node_types": ["claim", "candidate", "accepted_claim", "rejected_claim", "repair_target", "trace"],
+  "edge_types": ["supports", "contradicts", "derived_from", "rejected_because"],
+  "operations": [
+    {
+      "name": "check_support",
+      "description": "Check whether a claim has typed verifier support.",
+      "required_inputs": ["claim"],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["does that follow?", "can we prove A implies C?", "check support for this claim"]
+    },
+    {
+      "name": "explain_rejection",
+      "description": "Explain why a claim was rejected or not accepted.",
+      "required_inputs": ["claim_id"],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["why did you reject it?", "explain the rejection"]
+    },
+    {
+      "name": "summarize_session",
+      "description": "Summarise current bounded TS session state.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["what do we know so far?", "summarise the state"]
+    },
+    {
+      "name": "correct_candidate",
+      "description": "Record a correction as candidate language state.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["no, I meant B implies C", "not that one"]
+    },
+    {
+      "name": "route_unknown",
+      "description": "Safe abstention route when no confident operation exists.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["unmapped utterance"]
+    }
+  ],
+  "failure_modes": ["missing_claim", "unsupported_claim", "ambiguous_reference"]
+}
