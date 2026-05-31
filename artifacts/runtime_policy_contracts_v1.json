@@ -1,0 +1,104 @@
+{
+  "contracts": {
+    "abstain": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_receipt_keys": [
+        "action",
+        "accepted_common_ground_mutated_by_candidate",
+        "candidate_graph_contamination_count",
+        "typed_verifier_support_remains_proof_boundary"
+      ],
+      "required_state_keys": [
+        "accepted_claims"
+      ]
+    },
+    "branch_world": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_receipt_keys": [
+        "action",
+        "accepted_common_ground_mutated_by_candidate",
+        "candidate_graph_contamination_count",
+        "typed_verifier_support_remains_proof_boundary"
+      ],
+      "required_state_keys": [
+        "branch_worlds",
+        "patches"
+      ]
+    },
+    "checkpoint": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_checkpoint_keys": [
+        "schema",
+        "case_id",
+        "state",
+        "actions",
+        "ledger",
+        "head_hash"
+      ]
+    },
+    "open_repair": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_receipt_keys": [
+        "action",
+        "accepted_common_ground_mutated_by_candidate",
+        "candidate_graph_contamination_count",
+        "typed_verifier_support_remains_proof_boundary"
+      ],
+      "required_state_keys": [
+        "repair_targets",
+        "patches"
+      ]
+    },
+    "pack_checked": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_receipt_keys": [
+        "action",
+        "accepted_common_ground_mutated_by_candidate",
+        "candidate_graph_contamination_count",
+        "typed_verifier_support_remains_proof_boundary"
+      ],
+      "required_state_keys": [
+        "patches"
+      ]
+    },
+    "quarantine": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_receipt_keys": [
+        "action",
+        "accepted_common_ground_mutated_by_candidate",
+        "candidate_graph_contamination_count",
+        "typed_verifier_support_remains_proof_boundary"
+      ],
+      "required_state_keys": [
+        "quarantined_claims",
+        "patches"
+      ]
+    },
+    "quarantine_pack": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_receipt_keys": [
+        "action",
+        "accepted_common_ground_mutated_by_candidate",
+        "candidate_graph_contamination_count",
+        "typed_verifier_support_remains_proof_boundary"
+      ],
+      "required_state_keys": [
+        "quarantined_claims",
+        "patches"
+      ]
+    },
+    "restore": {
+      "candidate_may_mutate_accepted_common_ground": false,
+      "required_restore_keys": [
+        "restored_state"
+      ]
+    }
+  },
+  "proof_boundary": {
+    "candidate_generation_is_proof": false,
+    "generated_text_is_proof": false,
+    "model_confidence_is_proof": false,
+    "typed_verifier_support_remains_proof_boundary": true
+  },
+  "schema": "ts_reasoner_runtime_policy_contracts_v1"
+}

@@ -15,11 +15,11 @@
     "candidate_graph_contamination_count_zero": true,
     "docs_current_release_matches_authority": true,
     "no_stale_current_release_markers": true,
-    "previous_v8_0_receipt_visible": true,
+    "previous_release_visible": true,
     "public_surface_overclaim_count_zero": true,
     "readme_current_release_matches_authority": true
   },
-  "generated_at": "2026-05-31T12:53:22.869464+00:00",
+  "generated_at": "2026-05-31T19:49:36.669065+00:00",
   "optional_external_surfaces": [
     {
       "current_release_present": false,
@@ -42,14 +42,14 @@
       ]
     }
   ],
-  "previous_v8_0_metrics": {
-    "note": "v8.0.0 already exists as Local Verifier-First Reasoning OS; v8.0.2 is the canonical authority sync hotfix.",
-    "release": "v8.0.1",
+  "previous_release_metrics": {
+    "note": "Previous release is preserved as the immediate predecessor in the release authority file.",
+    "release": "v9.9.0",
     "status": "existing_public_release"
   },
-  "previous_verified_release": "v8.0.1",
+  "previous_verified_release": "v9.9.0",
   "public_surface_overclaim_count": 0,
-  "release": "v8.0.2",
+  "release": "v10.0.0",
   "stale_current_release_markers": [],
-  "title": "Canonical Release Authority Test Repair"
+  "title": "Verifier-First Reasoning OS"
 }

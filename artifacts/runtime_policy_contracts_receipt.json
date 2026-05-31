@@ -1,0 +1,14 @@
+{
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 5,
+  "generated_text_is_not_proof": true,
+  "invalid_or_missing_contract_fields_are_rejectable": true,
+  "policy_contract_schema": "ts_reasoner_runtime_policy_contracts_v1",
+  "receipt_type": "runtime_policy_contracts",
+  "release": "v9.8.0",
+  "runtime_actions_are_contract_defined": true,
+  "runtime_policy_contract_accuracy": 1.0,
+  "typed_verifier_support_remains_proof_boundary": true
+}

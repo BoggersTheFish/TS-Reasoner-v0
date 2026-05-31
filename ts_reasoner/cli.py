@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8", "v10"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8/v10.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -63,6 +63,11 @@ def main() -> int:
         "--curriculum",
         default="artifacts/self_curriculum/v7_2_demo/v7_2_demo_self_curriculum.jsonl",
         help="Self-curriculum JSONL path for run-curriculum.",
+    )
+    parser.add_argument(
+        "--runtime-session",
+        default="data/v10_0/runtime_os_session.json",
+        help="Runtime session JSON path for v10.",
     )
     args = parser.parse_args()
 
@@ -162,6 +167,14 @@ def main() -> int:
         receipt = run_v8_milestone(args.out_dir)
         print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
+
+    if args.command == "v10":
+        from .runtime_os_cli import load_json_arg, run_suite_payload
+
+        session = load_json_arg("@" + args.runtime_session)
+        exit_code, payload = run_suite_payload(session)
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return exit_code
 
     if not args.question:
         parser.error("--question is required unless using the milestone/firewall/chat command")

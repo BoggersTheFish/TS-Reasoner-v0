@@ -1,0 +1,72 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 5,
+  "contract_schema": "ts_reasoner_runtime_policy_contracts_v1",
+  "failed_cases": 0,
+  "passed_cases": 5,
+  "release": "v9.8.0",
+  "results": [
+    {
+      "action": "quarantine",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "policy_contract_quarantine",
+      "contract_valid": true,
+      "expected_action": "quarantine",
+      "expected_contract_valid": true,
+      "explanation": "Runtime action was checked against an explicit policy contract.",
+      "missing_receipt_keys": [],
+      "missing_state_keys": [],
+      "passed": true
+    },
+    {
+      "action": "open_repair",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "policy_contract_open_repair",
+      "contract_valid": true,
+      "expected_action": "open_repair",
+      "expected_contract_valid": true,
+      "explanation": "Runtime action was checked against an explicit policy contract.",
+      "missing_receipt_keys": [],
+      "missing_state_keys": [],
+      "passed": true
+    },
+    {
+      "action": "branch_world",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "policy_contract_branch_world",
+      "contract_valid": true,
+      "expected_action": "branch_world",
+      "expected_contract_valid": true,
+      "explanation": "Runtime action was checked against an explicit policy contract.",
+      "missing_receipt_keys": [],
+      "missing_state_keys": [],
+      "passed": true
+    },
+    {
+      "action": "quarantine_pack",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "policy_contract_quarantine_pack",
+      "contract_valid": true,
+      "expected_action": "quarantine_pack",
+      "expected_contract_valid": true,
+      "explanation": "Runtime action was checked against an explicit policy contract.",
+      "missing_receipt_keys": [],
+      "missing_state_keys": [],
+      "passed": true
+    },
+    {
+      "action": "pack_checked",
+      "candidate_graph_contamination_count": 0,
+      "case_id": "policy_contract_pack_checked",
+      "contract_valid": true,
+      "expected_action": "pack_checked",
+      "expected_contract_valid": true,
+      "explanation": "Runtime action was checked against an explicit policy contract.",
+      "missing_receipt_keys": [],
+      "missing_state_keys": [],
+      "passed": true
+    }
+  ],
+  "runtime_policy_contract_accuracy": 1.0
+}

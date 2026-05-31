@@ -1,0 +1,35 @@
+{
+  "case_id": "v10_cli_identity_repair_session",
+  "continuation_events": [
+    {
+      "claim": "some birds do not fly",
+      "event_type": "trusted_revision",
+      "source": "trusted_observation",
+      "trust": 0.9
+    }
+  ],
+  "events": [
+    {
+      "claim": "external llm was used",
+      "event_type": "claim",
+      "source": "hostile_candidate",
+      "trust": 0.2
+    },
+    {
+      "claim": "all cats are mortal",
+      "event_type": "claim",
+      "source": "generated_text",
+      "trust": 0.5
+    }
+  ],
+  "initial_state": {
+    "accepted_claims": [
+      "no external llm was used",
+      "all cats are animals"
+    ],
+    "branch_worlds": [],
+    "patches": [],
+    "quarantined_claims": [],
+    "repair_targets": []
+  }
+}

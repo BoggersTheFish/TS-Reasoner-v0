@@ -1,0 +1,763 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 2,
+  "failed_cases": 0,
+  "passed_cases": 2,
+  "release": "v10.0.0",
+  "results": [
+    {
+      "all_gates_passed": true,
+      "candidate_generation_is_not_proof": true,
+      "candidate_graph_contamination_count": 0,
+      "expected_actions": [
+        "quarantine",
+        "open_repair"
+      ],
+      "generated_text_is_not_proof": true,
+      "model_confidence_is_not_proof": true,
+      "passed": true,
+      "policy_contracts": {
+        "contracts": {
+          "abstain": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "accepted_claims"
+            ]
+          },
+          "branch_world": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "branch_worlds",
+              "patches"
+            ]
+          },
+          "checkpoint": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_checkpoint_keys": [
+              "schema",
+              "case_id",
+              "state",
+              "actions",
+              "ledger",
+              "head_hash"
+            ]
+          },
+          "open_repair": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "repair_targets",
+              "patches"
+            ]
+          },
+          "pack_checked": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "patches"
+            ]
+          },
+          "quarantine": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "quarantined_claims",
+              "patches"
+            ]
+          },
+          "quarantine_pack": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "quarantined_claims",
+              "patches"
+            ]
+          },
+          "restore": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_restore_keys": [
+              "restored_state"
+            ]
+          }
+        },
+        "proof_boundary": {
+          "candidate_generation_is_proof": false,
+          "generated_text_is_proof": false,
+          "model_confidence_is_proof": false,
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        "schema": "ts_reasoner_runtime_policy_contracts_v1"
+      },
+      "recovery": {
+        "base_actions": [
+          "quarantine",
+          "open_repair"
+        ],
+        "candidate_graph_contamination_count": 0,
+        "case_id": "v10_identity_repair_session__recovery",
+        "checkpoint_valid": true,
+        "continued_actions": [
+          "branch_world"
+        ],
+        "corrupt_checkpoint_rejected": true,
+        "explanation": "Recovery drill restores verified state, rejects corrupt state, and continues runtime processing.",
+        "final_state": {
+          "accepted_claims": [
+            "no external llm was used",
+            "all cats are animals"
+          ],
+          "branch_worlds": [
+            {
+              "auto_merge_allowed": false,
+              "branch_reason": "trusted_revision",
+              "claims": [
+                "some birds do not fly"
+              ],
+              "parent_world_id": "main",
+              "world_id": "main__kernel_branch__v10_identity_repair_session__recovery__continued__event_0"
+            }
+          ],
+          "patches": [
+            {
+              "claim": "external llm was used",
+              "patch_type": "claim_quarantined",
+              "reason": "hostile_or_identity_attack"
+            },
+            {
+              "patch_type": "repair_opened",
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            },
+            {
+              "branch_reason": "trusted_revision",
+              "incoming_claim": "some birds do not fly",
+              "patch_type": "world_branched"
+            }
+          ],
+          "quarantined_claims": [
+            "external llm was used"
+          ],
+          "repair_targets": [
+            {
+              "accepted_as_proof": false,
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ]
+        },
+        "missing_event_replay_diverged": true,
+        "reordered_ledger_rejected": true,
+        "restore_valid": true,
+        "restored_then_continued": true
+      },
+      "release": "v10.0.0",
+      "schema": "ts_reasoner_v10_runtime_session_v1",
+      "session": {
+        "actions": [
+          "quarantine",
+          "open_repair"
+        ],
+        "candidate_graph_contamination_count": 0,
+        "case_id": "v10_identity_repair_session",
+        "checkpoint": {
+          "actions": [
+            "quarantine",
+            "open_repair"
+          ],
+          "candidate_graph_contamination_count": 0,
+          "case_id": "v10_identity_repair_session",
+          "head_hash": "d03f849d535439999bdec69faeca9ad3607f1408611869c1d9b67ce450f498e6",
+          "ledger": [
+            {
+              "entry": {
+                "action": "quarantine",
+                "audit": {
+                  "accepted_claim_count": 2,
+                  "branch_world_count": 0,
+                  "candidate_graph_contamination_count": 0,
+                  "patch_count": 1,
+                  "quarantined_claim_count": 1,
+                  "repair_target_count": 0
+                },
+                "candidate_graph_contamination_count": 0,
+                "case_id": "v10_identity_repair_session__ledger_0",
+                "event": {
+                  "claim": "external llm was used",
+                  "event_type": "claim",
+                  "source": "hostile_candidate",
+                  "trust": 0.2
+                },
+                "index": 0,
+                "receipt": {
+                  "accepted_common_ground_mutated_by_candidate": false,
+                  "action": "quarantine",
+                  "candidate_graph_contamination_count": 0,
+                  "case_id": "v10_identity_repair_session__ledger_0",
+                  "typed_verifier_support_remains_proof_boundary": true
+                }
+              },
+              "entry_hash": "599cd808cd7f3ee515a4b34b51030eeb53c1208f3268788b501e64ab85f017e0",
+              "index": 0,
+              "previous_hash": "GENESIS"
+            },
+            {
+              "entry": {
+                "action": "open_repair",
+                "audit": {
+                  "accepted_claim_count": 2,
+                  "branch_world_count": 0,
+                  "candidate_graph_contamination_count": 0,
+                  "patch_count": 2,
+                  "quarantined_claim_count": 1,
+                  "repair_target_count": 1
+                },
+                "candidate_graph_contamination_count": 0,
+                "case_id": "v10_identity_repair_session__ledger_1",
+                "event": {
+                  "claim": "all cats are mortal",
+                  "event_type": "claim",
+                  "source": "generated_text",
+                  "trust": 0.5
+                },
+                "index": 1,
+                "receipt": {
+                  "accepted_common_ground_mutated_by_candidate": false,
+                  "action": "open_repair",
+                  "candidate_graph_contamination_count": 0,
+                  "case_id": "v10_identity_repair_session__ledger_1",
+                  "typed_verifier_support_remains_proof_boundary": true
+                }
+              },
+              "entry_hash": "d03f849d535439999bdec69faeca9ad3607f1408611869c1d9b67ce450f498e6",
+              "index": 1,
+              "previous_hash": "599cd808cd7f3ee515a4b34b51030eeb53c1208f3268788b501e64ab85f017e0"
+            }
+          ],
+          "schema": "ts_reasoner_runtime_checkpoint_v1",
+          "state": {
+            "accepted_claims": [
+              "no external llm was used",
+              "all cats are animals"
+            ],
+            "branch_worlds": [],
+            "patches": [
+              {
+                "claim": "external llm was used",
+                "patch_type": "claim_quarantined",
+                "reason": "hostile_or_identity_attack"
+              },
+              {
+                "patch_type": "repair_opened",
+                "repair_type": "missing_support",
+                "target_claim": "all cats are mortal"
+              }
+            ],
+            "quarantined_claims": [
+              "external llm was used"
+            ],
+            "repair_targets": [
+              {
+                "accepted_as_proof": false,
+                "repair_type": "missing_support",
+                "target_claim": "all cats are mortal"
+              }
+            ]
+          }
+        },
+        "explanation": "v10 packages replay, audit ledger, checkpoint, restore, contracts, and receipts into one runtime session.",
+        "final_state": {
+          "accepted_claims": [
+            "no external llm was used",
+            "all cats are animals"
+          ],
+          "branch_worlds": [],
+          "patches": [
+            {
+              "claim": "external llm was used",
+              "patch_type": "claim_quarantined",
+              "reason": "hostile_or_identity_attack"
+            },
+            {
+              "patch_type": "repair_opened",
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ],
+          "quarantined_claims": [
+            "external llm was used"
+          ],
+          "repair_targets": [
+            {
+              "accepted_as_proof": false,
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ]
+        },
+        "receipt": {
+          "candidate_generation_is_not_proof": true,
+          "candidate_graph_contamination_count": 0,
+          "case_id": "v10_identity_repair_session",
+          "checkpoint_restore_available": true,
+          "checkpoint_valid": true,
+          "generated_text_is_not_proof": true,
+          "model_confidence_is_not_proof": true,
+          "policy_contracts_available": true,
+          "release": "v10.0.0",
+          "restore_valid": true,
+          "runtime_replay_available": true,
+          "schema": "ts_reasoner_v10_runtime_session_v1",
+          "tamper_evident_ledger_available": true,
+          "typed_verifier_support_remains_proof_boundary": true,
+          "unified_runtime_session": true
+        },
+        "restored_state": {
+          "accepted_claims": [
+            "no external llm was used",
+            "all cats are animals"
+          ],
+          "branch_worlds": [],
+          "patches": [
+            {
+              "claim": "external llm was used",
+              "patch_type": "claim_quarantined",
+              "reason": "hostile_or_identity_attack"
+            },
+            {
+              "patch_type": "repair_opened",
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ],
+          "quarantined_claims": [
+            "external llm was used"
+          ],
+          "repair_targets": [
+            {
+              "accepted_as_proof": false,
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ]
+        },
+        "schema": "ts_reasoner_v10_runtime_session_v1"
+      },
+      "typed_verifier_support_remains_proof_boundary": true
+    },
+    {
+      "all_gates_passed": true,
+      "candidate_generation_is_not_proof": true,
+      "candidate_graph_contamination_count": 0,
+      "expected_actions": [
+        "branch_world",
+        "quarantine_pack"
+      ],
+      "generated_text_is_not_proof": true,
+      "model_confidence_is_not_proof": true,
+      "passed": true,
+      "policy_contracts": {
+        "contracts": {
+          "abstain": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "accepted_claims"
+            ]
+          },
+          "branch_world": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "branch_worlds",
+              "patches"
+            ]
+          },
+          "checkpoint": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_checkpoint_keys": [
+              "schema",
+              "case_id",
+              "state",
+              "actions",
+              "ledger",
+              "head_hash"
+            ]
+          },
+          "open_repair": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "repair_targets",
+              "patches"
+            ]
+          },
+          "pack_checked": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "patches"
+            ]
+          },
+          "quarantine": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "quarantined_claims",
+              "patches"
+            ]
+          },
+          "quarantine_pack": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_receipt_keys": [
+              "action",
+              "accepted_common_ground_mutated_by_candidate",
+              "candidate_graph_contamination_count",
+              "typed_verifier_support_remains_proof_boundary"
+            ],
+            "required_state_keys": [
+              "quarantined_claims",
+              "patches"
+            ]
+          },
+          "restore": {
+            "candidate_may_mutate_accepted_common_ground": false,
+            "required_restore_keys": [
+              "restored_state"
+            ]
+          }
+        },
+        "proof_boundary": {
+          "candidate_generation_is_proof": false,
+          "generated_text_is_proof": false,
+          "model_confidence_is_proof": false,
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        "schema": "ts_reasoner_runtime_policy_contracts_v1"
+      },
+      "recovery": {
+        "base_actions": [
+          "branch_world",
+          "quarantine_pack"
+        ],
+        "candidate_graph_contamination_count": 0,
+        "case_id": "v10_branch_pack_session__recovery",
+        "checkpoint_valid": true,
+        "continued_actions": [
+          "pack_checked"
+        ],
+        "corrupt_checkpoint_rejected": true,
+        "explanation": "Recovery drill restores verified state, rejects corrupt state, and continues runtime processing.",
+        "final_state": {
+          "accepted_claims": [
+            "all birds fly",
+            "all dogs are animals"
+          ],
+          "branch_worlds": [
+            {
+              "auto_merge_allowed": false,
+              "branch_reason": "trusted_revision",
+              "claims": [
+                "some birds do not fly"
+              ],
+              "parent_world_id": "main",
+              "world_id": "main__kernel_branch__v10_branch_pack_session__recovery__ledger_0"
+            }
+          ],
+          "patches": [
+            {
+              "branch_reason": "trusted_revision",
+              "incoming_claim": "some birds do not fly",
+              "patch_type": "world_branched"
+            },
+            {
+              "patch_type": "pack_quarantined",
+              "quarantined_claims": [
+                "all dogs are robots"
+              ]
+            },
+            {
+              "patch_type": "pack_checked"
+            }
+          ],
+          "quarantined_claims": [
+            "all dogs are robots"
+          ],
+          "repair_targets": []
+        },
+        "missing_event_replay_diverged": true,
+        "reordered_ledger_rejected": true,
+        "restore_valid": true,
+        "restored_then_continued": true
+      },
+      "release": "v10.0.0",
+      "schema": "ts_reasoner_v10_runtime_session_v1",
+      "session": {
+        "actions": [
+          "branch_world",
+          "quarantine_pack"
+        ],
+        "candidate_graph_contamination_count": 0,
+        "case_id": "v10_branch_pack_session",
+        "checkpoint": {
+          "actions": [
+            "branch_world",
+            "quarantine_pack"
+          ],
+          "candidate_graph_contamination_count": 0,
+          "case_id": "v10_branch_pack_session",
+          "head_hash": "35c6b28bc4a7b996fc9ad9fbe6d142b5ea73a96150b2ac039d6fc43f7c6ea8b9",
+          "ledger": [
+            {
+              "entry": {
+                "action": "branch_world",
+                "audit": {
+                  "accepted_claim_count": 2,
+                  "branch_world_count": 1,
+                  "candidate_graph_contamination_count": 0,
+                  "patch_count": 1,
+                  "quarantined_claim_count": 0,
+                  "repair_target_count": 0
+                },
+                "candidate_graph_contamination_count": 0,
+                "case_id": "v10_branch_pack_session__ledger_0",
+                "event": {
+                  "claim": "some birds do not fly",
+                  "event_type": "trusted_revision",
+                  "source": "trusted_observation",
+                  "trust": 0.9
+                },
+                "index": 0,
+                "receipt": {
+                  "accepted_common_ground_mutated_by_candidate": false,
+                  "action": "branch_world",
+                  "candidate_graph_contamination_count": 0,
+                  "case_id": "v10_branch_pack_session__ledger_0",
+                  "typed_verifier_support_remains_proof_boundary": true
+                }
+              },
+              "entry_hash": "7cce21a9a91c0110dd40a1bf20691e1dcb37f28182e60e157dcc326ed3d51426",
+              "index": 0,
+              "previous_hash": "GENESIS"
+            },
+            {
+              "entry": {
+                "action": "quarantine_pack",
+                "audit": {
+                  "accepted_claim_count": 2,
+                  "branch_world_count": 1,
+                  "candidate_graph_contamination_count": 0,
+                  "patch_count": 2,
+                  "quarantined_claim_count": 1,
+                  "repair_target_count": 0
+                },
+                "candidate_graph_contamination_count": 0,
+                "case_id": "v10_branch_pack_session__ledger_1",
+                "event": {
+                  "event_type": "knowledge_pack",
+                  "pack_schema_version": "bad",
+                  "source": "bad_pack",
+                  "unsupported_claims": [
+                    "all dogs are robots"
+                  ]
+                },
+                "index": 1,
+                "receipt": {
+                  "accepted_common_ground_mutated_by_candidate": false,
+                  "action": "quarantine_pack",
+                  "candidate_graph_contamination_count": 0,
+                  "case_id": "v10_branch_pack_session__ledger_1",
+                  "typed_verifier_support_remains_proof_boundary": true
+                }
+              },
+              "entry_hash": "35c6b28bc4a7b996fc9ad9fbe6d142b5ea73a96150b2ac039d6fc43f7c6ea8b9",
+              "index": 1,
+              "previous_hash": "7cce21a9a91c0110dd40a1bf20691e1dcb37f28182e60e157dcc326ed3d51426"
+            }
+          ],
+          "schema": "ts_reasoner_runtime_checkpoint_v1",
+          "state": {
+            "accepted_claims": [
+              "all birds fly",
+              "all dogs are animals"
+            ],
+            "branch_worlds": [
+              {
+                "auto_merge_allowed": false,
+                "branch_reason": "trusted_revision",
+                "claims": [
+                  "some birds do not fly"
+                ],
+                "parent_world_id": "main",
+                "world_id": "main__kernel_branch__v10_branch_pack_session__ledger_0"
+              }
+            ],
+            "patches": [
+              {
+                "branch_reason": "trusted_revision",
+                "incoming_claim": "some birds do not fly",
+                "patch_type": "world_branched"
+              },
+              {
+                "patch_type": "pack_quarantined",
+                "quarantined_claims": [
+                  "all dogs are robots"
+                ]
+              }
+            ],
+            "quarantined_claims": [
+              "all dogs are robots"
+            ],
+            "repair_targets": []
+          }
+        },
+        "explanation": "v10 packages replay, audit ledger, checkpoint, restore, contracts, and receipts into one runtime session.",
+        "final_state": {
+          "accepted_claims": [
+            "all birds fly",
+            "all dogs are animals"
+          ],
+          "branch_worlds": [
+            {
+              "auto_merge_allowed": false,
+              "branch_reason": "trusted_revision",
+              "claims": [
+                "some birds do not fly"
+              ],
+              "parent_world_id": "main",
+              "world_id": "main__kernel_branch__v10_branch_pack_session__event_0"
+            }
+          ],
+          "patches": [
+            {
+              "branch_reason": "trusted_revision",
+              "incoming_claim": "some birds do not fly",
+              "patch_type": "world_branched"
+            },
+            {
+              "patch_type": "pack_quarantined",
+              "quarantined_claims": [
+                "all dogs are robots"
+              ]
+            }
+          ],
+          "quarantined_claims": [
+            "all dogs are robots"
+          ],
+          "repair_targets": []
+        },
+        "receipt": {
+          "candidate_generation_is_not_proof": true,
+          "candidate_graph_contamination_count": 0,
+          "case_id": "v10_branch_pack_session",
+          "checkpoint_restore_available": true,
+          "checkpoint_valid": true,
+          "generated_text_is_not_proof": true,
+          "model_confidence_is_not_proof": true,
+          "policy_contracts_available": true,
+          "release": "v10.0.0",
+          "restore_valid": true,
+          "runtime_replay_available": true,
+          "schema": "ts_reasoner_v10_runtime_session_v1",
+          "tamper_evident_ledger_available": true,
+          "typed_verifier_support_remains_proof_boundary": true,
+          "unified_runtime_session": true
+        },
+        "restored_state": {
+          "accepted_claims": [
+            "all birds fly",
+            "all dogs are animals"
+          ],
+          "branch_worlds": [
+            {
+              "auto_merge_allowed": false,
+              "branch_reason": "trusted_revision",
+              "claims": [
+                "some birds do not fly"
+              ],
+              "parent_world_id": "main",
+              "world_id": "main__kernel_branch__v10_branch_pack_session__ledger_0"
+            }
+          ],
+          "patches": [
+            {
+              "branch_reason": "trusted_revision",
+              "incoming_claim": "some birds do not fly",
+              "patch_type": "world_branched"
+            },
+            {
+              "patch_type": "pack_quarantined",
+              "quarantined_claims": [
+                "all dogs are robots"
+              ]
+            }
+          ],
+          "quarantined_claims": [
+            "all dogs are robots"
+          ],
+          "repair_targets": []
+        },
+        "schema": "ts_reasoner_v10_runtime_session_v1"
+      },
+      "typed_verifier_support_remains_proof_boundary": true
+    }
+  ],
+  "runtime_os_accuracy": 1.0
+}

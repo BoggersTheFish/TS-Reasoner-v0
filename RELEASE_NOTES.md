@@ -1,3 +1,62 @@
+## v10.0.0: Verifier-First Reasoning OS
+
+v10.0.0 packages replay, policy contracts, tamper-evident audit ledger,
+checkpoint/restore, recovery drill, and receipt output into one bounded runtime
+session surface.
+
+Artifacts:
+
+- `ts_reasoner/runtime_os.py`
+- `ts_reasoner/runtime_os_cli.py`
+- `scripts/v10_0/evaluate_runtime_os.py`
+- `tests/test_v10_0_runtime_os.py`
+- `data/v10_0/runtime_os_cases.jsonl`
+- `data/v10_0/runtime_os_session.json`
+- `docs/v10_0/VERIFIER_FIRST_REASONING_OS.md`
+- `artifacts/runtime_os_report.json`
+- `artifacts/runtime_os_receipt.json`
+
+Boundary:
+
+- v10 is a verifier-first reasoning runtime, not a chatbot.
+- Runtime integrity is not claim truth.
+- Candidate generation is not proof.
+- Generated text is not proof.
+- Model confidence is not proof.
+- Typed verifier support remains proof authority.
+
+## v9.9.0: Runtime Recovery Drill
+
+v9.9.0 adds a recovery drill for corrupt checkpoint rejection, reordered ledger
+rejection, missing-event replay divergence, and restore-then-continue runtime
+processing.
+
+Artifacts:
+
+- `ts_reasoner/runtime_recovery_drill.py`
+- `scripts/v9_9/evaluate_runtime_recovery_drill.py`
+- `tests/test_v9_9_runtime_recovery_drill.py`
+- `data/v9_9/runtime_recovery_drill_cases.jsonl`
+- `docs/v9_9/RUNTIME_RECOVERY_DRILL.md`
+- `artifacts/runtime_recovery_drill_report.json`
+- `artifacts/runtime_recovery_drill_receipt.json`
+
+## v9.8.0: Runtime Policy Contracts
+
+v9.8.0 adds machine-readable runtime policy contracts for runtime actions,
+checkpoint, and restore.
+
+Artifacts:
+
+- `ts_reasoner/runtime_policy_contracts.py`
+- `scripts/v9_8/evaluate_runtime_policy_contracts.py`
+- `tests/test_v9_8_runtime_policy_contracts.py`
+- `data/v9_8/runtime_policy_contract_cases.jsonl`
+- `docs/v9_8/RUNTIME_POLICY_CONTRACTS.md`
+- `artifacts/runtime_policy_contracts_v1.json`
+- `artifacts/runtime_policy_contracts_report.json`
+- `artifacts/runtime_policy_contracts_receipt.json`
+
 ## v3.0.0: Verifier-Guided Candidate Model
 
 v3.0.0 is the first flagship TS-Reasoner model release.

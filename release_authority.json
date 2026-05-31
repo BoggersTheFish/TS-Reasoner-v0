@@ -1,13 +1,13 @@
 {
   "authority_files": [
     "release_authority.json",
-    "docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md",
+    "docs/v10_0/VERIFIER_FIRST_REASONING_OS.md",
     "scripts/v8_0/audit_release_authority.py",
     "scripts/v8_0/check_release_authority_sync.py",
     "artifacts/release_authority_audit_report.json",
     "artifacts/release_authority_audit_receipt.json"
   ],
-  "claim": "TS-Reasoner repairs the Canonical Release Authority test contract after v8.0.1 shipped with the authority title changed but one unit test still expecting the previous title.",
+  "claim": "TS-Reasoner v10.0.0 packages the verifier-first runtime line into a unified auditable runtime surface with policy contracts, recovery drill, replay, ledger, checkpoint, restore, and receipts.",
   "forbidden_claims": [
     "AGI",
     "general intelligence",
@@ -27,7 +27,7 @@
       "path": "../boggersthefish-site/src/content/projects.ts"
     }
   ],
-  "previous_verified_release": "v8.0.1",
+  "previous_verified_release": "v9.9.0",
   "proof_boundary": {
     "candidate_generation_is_proof": false,
     "generated_text_is_proof": false,
@@ -35,20 +35,20 @@
     "release_receipts_are_required_for_public_claims": true,
     "typed_verifier_support_remains_proof_boundary": true
   },
-  "release": "v8.0.2",
+  "release": "v10.0.0",
   "required_gates": [
     "authority_json_valid",
     "readme_current_release_matches_authority",
     "docs_current_release_matches_authority",
-    "previous_v6_9_receipt_visible",
+    "previous_release_visible",
     "public_surface_overclaim_count_zero",
     "candidate_graph_contamination_count_zero"
   ],
   "required_internal_surfaces": [
     "README.md",
     "release_authority.json",
-    "docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md"
+    "docs/v10_0/VERIFIER_FIRST_REASONING_OS.md"
   ],
   "schema_version": "1.0",
-  "title": "Canonical Release Authority Test Repair"
+  "title": "Verifier-First Reasoning OS"
 }

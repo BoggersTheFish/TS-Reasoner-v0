@@ -1,0 +1,15 @@
+{
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 2,
+  "corrupt_checkpoint_rejected": true,
+  "generated_text_is_not_proof": true,
+  "missing_event_replay_diverges": true,
+  "receipt_type": "runtime_recovery_drill",
+  "release": "v9.9.0",
+  "reordered_ledger_rejected": true,
+  "restore_then_continue_supported": true,
+  "runtime_recovery_drill_accuracy": 1.0,
+  "typed_verifier_support_remains_proof_boundary": true
+}

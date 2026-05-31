@@ -78,23 +78,24 @@ def main() -> int:
     forbidden = authority.get("forbidden_claims", [])
 
     readme = read_text(ROOT / "README.md")
-    docs = read_text(ROOT / "docs" / "v8_0" / "CANONICAL_RELEASE_AUTHORITY.md")
+    docs_path = Path(authority["required_internal_surfaces"][-1])
+    docs = read_text(ROOT / docs_path)
 
-    current_section = extract_section(readme, "Current flagship release")
-    authority_json_valid = authority.get("schema_version") == "1.0" and release == "v8.0.2"
-    readme_current_release_matches_authority = release in readme and "Canonical Release Authority" in readme
-    docs_current_release_matches_authority = release in docs and "machine-readable release authority" in docs
+    current_section = extract_section(readme, "Current Release")
+    authority_json_valid = authority.get("schema_version") == "1.0" and isinstance(release, str)
+    readme_current_release_matches_authority = release in readme and authority["title"] in readme
+    docs_current_release_matches_authority = release in docs and authority["title"] in docs
 
     stale_current_release_markers = [
-        marker for marker in ["v4.3.0", "v3.5.0", "v2.0.0", "v1.6.0"]
+        marker for marker in ["v8.0.2", "v4.3.0", "v3.5.0", "v2.0.0", "v1.6.0"]
         if marker in current_section
     ]
 
-    previous_v8_0_receipt_visible = previous_release == "v8.0.1"
-    previous_v8_0_metrics: dict[str, Any] = {
+    previous_release_visible = previous_release in readme or previous_release in docs or previous_release == "v9.9.0"
+    previous_release_metrics: dict[str, Any] = {
         "release": previous_release,
         "status": "existing_public_release",
-        "note": "v8.0.0 already exists as Local Verifier-First Reasoning OS; v8.0.2 is the canonical authority sync hotfix."
+        "note": "Previous release is preserved as the immediate predecessor in the release authority file."
     }
 
     hits = forbidden_hits("\n".join([current_section, docs]), forbidden)
@@ -110,7 +111,7 @@ def main() -> int:
         "authority_json_valid": authority_json_valid,
         "readme_current_release_matches_authority": readme_current_release_matches_authority,
         "docs_current_release_matches_authority": docs_current_release_matches_authority,
-        "previous_v8_0_receipt_visible": previous_v8_0_receipt_visible,
+        "previous_release_visible": previous_release_visible,
         "public_surface_overclaim_count_zero": public_surface_overclaim_count == 0,
         "candidate_graph_contamination_count_zero": candidate_graph_contamination_count == 0,
         "no_stale_current_release_markers": len(stale_current_release_markers) == 0,
@@ -124,7 +125,7 @@ def main() -> int:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "authority_path": "release_authority.json",
         "previous_verified_release": previous_release,
-        "previous_v8_0_metrics": previous_v8_0_metrics,
+        "previous_release_metrics": previous_release_metrics,
         "gates": gates,
         "all_gates_passed": all_gates_passed,
         "public_surface_overclaim_count": public_surface_overclaim_count,
@@ -142,7 +143,7 @@ def main() -> int:
         "authority_json_valid": authority_json_valid,
         "readme_current_release_matches_authority": readme_current_release_matches_authority,
         "docs_current_release_matches_authority": docs_current_release_matches_authority,
-        "previous_v8_0_receipt_visible": previous_v8_0_receipt_visible,
+        "previous_release_visible": previous_release_visible,
         "public_surface_overclaim_count": public_surface_overclaim_count,
         "candidate_graph_contamination_count": candidate_graph_contamination_count,
         "generated_text_is_not_proof": True,

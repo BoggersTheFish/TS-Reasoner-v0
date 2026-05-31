@@ -2,7 +2,31 @@
 TS-Reasoner Release Ladder
 
 This document summarizes the public TS-Reasoner ladder from exported candidate
-ingestion to learned candidate adversarial stress.
+ingestion to the v10 verifier-first reasoning runtime.
+
+## v10.0.0: Verifier-First Reasoning OS
+
+v10.0.0 packages replay, runtime policy contracts, append-only ledger,
+tamper-evident hash chain, checkpoint/restore, recovery drill, and receipt
+output into one bounded runtime session surface.
+
+Boundary preserved:
+
+- runtime integrity is not claim truth;
+- generated text is not proof;
+- candidate generation is not proof;
+- model confidence is not proof;
+- typed verifier support remains proof authority.
+
+## v9.9.0: Runtime Recovery Drill
+
+v9.9.0 adds corrupt checkpoint rejection, reordered ledger rejection,
+missing-event replay divergence, and restore-then-continue processing.
+
+## v9.8.0: Runtime Policy Contracts
+
+v9.8.0 adds machine-readable runtime policy contracts for runtime actions,
+checkpoint, and restore.
 
 v1.5.0: Real Exported TensionLM Sample
 
@@ -230,4 +254,3 @@ Boundary preserved:
 - confidence is metadata/baseline only;
 - no TensionLM runtime;
 - no broad NLP or general theorem-proving claim.
-
