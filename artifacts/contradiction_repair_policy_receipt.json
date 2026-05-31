@@ -1,0 +1,13 @@
+{
+  "accepted_claims_preserved": true,
+  "all_gates_passed": true,
+  "candidate_generation_is_not_proof": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "generated_text_is_not_proof": true,
+  "model_confidence_is_not_proof": true,
+  "policy_accuracy": 1.0,
+  "receipt_type": "contradiction_repair_policy",
+  "release": "v8.1.0",
+  "typed_verifier_support_remains_proof_boundary": true
+}
