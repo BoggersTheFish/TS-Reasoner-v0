@@ -27,7 +27,7 @@
       "path": "../boggersthefish-site/src/content/projects.ts"
     }
   ],
-  "previous_verified_release": "v11.6.0",
+  "previous_verified_release": "v11.7.0",
   "proof_boundary": {
     "candidate_generation_is_proof": false,
     "generated_text_is_proof": false,
@@ -35,7 +35,7 @@
     "release_receipts_are_required_for_public_claims": true,
     "typed_verifier_support_remains_proof_boundary": true
   },
-  "release": "v11.7.0",
+  "release": "v11.8.0",
   "required_gates": [
     "authority_json_valid",
     "readme_current_release_matches_authority",
@@ -50,5 +50,5 @@
     "docs/v11_0/GPT2_BOUNDARY_ARENA.md"
   ],
   "schema_version": "1.0",
-  "title": "Verifier Trace Training Dataset"
+  "title": "TS-Proposer-Mini Baseline"
 }

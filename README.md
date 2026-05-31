@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v11.7.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.7.0)
+[![Release](https://img.shields.io/badge/release-v11.8.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.8.0)
 
 TS-Reasoner is a verifier-first reasoning runtime.
 
@@ -33,7 +33,7 @@ candidate event
 
 ## Current Release
 
-Current release: v11.7.0, Verifier Trace Training Dataset
+Current release: v11.8.0, TS-Proposer-Mini Baseline
 
 v11.0.0 provides a reproducible verifier-first arena comparing TS-Reasoner
 against GPT-2-small on controlled reasoning tasks. GPT-2-small is treated as a
@@ -61,6 +61,8 @@ v11.5.0 adds deterministic adversarial fuzzing over procedural verifier-first re
 v11.6.0 adds an optional live GPT-2-small adapter for controlled verifier-first boundary comparison while keeping the default repo lightweight and CI-safe.
 
 v11.7.0 creates verifier-labelled JSONL training data for future proposer models. Labels replay through typed verifier traces, not model confidence or generated text.
+
+v11.8.0 adds TS-Proposer-Mini, a tiny stdlib trained proposer baseline over verifier-labelled traces. Proposed labels are routed through the typed verifier gate so proposer output remains non-proof.
 
 ## What This Is
 
@@ -160,6 +162,7 @@ python3 -m unittest discover -q
 | v11.5.0 | Adversarial claim fuzzer | Deterministic hostile mutations stress verifier-first safety gates |
 | v11.6.0 | Live GPT-2-small adapter | Optional live GPT-2 baseline for controlled verifier-first comparison |
 | v11.7.0 | Verifier trace training dataset | Train/valid/test JSONL labels replay through typed verifier traces |
+| v11.8.0 | TS-Proposer-Mini baseline | Tiny trained proposer over verifier-labelled traces with verifier-gated outputs |
 | v10.6.0 | Typed support objects | Fake support strings stop counting as proof |
 | v10.7.0 | Support path verifier | Bounded premise graphs create typed verifier traces |
 | v10.8.0 | GPT-2 boundary task format | The battlefield is frozen before comparison |

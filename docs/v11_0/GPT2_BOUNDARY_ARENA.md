@@ -35,13 +35,13 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.7.0, Verifier Trace Training Dataset
+Current release: v11.8.0, TS-Proposer-Mini Baseline
 
-This document is the required internal release-authority surface for v11.7.0.
-The current release title is Verifier Trace Training Dataset.
+This document is the required internal release-authority surface for v11.8.0.
+The current release title is TS-Proposer-Mini Baseline.
 
 Boundary:
 - Generated text is not proof.
-- Model confidence is not proof.
+- Model/proposer confidence is not proof.
 - Candidate generation is not proof.
 - Typed verifier support remains the proof boundary.
