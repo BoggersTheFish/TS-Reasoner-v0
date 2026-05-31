@@ -1,0 +1,10 @@
+{
+  "dim": 2048,
+  "hidden": 32,
+  "epochs": 4,
+  "learning_rate": 0.035,
+  "seed": 119,
+  "train_limit": 1800,
+  "valid_limit": 300,
+  "test_limit": 300
+}

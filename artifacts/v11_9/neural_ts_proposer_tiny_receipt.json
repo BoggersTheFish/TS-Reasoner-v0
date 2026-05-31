@@ -1,0 +1,20 @@
+{
+  "all_gates_passed": true,
+  "answer_loss_decreased": true,
+  "claim": "Neural TS-Proposer Tiny is a pure-stdlib neural proposer over verifier-labelled traces; verifier gating preserves zero wrong accepts.",
+  "receipt_type": "v11_9_neural_ts_proposer_tiny_receipt",
+  "release": "v11.9.0",
+  "status_loss_decreased": true,
+  "test_accepted_without_typed_support_count": 0,
+  "test_answer_accuracy": 0.99,
+  "test_channel_accuracy": 0.99,
+  "test_gated_answer_accuracy": 0.9933333333333333,
+  "test_gated_wrong_accept_count": 0,
+  "test_raw_wrong_yes_count": 1,
+  "test_status_accuracy": 0.98,
+  "test_verifier_gate_blocked_wrong_yes_count": 1,
+  "train_row_count": 1800,
+  "valid_answer_accuracy": 0.9833333333333333,
+  "valid_channel_accuracy": 0.97,
+  "valid_status_accuracy": 0.9766666666666667
+}
