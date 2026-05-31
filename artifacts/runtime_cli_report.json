@@ -1,0 +1,186 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "failed_cases": 0,
+  "passed_cases": 4,
+  "release": "v9.1.0",
+  "results": [
+    {
+      "actual_action": "quarantine",
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_exit_code": 0,
+      "case_id": "cli_hostile_identity",
+      "expected_action": "quarantine",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "payload": {
+        "action": "quarantine",
+        "audit": {
+          "accepted_claim_count": 1,
+          "branch_world_count": 0,
+          "candidate_graph_contamination_count": 0,
+          "patch_count": 1,
+          "quarantined_claim_count": 1,
+          "repair_target_count": 0
+        },
+        "candidate_graph_contamination_count": 0,
+        "case_id": "cli_hostile_identity",
+        "explanation": "Hostile or identity-level claim was quarantined.",
+        "receipt": {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "quarantine",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "cli_hostile_identity",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        "state": {
+          "accepted_claims": [
+            "no external llm was used"
+          ],
+          "branch_worlds": [],
+          "patches": [
+            {
+              "claim": "external llm was used",
+              "patch_type": "claim_quarantined",
+              "reason": "hostile_or_identity_attack"
+            }
+          ],
+          "quarantined_claims": [
+            "external llm was used"
+          ],
+          "repair_targets": []
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "actual_action": "open_repair",
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_exit_code": 0,
+      "case_id": "cli_missing_bridge",
+      "expected_action": "open_repair",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "payload": {
+        "action": "open_repair",
+        "audit": {
+          "accepted_claim_count": 1,
+          "branch_world_count": 0,
+          "candidate_graph_contamination_count": 0,
+          "patch_count": 1,
+          "quarantined_claim_count": 0,
+          "repair_target_count": 1
+        },
+        "candidate_graph_contamination_count": 0,
+        "case_id": "cli_missing_bridge",
+        "explanation": "Unsupported claim opened repair instead of entering accepted common ground.",
+        "receipt": {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "open_repair",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "cli_missing_bridge",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        "state": {
+          "accepted_claims": [
+            "all cats are animals"
+          ],
+          "branch_worlds": [],
+          "patches": [
+            {
+              "patch_type": "repair_opened",
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ],
+          "quarantined_claims": [],
+          "repair_targets": [
+            {
+              "accepted_as_proof": false,
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ]
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "actual_action": "branch_world",
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_exit_code": 0,
+      "case_id": "cli_trusted_revision",
+      "expected_action": "branch_world",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "payload": {
+        "action": "branch_world",
+        "audit": {
+          "accepted_claim_count": 1,
+          "branch_world_count": 1,
+          "candidate_graph_contamination_count": 0,
+          "patch_count": 1,
+          "quarantined_claim_count": 0,
+          "repair_target_count": 0
+        },
+        "candidate_graph_contamination_count": 0,
+        "case_id": "cli_trusted_revision",
+        "explanation": "Trusted revision was isolated into a branch world.",
+        "receipt": {
+          "accepted_common_ground_mutated_by_candidate": false,
+          "action": "branch_world",
+          "candidate_graph_contamination_count": 0,
+          "case_id": "cli_trusted_revision",
+          "typed_verifier_support_remains_proof_boundary": true
+        },
+        "state": {
+          "accepted_claims": [
+            "all birds fly"
+          ],
+          "branch_worlds": [
+            {
+              "auto_merge_allowed": false,
+              "branch_reason": "trusted_revision",
+              "claims": [
+                "some birds do not fly"
+              ],
+              "parent_world_id": "main",
+              "world_id": "main__kernel_branch__cli_trusted_revision"
+            }
+          ],
+          "patches": [
+            {
+              "branch_reason": "trusted_revision",
+              "incoming_claim": "some birds do not fly",
+              "patch_type": "world_branched"
+            }
+          ],
+          "quarantined_claims": [],
+          "repair_targets": []
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "actual_action": "invalid_input",
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_exit_code": 2,
+      "case_id": "cli_bad_json_rejected",
+      "expected_action": "invalid_input",
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_exit_code": 2,
+      "passed": true,
+      "payload": {
+        "action": "invalid_input",
+        "candidate_graph_contamination_count": 0,
+        "error": "event_and_state_must_be_json_objects"
+      },
+      "stderr": ""
+    }
+  ],
+  "runtime_cli_accuracy": 1.0
+}
