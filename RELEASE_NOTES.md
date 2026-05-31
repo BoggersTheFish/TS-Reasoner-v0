@@ -1,3 +1,24 @@
+## v11.5.0: Adversarial Claim Fuzzer
+
+v11.5.0 attacks brittleness by adversarially mutating procedural curriculum tasks with reversed premise order, duplicate premises, irrelevant premises, confidence bait, contradiction injection, malformed claims, noisy surfaces, and paragraph noise wrappers.
+
+Artifacts:
+
+- `benchmarks/gpt2_boundary/adversarial_fuzzer.py`
+- `data/v11_5/adversarial_fuzzer_config.json`
+- `scripts/v11_5/evaluate_adversarial_claim_fuzzer.py`
+- `tests/test_v11_5_adversarial_claim_fuzzer.py`
+- `docs/v11_5/ADVERSARIAL_CLAIM_FUZZER.md`
+- `artifacts/v11_5/adversarial_fuzzer_cases.jsonl`
+- `artifacts/v11_5/adversarial_fuzzer_report.json`
+- `artifacts/v11_5/adversarial_fuzzer_receipt.json`
+
+Boundary:
+
+- This is deterministic adversarial fuzzing over bounded verifier-first tasks, not broad open-domain adversarial robustness.
+- The verifier remains proof authority.
+- Generated text and model confidence remain non-proof.
+
 ## v11.4.0: Procedural Reasoning Curriculum
 
 v11.4.0 reduces dependence on hand-built reasoning tasks by generating deterministic verifier-first curricula from graph templates, relation surfaces, trap types, distractors, and paragraph wrappers.
