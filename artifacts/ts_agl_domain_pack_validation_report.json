@@ -1,0 +1,14 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_domain_pack_validation",
+  "candidate_graph_contamination_count": 0,
+  "error_count": 0,
+  "external_llm_used": false,
+  "issues": [],
+  "language_example_count": 23,
+  "manifest_count": 3,
+  "operation_count": 10,
+  "valid": true,
+  "warning_count": 0,
+  "wrong_state_mutation_count": 0
+}
