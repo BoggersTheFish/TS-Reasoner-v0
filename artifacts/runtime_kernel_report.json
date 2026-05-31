@@ -1,0 +1,184 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "failed_cases": 0,
+  "passed_cases": 4,
+  "release": "v9.0.0",
+  "results": [
+    {
+      "action": "quarantine",
+      "audit": {
+        "accepted_claim_count": 1,
+        "branch_world_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 1,
+        "quarantined_claim_count": 1,
+        "repair_target_count": 0
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "kernel_hostile_identity",
+      "expected_action": "quarantine",
+      "explanation": "Hostile or identity-level claim was quarantined.",
+      "passed": true,
+      "receipt": {
+        "accepted_common_ground_mutated_by_candidate": false,
+        "action": "quarantine",
+        "candidate_graph_contamination_count": 0,
+        "case_id": "kernel_hostile_identity",
+        "typed_verifier_support_remains_proof_boundary": true
+      },
+      "state": {
+        "accepted_claims": [
+          "no external llm was used"
+        ],
+        "branch_worlds": [],
+        "patches": [
+          {
+            "claim": "external llm was used",
+            "patch_type": "claim_quarantined",
+            "reason": "hostile_or_identity_attack"
+          }
+        ],
+        "quarantined_claims": [
+          "external llm was used"
+        ],
+        "repair_targets": []
+      }
+    },
+    {
+      "action": "open_repair",
+      "audit": {
+        "accepted_claim_count": 1,
+        "branch_world_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 1,
+        "quarantined_claim_count": 0,
+        "repair_target_count": 1
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "kernel_missing_bridge",
+      "expected_action": "open_repair",
+      "explanation": "Unsupported claim opened repair instead of entering accepted common ground.",
+      "passed": true,
+      "receipt": {
+        "accepted_common_ground_mutated_by_candidate": false,
+        "action": "open_repair",
+        "candidate_graph_contamination_count": 0,
+        "case_id": "kernel_missing_bridge",
+        "typed_verifier_support_remains_proof_boundary": true
+      },
+      "state": {
+        "accepted_claims": [
+          "all cats are animals"
+        ],
+        "branch_worlds": [],
+        "patches": [
+          {
+            "patch_type": "repair_opened",
+            "repair_type": "missing_support",
+            "target_claim": "all cats are mortal"
+          }
+        ],
+        "quarantined_claims": [],
+        "repair_targets": [
+          {
+            "accepted_as_proof": false,
+            "repair_type": "missing_support",
+            "target_claim": "all cats are mortal"
+          }
+        ]
+      }
+    },
+    {
+      "action": "branch_world",
+      "audit": {
+        "accepted_claim_count": 1,
+        "branch_world_count": 1,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 1,
+        "quarantined_claim_count": 0,
+        "repair_target_count": 0
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "kernel_trusted_revision",
+      "expected_action": "branch_world",
+      "explanation": "Trusted revision was isolated into a branch world.",
+      "passed": true,
+      "receipt": {
+        "accepted_common_ground_mutated_by_candidate": false,
+        "action": "branch_world",
+        "candidate_graph_contamination_count": 0,
+        "case_id": "kernel_trusted_revision",
+        "typed_verifier_support_remains_proof_boundary": true
+      },
+      "state": {
+        "accepted_claims": [
+          "all birds fly"
+        ],
+        "branch_worlds": [
+          {
+            "auto_merge_allowed": false,
+            "branch_reason": "trusted_revision",
+            "claims": [
+              "some birds do not fly"
+            ],
+            "parent_world_id": "main",
+            "world_id": "main__kernel_branch__kernel_trusted_revision"
+          }
+        ],
+        "patches": [
+          {
+            "branch_reason": "trusted_revision",
+            "incoming_claim": "some birds do not fly",
+            "patch_type": "world_branched"
+          }
+        ],
+        "quarantined_claims": [],
+        "repair_targets": []
+      }
+    },
+    {
+      "action": "quarantine_pack",
+      "audit": {
+        "accepted_claim_count": 1,
+        "branch_world_count": 0,
+        "candidate_graph_contamination_count": 0,
+        "patch_count": 1,
+        "quarantined_claim_count": 1,
+        "repair_target_count": 0
+      },
+      "candidate_graph_contamination_count": 0,
+      "case_id": "kernel_bad_pack",
+      "expected_action": "quarantine_pack",
+      "explanation": "Invalid knowledge pack was quarantined.",
+      "passed": true,
+      "receipt": {
+        "accepted_common_ground_mutated_by_candidate": false,
+        "action": "quarantine_pack",
+        "candidate_graph_contamination_count": 0,
+        "case_id": "kernel_bad_pack",
+        "typed_verifier_support_remains_proof_boundary": true
+      },
+      "state": {
+        "accepted_claims": [
+          "all dogs are animals"
+        ],
+        "branch_worlds": [],
+        "patches": [
+          {
+            "patch_type": "pack_quarantined",
+            "quarantined_claims": [
+              "all dogs are robots"
+            ]
+          }
+        ],
+        "quarantined_claims": [
+          "all dogs are robots"
+        ],
+        "repair_targets": []
+      }
+    }
+  ],
+  "runtime_kernel_accuracy": 1.0
+}
