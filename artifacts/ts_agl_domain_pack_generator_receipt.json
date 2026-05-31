@@ -1,0 +1,12 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_domain_pack_generator_receipt",
+  "candidate_graph_contamination_count": 0,
+  "exact_example_routing_accuracy": 1.0,
+  "external_llm_used": false,
+  "generated_domain": "research_notes",
+  "generated_pack_path": "artifacts/generated_domain_packs/research_notes.json",
+  "manifest_valid": true,
+  "risk_confirmation_valid": true,
+  "wrong_state_mutation_count": 0
+}

@@ -1,3 +1,28 @@
+## v17.0.0: TS-AGL Domain Pack Generator
+
+v17.0.0 adds a bounded TS-AGL Domain Pack Generator. The system converts structured teaching input into a validated domain manifest, verifies risk/confirmation rules, and proves the generated pack can teach example-based routing.
+
+Artifacts:
+
+- `ts_agl/teaching/domain_pack_generator.py`
+- `scripts/run_ts_agl_domain_pack_generator.py`
+- `scripts/evaluate_ts_agl_domain_pack_generator.py`
+- `tests/test_ts_agl_domain_pack_generator.py`
+- `docs/ts_agl_domain_pack_generator.md`
+- `artifacts/generated_domain_packs/research_notes.json`
+- `artifacts/ts_agl_domain_pack_generator_report.json`
+- `artifacts/ts_agl_domain_pack_generator_receipt.json`
+
+Boundary:
+
+- This is structured domain-pack generation, not broad autonomous domain learning.
+- No external LLM is used.
+- Generated packs must pass manifest validation.
+- Risky generated operations must require confirmation.
+- Generated examples are checked through the example router.
+- The language layer is not proof authority.
+- Candidate graph contamination remains zero.
+
 ## v16.0.0: TS-AGL External Side-Effect Staging Arena
 
 v16.0.0 adds a bounded external side-effect staging arena. TS-AGL can now represent an `external_side_effect` operation class, stage it as a pending action, block missing confirmation, block wrong confirmation, and dispatch a confirmed dry-run adapter without making a real network call.

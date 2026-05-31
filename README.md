@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v16.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v16.0.0)
+[![Release](https://img.shields.io/badge/release-v17.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v17.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,16 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v16.0.0 — TS-AGL External Side-Effect Staging Arena
+Current release: v17.0.0 — TS-AGL Domain Pack Generator
 
 
-The v16.0 release extends TS-AGL from confirmed local workflow actions into bounded external side-effect staging: an `external_side_effect` operation can be staged, blocked without correct confirmation, and dispatched only as a confirmed dry run with no network call. Language remains an operation interface, not proof authority.
+The v17.0 release extends TS-AGL from validated domain packs into bounded domain-pack generation: structured teaching input can generate a valid domain manifest, enforce risk/confirmation rules, and prove example-router compatibility. Language remains an operation interface, not proof authority.
 
 Release assets:
 
+ts_agl_domain_pack_generator_report.json
+ts_agl_domain_pack_generator_receipt.json
+research_notes.json
 ts_agl_external_side_effect_staging_report.json
 ts_agl_external_side_effect_staging_receipt.json
 ts_agl_interactive_workflow_ledger_report.json
