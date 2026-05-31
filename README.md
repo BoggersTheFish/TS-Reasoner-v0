@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v12.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v12.0.0)
+[![Release](https://img.shields.io/badge/release-v12.1.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v12.1.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,14 +38,17 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v12.0.0 — Verifier-Gated Proposer Stack
+Current release: v12.1.0 — TS-AGL Domain Example Router
+
+
+The v12.1 release extends the stack with the TS-AGL Domain Example Router: validated domain-pack language examples can now route natural language into transparent `LanguageMove` and `TSCall` objects. This keeps language as an operation interface, not proof authority.
 
 Release assets:
 
-verifier_gated_stack_cases.jsonl
-verifier_gated_stack_trace.jsonl
-verifier_gated_stack_report.json
-verifier_gated_stack_receipt.json
+ts_agl_example_router_report.json
+ts_agl_domain_pack_validation_report.json
+ts_agl_routing_report.json
+ts_agl_demo_receipt.json
 
 The v12.0 receipt checks the full stack:
 

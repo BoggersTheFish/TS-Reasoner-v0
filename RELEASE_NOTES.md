@@ -1,3 +1,23 @@
+## v12.1.0: TS-AGL Domain Example Router
+
+v12.1.0 adds the TS-AGL Domain Example Router. Domain-pack language examples now actively teach routing behavior: natural-language phrases can route through transparent example matching into `LanguageMove` and `TSCall` objects, while unknown or low-confidence input safely abstains to `route_unknown`.
+
+Artifacts:
+
+- `ts_agl/router/example_router.py`
+- `scripts/evaluate_ts_agl_example_router.py`
+- `tests/test_ts_agl_example_router.py`
+- `docs/domain_example_router.md`
+- `artifacts/ts_agl_example_router_report.json`
+
+Boundary:
+
+- This is transparent example routing, not broad natural-language understanding.
+- The language layer is not proof authority.
+- No external LLM is used.
+- Risky execution remains gated.
+- Domain examples teach routing behavior; typed verifier support remains the proof boundary.
+
 ## v11.9.0: Neural TS-Proposer Tiny
 
 v11.9.0 adds a tiny pure-stdlib neural proposer baseline over verifier-labelled traces. It uses hashed sparse features, a tanh hidden layer, softmax classifiers, and verifier-gated proposed yes answers.
