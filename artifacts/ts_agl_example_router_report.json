@@ -1,0 +1,506 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_example_router_report",
+  "candidate_graph_contamination_count": 0,
+  "domain_count": 3,
+  "exact_example_routing_accuracy": 1.0,
+  "exact_rows": [
+    {
+      "actual_domain": "filesystem",
+      "actual_operation": "pwd",
+      "expected_domain": "filesystem",
+      "expected_operation": "pwd",
+      "ok": true,
+      "score": 1.0,
+      "text": "where am I?"
+    },
+    {
+      "actual_domain": "filesystem",
+      "actual_operation": "pwd",
+      "expected_domain": "filesystem",
+      "expected_operation": "pwd",
+      "ok": true,
+      "score": 1.0,
+      "text": "what folder is this?"
+    },
+    {
+      "actual_domain": "filesystem",
+      "actual_operation": "list_files",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "ok": true,
+      "score": 1.0,
+      "text": "list files"
+    },
+    {
+      "actual_domain": "filesystem",
+      "actual_operation": "list_files",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "ok": true,
+      "score": 1.0,
+      "text": "show this folder"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "git_status",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": true,
+      "score": 1.0,
+      "text": "is the repo clean?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "git_status",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": true,
+      "score": 1.0,
+      "text": "check git status"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "git_status",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": true,
+      "score": 1.0,
+      "text": "what branch are we on?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 1.0,
+      "text": "what version are we on?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 1.0,
+      "text": "what release is this?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 1.0,
+      "text": "what tag is at HEAD?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "next_safe_release_action",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": true,
+      "score": 1.0,
+      "text": "what is the next safe action?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "next_safe_release_action",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": true,
+      "score": 1.0,
+      "text": "what should we do next?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "next_safe_release_action",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": true,
+      "score": 1.0,
+      "text": "make a release plan"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "check_support",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "check_support",
+      "ok": true,
+      "score": 1.0,
+      "text": "does that follow?"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "check_support",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "check_support",
+      "ok": true,
+      "score": 1.0,
+      "text": "can we prove A implies C?"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "check_support",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "check_support",
+      "ok": true,
+      "score": 1.0,
+      "text": "check support for this claim"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "explain_rejection",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "explain_rejection",
+      "ok": true,
+      "score": 1.0,
+      "text": "why did you reject it?"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "explain_rejection",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "explain_rejection",
+      "ok": true,
+      "score": 1.0,
+      "text": "explain the rejection"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "summarize_session",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "summarize_session",
+      "ok": true,
+      "score": 1.0,
+      "text": "what do we know so far?"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "summarize_session",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "summarize_session",
+      "ok": true,
+      "score": 1.0,
+      "text": "summarise the state"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "correct_candidate",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "correct_candidate",
+      "ok": true,
+      "score": 1.0,
+      "text": "no, I meant B implies C"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "correct_candidate",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "correct_candidate",
+      "ok": true,
+      "score": 1.0,
+      "text": "not that one"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 1.0,
+      "text": "unmapped utterance"
+    }
+  ],
+  "example_count": 23,
+  "external_llm_used": false,
+  "operation_count": 10,
+  "probe_case_count": 6,
+  "probe_routing_accuracy": 1.0,
+  "probe_rows": [
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "git_status",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "explanation": {
+        "ranked": [
+          {
+            "domain": "git_repo",
+            "example": "is the repo clean?",
+            "operation": "git_status",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 1.0
+          },
+          {
+            "domain": "git_repo",
+            "example": "what is the next safe action?",
+            "operation": "next_safe_release_action",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.32632978723404255
+          },
+          {
+            "domain": "ts_reasoner",
+            "example": "explain the rejection",
+            "operation": "explain_rejection",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.2878205128205128
+          }
+        ],
+        "raw_text": "is the repo clean?",
+        "selected": {
+          "domain": "git_repo",
+          "example": "is the repo clean?",
+          "operation": "git_status",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "score": 1.0
+        },
+        "threshold": 0.58
+      },
+      "ok": true,
+      "score": 1.0,
+      "text": "is the repo clean?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "explanation": {
+        "ranked": [
+          {
+            "domain": "git_repo",
+            "example": "what tag is at HEAD?",
+            "operation": "current_tag",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 1.0
+          },
+          {
+            "domain": "git_repo",
+            "example": "what release is this?",
+            "operation": "current_tag",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.4076655052264808
+          },
+          {
+            "domain": "filesystem",
+            "example": "what folder is this?",
+            "operation": "pwd",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.3957142857142857
+          }
+        ],
+        "raw_text": "what tag is at HEAD?",
+        "selected": {
+          "domain": "git_repo",
+          "example": "what tag is at HEAD?",
+          "operation": "current_tag",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "score": 1.0
+        },
+        "threshold": 0.58
+      },
+      "ok": true,
+      "score": 1.0,
+      "text": "what tag is at HEAD?"
+    },
+    {
+      "actual_domain": "git_repo",
+      "actual_operation": "next_safe_release_action",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "explanation": {
+        "ranked": [
+          {
+            "domain": "git_repo",
+            "example": "what should we do next?",
+            "operation": "next_safe_release_action",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 1.0
+          },
+          {
+            "domain": "ts_reasoner",
+            "example": "what do we know so far?",
+            "operation": "summarize_session",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.44157608695652173
+          },
+          {
+            "domain": "git_repo",
+            "example": "what version are we on?",
+            "operation": "current_tag",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.37554347826086953
+          }
+        ],
+        "raw_text": "what should we do next?",
+        "selected": {
+          "domain": "git_repo",
+          "example": "what should we do next?",
+          "operation": "next_safe_release_action",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "score": 1.0
+        },
+        "threshold": 0.58
+      },
+      "ok": true,
+      "score": 1.0,
+      "text": "what should we do next?"
+    },
+    {
+      "actual_domain": "filesystem",
+      "actual_operation": "pwd",
+      "expected_domain": "filesystem",
+      "expected_operation": "pwd",
+      "explanation": {
+        "ranked": [
+          {
+            "domain": "filesystem",
+            "example": "what folder is this?",
+            "operation": "pwd",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 1.0
+          },
+          {
+            "domain": "git_repo",
+            "example": "what release is this?",
+            "operation": "current_tag",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.663170731707317
+          },
+          {
+            "domain": "filesystem",
+            "example": "show this folder",
+            "operation": "list_files",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.435
+          }
+        ],
+        "raw_text": "what folder is this?",
+        "selected": {
+          "domain": "filesystem",
+          "example": "what folder is this?",
+          "operation": "pwd",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "score": 1.0
+        },
+        "threshold": 0.58
+      },
+      "ok": true,
+      "score": 1.0,
+      "text": "what folder is this?"
+    },
+    {
+      "actual_domain": "filesystem",
+      "actual_operation": "list_files",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "explanation": {
+        "ranked": [
+          {
+            "domain": "filesystem",
+            "example": "show this folder",
+            "operation": "list_files",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 1.0
+          },
+          {
+            "domain": "filesystem",
+            "example": "what folder is this?",
+            "operation": "pwd",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.435
+          },
+          {
+            "domain": "ts_reasoner",
+            "example": "check support for this claim",
+            "operation": "check_support",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.23603896103896105
+          }
+        ],
+        "raw_text": "show this folder",
+        "selected": {
+          "domain": "filesystem",
+          "example": "show this folder",
+          "operation": "list_files",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "score": 1.0
+        },
+        "threshold": 0.58
+      },
+      "ok": true,
+      "score": 1.0,
+      "text": "show this folder"
+    },
+    {
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "explain_rejection",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "explain_rejection",
+      "explanation": {
+        "ranked": [
+          {
+            "domain": "ts_reasoner",
+            "example": "explain the rejection",
+            "operation": "explain_rejection",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 1.0
+          },
+          {
+            "domain": "git_repo",
+            "example": "is the repo clean?",
+            "operation": "git_status",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.2878205128205128
+          },
+          {
+            "domain": "git_repo",
+            "example": "what is the next safe action?",
+            "operation": "next_safe_release_action",
+            "requires_confirmation": false,
+            "risk": "read_only",
+            "score": 0.27725
+          }
+        ],
+        "raw_text": "explain the rejection",
+        "selected": {
+          "domain": "ts_reasoner",
+          "example": "explain the rejection",
+          "operation": "explain_rejection",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "score": 1.0
+        },
+        "threshold": 0.58
+      },
+      "ok": true,
+      "score": 1.0,
+      "text": "explain the rejection"
+    }
+  ],
+  "wrong_state_mutation_count": 0
+}
