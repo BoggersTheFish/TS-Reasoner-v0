@@ -1,0 +1,8 @@
+{
+  "model_name": "gpt2",
+  "task_count": 48,
+  "seed": 116,
+  "max_new_tokens": 24,
+  "temperature": 0.0,
+  "run_live": false
+}
