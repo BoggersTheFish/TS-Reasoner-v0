@@ -1,0 +1,454 @@
+{
+  "contradiction_bundle": {
+    "all_plans_create_no_proof": true,
+    "all_plans_not_auto_applied": true,
+    "all_plans_require_typed_verifier": true,
+    "all_plans_require_user_confirmation": true,
+    "candidate_graph_contamination_count": 0,
+    "external_llm_used": false,
+    "plan_count": 4,
+    "plans": [
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Keep the negative claim rejected because positive support exists.",
+        "plan_id": "repair_0002_plan_keep_rejected",
+        "repair_id": "repair_0002",
+        "repair_kind": "contradiction",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "keep_rejected",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "no cats are mortal"
+          },
+          {
+            "action": "preserve_support_path",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "keep accepted support path unchanged"
+          }
+        ],
+        "strategy": "keep_negative_rejected",
+        "target_relation": {
+          "object": "mortal",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Resolve contradiction only by explicitly disputing one accepted support premise.",
+        "plan_id": "repair_0002_plan_dispute_support_01",
+        "repair_id": "repair_0002",
+        "repair_kind": "contradiction",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "inspect_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are animals"
+          },
+          {
+            "action": "require_evidence",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "do not remove accepted support without explicit typed justification"
+          }
+        ],
+        "strategy": "dispute_support_premise",
+        "target_relation": {
+          "object": "mortal",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Resolve contradiction only by explicitly disputing one accepted support premise.",
+        "plan_id": "repair_0002_plan_dispute_support_02",
+        "repair_id": "repair_0002",
+        "repair_kind": "contradiction",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "inspect_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all animals are mortal"
+          },
+          {
+            "action": "require_evidence",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "do not remove accepted support without explicit typed justification"
+          }
+        ],
+        "strategy": "dispute_support_premise",
+        "target_relation": {
+          "object": "mortal",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Refine the negative claim into a narrower bounded claim before rechecking.",
+        "plan_id": "repair_0002_plan_refine_claim",
+        "repair_id": "repair_0002",
+        "repair_kind": "contradiction",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "refine_claim",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "replace 'no cats are mortal' with a narrower bounded claim"
+          },
+          {
+            "action": "recheck",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "run contradiction check again after refinement"
+          }
+        ],
+        "strategy": "split_or_refine",
+        "target_relation": {
+          "object": "mortal",
+          "subject": "cats"
+        }
+      }
+    ],
+    "release": "v7.5.0",
+    "repair": {
+      "kind": "contradiction",
+      "message": "Contradiction detected for negative claim: no cats are mortal.",
+      "missing_support_hint": [
+        {
+          "suggestion": "Resolve by disputing one accepted support premise, refining the claim, or keeping the negative claim rejected."
+        },
+        {
+          "suggestion": "Current positive support path: cats->animals -> animals->mortal"
+        }
+      ],
+      "relation": {
+        "object": "mortal",
+        "subject": "cats"
+      },
+      "repair_id": "repair_0002",
+      "resolution_reason": "",
+      "resolved_turn_id": null,
+      "source_turn_id": 5,
+      "status": "open"
+    },
+    "repair_id": "repair_0002",
+    "repair_kind": "contradiction",
+    "repair_plans_are_not_proof": true,
+    "schema": "ts_reasoner_repair_plan_v1",
+    "target_relation": {
+      "object": "mortal",
+      "subject": "cats"
+    },
+    "typed_verifier_remains_proof_authority": true
+  },
+  "contradiction_rendered": "Repair plans for repair_0002 (contradiction):\n- repair_0002_plan_keep_rejected: keep_negative_rejected\n  Keep the negative claim rejected because positive support exists.\n  - keep_rejected: no cats are mortal\n  - preserve_support_path: keep accepted support path unchanged\n- repair_0002_plan_dispute_support_01: dispute_support_premise\n  Resolve contradiction only by explicitly disputing one accepted support premise.\n  - inspect_premise: all cats are animals\n  - require_evidence: do not remove accepted support without explicit typed justification\n- repair_0002_plan_dispute_support_02: dispute_support_premise\n  Resolve contradiction only by explicitly disputing one accepted support premise.\n  - inspect_premise: all animals are mortal\n  - require_evidence: do not remove accepted support without explicit typed justification\n- repair_0002_plan_refine_claim: split_or_refine\n  Refine the negative claim into a narrower bounded claim before rechecking.\n  - refine_claim: replace 'no cats are mortal' with a narrower bounded claim\n  - recheck: run contradiction check again after refinement\nBoundary: repair plans are candidates, not proof.",
+  "missing_support_bundle": {
+    "all_plans_create_no_proof": true,
+    "all_plans_not_auto_applied": true,
+    "all_plans_require_typed_verifier": true,
+    "all_plans_require_user_confirmation": true,
+    "candidate_graph_contamination_count": 0,
+    "external_llm_used": false,
+    "plan_count": 7,
+    "plans": [
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Add the exact bounded premise as typed support, if it is genuinely accepted.",
+        "plan_id": "repair_0001_plan_direct",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are robots"
+          },
+          {
+            "action": "verify",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "ask again: are all cats robots?"
+          }
+        ],
+        "strategy": "direct_support",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Create a two-hop support path through a bounded bridge term.",
+        "plan_id": "repair_0001_plan_bridge_01",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are animals"
+          },
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "all animals are robots"
+          },
+          {
+            "action": "verify",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_003",
+            "text": "ask again: are all cats robots?"
+          }
+        ],
+        "strategy": "bridge_support",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Create a two-hop support path through a bounded bridge term.",
+        "plan_id": "repair_0001_plan_bridge_02",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are bridge"
+          },
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "all bridge are robots"
+          },
+          {
+            "action": "verify",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_003",
+            "text": "ask again: are all cats robots?"
+          }
+        ],
+        "strategy": "bridge_support",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Create a two-hop support path through a bounded bridge term.",
+        "plan_id": "repair_0001_plan_bridge_03",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are entities"
+          },
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "all entities are robots"
+          },
+          {
+            "action": "verify",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_003",
+            "text": "ask again: are all cats robots?"
+          }
+        ],
+        "strategy": "bridge_support",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Create a two-hop support path through a bounded bridge term.",
+        "plan_id": "repair_0001_plan_bridge_04",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are machines"
+          },
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "all machines are robots"
+          },
+          {
+            "action": "verify",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_003",
+            "text": "ask again: are all cats robots?"
+          }
+        ],
+        "strategy": "bridge_support",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Create a two-hop support path through a bounded bridge term.",
+        "plan_id": "repair_0001_plan_bridge_05",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "all cats are objects"
+          },
+          {
+            "action": "add_premise",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_002",
+            "text": "all objects are robots"
+          },
+          {
+            "action": "verify",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_003",
+            "text": "ask again: are all cats robots?"
+          }
+        ],
+        "strategy": "bridge_support",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      },
+      {
+        "auto_apply": false,
+        "creates_proof": false,
+        "description": "Keep the repair target open until real typed support is available.",
+        "plan_id": "repair_0001_plan_keep_open",
+        "repair_id": "repair_0001",
+        "repair_kind": "missing_support",
+        "requires_typed_verifier": true,
+        "requires_user_confirmation": true,
+        "steps": [
+          {
+            "action": "preserve_repair",
+            "creates_proof": false,
+            "requires_typed_verifier": true,
+            "step_id": "step_001",
+            "text": "leave unsupported claim unresolved: all cats are robots"
+          }
+        ],
+        "strategy": "keep_open",
+        "target_relation": {
+          "object": "robots",
+          "subject": "cats"
+        }
+      }
+    ],
+    "release": "v7.5.0",
+    "repair": {
+      "kind": "missing_support",
+      "message": "Missing support for requested claim: all cats are robots.",
+      "missing_support_hint": [
+        {
+          "suggestion": "Add premises that create a support path from cats to robots."
+        }
+      ],
+      "relation": {
+        "object": "robots",
+        "subject": "cats"
+      },
+      "repair_id": "repair_0001",
+      "resolution_reason": "",
+      "resolved_turn_id": null,
+      "source_turn_id": 3,
+      "status": "open"
+    },
+    "repair_id": "repair_0001",
+    "repair_kind": "missing_support",
+    "repair_plans_are_not_proof": true,
+    "schema": "ts_reasoner_repair_plan_v1",
+    "target_relation": {
+      "object": "robots",
+      "subject": "cats"
+    },
+    "typed_verifier_remains_proof_authority": true
+  },
+  "missing_support_rendered": "Repair plans for repair_0001 (missing_support):\n- repair_0001_plan_direct: direct_support\n  Add the exact bounded premise as typed support, if it is genuinely accepted.\n  - add_premise: all cats are robots\n  - verify: ask again: are all cats robots?\n- repair_0001_plan_bridge_01: bridge_support\n  Create a two-hop support path through a bounded bridge term.\n  - add_premise: all cats are animals\n  - add_premise: all animals are robots\n  - verify: ask again: are all cats robots?\n- repair_0001_plan_bridge_02: bridge_support\n  Create a two-hop support path through a bounded bridge term.\n  - add_premise: all cats are bridge\n  - add_premise: all bridge are robots\n  - verify: ask again: are all cats robots?\n- repair_0001_plan_bridge_03: bridge_support\n  Create a two-hop support path through a bounded bridge term.\n  - add_premise: all cats are entities\n  - add_premise: all entities are robots\n  - verify: ask again: are all cats robots?\n- repair_0001_plan_bridge_04: bridge_support\n  Create a two-hop support path through a bounded bridge term.\n  - add_premise: all cats are machines\n  - add_premise: all machines are robots\n  - verify: ask again: are all cats robots?\n- repair_0001_plan_bridge_05: bridge_support\n  Create a two-hop support path through a bounded bridge term.\n  - add_premise: all cats are objects\n  - add_premise: all objects are robots\n  - verify: ask again: are all cats robots?\n- repair_0001_plan_keep_open: keep_open\n  Keep the repair target open until real typed support is available.\n  - preserve_repair: leave unsupported claim unresolved: all cats are robots\nBoundary: repair plans are candidates, not proof."
+}

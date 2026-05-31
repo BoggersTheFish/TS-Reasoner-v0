@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -118,6 +118,13 @@ def main() -> int:
         from .branching_worlds import run_branching_worlds_demo
 
         receipt = run_branching_worlds_demo(args.out_dir)
+        print(json.dumps(receipt, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "repair-planner":
+        from .repair_planner_demo import run_repair_planner_demo
+
+        receipt = run_repair_planner_demo(args.out_dir)
         print(json.dumps(receipt, indent=2, sort_keys=True))
         return 0
 

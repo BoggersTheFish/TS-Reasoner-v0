@@ -24,6 +24,7 @@ from typing import Any
 from ts_reasoner.answer_arena import Relation, extract_all_relation, extract_question_relation, normalize_term
 from ts_reasoner.common_ground import CommonGround, human_relation
 from ts_reasoner.live_contradiction_firewall import negative_relation_text, parse_no_relation, record_negative_claim_result
+from ts_reasoner.repair_planner import generate_repair_plans, render_repair_plan_bundle
 from ts_reasoner.chat_repair import parse_repair_target, repair_to_dict
 from ts_reasoner.candidate_language import (
     candidate_selection_to_dict,
@@ -140,6 +141,47 @@ class TSChatSession:
         elif parsed.command == "repairs":
             response = self.common_ground.repair_summary()
             candidate_selection = {"selected": {"rule_id": "command_repairs", "text": response, "score": 1.0, "reasons": ["repairs command"]}, "candidates": []}
+        elif parsed.command and parsed.command.startswith("plan:"):
+            repair_id = parsed.command.split(":", 1)[1]
+            if not repair_id:
+                open_repairs = [repair for repair in self.common_ground.repair_targets if repair.status == "open"]
+                repair_id = open_repairs[0].repair_id if open_repairs else ""
+
+            if repair_id:
+                try:
+                    bundle = generate_repair_plans(self.common_ground, repair_id)
+                    response = render_repair_plan_bundle(bundle)
+                    candidate_selection = {
+                        "selected": {
+                            "rule_id": "command_repair_plan",
+                            "text": response,
+                            "score": 1.0,
+                            "reasons": ["repair planner command"],
+                        },
+                        "candidates": [],
+                    }
+                except KeyError:
+                    response = f"No repair target found for: {repair_id}"
+                    candidate_selection = {
+                        "selected": {
+                            "rule_id": "command_repair_plan_missing",
+                            "text": response,
+                            "score": 1.0,
+                            "reasons": ["repair planner command", "unknown repair target"],
+                        },
+                        "candidates": [],
+                    }
+            else:
+                response = "No open repair target is available to plan."
+                candidate_selection = {
+                    "selected": {
+                        "rule_id": "command_repair_plan_none",
+                        "text": response,
+                        "score": 1.0,
+                        "reasons": ["repair planner command", "no open repairs"],
+                    },
+                    "candidates": [],
+                }
         elif parsed.command == "clear":
             self.common_ground = CommonGround()
             self.common_ground.turn_id = turn_id
@@ -268,6 +310,10 @@ def detect_command(text: str) -> str | None:
         return "graph"
     if lowered in {"/repairs", "repairs", "what needs repair?", "what needs repair"}:
         return "repairs"
+    if lowered.startswith("/plan"):
+        parts = lowered.split()
+        repair_id = parts[1] if len(parts) > 1 else ""
+        return f"plan:{repair_id}"
     if lowered in {"/clear", "clear", "clear graph"}:
         return "clear"
     return None
@@ -407,7 +453,7 @@ def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> 
     print("TS-Chat v7.1")
     print("Unified verifier-first bounded chat with common-ground, repair resolution, and compilable session receipts. Type 'exit' to quit.")
     print("Try: all dogs are mammals. all mammals are animals. are all dogs animals?")
-    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /graph | /clear")
+    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /plan <repair_id> | /graph | /clear")
     print("After exit: python3 -m ts_reasoner.cli compile-session --session artifacts/ts_chat_v0_2_latest_session.json")
     print()
 

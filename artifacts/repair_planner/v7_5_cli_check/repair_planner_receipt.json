@@ -1,0 +1,40 @@
+{
+  "all_gates_passed": true,
+  "boundary": {
+    "broad_natural_language_understanding": false,
+    "external_benchmark_victory": false,
+    "generated_bridge_term_is_proof": false,
+    "live_tensionlm_runtime": false,
+    "neural_training": false,
+    "repair_plan_is_proof": false,
+    "typed_verifier_remains_proof_authority": true,
+    "user_confirmation_is_proof": false
+  },
+  "bundle_path": "artifacts/repair_planner/v7_5_cli_check/repair_planner_bundles.json",
+  "candidate_graph_contamination_count": 0,
+  "contradiction_plan_count": 4,
+  "external_llm_used": false,
+  "gates": {
+    "candidate_graph_contamination_count_is_zero": true,
+    "contradiction_bundle_valid": true,
+    "contradiction_has_dispute_support_plan": true,
+    "contradiction_has_keep_rejected_plan": true,
+    "external_llm_used_false": true,
+    "missing_support_bundle_valid": true,
+    "missing_support_has_bridge_plan": true,
+    "missing_support_has_direct_plan": true,
+    "plans_create_no_proof": true,
+    "plans_not_auto_applied": true
+  },
+  "generated_bridge_terms_are_not_proof": true,
+  "milestone": "Repair Planner",
+  "missing_support_plan_count": 7,
+  "out_dir": "artifacts/repair_planner/v7_5_cli_check",
+  "release": "v7.5.0",
+  "repair_plans_are_not_proof": true,
+  "report_path": "artifacts/repair_planner/v7_5_cli_check/repair_planner_report.json",
+  "schema": "ts_reasoner_v7_5_repair_planner_receipt",
+  "session_path": "artifacts/repair_planner/v7_5_cli_check/repair_planner_session.json",
+  "typed_verifier_remains_proof_authority": true,
+  "user_confirmation_is_not_proof": true
+}
