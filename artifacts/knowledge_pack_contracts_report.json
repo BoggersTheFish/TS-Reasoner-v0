@@ -1,0 +1,184 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "failed_cases": 0,
+  "knowledge_pack_contract_accuracy": 1.0,
+  "passed_cases": 6,
+  "release": "v8.5.0",
+  "results": [
+    {
+      "accepted_claims": [
+        "all cats are animals"
+      ],
+      "branch_worlds": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "valid_pack_imports_accepted_claims",
+      "expected_accepted_claim_count": 1,
+      "expected_branch_world_count": 0,
+      "expected_imported": true,
+      "expected_migrated": false,
+      "expected_quarantined": false,
+      "expected_repair_target_count": 0,
+      "explanation": "Knowledge pack imported under contract. Unsupported claims are quarantined and candidate/repair data is not promoted to proof.",
+      "imported": true,
+      "migrated": false,
+      "passed": true,
+      "provenance_records": [
+        {
+          "claim": "all cats are animals",
+          "source": "typed_trace",
+          "trust": 0.95
+        }
+      ],
+      "quarantined": false,
+      "quarantined_claims": [],
+      "repair_targets": [],
+      "unsupported_claims_promoted_count": 0
+    },
+    {
+      "accepted_claims": [
+        "all cats are animals"
+      ],
+      "branch_worlds": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "unsupported_claim_quarantined",
+      "expected_accepted_claim_count": 1,
+      "expected_branch_world_count": 0,
+      "expected_imported": true,
+      "expected_migrated": false,
+      "expected_quarantined": true,
+      "expected_repair_target_count": 0,
+      "explanation": "Knowledge pack imported under contract. Unsupported claims are quarantined and candidate/repair data is not promoted to proof.",
+      "imported": true,
+      "migrated": false,
+      "passed": true,
+      "provenance_records": [],
+      "quarantined": true,
+      "quarantined_claims": [
+        "all cats are robots"
+      ],
+      "repair_targets": [],
+      "unsupported_claims_promoted_count": 0
+    },
+    {
+      "accepted_claims": [
+        "all birds fly"
+      ],
+      "branch_worlds": [
+        {
+          "auto_merge_allowed": false,
+          "branch_reason": "trusted_revision_contradiction",
+          "claims": [
+            "all birds fly",
+            "some birds do not fly"
+          ],
+          "parent_world_id": "main",
+          "world_id": "main__branch__birds"
+        }
+      ],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "branch_worlds_preserved",
+      "expected_accepted_claim_count": 1,
+      "expected_branch_world_count": 1,
+      "expected_imported": true,
+      "expected_migrated": false,
+      "expected_quarantined": false,
+      "expected_repair_target_count": 0,
+      "explanation": "Knowledge pack imported under contract. Unsupported claims are quarantined and candidate/repair data is not promoted to proof.",
+      "imported": true,
+      "migrated": false,
+      "passed": true,
+      "provenance_records": [
+        {
+          "claim": "some birds do not fly",
+          "source": "trusted_observation",
+          "trust": 0.9
+        }
+      ],
+      "quarantined": false,
+      "quarantined_claims": [],
+      "repair_targets": [],
+      "unsupported_claims_promoted_count": 0
+    },
+    {
+      "accepted_claims": [
+        "all cats are animals"
+      ],
+      "branch_worlds": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "repair_targets_preserved",
+      "expected_accepted_claim_count": 1,
+      "expected_branch_world_count": 0,
+      "expected_imported": true,
+      "expected_migrated": false,
+      "expected_quarantined": false,
+      "expected_repair_target_count": 1,
+      "explanation": "Knowledge pack imported under contract. Unsupported claims are quarantined and candidate/repair data is not promoted to proof.",
+      "imported": true,
+      "migrated": false,
+      "passed": true,
+      "provenance_records": [],
+      "quarantined": false,
+      "quarantined_claims": [],
+      "repair_targets": [
+        {
+          "accepted_as_proof": false,
+          "candidate_bridges": [
+            "all animals are mortal"
+          ],
+          "repair_type": "missing_bridge",
+          "target_claim": "all cats are mortal"
+        }
+      ],
+      "unsupported_claims_promoted_count": 0
+    },
+    {
+      "accepted_claims": [
+        "all fish are animals"
+      ],
+      "branch_worlds": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "old_schema_migrated",
+      "expected_accepted_claim_count": 1,
+      "expected_branch_world_count": 0,
+      "expected_imported": true,
+      "expected_migrated": true,
+      "expected_quarantined": false,
+      "expected_repair_target_count": 0,
+      "explanation": "Knowledge pack imported under contract. Unsupported claims are quarantined and candidate/repair data is not promoted to proof.",
+      "imported": true,
+      "migrated": true,
+      "passed": true,
+      "provenance_records": [],
+      "quarantined": false,
+      "quarantined_claims": [],
+      "repair_targets": [],
+      "unsupported_claims_promoted_count": 0
+    },
+    {
+      "accepted_claims": [],
+      "branch_worlds": [],
+      "candidate_graph_contamination_count": 0,
+      "case_id": "invalid_schema_quarantined",
+      "expected_accepted_claim_count": 0,
+      "expected_branch_world_count": 0,
+      "expected_imported": false,
+      "expected_migrated": false,
+      "expected_quarantined": true,
+      "expected_repair_target_count": 0,
+      "explanation": "Knowledge pack schema is invalid, so the pack is quarantined and no state is imported.",
+      "imported": false,
+      "migrated": false,
+      "passed": true,
+      "provenance_records": [],
+      "quarantined": true,
+      "quarantined_claims": [
+        "all dogs are robots"
+      ],
+      "repair_targets": [],
+      "unsupported_claims_promoted_count": 0
+    }
+  ],
+  "unsupported_claims_promoted_count": 0
+}
