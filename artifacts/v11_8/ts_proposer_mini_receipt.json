@@ -1,0 +1,18 @@
+{
+  "all_gates_passed": true,
+  "claim": "TS-Proposer-Mini is a tiny stdlib trained proposer baseline over verifier-labelled traces; verifier gating preserves zero wrong accepts.",
+  "receipt_type": "v11_8_ts_proposer_mini_receipt",
+  "release": "v11.8.0",
+  "test_accepted_without_typed_support_count": 0,
+  "test_answer_accuracy": 0.9625,
+  "test_channel_accuracy": 0.98125,
+  "test_gated_answer_accuracy": 0.9625,
+  "test_gated_wrong_accept_count": 0,
+  "test_raw_wrong_yes_count": 0,
+  "test_status_accuracy": 0.9625,
+  "test_verifier_gate_blocked_wrong_yes_count": 0,
+  "train_row_count": 6400,
+  "valid_answer_accuracy": 0.96125,
+  "valid_channel_accuracy": 0.98625,
+  "valid_status_accuracy": 0.95625
+}

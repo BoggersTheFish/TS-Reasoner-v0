@@ -1,0 +1,8 @@
+{
+  "dim": 4096,
+  "epochs": 4,
+  "learning_rate": 1.0,
+  "train_limit": 0,
+  "valid_limit": 0,
+  "test_limit": 0
+}
