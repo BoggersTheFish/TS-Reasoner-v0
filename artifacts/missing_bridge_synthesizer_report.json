@@ -1,0 +1,101 @@
+{
+  "all_gates_passed": true,
+  "bridge_synthesis_accuracy": 1.0,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 6,
+  "failed_cases": 0,
+  "passed_cases": 6,
+  "release": "v8.2.0",
+  "results": [
+    {
+      "already_supported": false,
+      "bridge_count": 1,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "one_hop_taxonomy_bridge",
+      "expected_bridge_count": 1,
+      "expected_missing_bridges": [
+        "all animals are mortal"
+      ],
+      "explanation": "Target taxonomy claim is unsupported; synthesized missing bridge premises without accepting them.",
+      "missing_bridges": [
+        "all animals are mortal"
+      ],
+      "passed": true,
+      "target_claim": "all cats are mortal"
+    },
+    {
+      "already_supported": false,
+      "bridge_count": 2,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "two_hop_taxonomy_bridge",
+      "expected_bridge_count": 2,
+      "expected_missing_bridges": [
+        "all mammals are animals",
+        "all animals are mortal"
+      ],
+      "explanation": "Target taxonomy claim is unsupported; synthesized missing bridge premises without accepting them.",
+      "missing_bridges": [
+        "all mammals are animals",
+        "all animals are mortal"
+      ],
+      "passed": true,
+      "target_claim": "all cats are mortal"
+    },
+    {
+      "already_supported": true,
+      "bridge_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "already_supported_direct",
+      "expected_bridge_count": 0,
+      "expected_missing_bridges": [],
+      "explanation": "Target claim is already directly supported.",
+      "missing_bridges": [],
+      "passed": true,
+      "target_claim": "all cats are mortal"
+    },
+    {
+      "already_supported": true,
+      "bridge_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "already_supported_transitive",
+      "expected_bridge_count": 0,
+      "expected_missing_bridges": [],
+      "explanation": "Target claim is already transitively supported.",
+      "missing_bridges": [],
+      "passed": true,
+      "target_claim": "all cats are mortal"
+    },
+    {
+      "already_supported": false,
+      "bridge_count": 1,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "reverse_not_allowed_bridge",
+      "expected_bridge_count": 1,
+      "expected_missing_bridges": [
+        "all animals are mammals"
+      ],
+      "explanation": "Target taxonomy claim is unsupported; synthesized missing bridge premises without accepting them.",
+      "missing_bridges": [
+        "all animals are mammals"
+      ],
+      "passed": true,
+      "target_claim": "all animals are mammals"
+    },
+    {
+      "already_supported": false,
+      "bridge_count": 1,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "missing_identity_bridge",
+      "expected_bridge_count": 1,
+      "expected_missing_bridges": [
+        "b is c"
+      ],
+      "explanation": "Target identity claim is unsupported; synthesized missing identity bridge without accepting it.",
+      "missing_bridges": [
+        "b is c"
+      ],
+      "passed": true,
+      "target_claim": "a is c"
+    }
+  ]
+}
