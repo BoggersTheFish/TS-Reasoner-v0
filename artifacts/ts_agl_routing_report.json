@@ -1,0 +1,317 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 7,
+  "external_llm_used": false,
+  "missing_slot_detection_accuracy": 1.0,
+  "move_parse_accuracy": 1.0,
+  "operation_routing_accuracy": 1.0,
+  "rows": [
+    {
+      "calls": [
+        {
+          "args": {},
+          "call_id": "call_f29b8abedba2",
+          "missing_slots": [
+            "claim"
+          ],
+          "operation": "check_support",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.65,
+            "content": null,
+            "domain_hint": "ts_reasoner",
+            "move_type": "CHECK",
+            "operation_hint": "check_support",
+            "raw_text": "does that follow?",
+            "slots": {},
+            "target": "current_focus_claim",
+            "unresolved_slots": [
+              "claim"
+            ]
+          },
+          "system": "ts_reasoner"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.65,
+          "content": null,
+          "domain_hint": "ts_reasoner",
+          "move_type": "CHECK",
+          "operation_hint": "check_support",
+          "raw_text": "does that follow?",
+          "slots": {},
+          "target": "current_focus_claim",
+          "unresolved_slots": [
+            "claim"
+          ]
+        }
+      ],
+      "route_match": true,
+      "text": "does that follow?"
+    },
+    {
+      "calls": [
+        {
+          "args": {
+            "claim_id": "last_rejected_claim"
+          },
+          "call_id": "call_f1c1668bc3e9",
+          "missing_slots": [],
+          "operation": "explain_rejection",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.82,
+            "content": null,
+            "domain_hint": "ts_reasoner",
+            "move_type": "EXPLAIN",
+            "operation_hint": "explain_rejection",
+            "raw_text": "why did you reject it?",
+            "slots": {
+              "claim_id": "last_rejected_claim"
+            },
+            "target": "last_rejected_claim",
+            "unresolved_slots": []
+          },
+          "system": "ts_reasoner"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.82,
+          "content": null,
+          "domain_hint": "ts_reasoner",
+          "move_type": "EXPLAIN",
+          "operation_hint": "explain_rejection",
+          "raw_text": "why did you reject it?",
+          "slots": {
+            "claim_id": "last_rejected_claim"
+          },
+          "target": "last_rejected_claim",
+          "unresolved_slots": []
+        }
+      ],
+      "route_match": true,
+      "text": "why did you reject it?"
+    },
+    {
+      "calls": [
+        {
+          "args": {},
+          "call_id": "call_1294bf754597",
+          "missing_slots": [],
+          "operation": "summarize_session",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.81,
+            "content": null,
+            "domain_hint": "ts_reasoner",
+            "move_type": "SUMMARISE",
+            "operation_hint": "summarize_session",
+            "raw_text": "what do we know so far?",
+            "slots": {},
+            "target": "session",
+            "unresolved_slots": []
+          },
+          "system": "ts_reasoner"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.81,
+          "content": null,
+          "domain_hint": "ts_reasoner",
+          "move_type": "SUMMARISE",
+          "operation_hint": "summarize_session",
+          "raw_text": "what do we know so far?",
+          "slots": {},
+          "target": "session",
+          "unresolved_slots": []
+        }
+      ],
+      "route_match": true,
+      "text": "what do we know so far?"
+    },
+    {
+      "calls": [
+        {
+          "args": {},
+          "call_id": "call_0dfc07264c2a",
+          "missing_slots": [],
+          "operation": "git_status",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.92,
+            "content": null,
+            "domain_hint": "git_repo",
+            "move_type": "INSPECT",
+            "operation_hint": "git_status",
+            "raw_text": "check if the repo is clean",
+            "slots": {},
+            "target": "repo",
+            "unresolved_slots": []
+          },
+          "system": "git_repo"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.92,
+          "content": null,
+          "domain_hint": "git_repo",
+          "move_type": "INSPECT",
+          "operation_hint": "git_status",
+          "raw_text": "check if the repo is clean",
+          "slots": {},
+          "target": "repo",
+          "unresolved_slots": []
+        }
+      ],
+      "route_match": true,
+      "text": "check if the repo is clean"
+    },
+    {
+      "calls": [
+        {
+          "args": {},
+          "call_id": "call_5adda5439980",
+          "missing_slots": [],
+          "operation": "current_tag",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.86,
+            "content": null,
+            "domain_hint": "git_repo",
+            "move_type": "INSPECT",
+            "operation_hint": "current_tag",
+            "raw_text": "what version are we on?",
+            "slots": {},
+            "target": "release",
+            "unresolved_slots": []
+          },
+          "system": "git_repo"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.86,
+          "content": null,
+          "domain_hint": "git_repo",
+          "move_type": "INSPECT",
+          "operation_hint": "current_tag",
+          "raw_text": "what version are we on?",
+          "slots": {},
+          "target": "release",
+          "unresolved_slots": []
+        }
+      ],
+      "route_match": true,
+      "text": "what version are we on?"
+    },
+    {
+      "calls": [
+        {
+          "args": {},
+          "call_id": "call_edffda470e48",
+          "missing_slots": [],
+          "operation": "next_safe_release_action",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.83,
+            "content": null,
+            "domain_hint": "git_repo",
+            "move_type": "PLAN",
+            "operation_hint": "next_safe_release_action",
+            "raw_text": "tell me the next safe action",
+            "slots": {},
+            "target": "current_project_state",
+            "unresolved_slots": []
+          },
+          "system": "git_repo"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.83,
+          "content": null,
+          "domain_hint": "git_repo",
+          "move_type": "PLAN",
+          "operation_hint": "next_safe_release_action",
+          "raw_text": "tell me the next safe action",
+          "slots": {},
+          "target": "current_project_state",
+          "unresolved_slots": []
+        }
+      ],
+      "route_match": true,
+      "text": "tell me the next safe action"
+    },
+    {
+      "calls": [
+        {
+          "args": {
+            "replacement": "B implies C"
+          },
+          "call_id": "call_a950c5cc9f45",
+          "missing_slots": [],
+          "operation": "correct_candidate",
+          "requires_confirmation": false,
+          "risk": "read_only",
+          "source_move": {
+            "confidence": 0.78,
+            "content": "B implies C",
+            "domain_hint": "ts_reasoner",
+            "move_type": "CORRECT",
+            "operation_hint": "correct_candidate",
+            "raw_text": "no, I meant B implies C",
+            "slots": {
+              "replacement": "B implies C"
+            },
+            "target": "previous_candidate",
+            "unresolved_slots": []
+          },
+          "system": "ts_reasoner"
+        }
+      ],
+      "missing_slot_match": true,
+      "move_match": true,
+      "moves": [
+        {
+          "confidence": 0.78,
+          "content": "B implies C",
+          "domain_hint": "ts_reasoner",
+          "move_type": "CORRECT",
+          "operation_hint": "correct_candidate",
+          "raw_text": "no, I meant B implies C",
+          "slots": {
+            "replacement": "B implies C"
+          },
+          "target": "previous_candidate",
+          "unresolved_slots": []
+        }
+      ],
+      "route_match": true,
+      "text": "no, I meant B implies C"
+    }
+  ],
+  "wrong_state_mutation_count": 0
+}

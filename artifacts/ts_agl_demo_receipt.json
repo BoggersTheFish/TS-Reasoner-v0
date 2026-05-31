@@ -1,0 +1,118 @@
+{
+  "all_gates_passed": true,
+  "calls": [
+    {
+      "args": {},
+      "call_id": "call_bdda1d5d0874",
+      "missing_slots": [],
+      "operation": "git_status",
+      "requires_confirmation": false,
+      "risk": "read_only",
+      "source_move": {
+        "confidence": 0.92,
+        "content": null,
+        "domain_hint": "git_repo",
+        "move_type": "INSPECT",
+        "operation_hint": "git_status",
+        "raw_text": "Check where we are in the repo and tell me the next safe release action.",
+        "slots": {},
+        "target": "repo",
+        "unresolved_slots": []
+      },
+      "system": "git_repo"
+    },
+    {
+      "args": {},
+      "call_id": "call_d470dd887d6a",
+      "missing_slots": [],
+      "operation": "current_tag",
+      "requires_confirmation": false,
+      "risk": "read_only",
+      "source_move": {
+        "confidence": 0.86,
+        "content": null,
+        "domain_hint": "git_repo",
+        "move_type": "INSPECT",
+        "operation_hint": "current_tag",
+        "raw_text": "Check where we are in the repo and tell me the next safe release action.",
+        "slots": {},
+        "target": "release",
+        "unresolved_slots": []
+      },
+      "system": "git_repo"
+    }
+  ],
+  "candidate_graph_contamination_count": 0,
+  "created_at": 1780269822.6836336,
+  "external_llm_used": false,
+  "moves": [
+    {
+      "confidence": 0.92,
+      "content": null,
+      "domain_hint": "git_repo",
+      "move_type": "INSPECT",
+      "operation_hint": "git_status",
+      "raw_text": "Check where we are in the repo and tell me the next safe release action.",
+      "slots": {},
+      "target": "repo",
+      "unresolved_slots": []
+    },
+    {
+      "confidence": 0.86,
+      "content": null,
+      "domain_hint": "git_repo",
+      "move_type": "INSPECT",
+      "operation_hint": "current_tag",
+      "raw_text": "Check where we are in the repo and tell me the next safe release action.",
+      "slots": {},
+      "target": "release",
+      "unresolved_slots": []
+    }
+  ],
+  "raw_text": "Check where we are in the repo and tell me the next safe release action.",
+  "rendered_reply": "Repo is not clean. Current branch: experiment/v7-1-ts-agl-foundation. Dirty entries: 9. HEAD is not currently tagged. Latest reachable tag: v12.0.0.",
+  "results": [
+    {
+      "data": {
+        "branch": "experiment/v7-1-ts-agl-foundation",
+        "clean": false,
+        "cwd": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0",
+        "git_status_returncode": 0,
+        "git_status_stderr": "",
+        "status_short": [
+          "?? artifacts/ts_agl_demo_receipt.json",
+          "?? artifacts/ts_agl_routing_report.json",
+          "?? docs/ts_agl_foundation.md",
+          "?? scripts/evaluate_ts_agl_routing.py",
+          "?? scripts/run_ts_agl_demo.py",
+          "?? tests/test_ts_agl_core.py",
+          "?? tests/test_ts_agl_registry.py",
+          "?? tests/test_ts_agl_routing.py",
+          "?? ts_agl/"
+        ],
+        "upstream": null
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "git_status",
+      "result_id": "result_e9e9f5e47ca3",
+      "status": "success",
+      "system": "git_repo"
+    },
+    {
+      "data": {
+        "latest_reachable_tag": "v12.0.0",
+        "latest_tag_stderr": "",
+        "points_at_head_stderr": "",
+        "tags_at_head": []
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "current_tag",
+      "result_id": "result_7756c102d1ef",
+      "status": "success",
+      "system": "git_repo"
+    }
+  ],
+  "wrong_state_mutation_count": 0
+}

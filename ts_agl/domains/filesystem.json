@@ -1,0 +1,25 @@
+{
+  "domain": "filesystem",
+  "description": "Read-only filesystem inspection operations.",
+  "node_types": ["directory", "file", "path"],
+  "edge_types": ["contains", "located_at"],
+  "operations": [
+    {
+      "name": "pwd",
+      "description": "Show current working directory.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["where am I?", "what folder is this?"]
+    },
+    {
+      "name": "list_files",
+      "description": "List files at a path.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["list files", "show this folder"]
+    }
+  ],
+  "failure_modes": ["path_missing", "permission_denied"]
+}

@@ -1,0 +1,33 @@
+{
+  "domain": "git_repo",
+  "description": "Local git repository inspection operations for TS-AGL.",
+  "node_types": ["repo", "branch", "commit", "tag", "release", "worktree"],
+  "edge_types": ["points_to", "tracks", "contains", "modifies"],
+  "operations": [
+    {
+      "name": "git_status",
+      "description": "Inspect local git worktree and branch state.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["is the repo clean?", "check git status", "what branch are we on?"]
+    },
+    {
+      "name": "current_tag",
+      "description": "Inspect release tag state at HEAD.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["what version are we on?", "what release is this?", "what tag is at HEAD?"]
+    },
+    {
+      "name": "next_safe_release_action",
+      "description": "Suggest the next safe release action from read-only repo state.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": ["what is the next safe action?", "what should we do next?", "make a release plan"]
+    }
+  ],
+  "failure_modes": ["dirty_worktree", "no_tag_at_head", "branch_not_tracking_remote"]
+}
