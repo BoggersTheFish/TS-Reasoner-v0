@@ -1,0 +1,250 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "case_count": 3,
+  "failed_cases": 0,
+  "passed_cases": 3,
+  "release": "v9.7.0",
+  "results": [
+    {
+      "actual_actions": [
+        "quarantine",
+        "open_repair"
+      ],
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_checkpoint_valid": true,
+      "actual_exit_code": 0,
+      "actual_restore_valid": true,
+      "case_id": "checkpoint_cli_identity_repair",
+      "expected_actions": [
+        "quarantine",
+        "open_repair"
+      ],
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_checkpoint_valid": true,
+      "expected_exit_code": 0,
+      "expected_restore_valid": true,
+      "passed": true,
+      "payload": {
+        "action": "checkpoint_created",
+        "actions": [
+          "quarantine",
+          "open_repair"
+        ],
+        "candidate_graph_contamination_count": 0,
+        "case_id": "checkpoint_cli_identity_repair",
+        "checkpoint": {
+          "actions": [
+            "quarantine",
+            "open_repair"
+          ],
+          "candidate_graph_contamination_count": 0,
+          "case_id": "checkpoint_cli_identity_repair",
+          "head_hash": "1716f494b338e1e4b2f9a4a23af93ae9e1dcb031ebc81f83b96c116a3f20508b",
+          "ledger": [
+            {
+              "entry": {
+                "action": "quarantine",
+                "audit": {
+                  "accepted_claim_count": 2,
+                  "branch_world_count": 0,
+                  "candidate_graph_contamination_count": 0,
+                  "patch_count": 1,
+                  "quarantined_claim_count": 1,
+                  "repair_target_count": 0
+                },
+                "candidate_graph_contamination_count": 0,
+                "case_id": "checkpoint_cli_identity_repair__ledger_0",
+                "event": {
+                  "claim": "external llm was used",
+                  "event_type": "claim",
+                  "source": "hostile_candidate",
+                  "trust": 0.2
+                },
+                "index": 0,
+                "receipt": {
+                  "accepted_common_ground_mutated_by_candidate": false,
+                  "action": "quarantine",
+                  "candidate_graph_contamination_count": 0,
+                  "case_id": "checkpoint_cli_identity_repair__ledger_0",
+                  "typed_verifier_support_remains_proof_boundary": true
+                }
+              },
+              "entry_hash": "56836b387e7ad10d7ed8c8655854357e760176790bec8f133a70b4d3a5221898",
+              "index": 0,
+              "previous_hash": "GENESIS"
+            },
+            {
+              "entry": {
+                "action": "open_repair",
+                "audit": {
+                  "accepted_claim_count": 2,
+                  "branch_world_count": 0,
+                  "candidate_graph_contamination_count": 0,
+                  "patch_count": 2,
+                  "quarantined_claim_count": 1,
+                  "repair_target_count": 1
+                },
+                "candidate_graph_contamination_count": 0,
+                "case_id": "checkpoint_cli_identity_repair__ledger_1",
+                "event": {
+                  "claim": "all cats are mortal",
+                  "event_type": "claim",
+                  "source": "generated_text",
+                  "trust": 0.5
+                },
+                "index": 1,
+                "receipt": {
+                  "accepted_common_ground_mutated_by_candidate": false,
+                  "action": "open_repair",
+                  "candidate_graph_contamination_count": 0,
+                  "case_id": "checkpoint_cli_identity_repair__ledger_1",
+                  "typed_verifier_support_remains_proof_boundary": true
+                }
+              },
+              "entry_hash": "1716f494b338e1e4b2f9a4a23af93ae9e1dcb031ebc81f83b96c116a3f20508b",
+              "index": 1,
+              "previous_hash": "56836b387e7ad10d7ed8c8655854357e760176790bec8f133a70b4d3a5221898"
+            }
+          ],
+          "schema": "ts_reasoner_runtime_checkpoint_v1",
+          "state": {
+            "accepted_claims": [
+              "no external llm was used",
+              "all cats are animals"
+            ],
+            "branch_worlds": [],
+            "patches": [
+              {
+                "claim": "external llm was used",
+                "patch_type": "claim_quarantined",
+                "reason": "hostile_or_identity_attack"
+              },
+              {
+                "patch_type": "repair_opened",
+                "repair_type": "missing_support",
+                "target_claim": "all cats are mortal"
+              }
+            ],
+            "quarantined_claims": [
+              "external llm was used"
+            ],
+            "repair_targets": [
+              {
+                "accepted_as_proof": false,
+                "repair_type": "missing_support",
+                "target_claim": "all cats are mortal"
+              }
+            ]
+          }
+        },
+        "checkpoint_valid": true,
+        "explanation": "Runtime checkpoint stores state, actions, ledger, and head hash for safe restore.",
+        "head_hash_present": true,
+        "restore_valid": true,
+        "restored_state": {
+          "accepted_claims": [
+            "no external llm was used",
+            "all cats are animals"
+          ],
+          "branch_worlds": [],
+          "patches": [
+            {
+              "claim": "external llm was used",
+              "patch_type": "claim_quarantined",
+              "reason": "hostile_or_identity_attack"
+            },
+            {
+              "patch_type": "repair_opened",
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ],
+          "quarantined_claims": [
+            "external llm was used"
+          ],
+          "repair_targets": [
+            {
+              "accepted_as_proof": false,
+              "repair_type": "missing_support",
+              "target_claim": "all cats are mortal"
+            }
+          ]
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "actual_actions": [],
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_checkpoint_valid": true,
+      "actual_exit_code": 0,
+      "actual_restore_valid": true,
+      "case_id": "checkpoint_cli_empty",
+      "expected_actions": [],
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_checkpoint_valid": true,
+      "expected_exit_code": 0,
+      "expected_restore_valid": true,
+      "passed": true,
+      "payload": {
+        "action": "checkpoint_created",
+        "actions": [],
+        "candidate_graph_contamination_count": 0,
+        "case_id": "checkpoint_cli_empty",
+        "checkpoint": {
+          "actions": [],
+          "candidate_graph_contamination_count": 0,
+          "case_id": "checkpoint_cli_empty",
+          "head_hash": "GENESIS",
+          "ledger": [],
+          "schema": "ts_reasoner_runtime_checkpoint_v1",
+          "state": {
+            "accepted_claims": [
+              "all fish are animals"
+            ],
+            "branch_worlds": [],
+            "patches": [],
+            "quarantined_claims": [],
+            "repair_targets": []
+          }
+        },
+        "checkpoint_valid": true,
+        "explanation": "Runtime checkpoint stores state, actions, ledger, and head hash for safe restore.",
+        "head_hash_present": true,
+        "restore_valid": true,
+        "restored_state": {
+          "accepted_claims": [
+            "all fish are animals"
+          ],
+          "branch_worlds": [],
+          "patches": [],
+          "quarantined_claims": [],
+          "repair_targets": []
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "actual_actions": [],
+      "actual_candidate_graph_contamination_count": 0,
+      "actual_checkpoint_valid": false,
+      "actual_exit_code": 2,
+      "actual_restore_valid": false,
+      "case_id": "checkpoint_cli_bad_session",
+      "expected_actions": [],
+      "expected_candidate_graph_contamination_count": 0,
+      "expected_checkpoint_valid": false,
+      "expected_exit_code": 2,
+      "expected_restore_valid": false,
+      "passed": true,
+      "payload": {
+        "action": "invalid_input",
+        "candidate_graph_contamination_count": 0,
+        "error": "initial_state_must_be_object_and_events_must_be_list"
+      },
+      "stderr": ""
+    }
+  ],
+  "runtime_checkpoint_cli_accuracy": 1.0
+}
