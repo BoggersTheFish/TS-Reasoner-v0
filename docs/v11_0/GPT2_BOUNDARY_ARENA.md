@@ -35,10 +35,10 @@ python3 -m unittest discover -q
 
 ## Current Release Authority
 
-Current release: v11.3.0, Paragraph Claim Decomposer
+Current release: v11.4.0, Procedural Reasoning Curriculum
 
-This document is the required internal release-authority surface for v11.3.0.
-The current release title is Paragraph Claim Decomposer.
+This document is the required internal release-authority surface for v11.4.0.
+The current release title is Procedural Reasoning Curriculum.
 
 Boundary:
 - Generated text is not proof.
