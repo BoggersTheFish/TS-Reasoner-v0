@@ -4,6 +4,7 @@ import re
 from dataclasses import asdict, dataclass
 from typing import Any
 
+from ts_reasoner.relation_phrase_parser import parse_relation_phrase
 from ts_reasoner.runtime_kernel import normalize_claim
 
 
@@ -146,6 +147,18 @@ def normalize_claim_surface(text: str) -> dict[str, Any]:
             subject=match.group(1),
             predicate=match.group(3),
             copula=match.group(2),
+        ).to_dict()
+
+    relation = parse_relation_phrase(surface)
+    if relation["parse_status"] == "parsed":
+        return NormalizedClaimSurface(
+            surface_claim=surface,
+            canonical_claim=str(relation["canonical_claim"]),
+            parse_status="parsed",
+            quantifier=str(relation["quantifier"]),
+            subject=str(relation["subject"]),
+            predicate=str(relation["predicate"]),
+            copula=str(relation["relation"]),
         ).to_dict()
 
     match = BARE_RE.match(surface)

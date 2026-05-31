@@ -1,3 +1,23 @@
+## v11.2.0: Relation Phrase Parser
+
+v11.2.0 expands bounded claim normalization from natural is/are surfaces into relation phrases such as belongs to, kind of, type of, counts as, implies, supports, requires, cannot be, and excludes.
+
+Artifacts:
+
+- `ts_reasoner/relation_phrase_parser.py`
+- `data/v11_2/relation_phrase_cases.jsonl`
+- `scripts/v11_2/evaluate_relation_phrase_parser.py`
+- `tests/test_v11_2_relation_phrase_parser.py`
+- `docs/v11_2/RELATION_PHRASE_PARSER.md`
+- `artifacts/v11_2/relation_phrase_parser_report.json`
+- `artifacts/v11_2/relation_phrase_parser_receipt.json`
+
+Boundary:
+
+- This is bounded relation phrase normalization, not broad natural-language understanding.
+- The verifier remains proof authority.
+- Generated text and model confidence remain non-proof.
+
 ## v11.1.0: Natural Claim Surface Normalization
 
 v11.1.0 expands bounded claim parsing from strict `all X are Y` / `no X are Y` surfaces to natural `is/are/every/each/any/no/not` variants while preserving the same typed verifier boundary.
