@@ -1,3 +1,26 @@
+## v11.7.0: Verifier Trace Training Dataset
+
+v11.7.0 generates verifier-labelled JSONL train/valid/test data for future proposer models. Labels are replayed from the typed verifier and include answer, status, claim, support channel/reason, support premises, and trace hashes for accepted claims.
+
+Artifacts:
+
+- `training/v11_7/build_trace_training_data.py`
+- `data/v11_7/verifier_trace_training_config.json`
+- `scripts/v11_7/evaluate_trace_training_dataset.py`
+- `tests/test_v11_7_verifier_trace_training_dataset.py`
+- `docs/v11_7/VERIFIER_TRACE_TRAINING_DATASET.md`
+- `artifacts/v11_7/verifier_trace_train.jsonl`
+- `artifacts/v11_7/verifier_trace_valid.jsonl`
+- `artifacts/v11_7/verifier_trace_test.jsonl`
+- `artifacts/v11_7/verifier_trace_dataset_summary.json`
+- `artifacts/v11_7/verifier_trace_dataset_receipt.json`
+
+Boundary:
+
+- This is a verifier-labelled dataset, not a trained model.
+- The verifier remains proof authority.
+- Generated text and model confidence remain non-proof.
+
 ## v11.5.0: Adversarial Claim Fuzzer
 
 v11.5.0 attacks brittleness by adversarially mutating procedural curriculum tasks with reversed premise order, duplicate premises, irrelevant premises, confidence bait, contradiction injection, malformed claims, noisy surfaces, and paragraph noise wrappers.
