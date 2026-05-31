@@ -1,0 +1,178 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_domain_pack_generator_report",
+  "candidate_graph_contamination_count": 0,
+  "exact_example_routing_accuracy": 1.0,
+  "exact_rows": [
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "summarize_note",
+      "expected_domain": "research_notes",
+      "expected_operation": "summarize_note",
+      "ok": true,
+      "score": 1.0,
+      "text": "summarize this research note"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "summarize_note",
+      "expected_domain": "research_notes",
+      "expected_operation": "summarize_note",
+      "ok": true,
+      "score": 1.0,
+      "text": "what does this note say"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "summarize_note",
+      "expected_domain": "research_notes",
+      "expected_operation": "summarize_note",
+      "ok": true,
+      "score": 1.0,
+      "text": "give me the note summary"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "draft_note",
+      "expected_domain": "research_notes",
+      "expected_operation": "draft_note",
+      "ok": true,
+      "score": 1.0,
+      "text": "draft a research note"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "draft_note",
+      "expected_domain": "research_notes",
+      "expected_operation": "draft_note",
+      "ok": true,
+      "score": 1.0,
+      "text": "create a note draft"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "draft_note",
+      "expected_domain": "research_notes",
+      "expected_operation": "draft_note",
+      "ok": true,
+      "score": 1.0,
+      "text": "write a bounded note about this topic"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "publish_note_dry_run",
+      "expected_domain": "research_notes",
+      "expected_operation": "publish_note_dry_run",
+      "ok": true,
+      "score": 1.0,
+      "text": "stage a note publication"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "publish_note_dry_run",
+      "expected_domain": "research_notes",
+      "expected_operation": "publish_note_dry_run",
+      "ok": true,
+      "score": 1.0,
+      "text": "publish this note in dry run"
+    },
+    {
+      "actual_domain": "research_notes",
+      "actual_operation": "publish_note_dry_run",
+      "expected_domain": "research_notes",
+      "expected_operation": "publish_note_dry_run",
+      "ok": true,
+      "score": 1.0,
+      "text": "prepare to send this note externally"
+    }
+  ],
+  "external_llm_used": false,
+  "generated_domain": "research_notes",
+  "generated_edge_type_count": 4,
+  "generated_failure_mode_count": 4,
+  "generated_manifest": {
+    "description": "Generated teaching pack for bounded research note workflows.",
+    "domain": "research_notes",
+    "edge_types": [
+      "summarizes",
+      "references",
+      "drafts",
+      "publishes_to"
+    ],
+    "failure_modes": [
+      "missing_note",
+      "missing_topic",
+      "unsafe_publish_without_confirmation",
+      "ambiguous_note_reference"
+    ],
+    "node_types": [
+      "note",
+      "topic",
+      "summary",
+      "draft",
+      "publication_target"
+    ],
+    "operations": [
+      {
+        "description": "Summarize a bounded research note.",
+        "examples": [
+          "summarize this research note",
+          "what does this note say",
+          "give me the note summary"
+        ],
+        "name": "summarize_note",
+        "required_inputs": [
+          "note_id"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Draft a bounded research note artifact.",
+        "examples": [
+          "draft a research note",
+          "create a note draft",
+          "write a bounded note about this topic"
+        ],
+        "name": "draft_note",
+        "required_inputs": [
+          "topic"
+        ],
+        "requires_confirmation": true,
+        "risk": "reversible_write"
+      },
+      {
+        "description": "Stage a dry-run publication action for a note.",
+        "examples": [
+          "stage a note publication",
+          "publish this note in dry run",
+          "prepare to send this note externally"
+        ],
+        "name": "publish_note_dry_run",
+        "required_inputs": [
+          "note_id",
+          "target"
+        ],
+        "requires_confirmation": true,
+        "risk": "external_side_effect"
+      }
+    ]
+  },
+  "generated_node_type_count": 5,
+  "generated_operation_count": 3,
+  "generated_pack_path": "artifacts/generated_domain_packs/research_notes.json",
+  "language_example_count": 9,
+  "manifest_error_count": 0,
+  "manifest_valid": true,
+  "risk_confirmation_valid": true,
+  "validation_report": {
+    "error_count": 0,
+    "issues": [],
+    "language_example_count": 9,
+    "manifest_count": 1,
+    "operation_count": 3,
+    "valid": true,
+    "warning_count": 0
+  },
+  "wrong_state_mutation_count": 0
+}

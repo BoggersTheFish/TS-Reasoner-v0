@@ -1,0 +1,68 @@
+{
+  "description": "Generated teaching pack for bounded research note workflows.",
+  "domain": "research_notes",
+  "edge_types": [
+    "summarizes",
+    "references",
+    "drafts",
+    "publishes_to"
+  ],
+  "failure_modes": [
+    "missing_note",
+    "missing_topic",
+    "unsafe_publish_without_confirmation",
+    "ambiguous_note_reference"
+  ],
+  "node_types": [
+    "note",
+    "topic",
+    "summary",
+    "draft",
+    "publication_target"
+  ],
+  "operations": [
+    {
+      "description": "Summarize a bounded research note.",
+      "examples": [
+        "summarize this research note",
+        "what does this note say",
+        "give me the note summary"
+      ],
+      "name": "summarize_note",
+      "required_inputs": [
+        "note_id"
+      ],
+      "requires_confirmation": false,
+      "risk": "read_only"
+    },
+    {
+      "description": "Draft a bounded research note artifact.",
+      "examples": [
+        "draft a research note",
+        "create a note draft",
+        "write a bounded note about this topic"
+      ],
+      "name": "draft_note",
+      "required_inputs": [
+        "topic"
+      ],
+      "requires_confirmation": true,
+      "risk": "reversible_write"
+    },
+    {
+      "description": "Stage a dry-run publication action for a note.",
+      "examples": [
+        "stage a note publication",
+        "publish this note in dry run",
+        "prepare to send this note externally"
+      ],
+      "name": "publish_note_dry_run",
+      "required_inputs": [
+        "note_id",
+        "target"
+      ],
+      "requires_confirmation": true,
+      "risk": "external_side_effect"
+    }
+  ]
+}
