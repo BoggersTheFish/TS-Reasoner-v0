@@ -1,0 +1,14 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_safe_write_arena_report",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_executed": true,
+  "confirmed_mutation_count": 1,
+  "external_llm_used": false,
+  "requires_confirmation": true,
+  "risk": "reversible_write",
+  "unconfirmed_blocked": true,
+  "write_path": "artifacts/ts_agl_safe_write_marker.json",
+  "write_path_exists": true,
+  "wrong_unconfirmed_mutation_count": 0
+}

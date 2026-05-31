@@ -1,25 +1,58 @@
 {
-  "domain": "filesystem",
   "description": "Read-only filesystem inspection operations.",
-  "node_types": ["directory", "file", "path"],
-  "edge_types": ["contains", "located_at"],
+  "domain": "filesystem",
+  "edge_types": [
+    "contains",
+    "located_at"
+  ],
+  "failure_modes": [
+    "path_missing",
+    "permission_denied",
+    "write_outside_allowed_root",
+    "missing_confirmation"
+  ],
+  "node_types": [
+    "directory",
+    "file",
+    "path"
+  ],
   "operations": [
     {
-      "name": "pwd",
       "description": "Show current working directory.",
+      "examples": [
+        "where am I?",
+        "what folder is this?"
+      ],
+      "name": "pwd",
       "required_inputs": [],
-      "risk": "read_only",
       "requires_confirmation": false,
-      "examples": ["where am I?", "what folder is this?"]
+      "risk": "read_only"
     },
     {
-      "name": "list_files",
       "description": "List files at a path.",
+      "examples": [
+        "list files",
+        "show this folder"
+      ],
+      "name": "list_files",
       "required_inputs": [],
-      "risk": "read_only",
       "requires_confirmation": false,
-      "examples": ["list files", "show this folder"]
+      "risk": "read_only"
+    },
+    {
+      "description": "Write a UTF-8 text file inside the allowed artifacts area after confirmation.",
+      "examples": [
+        "write this receipt file",
+        "save this text to artifacts",
+        "create a safe write marker"
+      ],
+      "name": "write_text_file",
+      "required_inputs": [
+        "path",
+        "content"
+      ],
+      "requires_confirmation": true,
+      "risk": "reversible_write"
     }
-  ],
-  "failure_modes": ["path_missing", "permission_denied"]
+  ]
 }

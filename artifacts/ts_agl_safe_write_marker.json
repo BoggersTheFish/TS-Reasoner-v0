@@ -1,0 +1,6 @@
+{
+  "artifact": "ts_agl_safe_write_marker",
+  "claim": "confirmed reversible write executed through TS-AGL risk gate",
+  "language_layer_is_proof_authority": false,
+  "requires_confirmation": true
+}

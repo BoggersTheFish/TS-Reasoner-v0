@@ -5,9 +5,9 @@
   "error_count": 0,
   "external_llm_used": false,
   "issues": [],
-  "language_example_count": 23,
+  "language_example_count": 26,
   "manifest_count": 3,
-  "operation_count": 10,
+  "operation_count": 11,
   "valid": true,
   "warning_count": 0,
   "wrong_state_mutation_count": 0

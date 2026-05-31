@@ -43,7 +43,7 @@
     }
   ],
   "candidate_graph_contamination_count": 0,
-  "created_at": 1780270860.2134683,
+  "created_at": 1780271031.95672,
   "external_llm_used": false,
   "moves": [
     {
@@ -70,46 +70,52 @@
     }
   ],
   "raw_text": "Check where we are in the repo and tell me the next safe release action.",
-  "rendered_reply": "Repo is not clean. Current branch: experiment/v13-cross-domain-agl-arena. Dirty entries: 7. HEAD is tagged: v12.1.0. Latest reachable tag: v12.1.0.",
+  "rendered_reply": "Repo is not clean. Current branch: experiment/v14-safe-write-agl-arena. Dirty entries: 13. HEAD is tagged: v13.0.0. Latest reachable tag: v13.0.0.",
   "results": [
     {
       "data": {
-        "branch": "experiment/v13-cross-domain-agl-arena",
+        "branch": "experiment/v14-safe-write-agl-arena",
         "clean": false,
         "cwd": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0",
         "git_status_returncode": 0,
         "git_status_stderr": "",
         "status_short": [
-          "?? artifacts/ts_agl_cross_domain_arena_receipt.json",
-          "?? artifacts/ts_agl_cross_domain_arena_report.json",
-          "?? docs/ts_agl_cross_domain_arena.md",
-          "?? scripts/evaluate_ts_agl_cross_domain_arena.py",
-          "?? scripts/run_ts_agl_cross_domain_arena.py",
-          "?? tests/test_ts_agl_cross_domain_arena.py",
-          "?? ts_agl/arena/"
+          "M artifacts/ts_agl_domain_pack_validation_report.json",
+          " M artifacts/ts_agl_example_router_report.json",
+          " M ts_agl/adapters/filesystem_adapter.py",
+          " M ts_agl/arena/__init__.py",
+          " M ts_agl/domains/filesystem.json",
+          "?? artifacts/ts_agl_safe_write_arena_receipt.json",
+          "?? artifacts/ts_agl_safe_write_arena_report.json",
+          "?? artifacts/ts_agl_safe_write_marker.json",
+          "?? docs/ts_agl_safe_write_arena.md",
+          "?? scripts/evaluate_ts_agl_safe_write_arena.py",
+          "?? scripts/run_ts_agl_safe_write_arena.py",
+          "?? tests/test_ts_agl_safe_write_arena.py",
+          "?? ts_agl/arena/safe_write_arena.py"
         ],
         "upstream": null
       },
       "error": null,
       "mutated_state": false,
       "operation": "git_status",
-      "result_id": "result_54e456be63dd",
+      "result_id": "result_73052da65593",
       "status": "success",
       "system": "git_repo"
     },
     {
       "data": {
-        "latest_reachable_tag": "v12.1.0",
+        "latest_reachable_tag": "v13.0.0",
         "latest_tag_stderr": "",
         "points_at_head_stderr": "",
         "tags_at_head": [
-          "v12.1.0"
+          "v13.0.0"
         ]
       },
       "error": null,
       "mutated_state": false,
       "operation": "current_tag",
-      "result_id": "result_82803ec317bf",
+      "result_id": "result_545c9d73fb0a",
       "status": "success",
       "system": "git_repo"
     }
