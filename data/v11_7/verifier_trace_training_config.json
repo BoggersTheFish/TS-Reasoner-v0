@@ -1,0 +1,9 @@
+{
+  "seed": 117,
+  "procedural_task_count": 5000,
+  "adversarial_case_count": 3000,
+  "target_row_count": 8000,
+  "train_ratio": 0.8,
+  "valid_ratio": 0.1,
+  "test_ratio": 0.1
+}

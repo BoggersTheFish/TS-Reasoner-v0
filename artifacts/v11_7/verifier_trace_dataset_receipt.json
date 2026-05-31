@@ -1,0 +1,23 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "claim": "TS-Reasoner generates verifier-labelled training data where labels replay through typed verifier traces.",
+  "class_balance_valid": true,
+  "dataset_hash": "cb65030177116610f058968a014b4e80822447e1a3d5e887eddcc8f7ffc63985",
+  "label_verifier_replay_rate": 1.0,
+  "leakage_check_passed": true,
+  "receipt_type": "v11_7_verifier_trace_dataset_receipt",
+  "release": "v11.7.0",
+  "row_count": 8000,
+  "split_counts": {
+    "test": 800,
+    "train": 6400,
+    "valid": 800
+  },
+  "status_counts": {
+    "abstained": 1595,
+    "accepted": 4287,
+    "rejected": 2118
+  },
+  "trace_hash_validity": 1.0
+}

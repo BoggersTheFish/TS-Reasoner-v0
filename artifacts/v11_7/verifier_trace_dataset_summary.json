@@ -1,0 +1,35 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "channel_counts": {
+    "direct_support": 1150,
+    "identity_block": 578,
+    "negative_exclusion": 580,
+    "reverse_inference_block": 1386,
+    "transitive_all": 2557,
+    "unparseable_claim": 154,
+    "unsupported_claim": 1595
+  },
+  "class_balance_valid": true,
+  "dataset_hash": "cb65030177116610f058968a014b4e80822447e1a3d5e887eddcc8f7ffc63985",
+  "label_verifier_replay_rate": 1.0,
+  "leakage_check_passed": true,
+  "release": "v11.7.0",
+  "row_count": 8000,
+  "source_counts": {
+    "adversarial_fuzzer": 2313,
+    "paragraph_decomposition": 1019,
+    "procedural_curriculum": 4668
+  },
+  "split_counts": {
+    "test": 800,
+    "train": 6400,
+    "valid": 800
+  },
+  "status_counts": {
+    "abstained": 1595,
+    "accepted": 4287,
+    "rejected": 2118
+  },
+  "trace_hash_validity": 1.0
+}
