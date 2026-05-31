@@ -19,7 +19,7 @@
     "public_surface_overclaim_count_zero": true,
     "readme_current_release_matches_authority": true
   },
-  "generated_at": "2026-05-31T21:23:02.720471+00:00",
+  "generated_at": "2026-05-31T21:43:50.578691+00:00",
   "optional_external_surfaces": [
     {
       "current_release_present": false,
@@ -49,7 +49,7 @@
   },
   "previous_verified_release": "v10.5.0",
   "public_surface_overclaim_count": 0,
-  "release": "v11.0.0",
+  "release": "v11.1.0",
   "stale_current_release_markers": [],
-  "title": "GPT-2 Boundary Arena"
+  "title": "Natural Claim Surface Normalization"
 }

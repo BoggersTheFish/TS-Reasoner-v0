@@ -35,7 +35,7 @@
     "release_receipts_are_required_for_public_claims": true,
     "typed_verifier_support_remains_proof_boundary": true
   },
-  "release": "v11.0.0",
+  "release": "v11.1.0",
   "required_gates": [
     "authority_json_valid",
     "readme_current_release_matches_authority",
@@ -50,5 +50,5 @@
     "docs/v11_0/GPT2_BOUNDARY_ARENA.md"
   ],
   "schema_version": "1.0",
-  "title": "GPT-2 Boundary Arena"
+  "title": "Natural Claim Surface Normalization"
 }

@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v11.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.0.0)
+[![Release](https://img.shields.io/badge/release-v11.1.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v11.1.0)
 
 TS-Reasoner is a verifier-first reasoning runtime.
 
@@ -33,7 +33,7 @@ candidate event
 
 ## Current Release
 
-Current release: v11.0.0, GPT-2 Boundary Arena
+Current release: v11.1.0, Natural Claim Surface Normalization
 
 v11.0.0 provides a reproducible verifier-first arena comparing TS-Reasoner
 against GPT-2-small on controlled reasoning tasks. GPT-2-small is treated as a
