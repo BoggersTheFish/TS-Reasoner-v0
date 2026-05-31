@@ -1,3 +1,28 @@
+## v13.0.0: Cross-Domain TS-AGL Arena
+
+v13.0.0 adds the Cross-Domain TS-AGL Arena. One natural-language request now coordinates multiple taught domains through the same `LanguageMove -> TSCall -> ResultPacket -> rendered reply` surface.
+
+The arena currently covers `git_repo`, `filesystem`, and `ts_reasoner`, producing a combined cross-domain receipt with domain coverage, operation coverage, read-only gating, mutation count, candidate contamination count, and external-LLM usage.
+
+Artifacts:
+
+- `ts_agl/arena/cross_domain_arena.py`
+- `scripts/run_ts_agl_cross_domain_arena.py`
+- `scripts/evaluate_ts_agl_cross_domain_arena.py`
+- `tests/test_ts_agl_cross_domain_arena.py`
+- `docs/ts_agl_cross_domain_arena.md`
+- `artifacts/ts_agl_cross_domain_arena_report.json`
+- `artifacts/ts_agl_cross_domain_arena_receipt.json`
+
+Boundary:
+
+- This is a bounded cross-domain arena, not broad autonomous agency.
+- No external LLM is used.
+- The arena uses read-only operations only.
+- The language layer is not proof authority.
+- Risky execution remains gated.
+- Candidate graph contamination remains zero.
+
 ## v12.1.0: TS-AGL Domain Example Router
 
 v12.1.0 adds the TS-AGL Domain Example Router. Domain-pack language examples now actively teach routing behavior: natural-language phrases can route through transparent example matching into `LanguageMove` and `TSCall` objects, while unknown or low-confidence input safely abstains to `route_unknown`.
