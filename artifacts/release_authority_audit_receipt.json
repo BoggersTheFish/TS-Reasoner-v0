@@ -6,11 +6,11 @@
   "docs_current_release_matches_authority": true,
   "generated_text_is_not_proof": true,
   "model_confidence_is_not_proof": true,
-  "previous_v6_9_receipt_visible": true,
+  "previous_v8_0_receipt_visible": true,
   "public_surface_overclaim_count": 0,
   "readme_current_release_matches_authority": true,
   "receipt_type": "canonical_release_authority",
-  "release": "v8.0.0",
+  "release": "v8.0.1",
   "release_receipts_required_for_public_claims": true,
   "typed_verifier_support_remains_proof_boundary": true
 }

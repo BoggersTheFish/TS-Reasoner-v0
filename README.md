@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v8.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v8.0.0)
+[![Release](https://img.shields.io/badge/release-v8.0.1-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v8.0.1)
 
 TS-Reasoner is a verifier-first reasoning system.
 
@@ -27,9 +27,9 @@ Current flagship release
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v8.0.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v8.0.1
 
-v8.0.0 adds Canonical Release Authority: a machine-readable authority file plus audit scripts, docs, tests, report, and receipt for checking whether TS-Reasoner's public/internal release surface agrees with its receipt-backed state.
+v8.0.1 adds Canonical Release Authority: a machine-readable authority file plus audit scripts, docs, tests, report, and receipt for checking whether TS-Reasoner's public/internal release surface agrees with its receipt-backed state.
 
 It adds:
 
@@ -59,7 +59,7 @@ typed verifier support = proof boundary
 release receipts are required for public release claims
 Flagship evidence
 
-v8.0.0 Canonical Release Authority:
+v8.0.1 Canonical Release Authority:
 
 authority_json_valid: true
 readme_current_release_matches_authority: true
@@ -108,7 +108,7 @@ TS-Reasoner keeps those roles separate.
 
 A model may propose or rank a candidate claim, but the claim is not accepted unless typed verifier channels support it.
 
-v8.0.0 extends that discipline to release truth itself.
+v8.0.1 extends that discipline to release truth itself.
 
 Core boundary
 candidate generation != proof

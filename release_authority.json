@@ -1,9 +1,4 @@
 {
-  "schema_version": "1.0",
-  "release": "v8.0.0",
-  "title": "Canonical Release Authority",
-  "previous_verified_release": "v6.9.0",
-  "claim": "TS-Reasoner now has a machine-readable release authority layer that audits whether its public truth surface agrees with its receipt-backed release state.",
   "authority_files": [
     "release_authority.json",
     "docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md",
@@ -12,10 +7,15 @@
     "artifacts/release_authority_audit_report.json",
     "artifacts/release_authority_audit_receipt.json"
   ],
-  "required_internal_surfaces": [
-    "README.md",
-    "release_authority.json",
-    "docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md"
+  "claim": "TS-Reasoner now has a machine-readable release authority layer that audits whether its public truth surface agrees with its receipt-backed release state, without overwriting the existing v8.0.0 Local Verifier-First Reasoning OS release.",
+  "forbidden_claims": [
+    "AGI",
+    "general intelligence",
+    "full general reasoning",
+    "solves reasoning",
+    "model confidence is proof",
+    "candidate generation is proof",
+    "generated text is proof"
   ],
   "optional_external_surfaces": [
     {
@@ -27,22 +27,15 @@
       "path": "../boggersthefish-site/src/content/projects.ts"
     }
   ],
+  "previous_verified_release": "v8.0.0",
   "proof_boundary": {
     "candidate_generation_is_proof": false,
-    "model_confidence_is_proof": false,
     "generated_text_is_proof": false,
-    "typed_verifier_support_remains_proof_boundary": true,
-    "release_receipts_are_required_for_public_claims": true
+    "model_confidence_is_proof": false,
+    "release_receipts_are_required_for_public_claims": true,
+    "typed_verifier_support_remains_proof_boundary": true
   },
-  "forbidden_claims": [
-    "AGI",
-    "general intelligence",
-    "full general reasoning",
-    "solves reasoning",
-    "model confidence is proof",
-    "candidate generation is proof",
-    "generated text is proof"
-  ],
+  "release": "v8.0.1",
   "required_gates": [
     "authority_json_valid",
     "readme_current_release_matches_authority",
@@ -50,5 +43,12 @@
     "previous_v6_9_receipt_visible",
     "public_surface_overclaim_count_zero",
     "candidate_graph_contamination_count_zero"
-  ]
+  ],
+  "required_internal_surfaces": [
+    "README.md",
+    "release_authority.json",
+    "docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md"
+  ],
+  "schema_version": "1.0",
+  "title": "Canonical Release Authority Sync"
 }
