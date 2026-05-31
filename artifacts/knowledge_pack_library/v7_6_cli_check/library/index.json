@@ -1,0 +1,52 @@
+{
+  "candidate_graph_contamination_count": 0,
+  "entries": {
+    "animals": {
+      "accepted_edge_count": 2,
+      "external_llm_used": false,
+      "label": "animals",
+      "pack_import_is_proof": false,
+      "pack_merge_is_proof": false,
+      "path": "artifacts/knowledge_pack_library/v7_6_cli_check/packs/animals_pack.json",
+      "rejected_or_unsupported_record_count": 0,
+      "release": "v7.6.0",
+      "repair_target_count": 0,
+      "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+      "typed_verifier_remains_proof_authority": true
+    },
+    "machines": {
+      "accepted_edge_count": 2,
+      "external_llm_used": false,
+      "label": "machines",
+      "pack_import_is_proof": false,
+      "pack_merge_is_proof": false,
+      "path": "artifacts/knowledge_pack_library/v7_6_cli_check/packs/machines_pack.json",
+      "rejected_or_unsupported_record_count": 0,
+      "release": "v7.6.0",
+      "repair_target_count": 0,
+      "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+      "typed_verifier_remains_proof_authority": true
+    },
+    "unsafe_direct_robots": {
+      "accepted_edge_count": 1,
+      "external_llm_used": false,
+      "label": "unsafe_direct_robots",
+      "pack_import_is_proof": false,
+      "pack_merge_is_proof": false,
+      "path": "artifacts/knowledge_pack_library/v7_6_cli_check/packs/unsafe_pack.json",
+      "rejected_or_unsupported_record_count": 0,
+      "release": "v7.6.0",
+      "repair_target_count": 0,
+      "schema": "ts_reasoner_v7_6_demo_knowledge_pack",
+      "typed_verifier_remains_proof_authority": true
+    }
+  },
+  "external_llm_used": false,
+  "library_dir": "artifacts/knowledge_pack_library/v7_6_cli_check/library",
+  "pack_count": 3,
+  "pack_import_is_proof": false,
+  "pack_merge_is_proof": false,
+  "release": "v7.6.0",
+  "schema": "ts_reasoner_knowledge_pack_library_v1",
+  "typed_verifier_remains_proof_authority": true
+}
