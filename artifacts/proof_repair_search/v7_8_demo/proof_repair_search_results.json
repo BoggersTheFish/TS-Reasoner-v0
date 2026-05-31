@@ -1,0 +1,109 @@
+{
+  "cut_mortal": {
+    "candidate_graph_contamination_count": 0,
+    "cut_suggestion_count": 2,
+    "cut_suggestion_is_proof": false,
+    "cut_suggestions": [
+      {
+        "creates_proof": false,
+        "cut_id": "cut_0001",
+        "edge": {
+          "object": "animals",
+          "subject": "cats"
+        },
+        "requires_typed_verifier": true,
+        "strategy": "inspect_or_dispute_support_premise",
+        "suggested_action": "inspect premise: all cats are animals"
+      },
+      {
+        "creates_proof": false,
+        "cut_id": "cut_0002",
+        "edge": {
+          "object": "mortal",
+          "subject": "animals"
+        },
+        "requires_typed_verifier": true,
+        "strategy": "inspect_or_dispute_support_premise",
+        "suggested_action": "inspect premise: all animals are mortal"
+      }
+    ],
+    "external_llm_used": false,
+    "negative_claim_text": "no cats are mortal",
+    "positive_relation": {
+      "object": "mortal",
+      "subject": "cats"
+    },
+    "positive_support_found": true,
+    "query_type": "cut",
+    "release": "v7.8.0",
+    "schema": "ts_reasoner_proof_repair_search_v1",
+    "search_result_is_proof": false,
+    "support_path": [
+      {
+        "object": "animals",
+        "subject": "cats"
+      },
+      {
+        "object": "mortal",
+        "subject": "animals"
+      }
+    ],
+    "typed_verifier_remains_proof_authority": true
+  },
+  "missing_robots": {
+    "bridge_suggestions": [],
+    "candidate_graph_contamination_count": 0,
+    "claim_text": "all cats are robots",
+    "direct_support_suggestion": null,
+    "external_llm_used": false,
+    "missing_edges": [],
+    "missing_suggestion_is_proof": false,
+    "query_type": "missing",
+    "relation": {
+      "object": "robots",
+      "subject": "cats"
+    },
+    "release": "v7.8.0",
+    "schema": "ts_reasoner_proof_repair_search_v1",
+    "search_result_is_proof": false,
+    "status": "already_supported",
+    "support_path": [
+      {
+        "object": "machines",
+        "subject": "cats"
+      },
+      {
+        "object": "robots",
+        "subject": "machines"
+      }
+    ],
+    "typed_verifier_remains_proof_authority": true
+  },
+  "prove_mortal": {
+    "candidate_graph_contamination_count": 0,
+    "claim_text": "all cats are mortal",
+    "external_llm_used": false,
+    "query_type": "prove",
+    "relation": {
+      "object": "mortal",
+      "subject": "cats"
+    },
+    "release": "v7.8.0",
+    "schema": "ts_reasoner_proof_repair_search_v1",
+    "search_result_is_proof": false,
+    "shortest_path_found": true,
+    "status": "supported",
+    "support_path": [
+      {
+        "object": "animals",
+        "subject": "cats"
+      },
+      {
+        "object": "mortal",
+        "subject": "animals"
+      }
+    ],
+    "support_path_length": 2,
+    "typed_verifier_remains_proof_authority": true
+  }
+}

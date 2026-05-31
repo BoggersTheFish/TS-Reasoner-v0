@@ -1,0 +1,42 @@
+{
+  "all_gates_passed": true,
+  "boundary": {
+    "broad_natural_language_understanding": false,
+    "cut_suggestion_is_proof": false,
+    "external_benchmark_victory": false,
+    "live_tensionlm_runtime": false,
+    "missing_suggestion_is_proof": false,
+    "neural_training": false,
+    "search_result_is_proof": false,
+    "typed_verifier_remains_proof_authority": true
+  },
+  "candidate_graph_contamination_count": 0,
+  "cut_suggestion_count": 2,
+  "cut_suggestions_are_not_proof": true,
+  "external_llm_used": false,
+  "gates": {
+    "candidate_graph_contamination_count_is_zero": true,
+    "cut_result_valid": true,
+    "cut_suggestions_found": true,
+    "external_llm_used_false": true,
+    "live_cut_command_rendered": true,
+    "live_missing_command_rendered": true,
+    "live_prove_command_rendered": true,
+    "missing_already_supported_after_repair": true,
+    "missing_result_valid": true,
+    "prove_result_valid": true,
+    "prove_support_path_found": true
+  },
+  "milestone": "Minimal Proof / Repair Search",
+  "missing_status_after_repair": "already_supported",
+  "missing_suggestions_are_not_proof": true,
+  "out_dir": "artifacts/proof_repair_search/v7_8_demo",
+  "prove_support_path_length": 2,
+  "release": "v7.8.0",
+  "report_path": "artifacts/proof_repair_search/v7_8_demo/proof_repair_search_report.json",
+  "results_path": "artifacts/proof_repair_search/v7_8_demo/proof_repair_search_results.json",
+  "schema": "ts_reasoner_v7_8_proof_repair_search_receipt",
+  "search_results_are_not_proof": true,
+  "session_path": "artifacts/proof_repair_search/v7_8_demo/proof_repair_search_session.json",
+  "typed_verifier_remains_proof_authority": true
+}
