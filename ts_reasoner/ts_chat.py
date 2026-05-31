@@ -25,6 +25,7 @@ from ts_reasoner.answer_arena import Relation, extract_all_relation, extract_que
 from ts_reasoner.common_ground import CommonGround, human_relation
 from ts_reasoner.live_contradiction_firewall import negative_relation_text, parse_no_relation, record_negative_claim_result
 from ts_reasoner.repair_planner import generate_repair_plans, render_repair_plan_bundle
+from ts_reasoner.proof_repair_search import render_search_result, run_search_command
 from ts_reasoner.chat_repair import parse_repair_target, repair_to_dict
 from ts_reasoner.candidate_language import (
     candidate_selection_to_dict,
@@ -182,6 +183,35 @@ class TSChatSession:
                     },
                     "candidates": [],
                 }
+        elif parsed.command and (
+            parsed.command.startswith("prove:")
+            or parsed.command.startswith("missing:")
+            or parsed.command.startswith("cut:")
+        ):
+            mode, query_text = parsed.command.split(":", 1)
+            try:
+                result = run_search_command(self.common_ground, mode, query_text)
+                response = render_search_result(result)
+                candidate_selection = {
+                    "selected": {
+                        "rule_id": f"command_{mode}_search",
+                        "text": response,
+                        "score": 1.0,
+                        "reasons": ["proof/repair search command"],
+                    },
+                    "candidates": [],
+                }
+            except ValueError as exc:
+                response = str(exc)
+                candidate_selection = {
+                    "selected": {
+                        "rule_id": "command_search_parse_error",
+                        "text": response,
+                        "score": 1.0,
+                        "reasons": ["proof/repair search command", "parse error"],
+                    },
+                    "candidates": [],
+                }
         elif parsed.command == "clear":
             self.common_ground = CommonGround()
             self.common_ground.turn_id = turn_id
@@ -314,6 +344,12 @@ def detect_command(text: str) -> str | None:
         parts = lowered.split()
         repair_id = parts[1] if len(parts) > 1 else ""
         return f"plan:{repair_id}"
+    if lowered.startswith("/prove "):
+        return f"prove:{text.strip()[len('/prove '):]}"
+    if lowered.startswith("/missing "):
+        return f"missing:{text.strip()[len('/missing '):]}"
+    if lowered.startswith("/cut "):
+        return f"cut:{text.strip()[len('/cut '):]}"
     if lowered in {"/clear", "clear", "clear graph"}:
         return "clear"
     return None
@@ -453,7 +489,7 @@ def run_chat(trace_path: str = "artifacts/ts_chat_v0_2_latest_session.json") -> 
     print("TS-Chat v7.1")
     print("Unified verifier-first bounded chat with common-ground, repair resolution, and compilable session receipts. Type 'exit' to quit.")
     print("Try: all dogs are mammals. all mammals are animals. are all dogs animals?")
-    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /plan <repair_id> | /graph | /clear")
+    print("Commands: what do we know? | why? | what is unsupported? | /repairs | /plan <repair_id> | /prove <claim> | /missing <claim> | /cut <claim> | /graph | /clear")
     print("After exit: python3 -m ts_reasoner.cli compile-session --session artifacts/ts_chat_v0_2_latest_session.json")
     print()
 

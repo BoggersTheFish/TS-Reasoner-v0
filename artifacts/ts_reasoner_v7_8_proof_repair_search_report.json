@@ -1,0 +1,10 @@
+{
+  "all_gates_passed": true,
+  "candidate_graph_contamination_count": 0,
+  "cut_suggestion_count": 2,
+  "external_llm_used": false,
+  "missing_status_after_repair": "already_supported",
+  "prove_support_path_length": 2,
+  "release": "v7.8.0",
+  "schema": "ts_reasoner_v7_8_proof_repair_search_report"
+}
