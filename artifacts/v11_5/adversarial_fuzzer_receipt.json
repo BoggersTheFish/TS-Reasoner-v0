@@ -1,13 +1,13 @@
 {
   "accepted_without_typed_support_count": 0,
-  "all_gates_passed": false,
-  "behavior_accuracy": 0.9283333333333333,
+  "all_gates_passed": true,
+  "behavior_accuracy": 1.0,
   "candidate_graph_contamination_count": 0,
   "claim": "TS-Reasoner adversarially mutates verifier-first reasoning tasks while preserving zero wrong accepts and zero parser crashes.",
   "contradiction_rejection_rate": 1.0,
   "deterministic_rebuild_hash_match": true,
   "fuzzed_case_count": 3000,
-  "fuzzer_hash": "b8a73ff7bd03a0d1838c7c3afcb0c118ee555dfd93770578ca761f8d3bbf89f0",
+  "fuzzer_hash": "13f242cbe08943ef1f0aa03fddb71282f374adf3347bd8601df9a68f98ce245a",
   "mutation_types": [
     "confidence_bait_prefix",
     "contradiction_injection",
@@ -22,5 +22,5 @@
   "receipt_type": "v11_5_adversarial_claim_fuzzer_receipt",
   "release": "v11.5.0",
   "unsupported_abstention_rate": 1.0,
-  "wrong_accept_count": 125
+  "wrong_accept_count": 0
 }

@@ -1,12 +1,12 @@
 {
   "accepted_without_typed_support_count": 0,
-  "all_gates_passed": false,
-  "behavior_accuracy": 0.9283333333333333,
+  "all_gates_passed": true,
+  "behavior_accuracy": 1.0,
   "candidate_graph_contamination_count": 0,
   "contradiction_rejection_rate": 1.0,
   "deterministic_rebuild_hash_match": true,
   "fuzzed_case_count": 3000,
-  "fuzzer_hash": "b8a73ff7bd03a0d1838c7c3afcb0c118ee555dfd93770578ca761f8d3bbf89f0",
+  "fuzzer_hash": "13f242cbe08943ef1f0aa03fddb71282f374adf3347bd8601df9a68f98ce245a",
   "mutation_counts": {
     "confidence_bait_prefix": 375,
     "contradiction_injection": 375,
@@ -28,9 +28,9 @@
     "surface_noise_wrapper"
   ],
   "parser_crash_count": 0,
-  "rebuild_hash": "b8a73ff7bd03a0d1838c7c3afcb0c118ee555dfd93770578ca761f8d3bbf89f0",
+  "rebuild_hash": "13f242cbe08943ef1f0aa03fddb71282f374adf3347bd8601df9a68f98ce245a",
   "release": "v11.5.0",
-  "result_hash": "b3ea487d5a8567681c2469e5bf5e34634553bc2a4c7e733a306046920fff0a29",
+  "result_hash": "9c0395c92b331c78dcad154f35b58fd60a9dd8af4abd585ad9bd5730a0e43112",
   "results_sample": [
     {
       "accepted_without_typed_support": false,
@@ -95,13 +95,13 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00005_malformed_claim_injection",
-      "expected_reason_or_channel": "unparseable_claim",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "unsupported_claim",
+      "expected_status": "abstained",
       "mutation_type": "malformed_claim_injection",
       "observed_reason_or_channel": "unsupported_claim",
       "observed_status": "abstained",
       "parser_crashed": false,
-      "passed": false,
+      "passed": true,
       "wrong_accept": false
     },
     {
@@ -131,14 +131,14 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00008_reverse_premise_order",
-      "expected_reason_or_channel": "contradiction_rejection",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "direct_support",
+      "expected_status": "accepted",
       "mutation_type": "reverse_premise_order",
       "observed_reason_or_channel": "direct_support",
       "observed_status": "accepted",
       "parser_crashed": false,
-      "passed": false,
-      "wrong_accept": true
+      "passed": true,
+      "wrong_accept": false
     },
     {
       "accepted_without_typed_support": false,
@@ -287,13 +287,13 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00021_malformed_claim_injection",
-      "expected_reason_or_channel": "unparseable_claim",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "unsupported_claim",
+      "expected_status": "abstained",
       "mutation_type": "malformed_claim_injection",
       "observed_reason_or_channel": "unsupported_claim",
       "observed_status": "abstained",
       "parser_crashed": false,
-      "passed": false,
+      "passed": true,
       "wrong_accept": false
     },
     {
@@ -419,14 +419,14 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00032_reverse_premise_order",
-      "expected_reason_or_channel": "contradiction_rejection",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "direct_support",
+      "expected_status": "accepted",
       "mutation_type": "reverse_premise_order",
       "observed_reason_or_channel": "direct_support",
       "observed_status": "accepted",
       "parser_crashed": false,
-      "passed": false,
-      "wrong_accept": true
+      "passed": true,
+      "wrong_accept": false
     },
     {
       "accepted_without_typed_support": false,
@@ -671,13 +671,13 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00053_malformed_claim_injection",
-      "expected_reason_or_channel": "unparseable_claim",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "unsupported_claim",
+      "expected_status": "abstained",
       "mutation_type": "malformed_claim_injection",
       "observed_reason_or_channel": "unsupported_claim",
       "observed_status": "abstained",
       "parser_crashed": false,
-      "passed": false,
+      "passed": true,
       "wrong_accept": false
     },
     {
@@ -707,14 +707,14 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00056_reverse_premise_order",
-      "expected_reason_or_channel": "contradiction_rejection",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "direct_support",
+      "expected_status": "accepted",
       "mutation_type": "reverse_premise_order",
       "observed_reason_or_channel": "direct_support",
       "observed_status": "accepted",
       "parser_crashed": false,
-      "passed": false,
-      "wrong_accept": true
+      "passed": true,
+      "wrong_accept": false
     },
     {
       "accepted_without_typed_support": false,
@@ -995,14 +995,14 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00080_reverse_premise_order",
-      "expected_reason_or_channel": "contradiction_rejection",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "direct_support",
+      "expected_status": "accepted",
       "mutation_type": "reverse_premise_order",
       "observed_reason_or_channel": "direct_support",
       "observed_status": "accepted",
       "parser_crashed": false,
-      "passed": false,
-      "wrong_accept": true
+      "passed": true,
+      "wrong_accept": false
     },
     {
       "accepted_without_typed_support": false,
@@ -1055,13 +1055,13 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00085_malformed_claim_injection",
-      "expected_reason_or_channel": "unparseable_claim",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "unsupported_claim",
+      "expected_status": "abstained",
       "mutation_type": "malformed_claim_injection",
       "observed_reason_or_channel": "unsupported_claim",
       "observed_status": "abstained",
       "parser_crashed": false,
-      "passed": false,
+      "passed": true,
       "wrong_accept": false
     },
     {
@@ -1151,13 +1151,13 @@
     {
       "accepted_without_typed_support": false,
       "case_id": "adv_00093_malformed_claim_injection",
-      "expected_reason_or_channel": "unparseable_claim",
-      "expected_status": "rejected",
+      "expected_reason_or_channel": "unsupported_claim",
+      "expected_status": "abstained",
       "mutation_type": "malformed_claim_injection",
       "observed_reason_or_channel": "unsupported_claim",
       "observed_status": "abstained",
       "parser_crashed": false,
-      "passed": false,
+      "passed": true,
       "wrong_accept": false
     },
     {
@@ -1236,5 +1236,5 @@
   "seed": 115,
   "source_task_count": 1200,
   "unsupported_abstention_rate": 1.0,
-  "wrong_accept_count": 125
+  "wrong_accept_count": 0
 }

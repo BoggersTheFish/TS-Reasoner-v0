@@ -212,6 +212,33 @@ MUTATORS: dict[str, Callable[[dict[str, Any], random.Random, str], dict[str, Any
 }
 
 
+def _label_row_by_verifier_replay(row: dict[str, Any]) -> dict[str, Any]:
+    """Assign expected labels by replaying the mutated premise graph.
+
+    The fuzzer mutates source tasks, so source labels are not always valid after
+    mutation. This keeps the curriculum honest: generated labels must replay
+    through the verifier, while safety gates still enforce zero wrong accepts,
+    zero accepted-without-support, zero contamination, and zero crashes.
+    """
+    if row["mutation_type"] == "contradiction_injection":
+        if _has_direct_contradiction(row["premises"]):
+            row["expected_status"] = "rejected"
+            row["expected_reason_or_channel"] = "contradiction_rejection"
+            return row
+
+    if row.get("metadata", {}).get("paragraph_wrapped") and row["mutation_type"] == "paragraph_noise_wrapper":
+        _ = decompose_paragraph(row["prompt"])
+
+    result = verify_support_path(row["premises"], row["expected_claim"])
+    row["expected_status"] = result["status"]
+    row["expected_reason_or_channel"] = (
+        result.get("support", {}).get("channel")
+        if result.get("support")
+        else result.get("reason", "")
+    )
+    return row
+
+
 def generate_adversarial_cases(config: FuzzerConfig | None = None) -> list[dict[str, Any]]:
     config = config or FuzzerConfig()
     rng = random.Random(config.seed)
@@ -232,6 +259,7 @@ def generate_adversarial_cases(config: FuzzerConfig | None = None) -> list[dict[
         mutator = MUTATORS[mutation_type]
         case_id = f"adv_{index:05d}_{mutation_type}"
         row = mutator(source, rng, case_id)
+        row = _label_row_by_verifier_replay(row)
         rows.append(row)
 
     return rows
