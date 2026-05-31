@@ -1,3 +1,25 @@
+## v11.4.0: Procedural Reasoning Curriculum
+
+v11.4.0 reduces dependence on hand-built reasoning tasks by generating deterministic verifier-first curricula from graph templates, relation surfaces, trap types, distractors, and paragraph wrappers.
+
+Artifacts:
+
+- `benchmarks/gpt2_boundary/procedural_curriculum.py`
+- `data/v11_4/procedural_curriculum_config.json`
+- `scripts/v11_4/build_procedural_curriculum.py`
+- `scripts/v11_4/evaluate_procedural_curriculum.py`
+- `tests/test_v11_4_procedural_curriculum.py`
+- `docs/v11_4/PROCEDURAL_CURRICULUM.md`
+- `artifacts/v11_4/procedural_curriculum.jsonl`
+- `artifacts/v11_4/procedural_curriculum_report.json`
+- `artifacts/v11_4/procedural_curriculum_receipt.json`
+
+Boundary:
+
+- This is deterministic synthetic curriculum generation, not broad open-domain reasoning.
+- The verifier remains proof authority.
+- Generated text and model confidence remain non-proof.
+
 ## v11.3.0: Paragraph Claim Decomposer
 
 v11.3.0 adds bounded paragraph decomposition: short natural-language reasoning paragraphs are decomposed into canonical verifier premises and a target claim/question, then routed through the existing typed support verifier.

@@ -1,0 +1,15 @@
+{
+  "all_gates_passed": true,
+  "arena_accepted_without_typed_support_count": 0,
+  "arena_candidate_graph_contamination_count": 0,
+  "claim": "TS-Reasoner generates deterministic verifier-first reasoning curricula from templates and graph structures.",
+  "curriculum_hash": "f2f32d76d61a53765b1b2a47d551669f9431a5e0368af8efb8aac580ffedc552",
+  "deterministic_rebuild_hash_match": true,
+  "duplicate_task_rate": 0.0,
+  "family_coverage": 1.0,
+  "label_validity": 1.0,
+  "receipt_type": "v11_4_procedural_curriculum_receipt",
+  "release": "v11.4.0",
+  "task_count": 5000,
+  "trap_coverage": 5
+}

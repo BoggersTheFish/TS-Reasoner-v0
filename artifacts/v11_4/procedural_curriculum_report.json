@@ -1,0 +1,452 @@
+{
+  "all_gates_passed": true,
+  "arena_accepted_without_typed_support_count": 0,
+  "arena_candidate_graph_contamination_count": 0,
+  "arena_sample_count": 120,
+  "channel_coverage": 7,
+  "channels": [
+    "contradiction_rejection",
+    "direct_support",
+    "identity_block",
+    "negative_exclusion",
+    "reverse_inference_block",
+    "transitive_all",
+    "unsupported_claim"
+  ],
+  "curriculum_hash": "f2f32d76d61a53765b1b2a47d551669f9431a5e0368af8efb8aac580ffedc552",
+  "deterministic_rebuild_hash_match": true,
+  "distractor_count": 1,
+  "duplicate_task_count": 0,
+  "duplicate_task_rate": 0.0,
+  "entity_count": 700,
+  "families": [
+    "direct_contradiction",
+    "direct_support",
+    "identity_trap",
+    "negative_exclusion",
+    "paragraph_reverse",
+    "paragraph_transitive",
+    "paragraph_unsupported",
+    "reverse_inference_trap",
+    "transitive_2",
+    "transitive_3",
+    "transitive_5",
+    "unsupported_target"
+  ],
+  "family_coverage": 1.0,
+  "label_validity": 1.0,
+  "rebuild_hash": "f2f32d76d61a53765b1b2a47d551669f9431a5e0368af8efb8aac580ffedc552",
+  "release": "v11.4.0",
+  "seed": 114,
+  "task_count": 5000,
+  "trap_coverage": 5,
+  "traps": [
+    "direct_contradiction",
+    "identity",
+    "none",
+    "reverse_inference",
+    "unsupported"
+  ],
+  "validations_sample": [
+    {
+      "case_id": "proc_00000_direct_support",
+      "expected_channel": "direct_support",
+      "family": "direct_support",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00001_transitive_2",
+      "expected_channel": "transitive_all",
+      "family": "transitive_2",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00002_transitive_3",
+      "expected_channel": "transitive_all",
+      "family": "transitive_3",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00003_transitive_5",
+      "expected_channel": "transitive_all",
+      "family": "transitive_5",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00004_negative_exclusion",
+      "expected_channel": "negative_exclusion",
+      "family": "negative_exclusion",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00005_reverse_inference",
+      "expected_channel": "reverse_inference_block",
+      "family": "reverse_inference_trap",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00006_identity",
+      "expected_channel": "identity_block",
+      "family": "identity_trap",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00007_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "unsupported_target",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00008_direct_contradiction",
+      "expected_channel": "contradiction_rejection",
+      "family": "direct_contradiction",
+      "observed_channel": "contradiction_rejection",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00009_paragraph_transitive",
+      "expected_channel": "transitive_all",
+      "family": "paragraph_transitive",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00010_paragraph_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "paragraph_unsupported",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00011_paragraph_reverse",
+      "expected_channel": "reverse_inference_block",
+      "family": "paragraph_reverse",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00012_direct_support",
+      "expected_channel": "direct_support",
+      "family": "direct_support",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00013_transitive_2",
+      "expected_channel": "transitive_all",
+      "family": "transitive_2",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00014_transitive_3",
+      "expected_channel": "transitive_all",
+      "family": "transitive_3",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00015_transitive_5",
+      "expected_channel": "transitive_all",
+      "family": "transitive_5",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00016_negative_exclusion",
+      "expected_channel": "negative_exclusion",
+      "family": "negative_exclusion",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00017_reverse_inference",
+      "expected_channel": "reverse_inference_block",
+      "family": "reverse_inference_trap",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00018_identity",
+      "expected_channel": "identity_block",
+      "family": "identity_trap",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00019_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "unsupported_target",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00020_direct_contradiction",
+      "expected_channel": "contradiction_rejection",
+      "family": "direct_contradiction",
+      "observed_channel": "contradiction_rejection",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00021_paragraph_transitive",
+      "expected_channel": "transitive_all",
+      "family": "paragraph_transitive",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00022_paragraph_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "paragraph_unsupported",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00023_paragraph_reverse",
+      "expected_channel": "reverse_inference_block",
+      "family": "paragraph_reverse",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00024_direct_support",
+      "expected_channel": "direct_support",
+      "family": "direct_support",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00025_transitive_2",
+      "expected_channel": "transitive_all",
+      "family": "transitive_2",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00026_transitive_3",
+      "expected_channel": "transitive_all",
+      "family": "transitive_3",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00027_transitive_5",
+      "expected_channel": "transitive_all",
+      "family": "transitive_5",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00028_negative_exclusion",
+      "expected_channel": "negative_exclusion",
+      "family": "negative_exclusion",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00029_reverse_inference",
+      "expected_channel": "reverse_inference_block",
+      "family": "reverse_inference_trap",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00030_identity",
+      "expected_channel": "identity_block",
+      "family": "identity_trap",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00031_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "unsupported_target",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00032_direct_contradiction",
+      "expected_channel": "contradiction_rejection",
+      "family": "direct_contradiction",
+      "observed_channel": "contradiction_rejection",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00033_paragraph_transitive",
+      "expected_channel": "transitive_all",
+      "family": "paragraph_transitive",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00034_paragraph_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "paragraph_unsupported",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00035_paragraph_reverse",
+      "expected_channel": "reverse_inference_block",
+      "family": "paragraph_reverse",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00036_direct_support",
+      "expected_channel": "direct_support",
+      "family": "direct_support",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00037_transitive_2",
+      "expected_channel": "transitive_all",
+      "family": "transitive_2",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00038_transitive_3",
+      "expected_channel": "transitive_all",
+      "family": "transitive_3",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00039_transitive_5",
+      "expected_channel": "transitive_all",
+      "family": "transitive_5",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00040_negative_exclusion",
+      "expected_channel": "negative_exclusion",
+      "family": "negative_exclusion",
+      "observed_channel": "negative_exclusion",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00041_reverse_inference",
+      "expected_channel": "reverse_inference_block",
+      "family": "reverse_inference_trap",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00042_identity",
+      "expected_channel": "identity_block",
+      "family": "identity_trap",
+      "observed_channel": "identity_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00043_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "unsupported_target",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00044_direct_contradiction",
+      "expected_channel": "contradiction_rejection",
+      "family": "direct_contradiction",
+      "observed_channel": "contradiction_rejection",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00045_paragraph_transitive",
+      "expected_channel": "transitive_all",
+      "family": "paragraph_transitive",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00046_paragraph_unsupported",
+      "expected_channel": "unsupported_claim",
+      "family": "paragraph_unsupported",
+      "observed_channel": "unsupported_claim",
+      "observed_status": "abstained",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00047_paragraph_reverse",
+      "expected_channel": "reverse_inference_block",
+      "family": "paragraph_reverse",
+      "observed_channel": "reverse_inference_block",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00048_direct_support",
+      "expected_channel": "direct_support",
+      "family": "direct_support",
+      "observed_channel": "direct_support",
+      "observed_status": "accepted",
+      "passed": true
+    },
+    {
+      "case_id": "proc_00049_transitive_2",
+      "expected_channel": "transitive_all",
+      "family": "transitive_2",
+      "observed_channel": "transitive_all",
+      "observed_status": "accepted",
+      "passed": true
+    }
+  ]
+}
