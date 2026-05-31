@@ -4,116 +4,103 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v4.3.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.3.0)
+[![Release](https://img.shields.io/badge/release-v8.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v8.0.0)
 
 TS-Reasoner is a verifier-first reasoning system.
 
 Core line:
 
-    LLMs propose.
-    TS verifies.
-    Confidence is not proof.
-    Typed traces show why.
+```text
+LLMs propose.
+TS verifies.
+Confidence is not proof.
+Typed traces show why.
 
 It separates candidate generation, learned/advisory ranking, typed proof verification, and traceable rejection or abstention.
 
-    candidate proposer
-    -> learned/advisory ranking
-    -> typed verifier channels
-    -> accept / reject / abstain trace
-    -> receipt
-
-## Current flagship release
+candidate proposer
+-> learned/advisory ranking
+-> typed verifier channels
+-> accept / reject / abstain trace
+-> receipt
+Current flagship release
 
 Current release:
 
-https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v4.3.0
+https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v8.0.0
 
-v4.3.0 adds a bounded natural-language reasoning shell: prompts are converted into relation premises, candidate claims, verifier decisions, and natural-language answers.
+v8.0.0 adds Canonical Release Authority: a machine-readable authority file plus audit scripts, docs, tests, report, and receipt for checking whether TS-Reasoner's public/internal release surface agrees with its receipt-backed state.
 
 It adds:
 
-- v3.1 public surface artifact
-- v3.2 cold-reader demo trace
-- v3.3 external mini-benchmark adapter
-- v3.4 verifier-first reasoning draft
-- v3.5 TensionLM proposer boundary
-- v3.6 scaled proposer boundary evaluation
-- v3.7 real exported candidate batch
-- v3.8 external benchmark translation pack
-- v3.9 live proposer dry-run interface
-- v4.0 live proposer sandbox
-- v4.1 external JSONL backend proof
-- v4.2 GPT-2 output fixture adapter
-- v4.3 natural-language reasoning shell
+release_authority.json
+docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md
+scripts/v8_0/audit_release_authority.py
+scripts/v8_0/check_release_authority_sync.py
+data/v8_0/release_authority_surface_cases.jsonl
+artifacts/release_authority_audit_report.json
+artifacts/release_authority_audit_receipt.json
+tests/test_v8_0_release_authority.py
 
-## Flagship evidence
+Previous concrete stress baseline:
 
-v3.3 external adapter:
+v6.9.0 long-run self-repair stress report
+40/40 repair cycles passed
+zero candidate graph contamination
+no external LLM used
+generated text, repair targets, and knowledge-pack imports remain non-proof
 
-    status_accuracy: 1.0
-    wrong_accept_count: 0
-    accepted_without_typed_support_count: 0
-    trace_schema_validity: 1.0
+Boundary:
 
-v4.3 natural-language reasoning shell:
+candidate generation != proof
+model confidence != proof
+generated text != proof
+typed verifier support = proof boundary
+release receipts are required for public release claims
+Flagship evidence
 
-    nl_case_count: 12
-    extraction_success_rate: 1.0
-    candidate_generation_success_rate: 1.0
-    natural_language_answer_accuracy: 1.0
-    verifier_selection_accuracy: 1.0
-    wrong_accept_count: 0
-    accepted_without_typed_support_count: 0
-    candidate_graph_contamination_count: 0
-    abstention_correctness: 1.0
-    trace_schema_validity: 1.0
-    gpt2_comparison_claim: false
-    broad_nlp_claim: false
-    confidence_is_not_proof: true
+v8.0.0 Canonical Release Authority:
 
-Interpretation:
+authority_json_valid: true
+readme_current_release_matches_authority: true
+docs_current_release_matches_authority: true
+previous_v6_9_receipt_visible: true
+public_surface_overclaim_count: 0
+candidate_graph_contamination_count: 0
+all_gates_passed: true
 
-Across 12 bounded natural-language prompts, TS-Reasoner extracts relation structure, verifies candidate claims, and renders natural-language answers while keeping fluency outside the proof boundary.
+v6.9.0 long-run self-repair stress baseline:
 
-## Run the current receipts
-
-    python3 scripts/v3_2/run_cold_reader_demo.py
-    python3 scripts/v3_3/evaluate_external_minibench_v33.py
-    python3 scripts/v3_5/evaluate_tensionlm_proposer_boundary_v35.py
-    python3 scripts/v3_6/evaluate_scaled_proposer_boundary_v36.py
-    python3 scripts/v3_7/evaluate_real_exported_candidate_batch_v37.py
-    python3 scripts/v3_8/evaluate_external_benchmark_translation_pack_v38.py
-    python3 scripts/v3_9/evaluate_live_proposer_dry_run_interface_v39.py
-    python3 scripts/v4_0/run_live_proposer_sandbox_v40.py
-    python3 scripts/v4_0/run_live_proposer_sandbox_v40.py --external-jsonl-backend data/v4_1_external_jsonl_backend_proof/external_backend_candidates_v41.jsonl
-    python3 scripts/v4_2/adapt_gpt2_output_fixtures_v42.py
-    python3 scripts/v4_0/run_live_proposer_sandbox_v40.py --external-jsonl-backend data/v4_2_gpt2_output_fixture_adapter/adapted_gpt2_external_backend_candidates_v42.jsonl
-    python3 scripts/v4_3/run_natural_language_reasoning_shell_v43.py
-    python3 -m unittest discover -q
-
-## What this is
+cycles: 40
+cycle_pass_rate: 1.0
+failed_cycles: 0
+candidate_graph_contamination_count: 0
+external_llm_used: false
+Run the current receipts
+python3 scripts/v8_0/audit_release_authority.py
+python3 scripts/v8_0/check_release_authority_sync.py
+python3 -m unittest discover -q
+What this is
 
 TS-Reasoner is:
 
-- a bounded verifier-first reasoning artifact;
-- a typed trace system;
-- a candidate rejection and abstention system;
-- a safe bridge for learned or language-model candidate proposers;
-- a receipt-first research surface for verifier-first reasoning.
-
-## What this is not
+a bounded verifier-first reasoning artifact;
+a typed trace system;
+a candidate rejection and abstention system;
+a safe bridge for learned or language-model candidate proposers;
+a receipt-first research surface for verifier-first reasoning;
+a release-authority system for keeping public/internal claims synced with receipt-backed state.
+What this is not
 
 TS-Reasoner is not:
 
-- a chatbot;
-- a general theorem prover;
-- a broad natural-language understanding system;
-- an external benchmark victory claim;
-- live TensionLM runtime integration;
-- a system where model confidence becomes proof authority.
-
-## Why this matters
+a chatbot;
+a general theorem prover;
+a broad natural-language understanding system;
+an external benchmark victory claim;
+live TensionLM runtime integration;
+a system where model confidence becomes proof authority.
+Why this matters
 
 Language models often entangle candidate generation, confidence, and proof.
 
@@ -121,47 +108,33 @@ TS-Reasoner keeps those roles separate.
 
 A model may propose or rank a candidate claim, but the claim is not accepted unless typed verifier channels support it.
 
-## Core boundary
+v8.0.0 extends that discipline to release truth itself.
 
-    candidate generation != proof
-    model confidence != proof
-    typed verifier support = proof boundary
+Core boundary
+candidate generation != proof
+model confidence != proof
+generated text != proof
+typed verifier support = proof boundary
+release receipts are required for public release claims
+Key v8.0 files
+release_authority.json
+docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md
+scripts/v8_0/audit_release_authority.py
+scripts/v8_0/check_release_authority_sync.py
+data/v8_0/release_authority_surface_cases.jsonl
+artifacts/release_authority_audit_report.json
+artifacts/release_authority_audit_receipt.json
+tests/test_v8_0_release_authority.py
+Release ladder
+Version	Core addition	Boundary
+v1.x	typed tension channels and TensionLM candidate bridge	TensionLM output remains candidate data
+v2.x	learned candidate models and verifier-trace training	learned models remain advisory
+v3.x	verifier-guided candidate model and proposer boundary	typed verifier remains proof authority
+v4.x	live proposer sandbox and bounded natural-language shell	generated text becomes candidate data
+v5.x	verifier-first reasoning firewall and TS-Chat scratch loop	confidence and generated text remain non-proof
+v6.x	persistent TS-Chat memory, repair memory, provenance, knowledge packs, and long-run stress	state survives reloads without proof contamination
+v8.0	Canonical Release Authority	release truth surface is machine-audited
+One-command baseline
+python3 inference.py --question "If all A are B and all B are C, are all A C?"
 
-## Key v3.5 files
-
-- `docs/v3_1/PUBLIC_SURFACE.md`
-- `examples/cold_reader_demo/readable_trace.md`
-- `docs/v3_3/EXTERNAL_MINIBENCH_ADAPTER.md`
-- `docs/v3_4/VERIFIER_FIRST_REASONING_DRAFT.md`
-- `docs/v3_5/TENSIONLM_PROPOSER_BOUNDARY.md`
-- `docs/v3_6/SCALED_PROPOSER_BOUNDARY.md`
-- `docs/v3_7/REAL_EXPORTED_CANDIDATE_BATCH.md`
-- `docs/v3_8/EXTERNAL_BENCHMARK_TRANSLATION_PACK.md`
-- `docs/v3_9/LIVE_PROPOSER_DRY_RUN_INTERFACE.md`
-- `docs/v4_0/LIVE_PROPOSER_SANDBOX.md`
-- `docs/v4_1/EXTERNAL_JSONL_BACKEND_PROOF.md`
-- `docs/v4_2/GPT2_OUTPUT_FIXTURE_ADAPTER.md`
-- `docs/v4_3/NATURAL_LANGUAGE_REASONING_SHELL.md`
-
-## Release ladder
-
-| Version | Core addition | Boundary |
-|---|---|---|
-| v1.x | typed tension channels and TensionLM candidate bridge | TensionLM output remains candidate data |
-| v2.x | learned candidate models and verifier-trace training | learned models remain advisory |
-| v3.0 | verifier-guided candidate model | typed verifier remains proof authority |
-| v3.5 | public surface, cold demo, external adapter, proposer boundary | confidence is not proof |
-| v3.6 | scaled proposer boundary evaluation | high-confidence candidates remain candidate data |
-| v3.7 | real exported candidate batch | provenance survives the proof boundary |
-| v3.8 | external benchmark translation pack | answer keys remain metadata, not proof |
-| v3.9 | live proposer dry-run interface | v4 runtime contract is ready, but not live yet |
-| v4.0 | live proposer sandbox | bounded backend emits candidates, TS verifies |
-| v4.1 | external JSONL backend proof | external candidate rows enter the sandbox safely |
-| v4.2 | GPT-2 output fixture adapter | GPT-2-shaped generated text becomes candidate data |
-| v4.3 | natural-language reasoning shell | bounded NL prompts become verified answers |
-
-## One-command baseline
-
-    python3 inference.py --question "If all A are B and all B are C, are all A C?"
-
-That writes `artifacts/latest_trace.json` and prints the selected answer, selected chain, and global tension.
+That writes artifacts/latest_trace.json and prints the selected answer, selected chain, and global tension.
