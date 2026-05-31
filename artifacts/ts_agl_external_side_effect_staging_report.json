@@ -1,0 +1,17 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_external_side_effect_staging_report",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_execution_succeeded": true,
+  "confirmed_mutation_count": 0,
+  "dry_run": true,
+  "event_count": 4,
+  "executed_count": 1,
+  "external_llm_used": false,
+  "external_side_effect_declared": true,
+  "missing_confirmation_blocked": true,
+  "network_call_performed": false,
+  "risk": "external_side_effect",
+  "wrong_confirmation_blocked": true,
+  "wrong_unconfirmed_mutation_count": 0
+}

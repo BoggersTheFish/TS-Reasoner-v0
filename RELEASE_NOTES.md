@@ -1,3 +1,29 @@
+## v16.0.0: TS-AGL External Side-Effect Staging Arena
+
+v16.0.0 adds a bounded external side-effect staging arena. TS-AGL can now represent an `external_side_effect` operation class, stage it as a pending action, block missing confirmation, block wrong confirmation, and dispatch a confirmed dry-run adapter without making a real network call.
+
+Artifacts:
+
+- `ts_agl/domains/external_service.json`
+- `ts_agl/adapters/external_service_adapter.py`
+- `ts_agl/arena/external_side_effect_arena.py`
+- `scripts/run_ts_agl_external_side_effect_arena.py`
+- `scripts/evaluate_ts_agl_external_side_effect_staging.py`
+- `tests/test_ts_agl_external_side_effect_arena.py`
+- `docs/ts_agl_external_side_effect_staging.md`
+- `artifacts/ts_agl_external_side_effect_staging_report.json`
+- `artifacts/ts_agl_external_side_effect_staging_receipt.json`
+
+Boundary:
+
+- This is external side-effect staging, not real external automation.
+- No external LLM is used.
+- No real network call is performed.
+- Missing or wrong confirmation is blocked.
+- Confirmed dispatch is dry-run and traceable.
+- The language layer is not proof authority.
+- Candidate graph contamination remains zero.
+
 ## v15.0.0: TS-AGL Interactive Workflow Ledger
 
 v15.0.0 adds a bounded interactive workflow ledger for TS-AGL. The system now stages a reversible action as pending, blocks missing confirmation, blocks wrong confirmation, executes only with the correct confirmation token, and records the full workflow event ledger in report/receipt artifacts.

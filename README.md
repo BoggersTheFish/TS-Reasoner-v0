@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v15.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v15.0.0)
+[![Release](https://img.shields.io/badge/release-v16.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v16.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,15 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v15.0.0 — TS-AGL Interactive Workflow Ledger
+Current release: v16.0.0 — TS-AGL External Side-Effect Staging Arena
 
 
-The v15.0 release extends TS-AGL from single-step confirmed action into a bounded interactive workflow ledger: reversible actions can be staged as pending, blocked without the correct confirmation token, executed after confirmation, and recorded as replayable workflow events. Language remains an operation interface, not proof authority.
+The v16.0 release extends TS-AGL from confirmed local workflow actions into bounded external side-effect staging: an `external_side_effect` operation can be staged, blocked without correct confirmation, and dispatched only as a confirmed dry run with no network call. Language remains an operation interface, not proof authority.
 
 Release assets:
 
+ts_agl_external_side_effect_staging_report.json
+ts_agl_external_side_effect_staging_receipt.json
 ts_agl_interactive_workflow_ledger_report.json
 ts_agl_interactive_workflow_ledger_receipt.json
 ts_agl_interactive_workflow_marker.json

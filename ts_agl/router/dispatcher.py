@@ -5,6 +5,7 @@ from typing import Dict
 from ts_agl.adapters.filesystem_adapter import FilesystemAdapter
 from ts_agl.adapters.git_adapter import GitAdapter
 from ts_agl.adapters.ts_reasoner_adapter import TSReasonerAdapter
+from ts_agl.adapters.external_service_adapter import ExternalServiceAdapter
 from ts_agl.core.types import ResultPacket, TSCall
 from ts_agl.router.risk_gate import gate_call
 
@@ -17,6 +18,7 @@ class Dispatcher:
             "git_repo": GitAdapter(),
             "filesystem": FilesystemAdapter(),
             "ts_reasoner": TSReasonerAdapter(),
+            "external_service": ExternalServiceAdapter(),
         }
 
     def dispatch(self, call: TSCall, confirmed: bool = False) -> ResultPacket:
