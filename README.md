@@ -23,18 +23,21 @@ candidate generation
 
 The current milestone is:
 
-v12.0.0 — Verifier-Gated Proposer Stack
+v25.0.0 — TS-OS v1
 
-It packages the v11 line into one bounded end-to-end system:
+It packages the TS-AGL stack into one bounded operating surface:
 
-paragraph input
-→ bounded paragraph decomposition
-→ trained proposer prediction
-→ typed verifier gate
-→ final yes/no/abstain answer
+language request
+→ shell / route inspection
+→ router stack arbitration
+→ LanguageMove / TSCall
+→ risk gate / confirmation gate
+→ local project operator or controlled adapter gate
+→ ResultPacket
+→ persistent session ledger
 → trace + receipt
 
-A trained proposer can suggest an answer, status, and support channel. That suggestion is not proof. A proposed yes only survives when the typed verifier accepts the decomposed claim with support.
+Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v25 surface performs no accidental network call or real external side effect.
 
 Current release
 
@@ -292,7 +295,7 @@ Claim boundary
 
 The strongest safe public claim right now:
 
-TS-Reasoner v12.0 runs a bounded verifier-gated proposer stack end-to-end: paragraph input is decomposed, a trained proposer predicts candidate labels, the typed verifier independently gates the candidate claim, and the final answer is traceable with zero wrong accepts in the controlled arena.
+TS-Reasoner v25.0.0 packages TS-AGL into TS-OS v1: a bounded operating layer over shell, persistent sessions, router-stack arbitration, local project operation, controlled external adapter gating, and receipts. Language, router confidence, session replay, and external gate authorization are not proof authority. Local writes remain confirmation-gated, no accidental network call is performed, no real external side effect is performed, and candidate graph contamination remains zero in the controlled release surface.
 
 Do not overclaim this as:
 
