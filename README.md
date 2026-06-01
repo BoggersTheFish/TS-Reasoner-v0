@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v22.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v22.0.0)
+[![Release](https://img.shields.io/badge/release-v23.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v23.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,21 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v22.0.0 — TS-AGL Shell Surface
+Current release: v23.0.0 — Persistent TS-OS Session Ledger
 
 
-The v22.0 release adds a speakable TS-AGL shell surface: `python3 -m ts_agl.shell` can expose help, route inspection, and the local project operator while preserving confirmation gates, receipts, and the proof boundary.
+The v23.0 release adds a persistent TS-OS session ledger over the TS-AGL shell: commands become saved events, sessions can be reloaded and replayed, and resumed sessions can continue while preserving receipts and the proof boundary.
 
 Release assets:
 
+ts_os_session_ledger.json
+ts_os_session_ledger_report.json
+ts_os_session_ledger_receipt.json
+ts_os_session_ledger_eval_receipt.json
+ts_os_session_ledger.json
+ts_os_session_ledger_report.json
+ts_os_session_ledger_receipt.json
+ts_os_session_ledger_eval_receipt.json
 ts_agl_shell_surface_report.json
 ts_agl_shell_surface_eval_receipt.json
 ts_agl_shell_surface_receipt.json

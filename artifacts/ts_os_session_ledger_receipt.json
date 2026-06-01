@@ -1,0 +1,16 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_os_session_ledger_receipt",
+  "can_resume": true,
+  "candidate_graph_contamination_count": 0,
+  "event_count": 3,
+  "external_llm_used": false,
+  "external_side_effect_performed": false,
+  "mode_counts": {
+    "help": 1,
+    "local_project_operator": 1,
+    "route": 1
+  },
+  "session_id": "ts_os_session_f1d1e2a0491b",
+  "session_path": "artifacts/ts_os_session_ledger.json"
+}
