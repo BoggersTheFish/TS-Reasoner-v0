@@ -1,3 +1,26 @@
+## v20.0.0: TS-AGL Router Stack Arena
+
+v20.0.0 adds a router stack arena for TS-AGL. The arena compares rule-parser routing, domain-example routing, and the tiny learned router under a safe selector that can choose a route or abstain to `route_unknown`.
+
+Artifacts:
+
+- `ts_agl/arena/router_stack_arena.py`
+- `scripts/evaluate_ts_agl_router_stack_arena.py`
+- `tests/test_ts_agl_router_stack_arena.py`
+- `docs/ts_agl_router_stack_arena.md`
+- `artifacts/ts_agl_router_stack_arena_report.json`
+- `artifacts/ts_agl_router_stack_arena_receipt.json`
+
+Boundary:
+
+- This is router arbitration, not proof authority.
+- No external LLM is used.
+- Learned confidence is not proof.
+- Selected calls still go through `TSCall`.
+- Risk gates, adapters, verifier boundaries, and receipts remain downstream.
+- Hard negatives must abstain to `route_unknown`.
+- Candidate graph contamination remains zero.
+
 ## v19.0.0: TS-AGL Tiny Learned Router
 
 v19.0.0 adds a tiny dependency-free learned router for TS-AGL. The router trains on the v18 trace-mined router dataset, predicts operation routes or abstention, and remains a proposer only.
