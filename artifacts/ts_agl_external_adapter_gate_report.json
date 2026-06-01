@@ -1,0 +1,120 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_external_adapter_gate_report",
+  "candidate_graph_contamination_count": 0,
+  "dry_run_confirmed": true,
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "live_gate_authorization_is_not_execution": true,
+  "live_with_env_authorized": true,
+  "live_without_env_blocked": true,
+  "missing_confirmation_blocked": true,
+  "network_call_performed_count": 0,
+  "results": {
+    "dry_confirmed": {
+      "data": {
+        "confirmation_token_matched": true,
+        "dry_run": true,
+        "external_side_effect_performed": false,
+        "live_gate_open": false,
+        "mode": "dry_run",
+        "network_call_performed": false,
+        "payload": {
+          "repo": "BoggersTheFish/TS-Reasoner-v0",
+          "title": "v24 external adapter gate dry run"
+        },
+        "requires_confirmation": true,
+        "risk": "external_side_effect"
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "create_issue",
+      "result_id": "result_6d61c353970b",
+      "status": "success",
+      "system": "github"
+    },
+    "live_with_env": {
+      "data": {
+        "actual_env_value": "1",
+        "confirmation_token_matched": true,
+        "external_side_effect_performed": false,
+        "gate_authorizes_downstream_adapter": true,
+        "gate_performs_network_call": false,
+        "live_gate_open": true,
+        "mode": "live",
+        "network_call_performed": false,
+        "payload": {
+          "repo": "BoggersTheFish/TS-Reasoner-v0",
+          "title": "v24 external adapter gate dry run"
+        },
+        "required_env_value": "1",
+        "required_env_var": "TS_AGL_ALLOW_EXTERNAL_LIVE",
+        "requires_confirmation": true,
+        "risk": "external_side_effect"
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "create_issue",
+      "result_id": "result_e07e33d4241e",
+      "status": "live_gate_authorized",
+      "system": "github"
+    },
+    "live_without_env": {
+      "data": {
+        "actual_env_value": null,
+        "confirmation_token_matched": true,
+        "external_side_effect_performed": false,
+        "live_gate_open": false,
+        "mode": "live",
+        "network_call_performed": false,
+        "required_env_value": "1",
+        "required_env_var": "TS_AGL_ALLOW_EXTERNAL_LIVE",
+        "requires_confirmation": true,
+        "risk": "external_side_effect"
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "create_issue",
+      "result_id": "result_4c5402155a4d",
+      "status": "external_live_blocked",
+      "system": "github"
+    },
+    "missing_confirmation": {
+      "data": {
+        "confirmation_token_matched": false,
+        "confirmation_token_required": true,
+        "external_side_effect_performed": false,
+        "live_gate_open": false,
+        "mode": "dry_run",
+        "network_call_performed": false,
+        "requires_confirmation": true,
+        "risk": "external_side_effect"
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "create_issue",
+      "result_id": "result_e9640c55174a",
+      "status": "needs_confirmation",
+      "system": "github"
+    },
+    "wrong_confirmation": {
+      "data": {
+        "confirmation_token_matched": false,
+        "confirmation_token_required": true,
+        "external_side_effect_performed": false,
+        "live_gate_open": false,
+        "mode": "dry_run",
+        "network_call_performed": false,
+        "requires_confirmation": true,
+        "risk": "external_side_effect"
+      },
+      "error": null,
+      "mutated_state": false,
+      "operation": "create_issue",
+      "result_id": "result_e9640c55174a",
+      "status": "needs_confirmation",
+      "system": "github"
+    }
+  },
+  "wrong_confirmation_blocked": true
+}
