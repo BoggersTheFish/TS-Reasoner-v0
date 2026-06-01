@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v19.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v19.0.0)
+[![Release](https://img.shields.io/badge/release-v20.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v20.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,15 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v19.0.0 — TS-AGL Tiny Learned Router
+Current release: v20.0.0 — TS-AGL Router Stack Arena
 
 
-The v19.0 release trains a tiny dependency-free AGL router from the trace-mined router dataset. The learned router can propose operation routes or abstain, but confidence is not proof and routed calls still go through typed TSCall, risk, adapter, verifier, and receipt boundaries.
+The v20.0 release adds a TS-AGL router stack arena: rule-parser routing, domain-example routing, and the tiny learned router are compared under a safe selector that can route or abstain while preserving the proof boundary. Learned confidence is still not proof.
 
 Release assets:
 
+ts_agl_router_stack_arena_report.json
+ts_agl_router_stack_arena_receipt.json
 ts_agl_tiny_router_model.json
 ts_agl_tiny_router_train_report.json
 ts_agl_tiny_router_report.json
