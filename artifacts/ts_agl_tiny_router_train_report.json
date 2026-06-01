@@ -1,0 +1,28 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_tiny_router_train_report",
+  "candidate_graph_contamination_count": 0,
+  "class_count": 12,
+  "class_counts": {
+    "external_service.send_notification_dry_run": 4,
+    "filesystem.list_files": 3,
+    "filesystem.pwd": 2,
+    "filesystem.write_text_file": 5,
+    "git_repo.current_tag": 5,
+    "git_repo.git_status": 5,
+    "git_repo.next_safe_release_action": 4,
+    "ts_reasoner.check_support": 3,
+    "ts_reasoner.correct_candidate": 2,
+    "ts_reasoner.explain_rejection": 2,
+    "ts_reasoner.route_unknown": 7,
+    "ts_reasoner.summarize_session": 3
+  },
+  "dataset_path": "artifacts/ts_agl_router_dataset.jsonl",
+  "external_llm_used": false,
+  "model_is_proof_authority": false,
+  "model_path": "artifacts/ts_agl_tiny_router_model.json",
+  "row_count": 45,
+  "threshold": 0.55,
+  "vocabulary_size": 126,
+  "wrong_state_mutation_count": 0
+}

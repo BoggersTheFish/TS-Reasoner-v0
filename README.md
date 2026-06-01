@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v18.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v18.0.0)
+[![Release](https://img.shields.io/badge/release-v19.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v19.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,17 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v18.0.0 — TS-AGL Trace-Mined Router Dataset
+Current release: v19.0.0 — TS-AGL Tiny Learned Router
 
 
-The v18.0 release turns TS-AGL receipts and domain packs into reusable routing supervision: validated examples, arena traces, workflow traces, and hard negatives are compiled into a JSONL router dataset. Language remains an operation interface, not proof authority.
+The v19.0 release trains a tiny dependency-free AGL router from the trace-mined router dataset. The learned router can propose operation routes or abstain, but confidence is not proof and routed calls still go through typed TSCall, risk, adapter, verifier, and receipt boundaries.
 
 Release assets:
 
+ts_agl_tiny_router_model.json
+ts_agl_tiny_router_train_report.json
+ts_agl_tiny_router_report.json
+ts_agl_tiny_router_receipt.json
 ts_agl_router_dataset.jsonl
 ts_agl_router_dataset_build_report.json
 ts_agl_router_dataset_report.json
