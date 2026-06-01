@@ -61,6 +61,26 @@ Core proof authority substrate: **v12.0.0 — Verifier-Gated Proposer Stack**.
 
 The v12 verifier-gated proposer stack remains the proof-authority substrate; v30 made that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts; v31 starts teaching domain-specific project curriculum without granting open-ended self-learning.
 
+## TS-Metacompute
+
+The first metacompute substrate is **TS-SpectralCompute v0.1**:
+
+```bash
+python3 scripts/evaluate_spectral_metacompute.py
+```
+
+It reads signed TS graphs through a signed Laplacian, component-wise spectral
+tension, dominant modes, edge residuals, and repair rankings. The boundary is
+strict: spectral output can suggest repairs, but typed verifier support is still
+required before anything counts as accepted truth.
+
+Artifacts:
+
+- `artifacts/spectral_metacompute_report.json`
+- `artifacts/spectral_metacompute_receipt.json`
+- `docs/TS_METACOMPUTE_STACK.md`
+- `docs/spectral_metacompute.md`
+
 ## First Contact
 
 Run the one-command public demo:

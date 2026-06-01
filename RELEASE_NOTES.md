@@ -1,3 +1,37 @@
+## ts-spectralcompute-v0.1: Spectral Metacompute Reader
+
+TS-SpectralCompute v0.1 adds the first deterministic metacompute substrate for
+the TS-Metacompute Stack. Signed TS graphs are read through a signed Laplacian,
+component-wise spectral tension, dominant modes, edge residuals, and candidate
+repair rankings.
+
+Artifacts:
+
+- `ts_metacompute/scheduler.py`
+- `ts_metacompute/spectral/signed_graph.py`
+- `ts_metacompute/spectral/laplacian.py`
+- `ts_metacompute/spectral/modes.py`
+- `ts_metacompute/spectral/residuals.py`
+- `ts_metacompute/spectral/repairs.py`
+- `ts_metacompute/spectral/receipts.py`
+- `ts_metacompute/spectral/evaluate.py`
+- `scripts/evaluate_spectral_metacompute.py`
+- `data/spectral_cases.jsonl`
+- `tests/test_spectral_metacompute.py`
+- `docs/spectral_metacompute.md`
+- `artifacts/spectral_metacompute_report.json`
+- `artifacts/spectral_metacompute_receipt.json`
+
+Boundary:
+
+- Spectral mode-space exposes tension, coherence, residuals, and repair pressure.
+- Spectral output is candidate evidence, not proof.
+- The scheduler can choose the spectral substrate, but acceptance still requires typed verifier support.
+- Ambiguous frustrated loops abstain from naming a unique culprit.
+- Disconnected graph components are scanned so a coherent zero-mode component cannot hide tension elsewhere.
+- Candidate graph contamination remains zero.
+- Accepted without typed verifier support remains zero.
+
 ## v31.0.0: TS Project Curriculum Pack v1
 
 v31.0.0 starts bounded curriculum learning by teaching TS-Reasoner its own project domain. The new TS Project Domain Pack v1 defines project objects, relations, operations, risks, examples, and failure modes for repo/release/artifact/receipt/claim/proof-boundary inspection while keeping free self-learning blocked.

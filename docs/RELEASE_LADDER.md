@@ -14,6 +14,31 @@ Core boundary:
 - durable lesson promotion remains gated;
 - receipts make accepted, rejected, blocked, and abstained outcomes inspectable.
 
+## TS-SpectralCompute v0.1: First Metacompute Substrate
+
+TS-SpectralCompute v0.1 adds the first substrate reader for the
+TS-Metacompute Stack. It reads signed claim graphs through a signed Laplacian,
+dominant modes, spectral tension, residual edges, and candidate repair ranking.
+
+Boundary preserved:
+
+- spectral mode-space is a reader, not proof authority;
+- repair rankings are candidate actions;
+- typed verifier support remains required for acceptance;
+- ambiguous frustrated loops abstain from naming a unique culprit;
+- disconnected graph components are scanned so coherent zero modes cannot hide tension;
+- accepted without verifier support remains zero.
+
+Primary docs:
+
+- [TS-Metacompute Stack](TS_METACOMPUTE_STACK.md)
+- [TS-SpectralCompute v0.1](spectral_metacompute.md)
+
+Primary artifacts:
+
+- `artifacts/spectral_metacompute_report.json`
+- `artifacts/spectral_metacompute_receipt.json`
+
 ## v31.0.0: TS Project Curriculum Pack v1
 
 v31.0.0 starts bounded curriculum learning by teaching TS-Reasoner its own project domain.

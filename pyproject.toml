@@ -37,4 +37,4 @@ Repository = "https://github.com/BoggersTheFish/TS-Reasoner-v0"
 ts-reasoner = "ts_reasoner.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["ts_reasoner*"]
+include = ["ts_reasoner*", "ts_metacompute*"]
