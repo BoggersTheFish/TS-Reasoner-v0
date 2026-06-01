@@ -1,3 +1,28 @@
+## v24.0.0: Controlled External Adapter Gate
+
+v24.0.0 adds a controlled external adapter gate for the TS-OS runway. External adapter requests are dry-run by default, require confirmation, block live mode unless `TS_AGL_ALLOW_EXTERNAL_LIVE=1`, and prove that gate authorization is not network execution.
+
+Artifacts:
+
+- `ts_agl/external/adapter_gate.py`
+- `scripts/run_ts_agl_external_adapter_gate.py`
+- `scripts/evaluate_ts_agl_external_adapter_gate.py`
+- `tests/test_ts_agl_external_adapter_gate.py`
+- `docs/ts_agl_external_adapter_gate.md`
+- `artifacts/ts_agl_external_adapter_gate_report.json`
+- `artifacts/ts_agl_external_adapter_gate_receipt.json`
+- `artifacts/ts_agl_external_adapter_gate_eval_receipt.json`
+
+Boundary:
+
+- This is controlled external adapter gating, not live external automation.
+- No external LLM is used.
+- No network call is performed.
+- No real external side effect is performed.
+- Missing/wrong confirmation is blocked.
+- Live mode requires `TS_AGL_ALLOW_EXTERNAL_LIVE=1`.
+- Candidate graph contamination remains zero.
+
 ## v23.0.0: Persistent TS-OS Session Ledger
 
 v23.0.0 adds a persistent TS-OS session ledger over the TS-AGL shell surface. Shell/operator commands are recorded as session events, saved to disk, reloaded, replayed as a summary, and continued in a resumed session.

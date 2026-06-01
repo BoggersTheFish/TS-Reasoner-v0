@@ -1,0 +1,13 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_external_adapter_gate_eval_receipt",
+  "candidate_graph_contamination_count": 0,
+  "dry_run_confirmed": true,
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "live_with_env_authorized": true,
+  "live_without_env_blocked": true,
+  "missing_confirmation_blocked": true,
+  "network_call_performed_count": 0,
+  "wrong_confirmation_blocked": true
+}
