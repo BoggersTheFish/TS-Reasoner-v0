@@ -10,10 +10,50 @@
 
 It lets language/model systems propose actions or claims, but only typed verifier support, risk gates, confirmations, and receipts decide what is accepted or executed.
 
-First-contact demo:
+Core line:
+
+> Language/model systems may propose. TS verifies. Confidence is not proof. Typed verifier support is the proof boundary.
+
+## Current Release
+
+Current release: **v30.0.0 — Verifier-First Local Agent OS**
+
+TS-OS v30 packages TS-AGL into one bounded verifier-first local operating surface:
+
+```text
+language request
+-> conversational shell loop
+-> router stack arbitration
+-> LanguageMove / TSCall
+-> risk gate / confirmation gate
+-> local project operator / controlled adapter gate / proof object examples
+-> ResultPacket
+-> evidence dashboard
+-> trace + receipt
+```
+
+Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v30 surface performs no accidental network call or real external side effect.
+
+The v12 verifier-gated proposer stack remains the core proof-authority substrate; v30 makes that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts.
+
+## First Contact
+
+Run the one-command public demo:
 
 ```bash
 python3 scripts/demo_first_contact.py
+```
+
+Expected result:
+
+```text
+TS-Reasoner first-contact demo passed.
+
+Safe route: PASS
+Unsafe abstention: PASS
+External side effect blocked: PASS
+Typed proof boundary: PASS
+Receipt written: PASS
 ```
 
 What happens when I type X?
@@ -35,207 +75,176 @@ Risk: external_side_effect
 Action taken: none; missing recipient/message; confirmation required
 ```
 
-Start here:
+## Safety Dashboard
+
+Generate the current evidence dashboard:
+
+```bash
+python3 scripts/build_ts_evidence_dashboard.py
+```
+
+Latest release safety surface:
+
+| Metric | v30 release result |
+| --- | ---: |
+| Wrong accepts | 0 |
+| Accepted without typed support | 0 |
+| Candidate graph contamination | 0 |
+| External side effects performed | 0 |
+| Network calls performed | 0 |
+| Destructive request safe-abstention | yes |
+| Unconfirmed writes blocked | yes |
+| External LLM used | false |
+| All gates passed | true |
+
+Dashboard artifact:
+
+- `artifacts/ts_evidence_dashboard.json`
+
+## Proof Objects
+
+Typed proof examples are visible, not implied:
+
+```bash
+python3 scripts/show_proof_object_examples.py
+```
+
+Each proof object example shows:
+
+- claim
+- normalized claim
+- support path
+- typed channel
+- verifier decision
+- why it was accepted, rejected, or abstained
+- why model confidence was ignored
+
+Proof object artifact:
+
+- `artifacts/proof_object_examples.json`
+
+## Quick Start
+
+Run the v30 local agent OS evaluation:
+
+```bash
+python3 scripts/evaluate_ts_os_v30.py
+```
+
+Run the conversational shell demo and report:
+
+```bash
+python3 scripts/run_ts_os_chat_loop_demo.py
+python3 scripts/evaluate_ts_os_chat_loop.py
+```
+
+Run the full test suite:
+
+```bash
+python3 -m unittest discover -q
+```
+
+Optional live GPT-2-small comparison:
+
+```bash
+pip install transformers torch
+TS_REASONER_RUN_LIVE_GPT2=1 python3 scripts/v11_6/evaluate_live_gpt2_small_adapter.py
+```
+
+The default repo remains stdlib-first and CI-safe. Live GPT-2 is opt-in.
+
+## Release Assets
+
+The v30 GitHub release publishes these JSON assets:
+
+- `ts_os_chat_loop_report.json`
+- `ts_os_chat_loop_receipt.json`
+- `ts_os_chat_loop_demo.json`
+- `ts_evidence_dashboard.json`
+- `proof_object_examples.json`
+- `first_contact_demo_report.json`
+- `first_contact_demo_receipt.json`
+- `first_contact_surface_report.json`
+- `ts_os_v30_report.json`
+- `ts_os_v30_receipt.json`
+
+## Start Here
 
 - [First contact](docs/first_contact.md)
 - [TS-OS conversational shell loop](docs/ts_os_conversational_shell_loop.md)
 - [Evidence dashboard](docs/evidence_dashboard.md)
 - [Proof objects](docs/proof_objects.md)
 - [Verifier-first local agent OS](docs/verifier_first_local_agent_os.md)
+- [Release ladder](docs/RELEASE_LADDER.md)
+- [Verifier-gated proposer stack](docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md)
 
-Canonical release authority remains **v12.0.0 — Verifier-Gated Proposer Stack**; v30.0.0 makes that verifier-first boundary easier to inspect and demo locally.
-
-Core line:
-
-> Language/model systems may propose. TS verifies. Confidence is not proof. Typed verifier support is the proof boundary.
-
-TS-Reasoner separates:
-
-```text
-candidate generation
-→ candidate/proposer ranking
-→ typed verifier channels
-→ accept / reject / abstain
-→ trace + receipt
-
-The current milestone is:
-
-v30.0.0 — Verifier-First Local Agent OS
-
-It composes the TS-AGL stack into one bounded verifier-first local operating surface:
-
-language request
-→ conversational shell loop
-→ router stack arbitration
-→ LanguageMove / TSCall
-→ risk gate / confirmation gate
-→ local project operator / controlled adapter gate / proof object examples
-→ ResultPacket
-→ evidence dashboard
-→ trace + receipt
-
-Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v30 surface performs no accidental network call or real external side effect.
-
-Current release
-
-Current release: v30.0.0 — Verifier-First Local Agent OS
-
-
-The v30.0 release packages TS-AGL into a verifier-first local agent OS: one bounded operating layer over a conversational shell loop, evidence dashboard, proof object examples, first-contact demo, local project operation, controlled external adapter gating, and receipts. Language is not proof authority, router confidence is not proof, and external gate authorization is not execution.
-
-Release assets:
-
-ts_os_v30_report.json
-ts_os_v30_receipt.json
-ts_os_chat_loop_report.json
-ts_os_chat_loop_receipt.json
-ts_os_chat_loop_demo.json
-ts_evidence_dashboard.json
-proof_object_examples.json
-first_contact_demo_report.json
-first_contact_demo_receipt.json
-first_contact_surface_report.json
-ts_os_v1_report.json
-ts_os_v1_receipt.json
-ts_agl_external_adapter_gate_report.json
-ts_agl_external_adapter_gate_receipt.json
-ts_agl_external_adapter_gate_eval_receipt.json
-ts_os_session_ledger.json
-ts_os_session_ledger_report.json
-ts_os_session_ledger_receipt.json
-ts_os_session_ledger_eval_receipt.json
-ts_agl_shell_surface_report.json
-ts_agl_shell_surface_eval_receipt.json
-ts_agl_shell_surface_receipt.json
-ts_agl_local_project_operator_report.json
-ts_agl_local_project_operator_receipt.json
-ts_agl_project_operator_note.json
-ts_agl_router_stack_arena_report.json
-ts_agl_router_stack_arena_receipt.json
-ts_agl_tiny_router_model.json
-ts_agl_tiny_router_train_report.json
-ts_agl_tiny_router_report.json
-ts_agl_tiny_router_receipt.json
-ts_agl_router_dataset.jsonl
-ts_agl_router_dataset_build_report.json
-ts_agl_router_dataset_report.json
-ts_agl_router_dataset_receipt.json
-ts_agl_domain_pack_generator_report.json
-ts_agl_domain_pack_generator_receipt.json
-research_notes.json
-ts_agl_external_side_effect_staging_report.json
-ts_agl_external_side_effect_staging_receipt.json
-ts_agl_interactive_workflow_ledger_report.json
-ts_agl_interactive_workflow_ledger_receipt.json
-ts_agl_safe_write_arena_report.json
-ts_agl_safe_write_arena_receipt.json
-ts_agl_cross_domain_arena_report.json
-ts_agl_cross_domain_arena_receipt.json
-ts_agl_example_router_report.json
-ts_agl_domain_pack_validation_report.json
-ts_agl_routing_report.json
-ts_agl_demo_receipt.json
-
-The v12.0 receipt checks the full stack:
-
-paragraph decomposition succeeds
-trained proposer predictions are recorded
-typed verifier gating produces final answers
-final wrong accepts remain zero
-accepted without typed support remains zero
-candidate graph contamination remains zero
-What this is
+## What This Is
 
 TS-Reasoner is:
 
-a bounded verifier-first reasoning artifact
-a typed proof-support and rejection system
-a trace-producing accept/reject/abstain runtime
-a safe bridge for learned or language-model candidate proposers
-a receipt-first research surface for verifier-first reasoning
-a small-stack testbed for keeping candidate generation separate from proof authority
+- a bounded verifier-first reasoning artifact
+- a typed proof-support and rejection system
+- a trace-producing accept/reject/abstain runtime
+- a safe bridge for learned or language-model candidate proposers
+- a receipt-first research surface for verifier-first reasoning
+- a local operation firewall for typed, risk-classified actions
 
 The core architectural point is simple:
 
+```text
 generated text != proof
 model confidence != proof
 candidate generation != proof
 typed verifier support = proof boundary
-What this is not
+```
+
+## What This Is Not
 
 TS-Reasoner is not:
 
-a chatbot
-a broad natural-language understanding system
-a general theorem prover
-a GPT-2 replacement
-an external benchmark victory claim
-a claim that model confidence proves anything
-a system where the trained proposer has proof authority
+- a chatbot
+- broad autonomous agency
+- a broad natural-language understanding claim
+- a general theorem prover
+- a GPT-2 replacement
+- an external benchmark victory claim
+- a system where model confidence proves anything
+- a system where generated text or router confidence has proof authority
 
-The trained proposer is deliberately subordinate to the verifier.
+The trained proposer and router stack are deliberately subordinate to typed verifier support, risk gates, confirmations, and receipts.
 
-Why this matters
+## Why This Matters
 
 Language models often collapse three different things into one surface:
 
-fluent generation
-confidence
-truth/proof
+- fluent generation
+- confidence
+- truth/proof
 
 TS-Reasoner keeps them separate.
 
-A model may produce a candidate claim. A model may assign confidence. A proposer may predict yes. None of that is proof.
+A model may produce a candidate claim. A model may assign confidence. A proposer may predict a route or answer. None of that is proof.
 
-Only typed verifier support can accept a claim.
+Only typed verifier support can accept a claim or authorize a typed boundary. That gives the system a hard safety shape:
 
-That gives the system a hard safety shape:
+```text
+bad proposal -> verifier rejects or abstains
+unsupported proposal -> verifier abstains
+contradictory proposal -> verifier rejects
+supported proposal -> verifier accepts with trace
+risky operation -> gate blocks until required slots/confirmation exist
+accepted operation -> receipt records the route, gate result, and action
+```
 
-bad proposal → verifier rejects or abstains
-unsupported proposal → verifier abstains
-contradictory proposal → verifier rejects
-supported proposal → verifier accepts with trace
-Quick start
+## Core v12 Substrate
 
-Run the main v12 stack receipt:
+The v12 verifier-gated proposer stack is implemented in:
 
-python3 scripts/v12_0/evaluate_verifier_gated_stack.py
-
-Run the full test suite:
-
-python3 -m unittest discover -q
-
-Run the v11/v12 path in order:
-
-python3 scripts/v11_0/evaluate_gpt2_boundary_arena.py
-python3 scripts/v11_1/evaluate_claim_normalizer.py
-python3 scripts/v11_2/evaluate_relation_phrase_parser.py
-python3 scripts/v11_3/evaluate_paragraph_decomposer.py
-python3 scripts/v11_4/evaluate_procedural_curriculum.py
-python3 scripts/v11_5/evaluate_adversarial_claim_fuzzer.py
-python3 scripts/v11_6/evaluate_live_gpt2_small_adapter.py
-python3 scripts/v11_7/evaluate_trace_training_dataset.py
-python3 scripts/v11_8/evaluate_ts_proposer_mini.py
-python3 scripts/v11_9/evaluate_neural_ts_proposer_tiny.py
-python3 scripts/v12_0/evaluate_verifier_gated_stack.py
-python3 -m unittest discover -q
-
-Optional live GPT-2-small comparison:
-
-pip install transformers torch
-TS_REASONER_RUN_LIVE_GPT2=1 python3 scripts/v11_6/evaluate_live_gpt2_small_adapter.py
-
-The default repo remains stdlib-first and CI-safe. Live GPT-2 is opt-in.
-
-v12.0 system flow
-
-The v12 stack is implemented in:
-
-ts_reasoner/proposer_stack.py
-scripts/v12_0/evaluate_verifier_gated_stack.py
-docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md
-artifacts/v12_0/verifier_gated_stack_report.json
-artifacts/v12_0/verifier_gated_stack_receipt.json
+- `ts_reasoner/proposer_stack.py`
+- `scripts/v12_0/evaluate_verifier_gated_stack.py`
+- `docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md`
+- `artifacts/v12_0/verifier_gated_stack_report.json`
+- `artifacts/v12_0/verifier_gated_stack_receipt.json`
 
 Runtime flow:
 
@@ -246,131 +255,97 @@ Runtime flow:
 5. Final answer is produced from verifier status, not proposer confidence.
 6. Trace and receipt are written.
 
-Example shape:
+Classic inference entrypoint:
 
-Input:
-Generated text counts as candidate data.
-Candidate data is not proof.
-Is generated text proof?
+```bash
+python3 inference.py --question "If all A are B and all B are C, are all A C?"
+```
 
-Proposer:
-candidate answer/status/channel prediction
+Core v12 stack receipt:
 
-Verifier:
-abstained / unsupported_claim
+```bash
+python3 scripts/v12_0/evaluate_verifier_gated_stack.py
+```
 
-Final:
-abstain
-
-The proposer can be useful without becoming authority.
-
-Main modules
+## Main Modules
 
 Core verifier/runtime:
 
-ts_reasoner/support_path_verifier.py
-ts_reasoner/typed_support.py
-ts_reasoner/claim_normalizer.py
-ts_reasoner/relation_phrase_parser.py
-ts_reasoner/paragraph_decomposer.py
-ts_reasoner/proposer_stack.py
+- `ts_reasoner/support_path_verifier.py`
+- `ts_reasoner/typed_support.py`
+- `ts_reasoner/claim_normalizer.py`
+- `ts_reasoner/relation_phrase_parser.py`
+- `ts_reasoner/paragraph_decomposer.py`
+- `ts_reasoner/proposer_stack.py`
 
-Benchmark/curriculum layer:
+TS-OS / TS-AGL operating surface:
 
-benchmarks/gpt2_boundary/procedural_curriculum.py
-benchmarks/gpt2_boundary/adversarial_fuzzer.py
-benchmarks/gpt2_boundary/live_gpt2_adapter.py
+- `ts_agl/os/chat_loop.py`
+- `ts_agl/os/evidence_dashboard.py`
+- `ts_agl/os/first_contact_demo.py`
+- `ts_agl/os/verifier_first_local_agent_os.py`
+- `ts_agl/os/ts_os_v1.py`
+- `ts_agl/external/adapter_gate.py`
+- `ts_agl/arena/local_project_operator.py`
 
 Training/proposer layer:
 
-training/v11_7/build_trace_training_data.py
-training/v11_8/ts_proposer_mini.py
-training/v11_9/neural_ts_proposer_tiny.py
+- `training/v11_7/build_trace_training_data.py`
+- `training/v11_8/ts_proposer_mini.py`
+- `training/v11_9/neural_ts_proposer_tiny.py`
 
 Release authority:
 
-release_authority.json
-scripts/v8_0/check_release_authority_sync.py
-docs/v11_0/GPT2_BOUNDARY_ARENA.md
-Release ladder
-Version	Core addition	Boundary preserved
-v1.x	typed tension channels and early TensionLM candidate bridge	model output remains candidate data
-v2.x	learned candidate models and verifier-trace training	learned models remain advisory
-v3.x	verifier-guided candidate model and public surface hardening	typed verifier remains proof authority
-v4.x	natural-language reasoning shell and GPT-2-shaped candidate fixtures	generated text remains candidate data
-v5.0	verifier-first reasoning firewall	confidence/generated text/candidate source are not proof
-v5.1-v5.9	TS-Chat scratch loop, repair suggestions, improvement ledger	repair suggestions are candidates, not proof
-v6.0-v6.9	persistent memory, explanation traces, provenance, knowledge packs, long-run repair stress	common ground is provenance-aware; candidates do not contaminate proof graph
-v7.0	self-improving verifier-first chat milestone	repair loop remains verifier-gated
-v8.0	release authority and public-claim audit	public claims require receipts
-v9.x	bounded candidate/proof infrastructure expansion	verifier remains authority
-v10.x	GPT-2 boundary preparation	comparison remains controlled and verifier-first
-v11.0	GPT-2 Boundary Arena	TS-Reasoner beats a controlled GPT-2 boundary fixture only inside the bounded arena
-v11.1	Natural Claim Surface Normalization	natural surfaces normalize before typed verification
-v11.2	Relation Phrase Parser	relation phrases become canonical verifier forms
-v11.3	Paragraph Claim Decomposer	bounded paragraphs decompose into verifier premises and target claims
-v11.4	Procedural Reasoning Curriculum	deterministic generated tasks reduce hand-built benchmark dependence
-v11.5	Adversarial Claim Fuzzer	hostile mutations preserve zero wrong accepts
-v11.6	Live GPT-2-small Adapter	optional live GPT-2 output remains candidate text
-v11.7	Verifier Trace Training Dataset	labels replay through typed verifier traces
-v11.8	TS-Proposer-Mini Baseline	trained proposer output is verifier-gated
-v11.9	Neural TS-Proposer Tiny	neural proposer predictions remain non-proof
-v12.0	Verifier-Gated Proposer Stack	end-to-end stack produces final answers only through verifier gate
-Evidence artifacts
+- `release_authority.json`
+- `scripts/v8_0/check_release_authority_sync.py`
+- `docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md`
 
-Important current release artifacts:
+## Release Ladder
 
-artifacts/v12_0/verifier_gated_stack_cases.jsonl
-artifacts/v12_0/verifier_gated_stack_trace.jsonl
-artifacts/v12_0/verifier_gated_stack_report.json
-artifacts/v12_0/verifier_gated_stack_receipt.json
+| Version | Core addition | Boundary preserved |
+| --- | --- | --- |
+| v1.x | typed tension channels and early TensionLM candidate bridge | model output remains candidate data |
+| v2.x | learned candidate models and verifier-trace training | learned models remain advisory |
+| v3.x | verifier-guided candidate model and public surface hardening | typed verifier remains proof authority |
+| v4.x | natural-language reasoning shell and GPT-2-shaped candidate fixtures | generated text remains candidate data |
+| v5.x-v7.x | verifier-first chat, repair, memory, provenance, and self-improvement loops | repair suggestions are candidates, not proof |
+| v8.x | release authority and public-claim audit | public claims require receipts |
+| v9.x-v10.x | runtime kernel, replay, ledger, checkpoint, recovery, and policy contracts | runtime integrity is not claim truth |
+| v11.x | GPT-2 boundary arena, natural claim normalization, parser/decomposer, proposer baselines | GPT/model output remains verifier-gated candidate data |
+| v12.x | verifier-gated proposer stack and TS-AGL domain routing | end-to-end answers require typed verifier support |
+| v20.x-v25.x | TS-AGL router stack, local project operator, shell, session ledger, external adapter gate, TS-OS v1 | local operations are risk-gated and receipted |
+| v26.x-v30.x | conversational shell loop, evidence dashboard, proof objects, first-contact demo, verifier-first local agent OS | unsafe ambiguity abstains; writes/effects require confirmation; receipts explain actions |
 
-Important v11 substrate artifacts:
+Full ladder:
 
-artifacts/v11_4/procedural_curriculum.jsonl
-artifacts/v11_5/adversarial_fuzzer_cases.jsonl
-artifacts/v11_7/verifier_trace_train.jsonl
-artifacts/v11_7/verifier_trace_valid.jsonl
-artifacts/v11_7/verifier_trace_test.jsonl
-artifacts/v11_8/ts_proposer_mini_model.json
-artifacts/v11_9/neural_ts_proposer_tiny_model.json
+- [Release ladder](docs/RELEASE_LADDER.md)
+- [Release notes](RELEASE_NOTES.md)
 
-The artifact policy is receipt-first: claims should point to reports/receipts, not vibes.
-
-Claim boundary
+## Claim Boundary
 
 The strongest safe public claim right now:
 
-TS-Reasoner v30.0.0 packages TS-AGL into a verifier-first local agent OS: a bounded operating layer over conversational shell routing, evidence dashboard aggregation, proof object examples, first-contact demo, local project operation, controlled external adapter gating, and receipts. Language, router confidence, session replay, and external gate authorization are not proof authority. Local writes remain confirmation-gated, no accidental network call is performed, no real external side effect is performed, and candidate graph contamination remains zero in the controlled release surface.
+> TS-Reasoner v30.0.0 packages TS-AGL into a verifier-first local agent OS: a bounded operating layer over conversational shell routing, evidence dashboard aggregation, proof object examples, first-contact demo, local project operation, controlled external adapter gating, and receipts. Language, router confidence, session replay, and external gate authorization are not proof authority. Local writes remain confirmation-gated, no accidental network call is performed, no real external side effect is performed, and candidate graph contamination remains zero in the controlled release surface.
 
 Do not overclaim this as:
 
-broad AGI
-broad NLP
-GPT-2 replacement
-general theorem proving
-external benchmark victory
-proof by model confidence
-proof by generated text
+- broad AGI
+- broad autonomous agency
+- broad NLP
+- GPT-2 replacement
+- general theorem proving
+- external benchmark victory
+- proof by model confidence
+- proof by generated text
 
 The point is the architecture:
 
+```text
 proposal is useful
 verification is authoritative
 receipts make the boundary inspectable
-One-command baseline
+```
 
-Classic inference entrypoint:
-
-python3 inference.py --question "If all A are B and all B are C, are all A C?"
-
-Current v12 stack receipt:
-
-python3 scripts/v12_0/evaluate_verifier_gated_stack.py
-
-Full verification:
-
-python3 -m unittest discover -q
-License
+## License
 
 MIT.

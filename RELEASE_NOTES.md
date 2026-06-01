@@ -127,31 +127,6 @@ Boundary:
 - Shell confidence is not proof.
 - Candidate graph contamination remains zero.
 
-## v23.0.0: Persistent TS-OS Session Ledger
-
-v23.0.0 adds a persistent TS-OS session ledger over the TS-AGL shell surface. Shell/operator commands are recorded as session events, saved to disk, reloaded, replayed as a summary, and continued in a resumed session.
-
-Artifacts:
-
-- `ts_agl/os/session_ledger.py`
-- `scripts/run_ts_os_session_ledger.py`
-- `scripts/evaluate_ts_os_session_ledger.py`
-- `tests/test_ts_os_session_ledger.py`
-- `docs/ts_os_session_ledger.md`
-- `artifacts/ts_os_session_ledger.json`
-- `artifacts/ts_os_session_ledger_report.json`
-- `artifacts/ts_os_session_ledger_receipt.json`
-- `artifacts/ts_os_session_ledger_eval_receipt.json`
-
-Boundary:
-
-- This is session persistence, not broad autonomous agency.
-- No external LLM is used.
-- No real external side effect is performed.
-- Session replay is not proof authority.
-- Shell confidence is not proof.
-- Candidate graph contamination remains zero.
-
 ## v22.0.0: TS-AGL Shell Surface
 
 v22.0.0 adds a speakable shell surface for TS-AGL. The shell exposes help, route inspection, and the local project operator through one command surface, including `python3 -m ts_agl.shell`.

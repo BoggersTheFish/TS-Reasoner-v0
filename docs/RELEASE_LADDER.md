@@ -1,14 +1,129 @@
+# TS-Reasoner Release Ladder
 
-TS-Reasoner Release Ladder
+This document summarizes the public TS-Reasoner ladder from typed verifier channels through the v30 verifier-first local agent OS.
 
-This document summarizes the public TS-Reasoner ladder from exported candidate
-ingestion to the v10 verifier-first reasoning runtime.
+Current release: **v30.0.0 — Verifier-First Local Agent OS**
 
-## v10.0.0: Verifier-First Reasoning OS
+Core boundary:
 
-v10.0.0 packages replay, runtime policy contracts, append-only ledger,
-tamper-evident hash chain, checkpoint/restore, recovery drill, and receipt
-output into one bounded runtime session surface.
+- language/model systems may propose;
+- generated text is candidate data, not proof;
+- model confidence and router confidence are not proof;
+- typed verifier support remains proof authority;
+- writes and external side effects remain gated;
+- receipts make accepted, rejected, blocked, and abstained outcomes inspectable.
+
+## v30.0.0: Verifier-First Local Agent OS
+
+v30.0.0 composes the v26-v29 surfaces into one bounded local operating loop:
+
+- native conversational shell loop;
+- generated evidence dashboard;
+- visible proof object examples;
+- one-command first-contact demo;
+- composed verifier-first local agent OS runner.
+
+Result:
+
+- unsafe ambiguity abstains;
+- destructive requests are blocked by safe abstention;
+- external side-effect requests require slots and confirmation;
+- unconfirmed writes are blocked;
+- no external LLM is used;
+- no network call is performed;
+- no real external side effect is performed;
+- candidate graph contamination remains zero.
+
+Primary docs:
+
+- [First contact](first_contact.md)
+- [TS-OS conversational shell loop](ts_os_conversational_shell_loop.md)
+- [Evidence dashboard](evidence_dashboard.md)
+- [Proof objects](proof_objects.md)
+- [Verifier-first local agent OS](verifier_first_local_agent_os.md)
+
+Primary artifacts:
+
+- `artifacts/ts_os_v30_report.json`
+- `artifacts/ts_os_v30_receipt.json`
+- `artifacts/ts_evidence_dashboard.json`
+- `artifacts/proof_object_examples.json`
+
+## v26.0.0-v29.0.0: v30 Ladder Components
+
+These releases are internal ladder components of the v30 flagship surface:
+
+| Version | Surface | Purpose |
+| --- | --- | --- |
+| v26.0.0 | Conversational shell loop | Natural-language turns route through typed TS-AGL calls and receipts. |
+| v27.0.0 | Evidence dashboard | Safety and receipt metrics aggregate into one generated JSON artifact. |
+| v28.0.0 | Proof object explorer | Typed verifier support becomes visible through examples. |
+| v29.0.0 | First-contact demo | Outsiders can evaluate the boundary with one command. |
+
+## v25.0.0: TS-OS v1
+
+v25.0.0 packages the TS-AGL stack into TS-OS v1: a bounded operating layer over shell, sessions, router stack, local project operation, external adapter gating, and receipts.
+
+Boundary preserved:
+
+- TS-OS v1 is not broad autonomous agency;
+- no external LLM is used;
+- no accidental network call is performed;
+- no real external side effect is performed;
+- language and router confidence are not proof authority;
+- candidate graph contamination remains zero.
+
+## v20.0.0-v24.0.0: TS-AGL Operation Surfaces
+
+This band turns TS-AGL from verifier/routing internals into bounded local operation surfaces.
+
+| Version | Surface | Boundary preserved |
+| --- | --- | --- |
+| v20.0.0 | Router stack arena | Routing can choose or abstain; confidence is not proof. |
+| v21.0.0 | Local project operator | Local writes are staged, gated, confirmed, and receipted. |
+| v22.0.0 | Shell surface | Shell commands expose routing/operator behavior without granting proof authority. |
+| v23.0.0 | Persistent session ledger | Session replay is useful state, not proof authority. |
+| v24.0.0 | Controlled external adapter gate | External adapter authorization is not network execution. |
+
+## v12.0.0-v12.1.0: Verifier-Gated Proposer Stack and Domain Routing
+
+v12.0.0 remains the core proof-authority substrate. Paragraph input is decomposed into canonical premises and candidate claims, a proposer predicts candidate answer/status/channel, and the typed verifier independently decides the final answer.
+
+v12.1.0 adds the TS-AGL domain example router, where domain-pack language examples teach routing behavior while unknown or low-confidence input safely abstains.
+
+Boundary preserved:
+
+- generated text is candidate data;
+- proposer output is not proof authority;
+- typed verifier status decides the final answer;
+- accepted without typed support remains zero;
+- candidate graph contamination remains zero.
+
+## v11.0.0-v11.9.0: GPT-2 Boundary and Proposer Preparation
+
+This band builds the controlled GPT-2 boundary fixture and the typed surfaces needed before the v12 verifier-gated stack:
+
+- GPT-2 boundary arena;
+- natural claim normalization;
+- relation phrase parser;
+- paragraph decomposer;
+- procedural curriculum;
+- adversarial claim fuzzer;
+- optional live GPT-2-small adapter;
+- verifier trace training dataset;
+- TS-Proposer-Mini baseline;
+- Neural TS-Proposer Tiny baseline.
+
+Boundary preserved:
+
+- GPT/model output remains candidate text;
+- labels replay through typed verifier traces;
+- neural proposer predictions remain non-proof;
+- optional live GPT-2 is opt-in and not part of default CI.
+
+## v9.0.0-v10.9.0: Runtime Kernel and Verifier-First Reasoning OS
+
+This band packages replay, runtime policy contracts, append-only ledger, tamper-evident hash chain, checkpoint/restore, recovery drill, and receipt output into bounded runtime surfaces.
 
 Boundary preserved:
 
@@ -18,239 +133,70 @@ Boundary preserved:
 - model confidence is not proof;
 - typed verifier support remains proof authority.
 
-## v9.9.0: Runtime Recovery Drill
+## v8.0.0-v8.9.0: Release Authority and Repair Infrastructure
 
-v9.9.0 adds corrupt checkpoint rejection, reordered ledger rejection,
-missing-event replay divergence, and restore-then-continue processing.
-
-## v9.8.0: Runtime Policy Contracts
-
-v9.8.0 adds machine-readable runtime policy contracts for runtime actions,
-checkpoint, and restore.
-
-v1.5.0: Real Exported TensionLM Sample
-
-A real exported TensionLM-side sample was evaluated through the existing
-TS-Reasoner adapter. The system did not load TensionLM directly. Exported text
-remained candidate data.
-
-v1.6.0: TensionLM Export Set Evaluation
-
-A small set of exported TensionLM-side samples was evaluated through the same
-adapter boundary. The set preserved accepted, rejected, abstained, and malformed
-cases instead of hiding failures.
-
-v1.7.0: Deeper-Chain Support Repair
-
-The verifier repaired the deeper positive all/all chain limitation exposed by
-the v1.6 export set. Multi-hop A -> B -> C -> D support can close inside the
-typed verifier boundary, while reverse inference and identity collapse remain
-blocked.
-
-v2.0.0: Learned Candidate Model
-
-A tiny dependency-light learned candidate model was added before the typed
-verifier. It ranks/proposes structured candidate claims and predicts
-channel/resolver signals, but it is not proof authority.
-
-v2.1.0: Learned Candidate Model Adversarial Stress
-
-The learned candidate model was stress-tested with high-confidence wrong,
-malformed, unsupported, reverse, contradiction, identity-collapse,
-distractor-heavy, and missing-provenance candidates.
-
-Core boundary result:
-
-candidate_graph_contamination_count: 0
-accepted_without_typed_support_count: 0
-high_confidence_bad_block_rate: 1.0
-unsupported_abstained_count: 6
-trace_schema_validity: 1.0
-
-The claim is not that every bad candidate gets a hard typed rejection. Some are
-safely blocked by abstention. The claim is that adversarial candidates do not
-become proof without typed support.
-
-Current Direction
-
-The next useful research step is a same-case comparison between learned
-candidate proposals and exported TensionLM-style proposals, while preserving the
-same typed verifier boundary.
-
-v2.4.0 — Natural Language Claim Ingestion
-
-v2.4.0 adds bounded natural-language claim ingestion.
-
-The release bridges simple natural-language reasoning prompts into canonical relation-shaped premises and candidate graph claims, then verifies those candidates through the existing candidate bridge and typed TS-Reasoner channels.
-
-Result:
-
-10 bounded NL cases
-parse expectation rate: 1.0
-status expectation rate: 1.0
-malformed input safe-abstain rate: 1.0
-accepted without typed support: 0
-candidate graph contamination: 0
-trace schema validity: 1.0
+This band adds public-claim audit, contradiction repair policy, missing bridge synthesis, provenance-weighted repair, branching worlds, knowledge-pack contracts, reasoning diff patches, audit cockpit, adversarial state fuzzing, and immune-system stress.
 
 Boundary preserved:
 
-no broad NLP claim;
-no TensionLM runtime;
-no training;
-no parser/model confidence as proof;
-typed channels remain verifier authority.
+- public claims require receipts;
+- repairs are proposed and checked, not assumed;
+- provenance affects repair decisions without replacing typed support.
 
-## v2.5.0 — Benchmark Harness
+## v5.0.0-v7.0.0: Verifier-First Chat and Repair Loops
 
-v2.5.0 adds a reusable train/dev/test-style benchmark harness across:
-
-- syllogism
-- rule deduction
-- adversarial invalid inference
-
-Result:
-
-- 28 benchmark cases
-- status accuracy: 1.0
-- claim accuracy: 1.0
-- parse success rate: 0.9642857142857143
-- invalid rejection-or-abstention rate: 1.0
-- accepted without typed support: 0
-- candidate graph contamination: 0
-- trace schema validity: 1.0
-
-The parse success rate is intentionally below 1.0 because malformed adversarial input is preserved and safe-abstained.
+This band introduces the verifier-first reasoning firewall, TS-Chat scratch loop, repair suggestions, improvement ledger, persistent memory, explanation traces, provenance, knowledge packs, long-run repair stress, and self-improving verifier-first chat milestone.
 
 Boundary preserved:
 
-- bounded benchmark surface;
-- no broad NLP claim;
-- no external benchmark victory claim;
-- no TensionLM runtime;
-- no training;
-- typed verifier channels remain proof authority.
+- repair suggestions are candidates, not proof;
+- common ground is provenance-aware;
+- candidates do not contaminate the proof graph.
 
-## v2.6.0 — Candidate Model v2
+## v1.0.0-v4.9.0: Typed Channels, Candidate Models, and Natural-Language Shell
 
-v2.6.0 trains Candidate Model v2 on candidate sets derived from the v2.5 benchmark harness.
+The early ladder builds the typed support substrate and candidate boundary:
 
-Result:
-
-- candidate ranking accuracy: 1.0
-- confidence baseline top accept rate: 0.2632
-- learned beats confidence baseline margin: 0.7368
-- multi-premise ranking success rate: 1.0
-- invalid query rejection-or-abstention rate: 1.0
-- supported alternative recovery rate: 1.0
-- malformed input non-accept rate: 1.0
-- accepted without typed support: 0
-- candidate graph contamination: 0
-- trace schema validity: 1.0
+- typed tension channels;
+- TensionLM candidate bridge;
+- learned candidate model;
+- adversarial candidate stress;
+- natural-language claim ingestion;
+- benchmark harness;
+- verifier-trace training data;
+- training-loop smoke;
+- active-learning loop;
+- public surface hardening;
+- GPT-2-shaped candidate fixtures;
+- natural-language reasoning shell.
 
 Boundary preserved:
 
-- Candidate Model v2 ranks candidates only.
-- Typed channels remain proof authority.
-- No TensionLM runtime.
-- No broad NLP claim.
-- No neural language model training.
+- model output remains candidate data;
+- learned models remain advisory;
+- typed verifier support remains proof authority;
+- generated text remains candidate data.
 
-## v2.7.0 — Verifier Trace Training Data
+## Artifact Policy
 
-v2.7.0 exports supervised training rows from Candidate Model v2 verifier traces.
+The artifact policy is receipt-first: claims should point to reports/receipts, not vibes.
 
-Result:
+Current v30 release artifacts:
 
-- row count: 91
-- accepted rows: 13
-- rejected rows: 40
-- abstained rows: 38
-- has model features: true
-- has verifier targets: true
-- has boundary metadata: true
-- mean proposal quality: 0.2473
+- `artifacts/ts_os_v30_report.json`
+- `artifacts/ts_os_v30_receipt.json`
+- `artifacts/ts_evidence_dashboard.json`
+- `artifacts/proof_object_examples.json`
+- `artifacts/first_contact_demo_report.json`
+- `artifacts/first_contact_demo_receipt.json`
+- `artifacts/first_contact_surface_report.json`
+- `artifacts/ts_os_chat_loop_report.json`
+- `artifacts/ts_os_chat_loop_receipt.json`
+- `artifacts/ts_os_chat_loop_demo.json`
 
-Boundary preserved:
+Core v12 proof-substrate artifacts:
 
-- v2.7 exports training data only.
-- It does not train a new model.
-- Exported rows are not proof.
-- Typed verifier channels define target labels.
-- Model confidence remains metadata only.
-- No TensionLM runtime is loaded.
-
-## v2.8.0 — Training Loop Smoke
-
-v2.8.0 proves that v2.7 verifier trace rows are usable supervised training signal.
-
-Result:
-
-- train accuracy: 1.0
-- eval accuracy: 1.0
-- majority baseline eval accuracy: 0.4286
-- confidence baseline eval accuracy: 0.5714
-- learned beats majority margin: 0.5714
-- learned beats confidence margin: 0.4286
-- row count: 91
-- train rows: 35
-- eval rows: 56
-
-Boundary preserved:
-
-- smoke-scale training loop only;
-- trained status model is not proof authority;
-- typed verifier traces define target labels;
-- no TensionLM runtime;
-- no neural language model training.
-
-## v2.9.0 — Active Learning Loop
-
-v2.9.0 adds a smoke-scale active-learning loop on top of the verifier-trace training stack.
-
-Result:
-
-- baseline challenge accuracy: 0.6667
-- active-learning challenge accuracy: 1.0
-- active-learning improvement: 0.3333
-- confidence baseline challenge accuracy: 0.3333
-- active beats confidence margin: 0.6667
-- row count: 91
-- base train rows: 35
-- challenge rows: 12
-- augmented train rows: 47
-
-Boundary preserved:
-
-- smoke-scale active-learning loop only;
-- trained model is not proof authority;
-- typed verifier traces define target labels;
-- challenge labels are verifier-derived;
-- no TensionLM runtime;
-- no neural language model training.
-
-## v3.0.0 — Verifier-Guided Candidate Model
-
-v3.0.0 is the first flagship TS-Reasoner model release.
-
-Result:
-
-- status accuracy: 1.0
-- channel prediction accuracy: 0.9888
-- majority baseline accuracy: 0.4286
-- confidence baseline accuracy: 0.5714
-- beats majority margin: 0.5714
-- beats confidence margin: 0.4286
-- accepted without typed support count: 0
-- candidate graph contamination count: 0
-- trace schema validity: 1.0
-- all gates passed: true
-
-Boundary preserved:
-
-- model predicts candidate status/channels/proposal quality;
-- model is not proof authority;
-- typed verifier channels remain proof authority;
-- confidence is metadata/baseline only;
-- no TensionLM runtime;
-- no broad NLP or general theorem-proving claim.
+- `artifacts/v12_0/verifier_gated_stack_cases.jsonl`
+- `artifacts/v12_0/verifier_gated_stack_trace.jsonl`
+- `artifacts/v12_0/verifier_gated_stack_report.json`
+- `artifacts/v12_0/verifier_gated_stack_receipt.json`

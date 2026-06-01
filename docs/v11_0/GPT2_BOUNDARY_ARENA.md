@@ -33,12 +33,12 @@ python3 scripts/v11_0/evaluate_gpt2_boundary_arena.py
 python3 -m unittest discover -q
 ```
 
-## Current Release Authority
+## Historical Release Authority
 
-Current release: v12.0.0, Verifier-Gated Proposer Stack
+Release authority at the time of this document: v12.0.0, Verifier-Gated Proposer Stack
 
 This document is the required internal release-authority surface for v12.0.0.
-The current release title is Verifier-Gated Proposer Stack.
+The v12.0.0 release title is Verifier-Gated Proposer Stack.
 
 Boundary:
 - Generated text is not proof.
