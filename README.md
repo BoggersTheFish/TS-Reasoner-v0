@@ -34,7 +34,9 @@ language request
 
 Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v30 surface performs no accidental network call or real external side effect.
 
-The v12 verifier-gated proposer stack remains the core proof-authority substrate; v30 makes that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts.
+Core proof authority substrate: **v12.0.0 — Verifier-Gated Proposer Stack**.
+
+The v12 verifier-gated proposer stack remains the proof-authority substrate; v30 makes that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts.
 
 ## First Contact
 
