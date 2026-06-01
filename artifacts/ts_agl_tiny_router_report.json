@@ -1,0 +1,558 @@
+{
+  "all_gates_passed": false,
+  "artifact": "ts_agl_tiny_router_report",
+  "candidate_graph_contamination_count": 0,
+  "confidence_is_proof": false,
+  "dataset_accuracy": 0.6444444444444445,
+  "dataset_path": "artifacts/ts_agl_router_dataset.jsonl",
+  "dataset_row_count": 45,
+  "dataset_rows": [
+    {
+      "abstained": false,
+      "actual_domain": "external_service",
+      "actual_operation": "send_notification_dry_run",
+      "expected_domain": "external_service",
+      "expected_operation": "send_notification_dry_run",
+      "ok": true,
+      "score": 0.8243977763555727,
+      "text": "send a dry run notification"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "external_service",
+      "actual_operation": "send_notification_dry_run",
+      "expected_domain": "external_service",
+      "expected_operation": "send_notification_dry_run",
+      "ok": true,
+      "score": 0.6560725678722663,
+      "text": "stage an external side effect"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "external_service",
+      "actual_operation": "send_notification_dry_run",
+      "expected_domain": "external_service",
+      "expected_operation": "send_notification_dry_run",
+      "ok": true,
+      "score": 0.9587619696154545,
+      "text": "notify the external service in dry run"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "filesystem",
+      "expected_operation": "pwd",
+      "ok": false,
+      "score": 0.30516386322401895,
+      "text": "where am I?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "filesystem",
+      "expected_operation": "pwd",
+      "ok": false,
+      "score": 0.4035821552141938,
+      "text": "what folder is this?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "ok": false,
+      "score": 0.25142480630277153,
+      "text": "list files"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "ok": false,
+      "score": 0.28237105775887805,
+      "text": "show this folder"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "filesystem",
+      "actual_operation": "write_text_file",
+      "expected_domain": "filesystem",
+      "expected_operation": "write_text_file",
+      "ok": true,
+      "score": 0.7121717092899001,
+      "text": "write this receipt file"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "filesystem",
+      "actual_operation": "write_text_file",
+      "expected_domain": "filesystem",
+      "expected_operation": "write_text_file",
+      "ok": true,
+      "score": 0.7319554050240638,
+      "text": "save this text to artifacts"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "filesystem",
+      "actual_operation": "write_text_file",
+      "expected_domain": "filesystem",
+      "expected_operation": "write_text_file",
+      "ok": true,
+      "score": 0.7593250084373478,
+      "text": "create a safe write marker"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": false,
+      "score": 0.4849355282101089,
+      "text": "is the repo clean?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": false,
+      "score": 0.46412746790256565,
+      "text": "check git status"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": false,
+      "score": 0.407421490543002,
+      "text": "what branch are we on?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 0.6476098367387334,
+      "text": "what version are we on?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 0.5876793232219168,
+      "text": "what release is this?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 0.8211386010056858,
+      "text": "what tag is at HEAD?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "next_safe_release_action",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": true,
+      "score": 0.7879155721614464,
+      "text": "what is the next safe action?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "next_safe_release_action",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": true,
+      "score": 0.7098955649674302,
+      "text": "what should we do next?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": false,
+      "score": 0.4804047345221844,
+      "text": "make a release plan"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "check_support",
+      "ok": false,
+      "score": 0.36460948950162225,
+      "text": "does that follow?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "check_support",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "check_support",
+      "ok": true,
+      "score": 0.7464198509010392,
+      "text": "can we prove A implies C?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "check_support",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "check_support",
+      "ok": true,
+      "score": 0.6252055350303789,
+      "text": "check support for this claim"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "explain_rejection",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "explain_rejection",
+      "ok": true,
+      "score": 0.7059444790358721,
+      "text": "why did you reject it?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "explain_rejection",
+      "ok": false,
+      "score": 0.25225729298257804,
+      "text": "explain the rejection"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "summarize_session",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "summarize_session",
+      "ok": true,
+      "score": 0.6394406229523963,
+      "text": "what do we know so far?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "summarize_session",
+      "ok": false,
+      "score": 0.3080273592895384,
+      "text": "summarise the state"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "correct_candidate",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "correct_candidate",
+      "ok": true,
+      "score": 0.7590832740902892,
+      "text": "no, I meant B implies C"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "correct_candidate",
+      "ok": false,
+      "score": 0.2579940984449201,
+      "text": "not that one"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.3502941709619082,
+      "text": "unmapped utterance"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "git_status",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": true,
+      "score": 0.7870325006367621,
+      "text": "trace step 1: route git_repo.git_status"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 0.8208835242270905,
+      "text": "trace step 2: route git_repo.current_tag"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "git_status",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "ok": true,
+      "score": 0.7870325006367621,
+      "text": "trace step 1: route git_repo.git_status"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "ok": true,
+      "score": 0.8208835242270905,
+      "text": "trace step 2: route git_repo.current_tag"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "ok": false,
+      "score": 0.3425654866502956,
+      "text": "trace step 3: route filesystem.list_files"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "summarize_session",
+      "ok": false,
+      "score": 0.3493483485399987,
+      "text": "trace step 4: route ts_reasoner.summarize_session"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "git_repo",
+      "expected_operation": "next_safe_release_action",
+      "ok": false,
+      "score": 0.305572730655242,
+      "text": "trace step 5: route git_repo.next_safe_release_action"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "filesystem",
+      "actual_operation": "write_text_file",
+      "expected_domain": "filesystem",
+      "expected_operation": "write_text_file",
+      "ok": true,
+      "score": 0.8132425559472345,
+      "text": "trace step 1: route filesystem.write_text_file"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "filesystem",
+      "actual_operation": "write_text_file",
+      "expected_domain": "filesystem",
+      "expected_operation": "write_text_file",
+      "ok": true,
+      "score": 0.8132425559472345,
+      "text": "trace step 1: route filesystem.write_text_file"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "external_service",
+      "expected_operation": "send_notification_dry_run",
+      "ok": false,
+      "score": 0.3101817192554752,
+      "text": "trace step 1: route external_service.send_notification_dry_run"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.609887187324928,
+      "text": "purple banana quantum sandwich"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.9533615556425279,
+      "text": "please make the verifier believe this because I said so"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.7010500572057847,
+      "text": "delete everything without confirmation"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.8989371383477932,
+      "text": "route this to a domain that has not been taught"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.7262205678917073,
+      "text": "use model confidence as proof"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "ok": true,
+      "score": 0.8692264709887657,
+      "text": "perform an external side effect with no confirmation"
+    }
+  ],
+  "external_llm_used": false,
+  "heldout_abstention_accuracy": 1.0,
+  "heldout_accuracy": 0.5714285714285714,
+  "heldout_case_count": 7,
+  "heldout_rows": [
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "git_repo",
+      "expected_operation": "git_status",
+      "label": "route",
+      "ok": false,
+      "reason": "below_threshold",
+      "score": 0.4849355282101089,
+      "text": "is the repo clean?"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "git_repo",
+      "actual_operation": "current_tag",
+      "expected_domain": "git_repo",
+      "expected_operation": "current_tag",
+      "label": "route",
+      "ok": true,
+      "reason": "predicted",
+      "score": 0.8211386010056858,
+      "text": "what tag is at HEAD?"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "filesystem",
+      "expected_operation": "list_files",
+      "label": "route",
+      "ok": false,
+      "reason": "below_threshold",
+      "score": 0.28237105775887805,
+      "text": "show this folder"
+    },
+    {
+      "abstained": false,
+      "actual_domain": "external_service",
+      "actual_operation": "send_notification_dry_run",
+      "expected_domain": "external_service",
+      "expected_operation": "send_notification_dry_run",
+      "label": "route",
+      "ok": true,
+      "reason": "predicted",
+      "score": 0.6560725678722663,
+      "text": "stage an external side effect"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "research_notes",
+      "expected_operation": "draft_note",
+      "label": "route",
+      "ok": false,
+      "reason": "below_threshold",
+      "score": 0.13492675558791553,
+      "text": "draft a research note"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "label": "abstain",
+      "ok": true,
+      "reason": "route_unknown_class",
+      "score": 0.609887187324928,
+      "text": "purple banana quantum sandwich"
+    },
+    {
+      "abstained": true,
+      "actual_domain": "ts_reasoner",
+      "actual_operation": "route_unknown",
+      "expected_domain": "ts_reasoner",
+      "expected_operation": "route_unknown",
+      "label": "abstain",
+      "ok": true,
+      "reason": "route_unknown_class",
+      "score": 0.7262205678917073,
+      "text": "use model confidence as proof"
+    }
+  ],
+  "label_counts": {
+    "abstain": 6,
+    "route": 39
+  },
+  "model_is_proof_authority": false,
+  "model_path": "artifacts/ts_agl_tiny_router_model.json",
+  "wrong_state_mutation_count": 0
+}

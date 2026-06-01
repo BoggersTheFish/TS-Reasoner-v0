@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ts-reasoner-v0"
-version = "18.0.0"
+version = "19.0.0"
 description = "Verifier-first GPT-2 boundary arena with typed support objects, support-path verification, and receipt-backed TS-vs-GPT-2 comparison."
 readme = "README.md"
 requires-python = ">=3.10"

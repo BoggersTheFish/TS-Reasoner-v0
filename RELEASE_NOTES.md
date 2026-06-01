@@ -1,3 +1,28 @@
+## v19.0.0: TS-AGL Tiny Learned Router
+
+v19.0.0 adds a tiny dependency-free learned router for TS-AGL. The router trains on the v18 trace-mined router dataset, predicts operation routes or abstention, and remains a proposer only.
+
+Artifacts:
+
+- `ts_agl/training/tiny_learned_router.py`
+- `scripts/train_ts_agl_tiny_router.py`
+- `scripts/evaluate_ts_agl_tiny_router.py`
+- `tests/test_ts_agl_tiny_learned_router.py`
+- `docs/ts_agl_tiny_learned_router.md`
+- `artifacts/ts_agl_tiny_router_model.json`
+- `artifacts/ts_agl_tiny_router_train_report.json`
+- `artifacts/ts_agl_tiny_router_report.json`
+- `artifacts/ts_agl_tiny_router_receipt.json`
+
+Boundary:
+
+- This is learned routing, not proof authority.
+- No external LLM is used.
+- No neural dependency is introduced.
+- Router confidence is not proof.
+- Routed calls still go through TSCall/risk/adapters/verifier boundaries.
+- Candidate graph contamination remains zero.
+
 ## v18.0.0: TS-AGL Trace-Mined Router Dataset
 
 v18.0.0 adds a trace-mined router dataset for TS-AGL. The system turns validated domain-pack language examples, arena traces, workflow traces, and hard-negative abstention cases into a reusable JSONL router dataset.
