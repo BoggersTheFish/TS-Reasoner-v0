@@ -1,0 +1,7 @@
+{
+  "artifact": "ts_agl_project_operator_note",
+  "claim": "local project operator inspected project state and executed only a confirmed safe artifact write",
+  "language_layer_is_proof_authority": false,
+  "external_side_effect_performed": false,
+  "requires_confirmation": true
+}

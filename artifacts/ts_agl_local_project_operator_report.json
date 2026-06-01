@@ -1,0 +1,25 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_local_project_operator_report",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_mutation_count": 1,
+  "confirmed_write_executed": true,
+  "external_llm_used": false,
+  "external_side_effect_performed": false,
+  "filesystem_inspected": true,
+  "operations": [
+    "git_repo.git_status",
+    "git_repo.current_tag",
+    "filesystem.list_files",
+    "git_repo.git_status",
+    "git_repo.current_tag",
+    "filesystem.list_files",
+    "filesystem.write_text_file"
+  ],
+  "project_note_exists": true,
+  "project_note_path": "artifacts/ts_agl_project_operator_note.json",
+  "repo_inspected": true,
+  "router_stack_used": true,
+  "unconfirmed_write_blocked": true,
+  "wrong_unconfirmed_mutation_count": 0
+}

@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v20.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v20.0.0)
+[![Release](https://img.shields.io/badge/release-v21.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v21.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,13 +38,16 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v20.0.0 — TS-AGL Router Stack Arena
+Current release: v21.0.0 — TS-AGL Local Project Operator
 
 
-The v20.0 release adds a TS-AGL router stack arena: rule-parser routing, domain-example routing, and the tiny learned router are compared under a safe selector that can route or abstain while preserving the proof boundary. Learned confidence is still not proof.
+The v21.0 release adds a bounded local project operator: TS-AGL inspects repo/docs state, uses the router stack for next-safe-action routing, stages a safe artifact write, blocks unconfirmed mutation, executes only after confirmation, and emits a project-operator receipt.
 
 Release assets:
 
+ts_agl_local_project_operator_report.json
+ts_agl_local_project_operator_receipt.json
+ts_agl_project_operator_note.json
 ts_agl_router_stack_arena_report.json
 ts_agl_router_stack_arena_receipt.json
 ts_agl_tiny_router_model.json

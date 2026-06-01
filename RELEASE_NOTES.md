@@ -1,3 +1,27 @@
+## v21.0.0: TS-AGL Local Project Operator
+
+v21.0.0 adds a bounded local project operator for TS-AGL. The operator inspects local repo/docs state, uses the router stack for next-safe-action routing, stages a safe artifact write, blocks the unconfirmed write, executes only after confirmation, and emits a single project-operator report/receipt.
+
+Artifacts:
+
+- `ts_agl/arena/local_project_operator.py`
+- `scripts/run_ts_agl_local_project_operator.py`
+- `scripts/evaluate_ts_agl_local_project_operator.py`
+- `tests/test_ts_agl_local_project_operator.py`
+- `docs/ts_agl_local_project_operator.md`
+- `artifacts/ts_agl_local_project_operator_report.json`
+- `artifacts/ts_agl_local_project_operator_receipt.json`
+- `artifacts/ts_agl_project_operator_note.json`
+
+Boundary:
+
+- This is bounded local project operation, not broad autonomous agency.
+- No external LLM is used.
+- No real external side effect is performed.
+- Local reversible artifact writes require confirmation.
+- Router stack output is not proof authority.
+- Candidate graph contamination remains zero.
+
 ## v20.0.0: TS-AGL Router Stack Arena
 
 v20.0.0 adds a router stack arena for TS-AGL. The arena compares rule-parser routing, domain-example routing, and the tiny learned router under a safe selector that can choose a route or abstain to `route_unknown`.
