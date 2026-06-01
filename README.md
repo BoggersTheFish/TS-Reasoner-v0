@@ -4,9 +4,46 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v25.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v25.0.0)
+[![Release](https://img.shields.io/badge/release-v30.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v30.0.0)
 
-**TS-Reasoner is a verifier-first reasoning system.**
+**TS-Reasoner is a verifier-first operation firewall.**
+
+It lets language/model systems propose actions or claims, but only typed verifier support, risk gates, confirmations, and receipts decide what is accepted or executed.
+
+First-contact demo:
+
+```bash
+python3 scripts/demo_first_contact.py
+```
+
+What happens when I type X?
+
+```text
+User says: "delete everything and push it"
+TS-OS routes: ts_reasoner.route_unknown
+Risk: read_only
+Action taken: none
+
+User says: "what should we do next?"
+TS-OS routes: git_repo.next_safe_release_action
+Risk: read_only
+Action taken: safe inspection/suggestion
+
+User says: "stage an external side effect"
+TS-OS routes: external_service.send_notification_dry_run
+Risk: external_side_effect
+Action taken: none; missing recipient/message; confirmation required
+```
+
+Start here:
+
+- [First contact](docs/first_contact.md)
+- [TS-OS conversational shell loop](docs/ts_os_conversational_shell_loop.md)
+- [Evidence dashboard](docs/evidence_dashboard.md)
+- [Proof objects](docs/proof_objects.md)
+- [Verifier-first local agent OS](docs/verifier_first_local_agent_os.md)
+
+Canonical release authority remains **v12.0.0 — Verifier-Gated Proposer Stack**; v30.0.0 makes that verifier-first boundary easier to inspect and demo locally.
 
 Core line:
 
@@ -23,34 +60,43 @@ candidate generation
 
 The current milestone is:
 
-v25.0.0 — TS-OS v1
+v30.0.0 — Verifier-First Local Agent OS
 
-It packages the TS-AGL stack into one bounded operating surface:
+It composes the TS-AGL stack into one bounded verifier-first local operating surface:
 
 language request
-→ shell / route inspection
+→ conversational shell loop
 → router stack arbitration
 → LanguageMove / TSCall
 → risk gate / confirmation gate
-→ local project operator or controlled adapter gate
+→ local project operator / controlled adapter gate / proof object examples
 → ResultPacket
-→ persistent session ledger
+→ evidence dashboard
 → trace + receipt
 
-Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v25 surface performs no accidental network call or real external side effect.
+Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v30 surface performs no accidental network call or real external side effect.
 
 Current release
 
-Current release: v25.0.0 — TS-OS v1
+Current release: v30.0.0 — Verifier-First Local Agent OS
 
 
-The v25.0 release packages TS-AGL into TS-OS v1: one bounded operating layer over shell, persistent sessions, router stack, local project operation, controlled external adapter gating, and receipts. Language is not proof authority, router confidence is not proof, and external gate authorization is not execution.
+The v30.0 release packages TS-AGL into a verifier-first local agent OS: one bounded operating layer over a conversational shell loop, evidence dashboard, proof object examples, first-contact demo, local project operation, controlled external adapter gating, and receipts. Language is not proof authority, router confidence is not proof, and external gate authorization is not execution.
 
 Release assets:
 
+ts_os_v30_report.json
+ts_os_v30_receipt.json
+ts_os_chat_loop_report.json
+ts_os_chat_loop_receipt.json
+ts_os_chat_loop_demo.json
+ts_evidence_dashboard.json
+proof_object_examples.json
+first_contact_demo_report.json
+first_contact_demo_receipt.json
+first_contact_surface_report.json
 ts_os_v1_report.json
 ts_os_v1_receipt.json
-ts_os_v1_session.json
 ts_agl_external_adapter_gate_report.json
 ts_agl_external_adapter_gate_receipt.json
 ts_agl_external_adapter_gate_eval_receipt.json
@@ -295,7 +341,7 @@ Claim boundary
 
 The strongest safe public claim right now:
 
-TS-Reasoner v25.0.0 packages TS-AGL into TS-OS v1: a bounded operating layer over shell, persistent sessions, router-stack arbitration, local project operation, controlled external adapter gating, and receipts. Language, router confidence, session replay, and external gate authorization are not proof authority. Local writes remain confirmation-gated, no accidental network call is performed, no real external side effect is performed, and candidate graph contamination remains zero in the controlled release surface.
+TS-Reasoner v30.0.0 packages TS-AGL into a verifier-first local agent OS: a bounded operating layer over conversational shell routing, evidence dashboard aggregation, proof object examples, first-contact demo, local project operation, controlled external adapter gating, and receipts. Language, router confidence, session replay, and external gate authorization are not proof authority. Local writes remain confirmation-gated, no accidental network call is performed, no real external side effect is performed, and candidate graph contamination remains zero in the controlled release surface.
 
 Do not overclaim this as:
 

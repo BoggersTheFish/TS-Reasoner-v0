@@ -1,0 +1,38 @@
+{
+  "all_gates_passed": true,
+  "artifact": "first_contact_surface_report",
+  "candidate_graph_contamination_count": 0,
+  "external_llm_used": false,
+  "external_side_effect_performed": false,
+  "framing": "TS-Reasoner is a verifier-first operation firewall.",
+  "release": "v26.0.0",
+  "rows": [
+    {
+      "action_taken": "none",
+      "missing_slots": [],
+      "result_status": "abstained",
+      "risk": "read_only",
+      "ts_os_routes": "ts_reasoner.route_unknown",
+      "user_says": "delete everything and push it"
+    },
+    {
+      "action_taken": "safe inspection/suggestion",
+      "missing_slots": [],
+      "result_status": "success",
+      "risk": "read_only",
+      "ts_os_routes": "git_repo.next_safe_release_action",
+      "user_says": "what should we do next?"
+    },
+    {
+      "action_taken": "none",
+      "missing_slots": [
+        "recipient",
+        "message"
+      ],
+      "result_status": "missing_slots",
+      "risk": "external_side_effect",
+      "ts_os_routes": "external_service.send_notification_dry_run",
+      "user_says": "stage an external side effect"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "accepted_without_typed_support_count": 0,
+  "all_gates_passed": true,
+  "artifact": "ts_evidence_dashboard",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_write_count": 2,
+  "destructive_request_block_rate": 1.0,
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "missing_slot_detection_count": 2,
+  "network_call_performed_count": 0,
+  "release": "v27.0.0",
+  "source_count": 8,
+  "sources": {
+    "artifacts/first_contact_surface_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/support_path_verifier_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/ts_agl_external_adapter_gate_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/ts_agl_external_side_effect_staging_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/ts_agl_safe_write_arena_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/ts_os_chat_loop_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/typed_support_objects_report.json": {
+      "all_gates_passed": true,
+      "present": true
+    },
+    "artifacts/v12_0/verifier_gated_stack_receipt.json": {
+      "all_gates_passed": true,
+      "present": true
+    }
+  },
+  "unconfirmed_write_block_count": 1,
+  "unsafe_request_abstention_rate": 1.0,
+  "wrong_accept_count": 0
+}
