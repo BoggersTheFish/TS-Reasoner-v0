@@ -1,3 +1,30 @@
+## v25.0.0: TS-OS v1
+
+v25.0.0 packages the TS-AGL stack into TS-OS v1: a bounded operating layer over shell, sessions, router stack, local project operation, external adapter gating, and receipts.
+
+Artifacts:
+
+- `ts_agl/os/ts_os_v1.py`
+- `scripts/run_ts_os_v1.py`
+- `scripts/evaluate_ts_os_v1.py`
+- `tests/test_ts_os_v1.py`
+- `docs/ts_os_v1.md`
+- `artifacts/ts_os_v1_report.json`
+- `artifacts/ts_os_v1_receipt.json`
+- `artifacts/ts_os_v1_session.json`
+
+Boundary:
+
+- This is bounded TS-OS v1, not broad autonomous agency.
+- No external LLM is used.
+- No accidental network call is performed.
+- No real external side effect is performed.
+- Language is not proof authority.
+- Router confidence is not proof.
+- Session replay is not proof authority.
+- External gate authorization is not execution.
+- Candidate graph contamination remains zero.
+
 ## v24.0.0: Controlled External Adapter Gate
 
 v24.0.0 adds a controlled external adapter gate for the TS-OS runway. External adapter requests are dry-run by default, require confirmation, block live mode unless `TS_AGL_ALLOW_EXTERNAL_LIVE=1`, and prove that gate authorization is not network execution.

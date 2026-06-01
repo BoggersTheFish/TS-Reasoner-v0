@@ -1,0 +1,19 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_os_v1_report",
+  "candidate_graph_contamination_count": 0,
+  "external_adapter_gate_passed": true,
+  "external_gate_authorization_is_execution": false,
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "language_layer_is_proof_authority": false,
+  "local_project_operator_passed": true,
+  "network_call_performed_count": 0,
+  "release": "v25.0.0",
+  "router_confidence_is_proof": false,
+  "router_stack_passed": true,
+  "session_ledger_passed": true,
+  "session_replay_is_proof_authority": false,
+  "shell_route_passed": true,
+  "shell_surface_passed": true
+}

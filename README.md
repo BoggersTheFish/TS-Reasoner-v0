@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v24.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v24.0.0)
+[![Release](https://img.shields.io/badge/release-v25.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v25.0.0)
 
 **TS-Reasoner is a verifier-first reasoning system.**
 
@@ -38,20 +38,16 @@ A trained proposer can suggest an answer, status, and support channel. That sugg
 
 Current release
 
-Current release: v24.0.0 — Controlled External Adapter Gate
+Current release: v25.0.0 — TS-OS v1
 
 
-The v24.0 release adds a controlled external adapter gate: external requests are dry-run by default, confirmation-gated, live-mode blocked unless `TS_AGL_ALLOW_EXTERNAL_LIVE=1`, and receipted with zero accidental network calls or external side effects.
+The v25.0 release packages TS-AGL into TS-OS v1: one bounded operating layer over shell, persistent sessions, router stack, local project operation, controlled external adapter gating, and receipts. Language is not proof authority, router confidence is not proof, and external gate authorization is not execution.
 
 Release assets:
 
-ts_agl_external_adapter_gate_report.json
-ts_agl_external_adapter_gate_receipt.json
-ts_agl_external_adapter_gate_eval_receipt.json
-ts_os_session_ledger.json
-ts_os_session_ledger_report.json
-ts_os_session_ledger_receipt.json
-ts_os_session_ledger_eval_receipt.json
+ts_os_v1_report.json
+ts_os_v1_receipt.json
+ts_os_v1_session.json
 ts_agl_external_adapter_gate_report.json
 ts_agl_external_adapter_gate_receipt.json
 ts_agl_external_adapter_gate_eval_receipt.json
@@ -82,10 +78,8 @@ ts_agl_external_side_effect_staging_report.json
 ts_agl_external_side_effect_staging_receipt.json
 ts_agl_interactive_workflow_ledger_report.json
 ts_agl_interactive_workflow_ledger_receipt.json
-ts_agl_interactive_workflow_marker.json
 ts_agl_safe_write_arena_report.json
 ts_agl_safe_write_arena_receipt.json
-ts_agl_safe_write_marker.json
 ts_agl_cross_domain_arena_report.json
 ts_agl_cross_domain_arena_receipt.json
 ts_agl_example_router_report.json
