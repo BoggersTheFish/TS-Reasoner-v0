@@ -1,0 +1,47 @@
+{
+  "accuracy": 1.0,
+  "all_gates_passed": true,
+  "artifact": "ts_agl_shell_surface_report",
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "external_llm_used": false,
+  "external_side_effect_performed": false,
+  "rows": [
+    {
+      "expected_mode": "help",
+      "mode": "help",
+      "ok": true,
+      "payload_all_gates_passed": true,
+      "rendered_reply": "TS-AGL shell supports project inspection/operator commands and route inspection.",
+      "text": "help"
+    },
+    {
+      "expected_domain": "git_repo",
+      "expected_mode": "route",
+      "expected_operation": "git_status",
+      "mode": "route",
+      "ok": true,
+      "payload_all_gates_passed": true,
+      "rendered_reply": "Route selected: git_repo.git_status. Router confidence is not proof; calls still go through TSCall/risk boundaries.",
+      "text": "route: is the repo clean?"
+    },
+    {
+      "expected_domain": "ts_reasoner",
+      "expected_mode": "route",
+      "expected_operation": "route_unknown",
+      "mode": "route",
+      "ok": true,
+      "payload_all_gates_passed": true,
+      "rendered_reply": "Route selected: ts_reasoner.route_unknown. Router confidence is not proof; calls still go through TSCall/risk boundaries.",
+      "text": "route: use model confidence as proof"
+    },
+    {
+      "expected_mode": "local_project_operator",
+      "mode": "local_project_operator",
+      "ok": true,
+      "payload_all_gates_passed": true,
+      "rendered_reply": "Local project operator completed: inspected project state, used the router stack, blocked unconfirmed mutation, confirmed a safe artifact write, and emitted a receipt.",
+      "text": "inspect project and stage next safe note"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "accuracy": 1.0,
+  "all_gates_passed": true,
+  "artifact": "ts_agl_shell_surface_eval_receipt",
+  "candidate_graph_contamination_count": 0,
+  "case_count": 4,
+  "external_llm_used": false,
+  "external_side_effect_performed": false
+}

@@ -1,3 +1,27 @@
+## v22.0.0: TS-AGL Shell Surface
+
+v22.0.0 adds a speakable shell surface for TS-AGL. The shell exposes help, route inspection, and the local project operator through one command surface, including `python3 -m ts_agl.shell`.
+
+Artifacts:
+
+- `ts_agl/shell.py`
+- `scripts/run_ts_agl_shell_surface.py`
+- `scripts/evaluate_ts_agl_shell_surface.py`
+- `tests/test_ts_agl_shell_surface.py`
+- `docs/ts_agl_shell_surface.md`
+- `artifacts/ts_agl_shell_surface_report.json`
+- `artifacts/ts_agl_shell_surface_eval_receipt.json`
+- `artifacts/ts_agl_shell_surface_receipt.json`
+
+Boundary:
+
+- This is a shell surface, not broad autonomous agency.
+- No external LLM is used.
+- No real external side effect is performed.
+- Shell route confidence is not proof.
+- Local writes remain confirmation-gated.
+- Candidate graph contamination remains zero.
+
 ## v21.0.0: TS-AGL Local Project Operator
 
 v21.0.0 adds a bounded local project operator for TS-AGL. The operator inspects local repo/docs state, uses the router stack for next-safe-action routing, stages a safe artifact write, blocks the unconfirmed write, executes only after confirmation, and emits a single project-operator report/receipt.
