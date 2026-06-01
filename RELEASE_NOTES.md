@@ -1,3 +1,55 @@
+## v30.0.0: Verifier-First Local Agent OS
+
+v30.0.0 composes the TS-AGL stack into a bounded verifier-first local agent OS. Natural-language requests route through typed TS calls, unsafe ambiguity abstains, writes and external effects remain gated, proof object examples expose the typed verifier boundary, and evidence dashboard metrics make the safety surface inspectable.
+
+Artifacts:
+
+- `ts_agl/os/chat_loop.py`
+- `ts_agl/os/evidence_dashboard.py`
+- `ts_agl/os/first_contact_demo.py`
+- `ts_agl/os/verifier_first_local_agent_os.py`
+- `ts_reasoner/proof_object_examples.py`
+- `scripts/run_ts_os_chat_loop_demo.py`
+- `scripts/evaluate_ts_os_chat_loop.py`
+- `scripts/build_ts_evidence_dashboard.py`
+- `scripts/show_proof_object_examples.py`
+- `scripts/run_first_contact_demo.py`
+- `scripts/demo_first_contact.py`
+- `scripts/run_ts_os_v30.py`
+- `scripts/evaluate_ts_os_v30.py`
+- `tests/test_ts_os_chat_loop.py`
+- `tests/test_ts_evidence_dashboard.py`
+- `tests/test_proof_object_examples.py`
+- `tests/test_first_contact_demo.py`
+- `tests/test_ts_os_v30.py`
+- `docs/first_contact.md`
+- `docs/ts_os_conversational_shell_loop.md`
+- `docs/evidence_dashboard.md`
+- `docs/proof_objects.md`
+- `docs/verifier_first_local_agent_os.md`
+- `artifacts/ts_os_chat_loop_report.json`
+- `artifacts/ts_os_chat_loop_receipt.json`
+- `artifacts/ts_os_chat_loop_demo.json`
+- `artifacts/ts_evidence_dashboard.json`
+- `artifacts/proof_object_examples.json`
+- `artifacts/first_contact_demo_report.json`
+- `artifacts/first_contact_demo_receipt.json`
+- `artifacts/first_contact_surface_report.json`
+- `artifacts/ts_os_v30_report.json`
+- `artifacts/ts_os_v30_receipt.json`
+
+Boundary:
+
+- This is bounded verifier-first local operation, not broad autonomous agency.
+- No external LLM is used.
+- No accidental network call is performed.
+- No real external side effect is performed.
+- Language is not proof authority.
+- Router confidence is not proof.
+- Proof examples are typed verifier evidence surfaces, not confidence claims.
+- Writes and external effects remain gated.
+- Candidate graph contamination remains zero.
+
 ## v25.0.0: TS-OS v1
 
 v25.0.0 packages the TS-AGL stack into TS-OS v1: a bounded operating layer over shell, sessions, router stack, local project operation, external adapter gating, and receipts.

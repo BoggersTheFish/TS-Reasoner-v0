@@ -1,0 +1,22 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_os_v30_report",
+  "candidate_graph_contamination_count": 0,
+  "checks": {
+    "chat_loop_gates_passed": true,
+    "destructive_request_abstains": true,
+    "evidence_dashboard_gates_passed": true,
+    "external_side_effect_blocked": true,
+    "first_contact_demo_passed": true,
+    "no_external_llm": true,
+    "no_external_side_effects": true,
+    "no_network_calls": true,
+    "proof_object_examples_visible": true,
+    "unconfirmed_write_blocked": true
+  },
+  "evidence_dashboard_hash": "2990e98c5348213d6dbc8985392e9aa971141a2a1f6c2e4b27250942501b8777",
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "network_call_performed_count": 0,
+  "release": "v30.0.0"
+}

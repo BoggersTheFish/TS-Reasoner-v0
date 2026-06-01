@@ -1,0 +1,22 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_os_chat_loop_report",
+  "candidate_graph_contamination_count": 0,
+  "confirmed_write_count": 1,
+  "destructive_request_abstained": true,
+  "external_llm_used": false,
+  "external_side_effect_blocked": true,
+  "external_side_effect_performed": false,
+  "external_side_effect_performed_count": 0,
+  "help_turn_passed": true,
+  "missing_slot_detection_count": 2,
+  "network_call_performed_count": 0,
+  "next_safe_action_turn_passed": true,
+  "project_operator_unconfirmed_write_blocked": true,
+  "receipt_turn_count": 8,
+  "release": "v26.0.0",
+  "repo_status_turn_passed": true,
+  "turn_count": 8,
+  "unconfirmed_write_block_count": 1,
+  "vague_request_abstained": true
+}
