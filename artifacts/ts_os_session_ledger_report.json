@@ -1,0 +1,27 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_os_session_ledger_report",
+  "candidate_graph_contamination_count": 0,
+  "command_history": [
+    "help",
+    "route: is the repo clean?",
+    "inspect project and stage next safe note"
+  ],
+  "event_count_after_resume": 3,
+  "event_count_before_resume": 2,
+  "external_llm_used": false,
+  "external_side_effect_performed": false,
+  "has_help_event": true,
+  "has_operator_event": true,
+  "has_route_event": true,
+  "mode_counts": {
+    "help": 1,
+    "local_project_operator": 1,
+    "route": 1
+  },
+  "replay_available": true,
+  "resume_added_event": true,
+  "save_load_preserved_session_id": true,
+  "session_id": "ts_os_session_3be46dbab544",
+  "session_path": "artifacts/ts_os_session_ledger.json"
+}
