@@ -1,3 +1,32 @@
+## v31.0.0: TS Project Curriculum Pack v1
+
+v31.0.0 starts bounded curriculum learning by teaching TS-Reasoner its own project domain. The new TS Project Domain Pack v1 defines project objects, relations, operations, risks, examples, and failure modes for repo/release/artifact/receipt/claim/proof-boundary inspection while keeping free self-learning blocked.
+
+Artifacts:
+
+- `ts_agl/domains/ts_project.json`
+- `ts_agl/adapters/ts_project_adapter.py`
+- `ts_agl/os/ts_project_curriculum.py`
+- `scripts/run_ts_project_curriculum.py`
+- `scripts/evaluate_ts_project_curriculum.py`
+- `tests/test_ts_project_curriculum.py`
+- `docs/ts_project_curriculum.md`
+- `artifacts/ts_project_curriculum_report.json`
+- `artifacts/ts_project_curriculum_receipt.json`
+
+Boundary:
+
+- This is bounded curriculum learning, not free self-learning.
+- Domain packs teach objects, relations, operations, risks, examples, and failure modes.
+- Domain packs, language examples, repeated experience, and router confidence are not proof authority.
+- Unsafe self-learning overclaims are rejected.
+- Missing receipt detection is explicit.
+- Durable lesson promotion requires confirmation.
+- No external LLM is used.
+- No network call is performed.
+- No real external side effect is performed.
+- Candidate graph contamination remains zero.
+
 ## v30.0.0: Verifier-First Local Agent OS
 
 v30.0.0 composes the TS-AGL stack into a bounded verifier-first local agent OS. Natural-language requests route through typed TS calls, unsafe ambiguity abstains, writes and external effects remain gated, proof object examples expose the typed verifier boundary, and evidence dashboard metrics make the safety surface inspectable.

@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v30.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v30.0.0)
+[![Release](https://img.shields.io/badge/release-v31.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v31.0.0)
 
 **TS-Reasoner is a verifier-first operation firewall.**
 
@@ -16,9 +16,24 @@ Core line:
 
 ## Current Release
 
-Current release: **v30.0.0 — Verifier-First Local Agent OS**
+Current release: **v31.0.0 — TS Project Curriculum Pack v1**
 
-TS-OS v30 packages TS-AGL into one bounded verifier-first local operating surface:
+v31 teaches TS-Reasoner its own project domain as a bounded curriculum pack. It adds objects, relations, operations, risks, language examples, and failure modes for:
+
+```text
+repo
+release
+artifact
+receipt
+claim
+proof boundary
+unsafe overclaim
+next safe action
+stale public surface
+missing receipt
+```
+
+The v31 curriculum routes project questions through the v30 local OS shape:
 
 ```text
 language request
@@ -34,9 +49,17 @@ language request
 
 Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v30 surface performs no accidental network call or real external side effect.
 
+v31 answer:
+
+```text
+Yes, TS-Reasoner is ready to be taught through bounded curriculum packs.
+No, TS-Reasoner is not ready for free self-learning.
+Durable belief or lesson promotion remains verifier/confirmation/receipt gated.
+```
+
 Core proof authority substrate: **v12.0.0 — Verifier-Gated Proposer Stack**.
 
-The v12 verifier-gated proposer stack remains the proof-authority substrate; v30 makes that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts.
+The v12 verifier-gated proposer stack remains the proof-authority substrate; v30 made that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts; v31 starts teaching domain-specific project curriculum without granting open-ended self-learning.
 
 ## First Contact
 
@@ -127,6 +150,12 @@ Proof object artifact:
 
 ## Quick Start
 
+Run the v31 TS Project curriculum evaluation:
+
+```bash
+python3 scripts/evaluate_ts_project_curriculum.py
+```
+
 Run the v30 local agent OS evaluation:
 
 ```bash
@@ -157,7 +186,12 @@ The default repo remains stdlib-first and CI-safe. Live GPT-2 is opt-in.
 
 ## Release Assets
 
-The v30 GitHub release publishes these JSON assets:
+The v31 release publishes these JSON assets:
+
+- `ts_project_curriculum_report.json`
+- `ts_project_curriculum_receipt.json`
+
+The v30 release publishes these JSON assets:
 
 - `ts_os_chat_loop_report.json`
 - `ts_os_chat_loop_receipt.json`
@@ -177,6 +211,7 @@ The v30 GitHub release publishes these JSON assets:
 - [Evidence dashboard](docs/evidence_dashboard.md)
 - [Proof objects](docs/proof_objects.md)
 - [Verifier-first local agent OS](docs/verifier_first_local_agent_os.md)
+- [TS Project curriculum](docs/ts_project_curriculum.md)
 - [Release ladder](docs/RELEASE_LADDER.md)
 - [Verifier-gated proposer stack](docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md)
 
@@ -317,6 +352,7 @@ Release authority:
 | v12.x | verifier-gated proposer stack and TS-AGL domain routing | end-to-end answers require typed verifier support |
 | v20.x-v25.x | TS-AGL router stack, local project operator, shell, session ledger, external adapter gate, TS-OS v1 | local operations are risk-gated and receipted |
 | v26.x-v30.x | conversational shell loop, evidence dashboard, proof objects, first-contact demo, verifier-first local agent OS | unsafe ambiguity abstains; writes/effects require confirmation; receipts explain actions |
+| v31.x | TS Project curriculum pack | bounded domain teaching is allowed; free self-learning and durable belief promotion remain blocked |
 
 Full ladder:
 
@@ -327,7 +363,7 @@ Full ladder:
 
 The strongest safe public claim right now:
 
-> TS-Reasoner v30.0.0 packages TS-AGL into a verifier-first local agent OS: a bounded operating layer over conversational shell routing, evidence dashboard aggregation, proof object examples, first-contact demo, local project operation, controlled external adapter gating, and receipts. Language, router confidence, session replay, and external gate authorization are not proof authority. Local writes remain confirmation-gated, no accidental network call is performed, no real external side effect is performed, and candidate graph contamination remains zero in the controlled release surface.
+> TS-Reasoner v31.0.0 adds TS Project Domain Pack v1: a bounded curriculum pack that teaches the local verifier-first OS to inspect TS-Reasoner project state, find missing receipts, reject unsafe overclaims, explain the proof boundary, and suggest next safe release actions. This is bounded curriculum learning, not free self-learning. Language, router confidence, repeated examples, and domain-pack routing are not proof authority; durable lesson promotion remains confirmation/receipt gated.
 
 Do not overclaim this as:
 

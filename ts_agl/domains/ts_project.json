@@ -1,0 +1,161 @@
+{
+  "domain": "ts_project",
+  "description": "TS Project curriculum pack for teaching TS-Reasoner to inspect its own release, proof, receipt, and public-surface state without open-ended self-learning.",
+  "node_types": [
+    "repo",
+    "release",
+    "artifact",
+    "receipt",
+    "claim",
+    "proof_boundary",
+    "unsafe_overclaim",
+    "next_safe_action",
+    "stale_public_surface",
+    "missing_receipt",
+    "domain_lesson"
+  ],
+  "edge_types": [
+    "documents",
+    "supports",
+    "requires",
+    "routes_to",
+    "blocked_by",
+    "evidenced_by",
+    "stale_against",
+    "candidate_for"
+  ],
+  "operations": [
+    {
+      "name": "inspect_project_state",
+      "description": "Inspect TS-Reasoner release and documentation state from local repo files.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "inspect TS-Reasoner project state",
+        "what state is this project in?",
+        "read the repo release surface"
+      ]
+    },
+    {
+      "name": "explain_release_state",
+      "description": "Explain the current release framing and the core proof-authority substrate.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "explain the current release state",
+        "what release are we teaching now?",
+        "summarize the v31 milestone"
+      ]
+    },
+    {
+      "name": "find_missing_receipts",
+      "description": "Check whether expected v31 curriculum report and receipt artifacts exist.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "find missing receipts",
+        "is any proof receipt missing?",
+        "check v31 curriculum artifacts"
+      ]
+    },
+    {
+      "name": "detect_stale_public_surface",
+      "description": "Detect stale public documentation surfaces for the current v31 release framing.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "find stale public surface",
+        "does the README still advertise the old release?",
+        "check stale docs"
+      ]
+    },
+    {
+      "name": "reject_unsafe_overclaim",
+      "description": "Reject or abstain from unsafe claims such as broad autonomous self-learning.",
+      "required_inputs": [
+        "claim"
+      ],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "is this now a freely self-learning brain?",
+        "can it autonomously learn anything forever?",
+        "claim: TS-Reasoner is an open-ended autonomous learner"
+      ]
+    },
+    {
+      "name": "inspect_proof_boundary",
+      "description": "Show what is built, what is not built, and why typed verifier support remains the acceptance boundary.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "show the proof boundary",
+        "what is built and not fully built?",
+        "explain the teaching boundary"
+      ]
+    },
+    {
+      "name": "suggest_next_safe_release_action",
+      "description": "Suggest the next safe release action from project state and v31 curriculum evidence.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "what should we do next for the release?",
+        "suggest next safe release action",
+        "what is the next safe project action?"
+      ]
+    },
+    {
+      "name": "summarize_curriculum_boundary",
+      "description": "Summarize why bounded curriculum learning is allowed while free self-learning remains blocked.",
+      "required_inputs": [],
+      "risk": "read_only",
+      "requires_confirmation": false,
+      "examples": [
+        "are we ready to teach it?",
+        "are we ready for free self-learning?",
+        "summarize bounded curriculum learning"
+      ]
+    },
+    {
+      "name": "promote_lesson_candidate",
+      "description": "Promote a repeated lesson candidate into durable project curriculum only after confirmation.",
+      "required_inputs": [
+        "lesson_id",
+        "evidence_path"
+      ],
+      "risk": "reversible_write",
+      "requires_confirmation": true,
+      "examples": [
+        "promote this lesson into durable memory",
+        "learn this forever",
+        "save this lesson as accepted curriculum"
+      ]
+    }
+  ],
+  "failure_modes": [
+    "missing_receipt",
+    "stale_public_surface",
+    "unsafe_overclaim",
+    "missing_proof_boundary",
+    "unconfirmed_lesson_promotion",
+    "open_ended_self_learning_request",
+    "candidate_graph_contamination"
+  ],
+  "curriculum_contract": {
+    "release": "v31.0.0",
+    "domain_pack_name": "TS Project Domain Pack v1",
+    "bounded_curriculum_learning": true,
+    "open_ended_self_learning": false,
+    "language_layer_is_proof_authority": false,
+    "router_confidence_is_proof": false,
+    "durable_belief_promotion_requires_confirmation": true,
+    "durable_belief_promotion_requires_receipt": true
+  }
+}

@@ -1,8 +1,8 @@
 # TS-Reasoner Release Ladder
 
-This document summarizes the public TS-Reasoner ladder from typed verifier channels through the v30 verifier-first local agent OS.
+This document summarizes the public TS-Reasoner ladder from typed verifier channels through the v31 TS Project curriculum pack.
 
-Current release: **v30.0.0 — Verifier-First Local Agent OS**
+Current release: **v31.0.0 — TS Project Curriculum Pack v1**
 
 Core boundary:
 
@@ -11,7 +11,44 @@ Core boundary:
 - model confidence and router confidence are not proof;
 - typed verifier support remains proof authority;
 - writes and external side effects remain gated;
+- durable lesson promotion remains gated;
 - receipts make accepted, rejected, blocked, and abstained outcomes inspectable.
+
+## v31.0.0: TS Project Curriculum Pack v1
+
+v31.0.0 starts bounded curriculum learning by teaching TS-Reasoner its own project domain.
+
+The domain pack defines:
+
+- objects: repo, release, artifact, receipt, claim, proof boundary, unsafe overclaim, next safe action, stale public surface, missing receipt;
+- relations: documents, supports, requires, routes_to, blocked_by, evidenced_by, stale_against, candidate_for;
+- operations: inspect project state, explain release state, find missing receipts, detect stale public surface, reject unsafe overclaim, inspect proof boundary, suggest next safe release action, summarize curriculum boundary, and promote lesson candidate;
+- risks: read-only inspection by default, reversible write only for durable lesson promotion;
+- examples: language examples that route through the teaching-example router into typed TSCalls;
+- failure modes: missing receipt, stale public surface, unsafe overclaim, missing proof boundary, unconfirmed lesson promotion, open-ended self-learning request, candidate graph contamination.
+
+Boundary preserved:
+
+- ready to teach bounded domains: yes;
+- ready for free self-learning: no;
+- domain packs are not proof authority;
+- examples and router confidence are not proof;
+- unsafe self-learning overclaims are rejected;
+- durable lesson promotion requires confirmation and receipts;
+- no external LLM is used;
+- no network call is performed;
+- no real external side effect is performed;
+- candidate graph contamination remains zero.
+
+Primary docs:
+
+- [TS Project curriculum](ts_project_curriculum.md)
+- [Domain teaching protocol](domain_teaching_protocol.md)
+
+Primary artifacts:
+
+- `artifacts/ts_project_curriculum_report.json`
+- `artifacts/ts_project_curriculum_receipt.json`
 
 ## v30.0.0: Verifier-First Local Agent OS
 

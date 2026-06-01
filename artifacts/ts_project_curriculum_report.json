@@ -1,0 +1,27 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_project_curriculum_report",
+  "candidate_graph_contamination_count": 0,
+  "checks": {
+    "bounded_curriculum_not_free_self_learning": true,
+    "candidate_graph_contamination_zero": true,
+    "domain_pack_loaded": true,
+    "domain_pack_teaches_project_objects": true,
+    "examples_route_to_ts_project": true,
+    "external_llm_used_false": true,
+    "manifest_valid": true,
+    "missing_receipt_detected": true,
+    "project_state_inspected": true,
+    "proof_boundary_visible": true,
+    "stale_public_surface_clear": true,
+    "unconfirmed_lesson_promotion_blocked": true,
+    "unsafe_overclaim_rejected": true
+  },
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "manifest_hash": "260e74cac92b0d6dbabcd49b8a92c2de8331091f5e283a39500044243d11e859",
+  "network_call_performed_count": 0,
+  "release": "v31.0.0",
+  "title": "TS Project Curriculum Pack v1",
+  "wrong_state_mutation_count": 0
+}
