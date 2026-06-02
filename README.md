@@ -399,8 +399,6 @@ The strongest safe public claim right now:
 
 > TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates. Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.
 
-v40 composes bounded v32-v39 surfaces into one self-hosting research OS receipt. It does not claim each subsystem is a fully mature autonomous implementation.
-
 Do not overclaim this as:
 
 - broad AGI

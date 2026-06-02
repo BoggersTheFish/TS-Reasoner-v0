@@ -151,7 +151,7 @@
     ],
     "items": {
       "mem_065c403333dd": {
-        "created_at": 1780413981.9890413,
+        "created_at": 1780415321.8940103,
         "item_id": "mem_065c403333dd",
         "provenance": [
           "v40_bootstrap"
@@ -163,7 +163,7 @@
         "text": "domain packs are not proof"
       },
       "mem_06cc7ab81724": {
-        "created_at": 1780413981.9889917,
+        "created_at": 1780415321.8939672,
         "item_id": "mem_06cc7ab81724",
         "provenance": [
           "v40_bootstrap"
@@ -175,7 +175,7 @@
         "text": "generated text is not proof"
       },
       "mem_26d4394fb74e": {
-        "created_at": 1780413981.989027,
+        "created_at": 1780415321.893998,
         "item_id": "mem_26d4394fb74e",
         "provenance": [
           "v40_bootstrap"
@@ -187,7 +187,7 @@
         "text": "repeated experience is not proof"
       },
       "mem_5da77be576ee": {
-        "created_at": 1780413981.9890542,
+        "created_at": 1780415321.894022,
         "item_id": "mem_5da77be576ee",
         "provenance": [
           "v40_bootstrap"
@@ -199,7 +199,7 @@
         "text": "candidate graph contamination must remain zero"
       },
       "mem_61cc878d44dc": {
-        "created_at": 1780413981.989011,
+        "created_at": 1780415321.893984,
         "item_id": "mem_61cc878d44dc",
         "provenance": [
           "v40_bootstrap"
@@ -211,7 +211,7 @@
         "text": "model confidence is not proof"
       },
       "mem_9e655fab2f48": {
-        "created_at": 1780413981.9890678,
+        "created_at": 1780415321.894034,
         "item_id": "mem_9e655fab2f48",
         "provenance": [
           "hostile_demo"
