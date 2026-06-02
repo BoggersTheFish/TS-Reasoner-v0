@@ -1,0 +1,35 @@
+{
+  "accepted_without_verifier_support_count": 0,
+  "all_gates_passed": true,
+  "artifact": "cognitive_physics_engine_receipt",
+  "candidate_graph_contamination_count": 0,
+  "engine": "TS-OS Cognitive Physics Engine",
+  "implemented_architectures": [
+    "Photonic_State_Ledger",
+    "Retrocausal_Fuzzer",
+    "Temporal_Tension_Bridge",
+    "Spectral_Coupling_Telepathy",
+    "Unified_Field_Kernel",
+    "The_Lazy_Universe_Engine"
+  ],
+  "non_claims": [
+    "No literal photonic chip is driven by this implementation.",
+    "No physical retrocausality is claimed.",
+    "No telepathy or instant communication is claimed.",
+    "No zero-point energy source is claimed.",
+    "No generated output is accepted without typed verifier support."
+  ],
+  "proof_boundary": "substrates_expose_tension_typed_verifier_decides",
+  "report_hash": "06023d3527b0f647f412e466585af0ae75a3b19c46356db23a528e9a7919ae84",
+  "verification_summary": {
+    "accepted_without_verifier_support_zero": true,
+    "interference_detects_contradiction": true,
+    "lazy_engine_passes": true,
+    "photonic_frequency_slots_present": true,
+    "resonance_transmits_shape_not_answer": true,
+    "temporal_updates_prior_probabilities": true,
+    "unified_bad_blocks": true,
+    "unified_good_emits": true,
+    "unified_unsupported_blocks": true
+  }
+}

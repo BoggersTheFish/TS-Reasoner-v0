@@ -6,23 +6,76 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Release](https://img.shields.io/badge/release-v40.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v40.0.0)
 
-**TS-Reasoner is a verifier-first operation firewall.**
+**TS-Reasoner is a verifier-first operation firewall and TS-OS research stack.**
 
-It lets language/model systems propose actions or claims, but only typed verifier support, risk gates, confirmations, and receipts decide what is accepted or executed.
+Language, models, memory, metacompute substrates, and field simulators may
+propose. Typed verifier support, risk gates, confirmations, and receipts decide
+what is accepted or executed.
 
 Core line:
 
-> Language/model systems may propose. TS verifies. Confidence is not proof. Typed verifier support is the proof boundary.
+```text
+Substrates expose tension. Models propose. TS verifies.
+Confidence is not proof. Typed verifier support is the proof boundary.
+```
 
-## Current Release
+## Current System
 
-Current release: **v40.0.0 — Self-Hosting Verifier-First Research OS**
+The current public system is the v40 self-hosting verifier-first research OS
+plus the versionless **TS-OS Cognitive Physics Engine** roadmap layer.
 
-TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates.
+Canonical release authority remains **v12.0.0 - Verifier-Gated Proposer Stack**.
+Later TS-OS layers compose around that proof-authority substrate; they do not
+replace it.
 
-Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.
+The historical v40 stack provides:
 
-Run the v32-v40 receipt stack:
+- ontology/domain teaching for bounded project domains;
+- TS-AGL language-to-operation compilation;
+- verifier-gated memory with provenance, lifecycle state, quarantine, rollback,
+  and receipts;
+- automated research forge surfaces for bounded experiments and falsification
+  cases;
+- self-repair audit and confirmed local patch staging;
+- multi-repo ecosystem audit surfaces;
+- verifier/model co-evolution reports where models remain proposers;
+- a self-hosting research OS receipt pack.
+
+The Cognitive Physics Engine adds the requested long-range TS-OS substrates as
+deterministic, auditable implementations:
+
+- `Photonic_State_Ledger`: stores graph state as deterministic frequency slots.
+- `ContradictionFirewall_as_interference_grating`: simulates constructive and
+  destructive wave interference over support/conflict edges.
+- `Retrocausal_Fuzzer`: creates late-contradiction probes.
+- `Temporal_Tension_Bridge`: back-propagates late contradiction tension into
+  earlier assumption probabilities through a tamper-evident event ledger.
+- `Spectral_Coupling_Telepathy`: shares constraint-shape telemetry across TS-OS
+  nodes without transmitting answer packets.
+- `Unified_Field_Kernel`: merges candidate generation, fuzzing, and firewall
+  checks behind one zero-tension verifier gate.
+- `The_Lazy_Universe_Engine`: orchestrates all substrates and emits an answer
+  only when a zero-tension, verifier-supported state forms.
+
+These are simulator contracts, not claims of literal photonic hardware,
+physical retrocausality, telepathy, zero-point energy, or free truth generation.
+
+## Commands
+
+Run the Cognitive Physics Engine receipt:
+
+```bash
+python3 scripts/evaluate_cognitive_physics_engine.py
+```
+
+Run the CLI surface:
+
+```bash
+python3 -m ts_reasoner.cli cognitive-physics \
+  --question "Does A resolve to C?"
+```
+
+Run the v32-v40 research OS receipt stack:
 
 ```bash
 python3 -m ts_reasoner.cli v32-v40
@@ -36,101 +89,116 @@ python3 -m ts_reasoner.cli research-os \
   --repo .
 ```
 
-v40 composes:
-
-```text
-v32 ontology compiler
-v33 verifier-gated memory
-v34 TS-AGL typed plan compiler
-v35 automated research forge
-v36 self-repairing reasoning kernel
-v37 confirmed patch execution engine
-v38 multi-repo ecosystem brain
-v39 verifier/model co-evolution system
-v40 self-hosting research OS
-```
-
-Non-claims:
-
-```text
-Not AGI.
-Not autonomous science.
-Not unrestricted self-improvement.
-Not free self-learning.
-Not broad NLP understanding.
-Not live external automation.
-Not proof by confidence.
-Not proof by memory.
-Not proof by user confirmation.
-Not proof by repeated experience.
-```
-
-v31 remains the TS Project Curriculum Pack v1 historical anchor. It teaches TS-Reasoner its own project domain as bounded curriculum without granting free self-learning.
-
-Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the default surface performs no accidental network call or real external side effect.
-
-Core proof authority substrate: **v12.0.0 — Verifier-Gated Proposer Stack**.
-
-The v12 verifier-gated proposer stack remains the proof-authority substrate; v30 made that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts; v31 starts teaching domain-specific project curriculum without granting open-ended self-learning.
-
-## TS-Metacompute
-
-The first metacompute substrate is **TS-SpectralCompute v0.1**:
+Run the spectral metacompute substrate:
 
 ```bash
 python3 scripts/evaluate_spectral_metacompute.py
 ```
 
-It reads signed TS graphs through a signed Laplacian, component-wise spectral
-tension, dominant modes, edge residuals, and repair rankings. The boundary is
-strict: spectral output can suggest repairs, but typed verifier support is still
-required before anything counts as accepted truth.
+Run the full test suite:
 
-Artifacts:
+```bash
+python3 -m unittest discover -q
+```
+
+## Architecture
+
+The stack is not:
+
+```text
+User -> LLM -> answer
+```
+
+It is:
+
+```text
+user / file / code / model output
+-> TS-AGL compiler
+-> typed graph / common-ground state
+-> metacompute substrate scheduler
+-> readable substrate evolution
+-> deterministic reader
+-> typed verifier
+-> repair / memory / receipt
+-> answer or gated action
+```
+
+### TS-Core Proof Boundary
+
+TS-Core style verifier surfaces own typed claims, support paths,
+contradiction checks, abstention, repair targets, and receipts. A model output,
+frequency slot, spectral mode, memory item, user confirmation, or resonance
+shape is candidate evidence until the verifier accepts it.
+
+### TS-AGL Operation Layer
+
+TS-AGL converts language into controlled operations such as repo inspection,
+common-ground queries, support checks, repair planning, and confirmed write
+staging. Risk gates classify operations as read-only, reversible write,
+external side effect, or blocked/destructive.
+
+### Memory And Receipts
+
+Memory stores lifecycle state, not truth by repetition:
+
+```text
+accepted != proposed
+rejected != forgotten
+unsupported != false
+candidate != proof
+confirmed write != confirmed truth
+```
+
+Receipts record what happened, what gates passed, what remained blocked, and
+whether any candidate graph contamination or accepted-without-support event
+occurred.
+
+### Metacompute Substrates
+
+Implemented substrates:
+
+- **Spectral/Fourier reader**: signed graph -> signed Laplacian -> modes,
+  residuals, tension, repair ranking.
+- **Photonic simulation**: signed graph -> deterministic frequency ledger ->
+  interference/cancellation read.
+- **Temporal bridge**: late contradiction -> backward tension updates over
+  assumption priors.
+- **Resonance network**: solved constraint shape -> low-bandwidth telemetry
+  alignment across nodes.
+- **Unified field**: candidate generation/fuzzing/firewall collapsed into one
+  verifier-gated resolution surface.
+- **Lazy universe orchestrator**: routes all substrate reads and accepts only
+  zero-tension verifier-supported outputs.
+
+The scheduler may choose a substrate, but acceptance still requires typed
+verifier support.
+
+## Artifacts
+
+Cognitive Physics Engine:
+
+- `artifacts/cognitive_physics_engine_report.json`
+- `artifacts/cognitive_physics_engine_receipt.json`
+- `docs/cognitive_physics_engine.md`
+
+Spectral metacompute:
 
 - `artifacts/spectral_metacompute_report.json`
 - `artifacts/spectral_metacompute_receipt.json`
 - `docs/TS_METACOMPUTE_STACK.md`
 - `docs/spectral_metacompute.md`
 
-## First Contact
+Research OS:
 
-Run the one-command public demo:
-
-```bash
-python3 scripts/demo_first_contact.py
-```
-
-Expected result:
-
-```text
-TS-Reasoner first-contact demo passed.
-
-Safe route: PASS
-Unsafe abstention: PASS
-External side effect blocked: PASS
-Typed proof boundary: PASS
-Receipt written: PASS
-```
-
-What happens when I type X?
-
-```text
-User says: "delete everything and push it"
-TS-OS routes: ts_reasoner.route_unknown
-Risk: read_only
-Action taken: none
-
-User says: "what should we do next?"
-TS-OS routes: git_repo.next_safe_release_action
-Risk: read_only
-Action taken: safe inspection/suggestion
-
-User says: "stage an external side effect"
-TS-OS routes: external_service.send_notification_dry_run
-Risk: external_side_effect
-Action taken: none; missing recipient/message; confirmation required
-```
+- `artifacts/ontology_compiler_receipt.json`
+- `artifacts/verifier_gated_memory_receipt.json`
+- `artifacts/ts_agl_plan_receipt.json`
+- `artifacts/research_forge_receipt.json`
+- `artifacts/repair_kernel_receipt.json`
+- `artifacts/patch_execution_receipt.json`
+- `artifacts/ecosystem_brain_receipt.json`
+- `artifacts/model_coevolution_receipt.json`
+- `artifacts/research_os_receipt.json`
 
 ## Safety Dashboard
 
@@ -140,289 +208,46 @@ Generate the current evidence dashboard:
 python3 scripts/build_ts_evidence_dashboard.py
 ```
 
-Latest release safety surface:
+Core safety invariants:
 
-| Metric | v30 release result |
+| Invariant | Required result |
 | --- | ---: |
-| Wrong accepts | 0 |
 | Accepted without typed support | 0 |
 | Candidate graph contamination | 0 |
-| External side effects performed | 0 |
-| Network calls performed | 0 |
+| External side effects by default | 0 |
+| Network calls by default | 0 |
 | Destructive request safe-abstention | yes |
 | Unconfirmed writes blocked | yes |
-| External LLM used | false |
-| All gates passed | true |
+| Generated text is proof | false |
+| Memory is proof | false |
+| User confirmation is truth authority | false |
 
-Dashboard artifact:
+## Non-Claims
 
-- `artifacts/ts_evidence_dashboard.json`
-
-## Proof Objects
-
-Typed proof examples are visible, not implied:
-
-```bash
-python3 scripts/show_proof_object_examples.py
-```
-
-Each proof object example shows:
-
-- claim
-- normalized claim
-- support path
-- typed channel
-- verifier decision
-- why it was accepted, rejected, or abstained
-- why model confidence was ignored
-
-Proof object artifact:
-
-- `artifacts/proof_object_examples.json`
-
-## Quick Start
-
-Run the v31 TS Project curriculum evaluation:
-
-```bash
-python3 scripts/evaluate_ts_project_curriculum.py
-```
-
-Run the v30 local agent OS evaluation:
-
-```bash
-python3 scripts/evaluate_ts_os_v30.py
-```
-
-Run the conversational shell demo and report:
-
-```bash
-python3 scripts/run_ts_os_chat_loop_demo.py
-python3 scripts/evaluate_ts_os_chat_loop.py
-```
-
-Run the full test suite:
-
-```bash
-python3 -m unittest discover -q
-```
-
-Optional live GPT-2-small comparison:
-
-```bash
-pip install transformers torch
-TS_REASONER_RUN_LIVE_GPT2=1 python3 scripts/v11_6/evaluate_live_gpt2_small_adapter.py
-```
-
-The default repo remains stdlib-first and CI-safe. Live GPT-2 is opt-in.
-
-## Release Assets
-
-The v31 release publishes these JSON assets:
-
-- `ts_project_curriculum_report.json`
-- `ts_project_curriculum_receipt.json`
-
-The v30 release publishes these JSON assets:
-
-- `ts_os_chat_loop_report.json`
-- `ts_os_chat_loop_receipt.json`
-- `ts_os_chat_loop_demo.json`
-- `ts_evidence_dashboard.json`
-- `proof_object_examples.json`
-- `first_contact_demo_report.json`
-- `first_contact_demo_receipt.json`
-- `first_contact_surface_report.json`
-- `ts_os_v30_report.json`
-- `ts_os_v30_receipt.json`
-
-## Start Here
-
-- [First contact](docs/first_contact.md)
-- [TS-OS conversational shell loop](docs/ts_os_conversational_shell_loop.md)
-- [Evidence dashboard](docs/evidence_dashboard.md)
-- [Proof objects](docs/proof_objects.md)
-- [Verifier-first local agent OS](docs/verifier_first_local_agent_os.md)
-- [TS Project curriculum](docs/ts_project_curriculum.md)
-- [Release ladder](docs/RELEASE_LADDER.md)
-- [Verifier-gated proposer stack](docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md)
-
-## What This Is
-
-TS-Reasoner is:
-
-- a bounded verifier-first reasoning artifact
-- a typed proof-support and rejection system
-- a trace-producing accept/reject/abstain runtime
-- a safe bridge for learned or language-model candidate proposers
-- a receipt-first research surface for verifier-first reasoning
-- a local operation firewall for typed, risk-classified actions
-
-The core architectural point is simple:
+TS-Reasoner does not claim:
 
 ```text
-generated text != proof
-model confidence != proof
-candidate generation != proof
-typed verifier support = proof boundary
+AGI.
+Autonomous science.
+Unrestricted self-improvement.
+Free self-learning.
+Broad NLP understanding.
+Live external automation by default.
+Proof by model confidence.
+Proof by memory.
+Proof by user confirmation.
+Proof by repeated experience.
+Literal photonic computation in this repo.
+Physical retrocausality.
+Telepathy or instant communication.
+Zero-point energy.
+Hallucinations physically cannot exist.
 ```
 
-## What This Is Not
-
-TS-Reasoner is not:
-
-- a chatbot
-- broad autonomous agency
-- a broad natural-language understanding claim
-- a general theorem prover
-- a GPT-2 replacement
-- an external benchmark victory claim
-- a system where model confidence proves anything
-- a system where generated text or router confidence has proof authority
-
-The trained proposer and router stack are deliberately subordinate to typed verifier support, risk gates, confirmations, and receipts.
-
-## Why This Matters
-
-Language models often collapse three different things into one surface:
-
-- fluent generation
-- confidence
-- truth/proof
-
-TS-Reasoner keeps them separate.
-
-A model may produce a candidate claim. A model may assign confidence. A proposer may predict a route or answer. None of that is proof.
-
-Only typed verifier support can accept a claim or authorize a typed boundary. That gives the system a hard safety shape:
+The strong claim is narrower and testable:
 
 ```text
-bad proposal -> verifier rejects or abstains
-unsupported proposal -> verifier abstains
-contradictory proposal -> verifier rejects
-supported proposal -> verifier accepts with trace
-risky operation -> gate blocks until required slots/confirmation exist
-accepted operation -> receipt records the route, gate result, and action
+TS-Reasoner is a verifier-first architecture for inspectable reasoning over
+graph-structured claims, readable substrate evolution, gated operations, and
+receipt-backed audits.
 ```
-
-## Core v12 Substrate
-
-The v12 verifier-gated proposer stack is implemented in:
-
-- `ts_reasoner/proposer_stack.py`
-- `scripts/v12_0/evaluate_verifier_gated_stack.py`
-- `docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md`
-- `artifacts/v12_0/verifier_gated_stack_report.json`
-- `artifacts/v12_0/verifier_gated_stack_receipt.json`
-
-Runtime flow:
-
-1. Paragraph arrives.
-2. Paragraph decomposer extracts canonical premises and candidate claim.
-3. Trained proposer predicts candidate answer/status/channel.
-4. Typed verifier independently checks the candidate claim.
-5. Final answer is produced from verifier status, not proposer confidence.
-6. Trace and receipt are written.
-
-Classic inference entrypoint:
-
-```bash
-python3 inference.py --question "If all A are B and all B are C, are all A C?"
-```
-
-Core v12 stack receipt:
-
-```bash
-python3 scripts/v12_0/evaluate_verifier_gated_stack.py
-```
-
-## Main Modules
-
-Core verifier/runtime:
-
-- `ts_reasoner/support_path_verifier.py`
-- `ts_reasoner/typed_support.py`
-- `ts_reasoner/claim_normalizer.py`
-- `ts_reasoner/relation_phrase_parser.py`
-- `ts_reasoner/paragraph_decomposer.py`
-- `ts_reasoner/proposer_stack.py`
-
-TS-OS / TS-AGL operating surface:
-
-- `ts_agl/os/chat_loop.py`
-- `ts_agl/os/evidence_dashboard.py`
-- `ts_agl/os/first_contact_demo.py`
-- `ts_agl/os/verifier_first_local_agent_os.py`
-- `ts_agl/os/ts_os_v1.py`
-- `ts_agl/external/adapter_gate.py`
-- `ts_agl/arena/local_project_operator.py`
-
-Training/proposer layer:
-
-- `training/v11_7/build_trace_training_data.py`
-- `training/v11_8/ts_proposer_mini.py`
-- `training/v11_9/neural_ts_proposer_tiny.py`
-
-Release authority:
-
-- `release_authority.json`
-- `scripts/v8_0/check_release_authority_sync.py`
-- `docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md`
-
-## Release Ladder
-
-| Version | Core addition | Boundary preserved |
-| --- | --- | --- |
-| v1.x | typed tension channels and early TensionLM candidate bridge | model output remains candidate data |
-| v2.x | learned candidate models and verifier-trace training | learned models remain advisory |
-| v3.x | verifier-guided candidate model and public surface hardening | typed verifier remains proof authority |
-| v4.x | natural-language reasoning shell and GPT-2-shaped candidate fixtures | generated text remains candidate data |
-| v5.x-v7.x | verifier-first chat, repair, memory, provenance, and self-improvement loops | repair suggestions are candidates, not proof |
-| v8.x | release authority and public-claim audit | public claims require receipts |
-| v9.x-v10.x | runtime kernel, replay, ledger, checkpoint, recovery, and policy contracts | runtime integrity is not claim truth |
-| v11.x | GPT-2 boundary arena, natural claim normalization, parser/decomposer, proposer baselines | GPT/model output remains verifier-gated candidate data |
-| v12.x | verifier-gated proposer stack and TS-AGL domain routing | end-to-end answers require typed verifier support |
-| v20.x-v25.x | TS-AGL router stack, local project operator, shell, session ledger, external adapter gate, TS-OS v1 | local operations are risk-gated and receipted |
-| v26.x-v30.x | conversational shell loop, evidence dashboard, proof objects, first-contact demo, verifier-first local agent OS | unsafe ambiguity abstains; writes/effects require confirmation; receipts explain actions |
-| v31.x | TS Project curriculum pack | bounded domain teaching is allowed; free self-learning and durable belief promotion remain blocked |
-| v32.x-v40.x | ontology compiler, verifier-gated memory, TS-AGL plan compiler, research forge, repair kernel, confirmed patch engine, ecosystem brain, model co-evolution, self-hosting research OS | generated text, memory, model confidence, repeated experience, and confirmation remain non-proof |
-
-Full ladder:
-
-- [Release ladder](docs/RELEASE_LADDER.md)
-- [v40 research OS](docs/v40_self_hosting_research_os.md)
-- [Release notes](RELEASE_NOTES.md)
-
-## Claim Boundary
-
-The strongest safe public claim right now:
-
-> TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates. Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.
-
-v40 composes bounded v32-v39 surfaces into one self-hosting research OS receipt. It does not claim each subsystem is a fully mature autonomous implementation.
-
-Do not overclaim this as:
-
-- broad AGI
-- autonomous science
-- unrestricted self-improvement
-- free self-learning
-- broad autonomous agency
-- broad NLP
-- GPT-2 replacement
-- general theorem proving
-- external benchmark victory
-- proof by model confidence
-- proof by generated text
-
-The point is the architecture:
-
-```text
-proposal is useful
-verification is authoritative
-receipts make the boundary inspectable
-```
-
-## License
-
-MIT.

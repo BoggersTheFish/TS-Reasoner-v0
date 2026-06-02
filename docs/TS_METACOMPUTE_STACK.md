@@ -69,10 +69,20 @@ produce the cheapest useful reading while preserving the proof boundary.
 
 ## Substrates
 
-Current implemented substrate:
+Current implemented substrates:
 
 - **Spectral/Fourier reader**: signed graph -> signed Laplacian -> modes,
   tension, residual edges, repair ranking.
+- **Photonic simulation**: signed graph -> frequency-slot state ledger ->
+  constructive/destructive interference read.
+- **Temporal tension bridge**: late contradiction -> backward assumption
+  probability updates recorded in a tamper-evident ledger.
+- **Resonance network**: solved constraint shape -> low-bandwidth telemetry
+  alignment across nodes without answer-packet transmission.
+- **Unified field kernel**: generation, fuzzing, and firewall checks behind a
+  single zero-tension verifier gate.
+- **Lazy universe orchestrator**: composes the cognitive physics substrates and
+  emits only verifier-supported zero-tension outputs.
 
 Planned substrate classes:
 
@@ -120,6 +130,38 @@ The v0.1 gate covers:
 - noise injection
 - multi-component graph
 
+## Implemented Cognitive Physics Slice
+
+The TS-OS Cognitive Physics Engine is implemented in:
+
+- `ts_reasoner/cognitive_physics_engine.py`
+- `scripts/evaluate_cognitive_physics_engine.py`
+- `tests/test_cognitive_physics_engine.py`
+- `docs/cognitive_physics_engine.md`
+
+Evaluation:
+
+```bash
+python3 scripts/evaluate_cognitive_physics_engine.py
+```
+
+The gate covers:
+
+- photonic frequency-slot state storage;
+- simulated interference cancellation for contradictions;
+- temporal tension back-propagation over assumption probabilities;
+- resonance telemetry that transmits constraint shape, not answers;
+- unified field emission only for zero-tension verifier-supported state;
+- lazy universe orchestration over the full substrate stack;
+- zero accepted-without-verifier-support events.
+
+The cognitive physics layer uses roadmap names such as
+`Photonic_State_Ledger`, `Retrocausal_Fuzzer`,
+`Spectral_Coupling_Telepathy`, `Unified_Field_Kernel`, and
+`The_Lazy_Universe_Engine`. In this repository those names refer to
+deterministic substrate simulators and receipts, not literal hardware or
+physical claims.
+
 Metrics:
 
 - coherence detection rate
@@ -160,4 +202,3 @@ The killer gate remains:
 Spectral reader may suggest repairs,
 but it must never accept truth without typed verifier support.
 ```
-
