@@ -4,15 +4,15 @@
   "candidate_graph_contamination_count": 0,
   "receipt_count": 9,
   "receipts": {
-    "v32": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/ontology_compiler_receipt.json",
-    "v33": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/verifier_gated_memory_receipt.json",
-    "v34": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/ts_agl_plan_receipt.json",
-    "v35": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/research_forge_receipt.json",
-    "v36": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/repair_kernel_receipt.json",
-    "v37": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/patch_execution_receipt.json",
-    "v38": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/ecosystem_brain_receipt.json",
-    "v39": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/model_coevolution_receipt.json",
-    "v40": "/home/boggersthefish/BoggersSpace/TS-Reasoner-v0/artifacts/research_os_receipt.json"
+    "v32": "artifacts/ontology_compiler_receipt.json",
+    "v33": "artifacts/verifier_gated_memory_receipt.json",
+    "v34": "artifacts/ts_agl_plan_receipt.json",
+    "v35": "artifacts/research_forge_receipt.json",
+    "v36": "artifacts/repair_kernel_receipt.json",
+    "v37": "artifacts/patch_execution_receipt.json",
+    "v38": "artifacts/ecosystem_brain_receipt.json",
+    "v39": "artifacts/model_coevolution_receipt.json",
+    "v40": "artifacts/research_os_receipt.json"
   },
   "release": "v40.0.0"
 }
