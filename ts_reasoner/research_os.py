@@ -517,11 +517,26 @@ class SelfHostingResearchOS:
         plan = TSAGLPlanCompiler().compile(mission)
         research = AutomatedResearchForge().forge("Test whether spectral tension ranking helps repair contradiction graphs.")
         repair = SelfRepairingReasoningKernel().audit(repo)
-        patch_text = "# TS-Reasoner-v0\n\nCurrent release: v40.0.0\n"
-        patch = ConfirmedPatchExecutionEngine().stage_doc_patch(
-            "README.md",
+        patch_text = json.dumps(
+            {
+                "artifact": "v40_release_candidate_note",
+                "release": "v40.0.0",
+                "claim": "Self-hosting verifier-first research OS release candidate prepared.",
+                "boundary": [
+                    "Generated text is not proof.",
+                    "Model confidence is not proof.",
+                    "Memory is not proof.",
+                    "Confirmation authorizes bounded writes, not truth.",
+                    "Typed verifier support remains the proof boundary.",
+                ],
+            },
+            indent=2,
+            sort_keys=True,
+        ) + "\n"
+        patch = ConfirmedPatchExecutionEngine(repo).stage_doc_patch(
+            "artifacts/v40_release_candidate_note.json",
             patch_text,
-            "Stage release-surface patch candidate for v40.",
+            "Stage bounded release-candidate note for v40.",
         )
         ecosystem = EcosystemBrain().audit()
         model = VerifierModelCoEvolution().evaluate()
@@ -618,7 +633,27 @@ def build_v32_v40_receipts(mission: str, repo: str | Path = ".") -> dict[str, An
         "audit": SelfRepairingReasoningKernel().audit(repo),
         "all_gates_passed": True,
     }
-    patch = ConfirmedPatchExecutionEngine().stage_doc_patch("README.md", "# staged candidate\n", "Stage candidate patch.")
+    patch_note = json.dumps(
+        {
+            "artifact": "v40_release_candidate_note",
+            "release": "v40.0.0",
+            "claim": "Self-hosting verifier-first research OS release candidate prepared.",
+            "boundary": [
+                "Generated text is not proof.",
+                "Model confidence is not proof.",
+                "Memory is not proof.",
+                "Confirmation authorizes bounded writes, not truth.",
+                "Typed verifier support remains the proof boundary.",
+            ],
+        },
+        indent=2,
+        sort_keys=True,
+    ) + "\n"
+    patch = ConfirmedPatchExecutionEngine(repo).stage_doc_patch(
+        "artifacts/v40_release_candidate_note.json",
+        patch_note,
+        "Stage bounded release-candidate note for v40.",
+    )
     patch_receipt = {
         "artifact": "patch_execution_receipt",
         "release": "v37.0.0",
@@ -676,7 +711,7 @@ def write_v32_v40_receipts(
         "artifact": "v32_v40_research_os_summary",
         "release": "v40.0.0",
         "receipt_count": len(receipts),
-        "receipts": {key: str(base / filename) for key, filename in names.items()},
+        "receipts": {key: f"artifacts/{filename}" for key, filename in names.items()},
         "all_gates_passed": all(receipt.get("all_gates_passed", False) for receipt in receipts.values()),
         "candidate_graph_contamination_count": 0,
     }
