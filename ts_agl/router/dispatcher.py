@@ -4,6 +4,7 @@ from typing import Dict
 
 from ts_agl.adapters.filesystem_adapter import FilesystemAdapter
 from ts_agl.adapters.git_adapter import GitAdapter
+from ts_agl.adapters.ts_project_adapter import TSProjectAdapter
 from ts_agl.adapters.ts_reasoner_adapter import TSReasonerAdapter
 from ts_agl.adapters.external_service_adapter import ExternalServiceAdapter
 from ts_agl.core.types import ResultPacket, TSCall
@@ -17,6 +18,7 @@ class Dispatcher:
         self.adapters: Dict[str, object] = {
             "git_repo": GitAdapter(),
             "filesystem": FilesystemAdapter(),
+            "ts_project": TSProjectAdapter(),
             "ts_reasoner": TSReasonerAdapter(),
             "external_service": ExternalServiceAdapter(),
         }

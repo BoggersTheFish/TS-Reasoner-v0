@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ts-reasoner-v0"
-version = "30.0.0"
-description = "Verifier-first local agent OS with typed operation routing, safety gates, proof object examples, evidence dashboard, and receipts."
+version = "31.0.0"
+description = "Verifier-first local agent OS with bounded TS project curriculum packs, typed operation routing, safety gates, proof objects, evidence dashboard, and receipts."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -37,4 +37,4 @@ Repository = "https://github.com/BoggersTheFish/TS-Reasoner-v0"
 ts-reasoner = "ts_reasoner.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["ts_reasoner*"]
+include = ["ts_reasoner*", "ts_metacompute*"]

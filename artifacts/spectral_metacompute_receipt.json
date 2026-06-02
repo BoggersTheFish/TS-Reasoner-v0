@@ -1,0 +1,52 @@
+{
+  "all_gates_passed": true,
+  "artifacts": [
+    {
+      "path": "artifacts/spectral_metacompute_report.json",
+      "sha256": "04f86d0519043487a2ef7355fbb0c0fd4d4374ce7b3bc380c506f4b801503244"
+    }
+  ],
+  "claim": "Spectral mode-space can expose graph tension and suggest repair targets, but it cannot accept claims without typed verifier support.",
+  "commands_run": [
+    "python3 scripts/evaluate_spectral_metacompute.py"
+  ],
+  "commit": "3ba9578",
+  "date": "2026-06-01T15:16:40.677328+00:00",
+  "inputs": [
+    "data/spectral_cases.jsonl"
+  ],
+  "known_limitations": [
+    "The v0.1 eigensolver is a small deterministic Jacobi implementation for inspection-scale graphs.",
+    "Spectral readings localize tension but do not prove which claim is false.",
+    "Ambiguous frustrated loops intentionally abstain when no unique edge pressure exists.",
+    "No SciPy acceleration backend is used yet; the repo currently remains stdlib-only."
+  ],
+  "metrics": {
+    "accepted_without_verifier_support_count": 0,
+    "ambiguous_loop_correct_abstention": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 8,
+    "case_type_counts": {
+      "ambiguous_frustrated_loop": 1,
+      "coherent_support_chain": 1,
+      "contradiction_triangle": 1,
+      "multi_component_graph": 1,
+      "noise_injection": 1,
+      "planted_bad_edge": 1,
+      "provenance_weighted_bad_edge": 1,
+      "repair_split": 1
+    },
+    "coherence_detection_rate": 1.0,
+    "contradiction_detection_rate": 1.0,
+    "planted_bad_edge_top1_rate": 1.0,
+    "receipt_schema_validity": 1.0,
+    "repair_relief_accuracy": 1.0,
+    "wrong_accept_count": 0
+  },
+  "project": "TS-Metacompute Stack",
+  "proof_boundary": "spectral_reader_suggests_verifier_decides",
+  "receipt_schema_valid": true,
+  "release": "ts-spectralcompute-v0.1",
+  "report_hash": "20c8ae7601847b952ea7e02ab95e741782145b48d463939eac3378be68620c0e",
+  "scope": "Stdlib deterministic signed-graph spectral reader and repair ranking."
+}

@@ -1,0 +1,1298 @@
+{
+  "all_gates_passed": true,
+  "claim": "Spectral substrate reads tension and repair pressure while verifier authority remains external.",
+  "metrics": {
+    "accepted_without_verifier_support_count": 0,
+    "ambiguous_loop_correct_abstention": 1.0,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 8,
+    "case_type_counts": {
+      "ambiguous_frustrated_loop": 1,
+      "coherent_support_chain": 1,
+      "contradiction_triangle": 1,
+      "multi_component_graph": 1,
+      "noise_injection": 1,
+      "planted_bad_edge": 1,
+      "provenance_weighted_bad_edge": 1,
+      "repair_split": 1
+    },
+    "coherence_detection_rate": 1.0,
+    "contradiction_detection_rate": 1.0,
+    "planted_bad_edge_top1_rate": 1.0,
+    "receipt_schema_validity": 1.0,
+    "repair_relief_accuracy": 1.0,
+    "wrong_accept_count": 0
+  },
+  "release": "ts-spectralcompute-v0.1",
+  "results": [
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "coherent_support_chain",
+      "case_type": "coherent_support_chain",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "coherent": true,
+        "contradiction_detected": false
+      },
+      "observed": {
+        "ambiguous_abstention": false,
+        "coherent": true,
+        "contradiction_detected": false,
+        "top_edge_id": "e1",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "e1"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "e1",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.0,
+          "relation": "support",
+          "relief": 0.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "e1",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.0,
+          "relation": "support",
+          "relief": 0.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "e2",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.0,
+          "relation": "support",
+          "relief": 0.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "e2",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.0,
+          "relation": "support",
+          "relief": 0.0,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "coherent_support_chain",
+        "coherent": true,
+        "contradiction_detected": false,
+        "dominant_modes": [
+          {
+            "eigenvalue": 0.0,
+            "mode_index": 0,
+            "node_values": {
+              "A": 0.57735,
+              "B": 0.57735,
+              "C": 0.57735
+            }
+          },
+          {
+            "eigenvalue": 1.0,
+            "mode_index": 1,
+            "node_values": {
+              "A": -0.707107,
+              "B": 0.0,
+              "C": 0.707107
+            }
+          },
+          {
+            "eigenvalue": 3.0,
+            "mode_index": 2,
+            "node_values": {
+              "A": -0.408248,
+              "B": 0.816497,
+              "C": -0.408248
+            }
+          }
+        ],
+        "edge_count": 2,
+        "node_count": 3,
+        "reader_decision": "coherent_or_low_tension",
+        "residual_edges": [
+          {
+            "edge_id": "e1",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.0,
+            "source": "A",
+            "status": "accepted",
+            "target": "B",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "e2",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.0,
+            "source": "B",
+            "status": "accepted",
+            "target": "C",
+            "weight": 1.0
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 0.0,
+        "top_edge_id": "e1",
+        "unique_top_residual": false,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "contradiction_triangle",
+      "case_type": "contradiction_triangle",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "ambiguous_abstention": true,
+        "coherent": false,
+        "contradiction_detected": true
+      },
+      "observed": {
+        "ambiguous_abstention": true,
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "e_ab",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "e_ab"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "e_ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.006667,
+          "relation": "support",
+          "relief": 1.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "e_ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.006667,
+          "relation": "support",
+          "relief": 1.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "e_ac",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.001667,
+          "relation": "conflict",
+          "relief": 1.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "e_ac",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.001667,
+          "relation": "conflict",
+          "relief": 1.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "e_bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.001667,
+          "relation": "support",
+          "relief": 1.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "e_bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.001667,
+          "relation": "support",
+          "relief": 1.0,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "contradiction_triangle",
+        "coherent": false,
+        "contradiction_detected": true,
+        "dominant_modes": [
+          {
+            "eigenvalue": 1.0,
+            "mode_index": 0,
+            "node_values": {
+              "A": -0.408248,
+              "B": 0.408248,
+              "C": 0.816497
+            }
+          },
+          {
+            "eigenvalue": 1.0,
+            "mode_index": 1,
+            "node_values": {
+              "A": 0.707107,
+              "B": 0.707107,
+              "C": 0.0
+            }
+          },
+          {
+            "eigenvalue": 4.0,
+            "mode_index": 2,
+            "node_values": {
+              "A": 0.57735,
+              "B": -0.57735,
+              "C": 0.57735
+            }
+          }
+        ],
+        "edge_count": 3,
+        "node_count": 3,
+        "reader_decision": "abstain_no_unique_culprit",
+        "residual_edges": [
+          {
+            "edge_id": "e_ab",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.666667,
+            "source": "A",
+            "status": "accepted",
+            "target": "B",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "e_ac",
+            "provenance_weight": 1.0,
+            "relation": "conflict",
+            "residual": 0.166667,
+            "source": "A",
+            "status": "accepted",
+            "target": "C",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "e_bc",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.166667,
+            "source": "B",
+            "status": "accepted",
+            "target": "C",
+            "weight": 1.0
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 1.0,
+        "top_edge_id": "e_ab",
+        "unique_top_residual": false,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "planted_bad_edge",
+      "case_type": "planted_bad_edge",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "bad_ac",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "bad_ac"
+      },
+      "observed": {
+        "ambiguous_abstention": false,
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "bad_ac",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "bad_ac"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "bad_ac",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.879597,
+          "relation": "conflict",
+          "relief": 0.855707,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "bad_ac",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.879597,
+          "relation": "conflict",
+          "relief": 0.855707,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "good_ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.856116,
+          "relation": "support",
+          "relief": 0.855707,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "good_ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.856116,
+          "relation": "support",
+          "relief": 0.855707,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "good_bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.856116,
+          "relation": "support",
+          "relief": 0.855707,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "good_bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.856116,
+          "relation": "support",
+          "relief": 0.855707,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "planted_bad_edge",
+        "coherent": false,
+        "contradiction_detected": true,
+        "dominant_modes": [
+          {
+            "eigenvalue": 0.855707,
+            "mode_index": 0,
+            "node_values": {
+              "A": 0.525708,
+              "B": 0.668777,
+              "C": 0.525708
+            }
+          },
+          {
+            "eigenvalue": 2.0,
+            "mode_index": 1,
+            "node_values": {
+              "A": -0.707107,
+              "B": 0.0,
+              "C": 0.707107
+            }
+          },
+          {
+            "eigenvalue": 6.544293,
+            "mode_index": 2,
+            "node_values": {
+              "A": -0.472897,
+              "B": 0.743463,
+              "C": -0.472897
+            }
+          }
+        ],
+        "edge_count": 3,
+        "node_count": 3,
+        "reader_decision": "suggest_repair_target",
+        "residual_edges": [
+          {
+            "edge_id": "bad_ac",
+            "provenance_weight": 0.25,
+            "relation": "conflict",
+            "residual": 0.773832,
+            "source": "A",
+            "status": "candidate",
+            "target": "C",
+            "weight": 0.7
+          },
+          {
+            "edge_id": "good_ab",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.040938,
+            "source": "A",
+            "status": "accepted",
+            "target": "B",
+            "weight": 2.0
+          },
+          {
+            "edge_id": "good_bc",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.040938,
+            "source": "B",
+            "status": "accepted",
+            "target": "C",
+            "weight": 2.0
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 0.855707,
+        "top_edge_id": "bad_ac",
+        "unique_top_residual": true,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "provenance_weighted_bad_edge",
+      "case_type": "provenance_weighted_bad_edge",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "weak_conflict",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "weak_conflict"
+      },
+      "observed": {
+        "ambiguous_abstention": false,
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "weak_conflict",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "weak_conflict"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "weak_conflict",
+          "proof_effect": "candidate_only",
+          "rank_score": 2.212025,
+          "relation": "conflict",
+          "relief": 0.92809,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "weak_conflict",
+          "proof_effect": "candidate_only",
+          "rank_score": 2.212025,
+          "relation": "conflict",
+          "relief": 0.92809,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "strong_support_1",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.928825,
+          "relation": "support",
+          "relief": 0.92809,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "strong_support_1",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.928825,
+          "relation": "support",
+          "relief": 0.92809,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "strong_support_2",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.928825,
+          "relation": "support",
+          "relief": 0.92809,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "strong_support_2",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.928825,
+          "relation": "support",
+          "relief": 0.92809,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "provenance_weighted_bad_edge",
+        "coherent": false,
+        "contradiction_detected": true,
+        "dominant_modes": [
+          {
+            "eigenvalue": 0.92809,
+            "mode_index": 0,
+            "node_values": {
+              "claim": 0.715389,
+              "observation": 0.494074,
+              "paper": 0.494074
+            }
+          },
+          {
+            "eigenvalue": 1.5,
+            "mode_index": 1,
+            "node_values": {
+              "claim": 0.0,
+              "observation": 0.707107,
+              "paper": -0.707107
+            }
+          },
+          {
+            "eigenvalue": 5.17191,
+            "mode_index": 2,
+            "node_values": {
+              "claim": 0.698726,
+              "observation": -0.505857,
+              "paper": -0.505857
+            }
+          }
+        ],
+        "edge_count": 3,
+        "node_count": 3,
+        "reader_decision": "suggest_repair_target",
+        "residual_edges": [
+          {
+            "edge_id": "weak_conflict",
+            "provenance_weight": 0.1,
+            "relation": "conflict",
+            "residual": 0.781149,
+            "source": "paper",
+            "status": "candidate",
+            "target": "observation",
+            "weight": 0.8
+          },
+          {
+            "edge_id": "strong_support_1",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.073471,
+            "source": "paper",
+            "status": "accepted",
+            "target": "claim",
+            "weight": 1.5
+          },
+          {
+            "edge_id": "strong_support_2",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.073471,
+            "source": "claim",
+            "status": "accepted",
+            "target": "observation",
+            "weight": 1.5
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 0.92809,
+        "top_edge_id": "weak_conflict",
+        "unique_top_residual": true,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "ambiguous_frustrated_loop",
+      "case_type": "ambiguous_frustrated_loop",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "ambiguous_abstention": true,
+        "coherent": false,
+        "contradiction_detected": true
+      },
+      "observed": {
+        "ambiguous_abstention": true,
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "ab",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "ab"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.588715,
+          "relation": "support",
+          "relief": 0.585786,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.588715,
+          "relation": "support",
+          "relief": 0.585786,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "ad",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.58725,
+          "relation": "conflict",
+          "relief": 0.585786,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "ad",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.58725,
+          "relation": "conflict",
+          "relief": 0.585786,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.58725,
+          "relation": "support",
+          "relief": 0.585786,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.58725,
+          "relation": "support",
+          "relief": 0.585786,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "ambiguous_frustrated_loop",
+        "coherent": false,
+        "contradiction_detected": true,
+        "dominant_modes": [
+          {
+            "eigenvalue": 0.585786,
+            "mode_index": 0,
+            "node_values": {
+              "A": -0.270598,
+              "B": 0.270598,
+              "C": 0.653281,
+              "D": 0.653281
+            }
+          },
+          {
+            "eigenvalue": 0.585786,
+            "mode_index": 1,
+            "node_values": {
+              "A": 0.653281,
+              "B": 0.653281,
+              "C": 0.270598,
+              "D": -0.270598
+            }
+          },
+          {
+            "eigenvalue": 3.414214,
+            "mode_index": 2,
+            "node_values": {
+              "A": 0.270598,
+              "B": 0.270598,
+              "C": -0.653281,
+              "D": 0.653281
+            }
+          }
+        ],
+        "edge_count": 4,
+        "node_count": 4,
+        "reader_decision": "abstain_no_unique_culprit",
+        "residual_edges": [
+          {
+            "edge_id": "ab",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.292893,
+            "source": "A",
+            "status": "accepted",
+            "target": "B",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "ad",
+            "provenance_weight": 1.0,
+            "relation": "conflict",
+            "residual": 0.146447,
+            "source": "A",
+            "status": "accepted",
+            "target": "D",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "bc",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.146447,
+            "source": "B",
+            "status": "accepted",
+            "target": "C",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "cd",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.0,
+            "source": "C",
+            "status": "accepted",
+            "target": "D",
+            "weight": 1.0
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 0.585786,
+        "top_edge_id": "ab",
+        "unique_top_residual": false,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "repair_split",
+      "case_type": "repair_split",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "context_merge",
+        "top_repair_action": "split_context_candidate",
+        "top_repair_edge_id": "context_merge"
+      },
+      "observed": {
+        "ambiguous_abstention": false,
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "context_merge",
+        "top_repair_action": "split_context_candidate",
+        "top_repair_edge_id": "context_merge"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "split_context_candidate",
+          "edge_id": "context_merge",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.587624,
+          "relation": "support",
+          "relief": 0.702944,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "global_conflict",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.703459,
+          "relation": "conflict",
+          "relief": 0.702944,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "global_conflict",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.703459,
+          "relation": "conflict",
+          "relief": 0.702944,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "local_support",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.703459,
+          "relation": "support",
+          "relief": 0.702944,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "local_support",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.703459,
+          "relation": "support",
+          "relief": 0.702944,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "repair_split",
+        "coherent": false,
+        "contradiction_detected": true,
+        "dominant_modes": [
+          {
+            "eigenvalue": 0.702944,
+            "mode_index": 0,
+            "node_values": {
+              "global_context": -0.5,
+              "local_context": 0.5,
+              "rule": 0.707107
+            }
+          },
+          {
+            "eigenvalue": 1.2,
+            "mode_index": 1,
+            "node_values": {
+              "global_context": 0.707107,
+              "local_context": 0.707107,
+              "rule": -0.0
+            }
+          },
+          {
+            "eigenvalue": 4.097056,
+            "mode_index": 2,
+            "node_values": {
+              "global_context": 0.5,
+              "local_context": -0.5,
+              "rule": 0.707107
+            }
+          }
+        ],
+        "edge_count": 3,
+        "node_count": 3,
+        "reader_decision": "suggest_repair_target",
+        "residual_edges": [
+          {
+            "edge_id": "context_merge",
+            "provenance_weight": 0.2,
+            "relation": "support",
+            "residual": 0.6,
+            "source": "local_context",
+            "status": "candidate",
+            "target": "global_context",
+            "weight": 0.6
+          },
+          {
+            "edge_id": "global_conflict",
+            "provenance_weight": 1.0,
+            "relation": "conflict",
+            "residual": 0.051472,
+            "source": "global_context",
+            "status": "accepted",
+            "target": "rule",
+            "weight": 1.2
+          },
+          {
+            "edge_id": "local_support",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.051472,
+            "source": "local_context",
+            "status": "accepted",
+            "target": "rule",
+            "weight": 1.2
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 0.702944,
+        "top_edge_id": "context_merge",
+        "unique_top_residual": true,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "noise_injection",
+      "case_type": "noise_injection",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "coherent": true,
+        "contradiction_detected": false
+      },
+      "observed": {
+        "ambiguous_abstention": false,
+        "coherent": true,
+        "contradiction_detected": false,
+        "top_edge_id": "tiny_ac_noise",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "tiny_ac_noise"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "tiny_ac_noise",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.064975,
+          "relation": "conflict",
+          "relief": 0.026548,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "tiny_ac_noise",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.064975,
+          "relation": "conflict",
+          "relief": 0.026548,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.026549,
+          "relation": "support",
+          "relief": 0.026548,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.026549,
+          "relation": "support",
+          "relief": 0.026548,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.026549,
+          "relation": "support",
+          "relief": 0.026548,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "bc",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.026549,
+          "relation": "support",
+          "relief": 0.026548,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "noise_injection",
+        "coherent": true,
+        "contradiction_detected": false,
+        "dominant_modes": [
+          {
+            "eigenvalue": 0.026548,
+            "mode_index": 0,
+            "node_values": {
+              "A": 0.574761,
+              "B": 0.582493,
+              "C": 0.574761
+            }
+          },
+          {
+            "eigenvalue": 1.0,
+            "mode_index": 1,
+            "node_values": {
+              "A": -0.707107,
+              "B": -0.0,
+              "C": 0.707107
+            }
+          },
+          {
+            "eigenvalue": 3.013452,
+            "mode_index": 2,
+            "node_values": {
+              "A": -0.411885,
+              "B": 0.812835,
+              "C": -0.411885
+            }
+          }
+        ],
+        "edge_count": 3,
+        "node_count": 3,
+        "reader_decision": "coherent_or_low_tension",
+        "residual_edges": [
+          {
+            "edge_id": "tiny_ac_noise",
+            "provenance_weight": 0.05,
+            "relation": "conflict",
+            "residual": 0.026428,
+            "source": "A",
+            "status": "candidate",
+            "target": "C",
+            "weight": 0.02
+          },
+          {
+            "edge_id": "ab",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 6e-05,
+            "source": "A",
+            "status": "accepted",
+            "target": "B",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "bc",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 6e-05,
+            "source": "B",
+            "status": "accepted",
+            "target": "C",
+            "weight": 1.0
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 0.026548,
+        "top_edge_id": "tiny_ac_noise",
+        "unique_top_residual": true,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    },
+    {
+      "accepted_without_verifier_support_count": 0,
+      "candidate_graph_contamination_count": 0,
+      "case_id": "multi_component_graph",
+      "case_type": "multi_component_graph",
+      "checks": {
+        "ambiguous_abstention": true,
+        "coherence": true,
+        "contradiction": true,
+        "repair_action": true,
+        "repair_edge": true,
+        "top_edge": true
+      },
+      "expected": {
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "xy_conflict",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "xy_conflict"
+      },
+      "observed": {
+        "ambiguous_abstention": false,
+        "coherent": false,
+        "contradiction_detected": true,
+        "top_edge_id": "xy_conflict",
+        "top_repair_action": "flip_relation_candidate",
+        "top_repair_edge_id": "xy_conflict"
+      },
+      "passed": true,
+      "repair_candidates": [
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "xy_conflict",
+          "proof_effect": "candidate_only",
+          "rank_score": 2.787,
+          "relation": "conflict",
+          "relief": 1.2,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "xy_conflict",
+          "proof_effect": "candidate_only",
+          "rank_score": 2.787,
+          "relation": "conflict",
+          "relief": 1.2,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "xy_support",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.2,
+          "relation": "support",
+          "relief": 1.2,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "xy_support",
+          "proof_effect": "candidate_only",
+          "rank_score": 1.2,
+          "relation": "support",
+          "relief": 1.2,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "flip_relation_candidate",
+          "edge_id": "ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.0,
+          "relation": "support",
+          "relief": 0.0,
+          "verifier_required_for_acceptance": true
+        },
+        {
+          "action": "remove_edge_candidate",
+          "edge_id": "ab",
+          "proof_effect": "candidate_only",
+          "rank_score": 0.0,
+          "relation": "support",
+          "relief": 0.0,
+          "verifier_required_for_acceptance": true
+        }
+      ],
+      "spectral_read": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "case_id": "multi_component_graph",
+        "coherent": false,
+        "contradiction_detected": true,
+        "dominant_modes": [
+          {
+            "eigenvalue": 1.2,
+            "mode_index": 0,
+            "node_values": {
+              "X": 0.707107,
+              "Y": 0.707107
+            }
+          },
+          {
+            "eigenvalue": 2.8,
+            "mode_index": 1,
+            "node_values": {
+              "X": 0.707107,
+              "Y": -0.707107
+            }
+          }
+        ],
+        "edge_count": 4,
+        "node_count": 5,
+        "reader_decision": "suggest_repair_target",
+        "residual_edges": [
+          {
+            "edge_id": "xy_conflict",
+            "provenance_weight": 0.15,
+            "relation": "conflict",
+            "residual": 1.2,
+            "source": "X",
+            "status": "candidate",
+            "target": "Y",
+            "weight": 0.6
+          },
+          {
+            "edge_id": "ab",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.0,
+            "source": "A",
+            "status": "accepted",
+            "target": "B",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "bc",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.0,
+            "source": "B",
+            "status": "accepted",
+            "target": "C",
+            "weight": 1.0
+          },
+          {
+            "edge_id": "xy_support",
+            "provenance_weight": 1.0,
+            "relation": "support",
+            "residual": 0.0,
+            "source": "X",
+            "status": "accepted",
+            "target": "Y",
+            "weight": 1.4
+          }
+        ],
+        "selected_substrate": "spectral",
+        "spectral_tension": 1.2,
+        "top_edge_id": "xy_conflict",
+        "unique_top_residual": true,
+        "verifier_required_for_acceptance": true
+      },
+      "wrong_accept_count": 0
+    }
+  ]
+}
