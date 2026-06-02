@@ -1,0 +1,28 @@
+{
+  "all_gates_passed": true,
+  "artifact": "verifier_model_coevolution_report",
+  "inputs": [
+    "curriculum_packs",
+    "durable_lessons",
+    "proof_objects",
+    "repair_failures",
+    "hard_negatives",
+    "tensionlm_exports",
+    "spectral_features"
+  ],
+  "metrics": {
+    "accepted_without_typed_support": 0,
+    "candidate_graph_contamination_count": 0,
+    "confidence_traps_fail": true,
+    "proposal_quality_improved": true,
+    "unsupported_claims_abstain_or_reject": true
+  },
+  "model_is_proof_authority": false,
+  "outputs": [
+    "tiny_router",
+    "tiny_proposer",
+    "verifier_override_dashboard",
+    "model_boundary_receipt"
+  ],
+  "release": "v39.0.0"
+}

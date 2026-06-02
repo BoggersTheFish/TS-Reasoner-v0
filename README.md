@@ -4,7 +4,7 @@
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v31.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v31.0.0)
+[![Release](https://img.shields.io/badge/release-v40.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v40.0.0)
 
 **TS-Reasoner is a verifier-first operation firewall.**
 
@@ -16,46 +16,58 @@ Core line:
 
 ## Current Release
 
-Current release: **v31.0.0 — TS Project Curriculum Pack v1**
+Current release: **v40.0.0 — Self-Hosting Verifier-First Research OS**
 
-v31 teaches TS-Reasoner its own project domain as a bounded curriculum pack. It adds objects, relations, operations, risks, language examples, and failure modes for:
+TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates.
 
-```text
-repo
-release
-artifact
-receipt
-claim
-proof boundary
-unsafe overclaim
-next safe action
-stale public surface
-missing receipt
+Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.
+
+Run the v32-v40 receipt stack:
+
+```bash
+python3 -m ts_reasoner.cli v32-v40
 ```
 
-The v31 curriculum routes project questions through the v30 local OS shape:
+Run the v40 mission surface:
 
-```text
-language request
--> conversational shell loop
--> router stack arbitration
--> LanguageMove / TSCall
--> risk gate / confirmation gate
--> local project operator / controlled adapter gate / proof object examples
--> ResultPacket
--> evidence dashboard
--> trace + receipt
+```bash
+python3 -m ts_reasoner.cli research-os \
+  --mission "prepare the next safe TS-Reasoner release candidate" \
+  --repo .
 ```
 
-Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the v30 surface performs no accidental network call or real external side effect.
-
-v31 answer:
+v40 composes:
 
 ```text
-Yes, TS-Reasoner is ready to be taught through bounded curriculum packs.
-No, TS-Reasoner is not ready for free self-learning.
-Durable belief or lesson promotion remains verifier/confirmation/receipt gated.
+v32 ontology compiler
+v33 verifier-gated memory
+v34 TS-AGL typed plan compiler
+v35 automated research forge
+v36 self-repairing reasoning kernel
+v37 confirmed patch execution engine
+v38 multi-repo ecosystem brain
+v39 verifier/model co-evolution system
+v40 self-hosting research OS
 ```
+
+Non-claims:
+
+```text
+Not AGI.
+Not autonomous science.
+Not unrestricted self-improvement.
+Not free self-learning.
+Not broad NLP understanding.
+Not live external automation.
+Not proof by confidence.
+Not proof by memory.
+Not proof by user confirmation.
+Not proof by repeated experience.
+```
+
+v31 remains the TS Project Curriculum Pack v1 historical anchor. It teaches TS-Reasoner its own project domain as bounded curriculum without granting free self-learning.
+
+Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the default surface performs no accidental network call or real external side effect.
 
 Core proof authority substrate: **v12.0.0 — Verifier-Gated Proposer Stack**.
 
@@ -373,21 +385,26 @@ Release authority:
 | v20.x-v25.x | TS-AGL router stack, local project operator, shell, session ledger, external adapter gate, TS-OS v1 | local operations are risk-gated and receipted |
 | v26.x-v30.x | conversational shell loop, evidence dashboard, proof objects, first-contact demo, verifier-first local agent OS | unsafe ambiguity abstains; writes/effects require confirmation; receipts explain actions |
 | v31.x | TS Project curriculum pack | bounded domain teaching is allowed; free self-learning and durable belief promotion remain blocked |
+| v32.x-v40.x | ontology compiler, verifier-gated memory, TS-AGL plan compiler, research forge, repair kernel, confirmed patch engine, ecosystem brain, model co-evolution, self-hosting research OS | generated text, memory, model confidence, repeated experience, and confirmation remain non-proof |
 
 Full ladder:
 
 - [Release ladder](docs/RELEASE_LADDER.md)
+- [v40 research OS](docs/v40_self_hosting_research_os.md)
 - [Release notes](RELEASE_NOTES.md)
 
 ## Claim Boundary
 
 The strongest safe public claim right now:
 
-> TS-Reasoner v31.0.0 adds TS Project Domain Pack v1: a bounded curriculum pack that teaches the local verifier-first OS to inspect TS-Reasoner project state, find missing receipts, reject unsafe overclaims, explain the proof boundary, and suggest next safe release actions. This is bounded curriculum learning, not free self-learning. Language, router confidence, repeated examples, and domain-pack routing are not proof authority; durable lesson promotion remains confirmation/receipt gated.
+> TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates. Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.
 
 Do not overclaim this as:
 
 - broad AGI
+- autonomous science
+- unrestricted self-improvement
+- free self-learning
 - broad autonomous agency
 - broad NLP
 - GPT-2 replacement

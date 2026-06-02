@@ -1,0 +1,36 @@
+{
+  "all_gates_passed": true,
+  "artifact": "automated_research_forge_plan",
+  "artifacts": {
+    "dataset": "data/investigate_whether_provenance_weighted_contradiction_cases.jsonl",
+    "docs": "docs/investigate_whether_provenance_weighted_contradiction.md",
+    "receipt": "artifacts/investigate_whether_provenance_weighted_contradiction_receipt.json",
+    "report": "artifacts/investigate_whether_provenance_weighted_contradiction_report.json",
+    "script": "scripts/evaluate_investigate_whether_provenance_weighted_contradiction.py"
+  },
+  "baseline": "naive_repair",
+  "bounded_result": "claim supported under bounded synthetic conditions",
+  "candidate_graph_contamination_count": 0,
+  "claim": "Investigate whether provenance weighted contradiction repair beats naive repair.",
+  "falsification_cases": [
+    "unsupported improvement claim",
+    "metric improves but receipt gap remains",
+    "confidence trap accepted without typed support"
+  ],
+  "hypothesis": {
+    "status": "candidate",
+    "text": "Investigate whether provenance weighted contradiction repair beats naive repair."
+  },
+  "metrics": [
+    "resolved_contradictions",
+    "false_repairs",
+    "receipt_gap_count"
+  ],
+  "public_non_claim": "Result does not prove broad scientific autonomy.",
+  "release": "v35.0.0",
+  "variables": [
+    "repair_strategy",
+    "contradiction_graph",
+    "receipt_support"
+  ]
+}

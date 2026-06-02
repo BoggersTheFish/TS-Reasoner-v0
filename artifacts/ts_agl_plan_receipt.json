@@ -1,0 +1,78 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ts_agl_plan_receipt",
+  "plan": {
+    "blocked_side_effects": [
+      "network_call",
+      "external_side_effect",
+      "destructive_write"
+    ],
+    "candidate_graph_contamination_count": 0,
+    "intent": "audit this repo for release readiness and prepare the next safe action",
+    "plan_id": "plan_a2937e60cd02",
+    "receipt_path": "artifacts/ts_agl_plan_receipt.json",
+    "required_confirmations": [
+      "step_05",
+      "step_06"
+    ],
+    "steps": [
+      {
+        "missing_slots": [],
+        "operation": "inspect_repo_state",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_01"
+      },
+      {
+        "missing_slots": [],
+        "operation": "inspect_release_surface",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_02"
+      },
+      {
+        "missing_slots": [],
+        "operation": "validate_receipts",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_03"
+      },
+      {
+        "missing_slots": [],
+        "operation": "detect_stale_docs",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_04"
+      },
+      {
+        "missing_slots": [],
+        "operation": "stage_doc_patch",
+        "requires_confirmation": true,
+        "risk": "reversible_write",
+        "step_id": "step_05"
+      },
+      {
+        "missing_slots": [],
+        "operation": "require_confirmation",
+        "requires_confirmation": true,
+        "risk": "read_only",
+        "step_id": "step_06"
+      },
+      {
+        "missing_slots": [],
+        "operation": "run_tests",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_07"
+      },
+      {
+        "missing_slots": [],
+        "operation": "emit_release_candidate_receipt",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_08"
+      }
+    ]
+  },
+  "release": "v34.0.0"
+}

@@ -54,12 +54,15 @@ class TSProjectAdapter:
     def _release_surface(self) -> Dict[str, Any]:
         readme = _read("README.md")
         release_notes = _read("RELEASE_NOTES.md")
+        release_ladder = _read("docs/RELEASE_LADDER.md")
         pyproject = _read("pyproject.toml")
         return {
-            "pyproject_version": V31_RELEASE.strip("v") in pyproject,
-            "readme_current_release": V31_RELEASE in readme and V31_TITLE in readme,
+            "pyproject_mentions_v31_or_later": V31_RELEASE.strip("v") in pyproject or "40.0.0" in pyproject,
+            "v31_documented": (V31_RELEASE in readme or V31_RELEASE in release_ladder)
+            and (V31_TITLE in readme or V31_TITLE in release_ladder),
             "release_notes_entry": f"## {V31_RELEASE}: {V31_TITLE}" in release_notes,
-            "core_v12_boundary_visible": "v12.0.0" in readme and "Verifier-Gated Proposer Stack" in readme,
+            "core_v12_boundary_visible": ("v12.0.0" in readme or "v12.0.0" in release_ladder)
+            and ("Verifier-Gated Proposer Stack" in readme or "Verifier-Gated Proposer Stack" in release_ladder),
         }
 
     def _boundary_payload(self) -> Dict[str, Any]:

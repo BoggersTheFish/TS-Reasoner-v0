@@ -1,0 +1,49 @@
+{
+  "all_gates_passed": true,
+  "artifact": "verifier_gated_memory_receipt",
+  "forbidden_claims": [
+    "generated text is not proof",
+    "model confidence is not proof",
+    "repeated experience is not proof",
+    "domain packs are not proof",
+    "candidate graph contamination must remain zero"
+  ],
+  "memory": {
+    "candidate_graph_contamination_count": 0,
+    "events": [
+      {
+        "event": "candidate_added",
+        "item_id": "mem_f4c8897f1a0c"
+      },
+      {
+        "event": "quarantined",
+        "item_id": "mem_f4c8897f1a0c",
+        "reason": "unsafe_overclaim"
+      }
+    ],
+    "items": {
+      "mem_f4c8897f1a0c": {
+        "created_at": 1780413981.9857626,
+        "item_id": "mem_f4c8897f1a0c",
+        "provenance": [
+          "demo"
+        ],
+        "receipts": [],
+        "state": "quarantined",
+        "text": "TS-Reasoner is self-learning AGI."
+      }
+    },
+    "state_count": {
+      "active": 0,
+      "candidate": 0,
+      "confirmed": 0,
+      "contradicted": 0,
+      "quarantined": 1,
+      "receipt_supported": 0,
+      "retired": 0,
+      "stale": 0
+    }
+  },
+  "release": "v33.0.0",
+  "unsafe_lesson_quarantined": true
+}

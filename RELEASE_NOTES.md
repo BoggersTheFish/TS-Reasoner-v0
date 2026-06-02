@@ -1,3 +1,45 @@
+## v40.0.0: Self-Hosting Verifier-First Research OS
+
+v40.0.0 composes the v32-v39 roadmap into a bounded local research OS. It can
+compile taught domains into operational ontologies, maintain verifier-gated
+memory, compile language into typed plans, generate bounded research
+experiments, audit/repair reasoning state, stage confirmation-gated patches,
+audit the TS ecosystem graph, evaluate model proposers, and prepare a next
+release-candidate receipt.
+
+Artifacts:
+
+- `ts_reasoner/research_os.py`
+- `ts_agl/compiler.py`
+- `scripts/evaluate_v32_v40_research_os.py`
+- `tests/test_research_os_v40.py`
+- `docs/v40_self_hosting_research_os.md`
+- `MODEL_CARD.md`
+- `RELEASE_SUMMARY_FULL.txt`
+- `artifacts/ontology_compiler_receipt.json`
+- `artifacts/verifier_gated_memory_receipt.json`
+- `artifacts/ts_agl_plan_receipt.json`
+- `artifacts/research_forge_receipt.json`
+- `artifacts/repair_kernel_receipt.json`
+- `artifacts/patch_execution_receipt.json`
+- `artifacts/ecosystem_brain_receipt.json`
+- `artifacts/model_coevolution_receipt.json`
+- `artifacts/research_os_receipt.json`
+
+Boundary:
+
+- Not AGI.
+- Not autonomous science.
+- Not unrestricted self-improvement.
+- Not free self-learning.
+- Not broad NLP understanding.
+- Not live external automation.
+- Generated text, model confidence, memory, user confirmation, repeated
+  experience, and curriculum examples are not proof authority.
+- Typed verifier support remains the proof boundary.
+- Confirmation gates authorize bounded writes; they do not authorize truth.
+- Candidate graph contamination remains zero.
+
 ## ts-spectralcompute-v0.1: Spectral Metacompute Reader
 
 TS-SpectralCompute v0.1 adds the first deterministic metacompute substrate for
