@@ -1,0 +1,182 @@
+{
+  "all_gates_passed": true,
+  "arena": {
+    "all_gates_passed": true,
+    "candidate_graph_contamination_count": 0,
+    "case_count": 6,
+    "examples_route_to_typed_operations": true,
+    "hard_negatives_rejected": 3
+  },
+  "artifact": "ontology_compiler_receipt",
+  "candidate_graph_contamination_count": 0,
+  "manifest": {
+    "curriculum_contract": {
+      "compiled_from_ontology": true,
+      "domain_pack_is_proof_authority": false,
+      "language_layer_is_proof_authority": false,
+      "router_confidence_is_proof": false
+    },
+    "description": "Compiled ontology domain pack for scientific_experiment_reports.",
+    "domain": "scientific_experiment_reports",
+    "edge_types": [
+      "supports",
+      "contradicts",
+      "requires",
+      "evidenced_by",
+      "blocked_by"
+    ],
+    "failure_modes": [
+      "unsupported_claim",
+      "missing_metric",
+      "method_gap",
+      "receipt_gap"
+    ],
+    "node_types": [
+      "Hypothesis",
+      "Method",
+      "Result",
+      "Metric",
+      "Claim",
+      "Unsupported Claim",
+      "Replication Risk",
+      "Receipt",
+      "Falsification Test"
+    ],
+    "operations": [
+      {
+        "description": "Check whether a result supports a claim under the stated method and metric.",
+        "examples": [
+          "Does this result support the claim?"
+        ],
+        "name": "evaluate_claim_support",
+        "required_inputs": [
+          "claim",
+          "result",
+          "metric"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Identify bounded replication risks in an experiment report.",
+        "examples": [
+          "What replication risks are in this result?"
+        ],
+        "name": "find_replication_risks",
+        "required_inputs": [
+          "method",
+          "result"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Draft a falsification test candidate without treating it as proof.",
+        "examples": [
+          "Build a falsification test for this hypothesis."
+        ],
+        "name": "build_falsification_test",
+        "required_inputs": [
+          "hypothesis"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      }
+    ]
+  },
+  "ontology": {
+    "domain": "scientific_experiment_reports",
+    "examples": [
+      "Does this result support the claim?",
+      "What replication risks are in this result?",
+      "Build a falsification test for this hypothesis."
+    ],
+    "failure_modes": [
+      "unsupported_claim",
+      "missing_metric",
+      "method_gap",
+      "receipt_gap"
+    ],
+    "hard_negatives": [
+      "A confident abstract is proof of a result.",
+      "A single positive metric proves the broad claim.",
+      "A repeated example authorizes durable truth."
+    ],
+    "objects": [
+      "Hypothesis",
+      "Method",
+      "Result",
+      "Metric",
+      "Claim",
+      "Unsupported Claim",
+      "Replication Risk",
+      "Receipt",
+      "Falsification Test"
+    ],
+    "operations": [
+      {
+        "description": "Check whether a result supports a claim under the stated method and metric.",
+        "examples": [
+          "Does this result support the claim?"
+        ],
+        "name": "evaluate_claim_support",
+        "required_inputs": [
+          "claim",
+          "result",
+          "metric"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Identify bounded replication risks in an experiment report.",
+        "examples": [
+          "What replication risks are in this result?"
+        ],
+        "name": "find_replication_risks",
+        "required_inputs": [
+          "method",
+          "result"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Draft a falsification test candidate without treating it as proof.",
+        "examples": [
+          "Build a falsification test for this hypothesis."
+        ],
+        "name": "build_falsification_test",
+        "required_inputs": [
+          "hypothesis"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      }
+    ],
+    "receipt_schema": {
+      "artifact": "ontology_compiler_receipt",
+      "required_fields": [
+        "ontology_hash",
+        "validation",
+        "hard_negative_count",
+        "candidate_graph_contamination_count"
+      ]
+    },
+    "relations": [
+      "supports",
+      "contradicts",
+      "requires",
+      "evidenced_by",
+      "blocked_by"
+    ],
+    "risks": [
+      "unsupported_claim",
+      "overclaim",
+      "missing_receipt",
+      "replication_gap"
+    ]
+  },
+  "ontology_hash": "1b547ddc87fd366a737c0a55b45f7e98afa74ba4204e0b2585d865fbc302de08",
+  "release": "v32.0.0"
+}

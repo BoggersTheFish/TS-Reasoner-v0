@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8", "v10"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8/v10.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8", "v10", "repair-kernel", "research-os", "v32-v40"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8/v10/repair-kernel/research-os/v32-v40.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -68,6 +68,16 @@ def main() -> int:
         "--runtime-session",
         default="data/v10_0/runtime_os_session.json",
         help="Runtime session JSON path for v10.",
+    )
+    parser.add_argument(
+        "--mission",
+        default="prepare the next safe TS-Reasoner release candidate",
+        help="Mission text for the v40 research OS.",
+    )
+    parser.add_argument(
+        "--repo",
+        default=".",
+        help="Repository path for repair-kernel/research-os inspection.",
     )
     args = parser.parse_args()
 
@@ -175,6 +185,27 @@ def main() -> int:
         exit_code, payload = run_suite_payload(session)
         print(json.dumps(payload, indent=2, sort_keys=True))
         return exit_code
+
+    if args.command == "repair-kernel":
+        from .research_os import SelfRepairingReasoningKernel
+
+        payload = SelfRepairingReasoningKernel().audit(args.repo)
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return 0
+
+    if args.command == "research-os":
+        from .research_os import SelfHostingResearchOS
+
+        payload = SelfHostingResearchOS().run(args.mission, args.repo)
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return 0 if payload["all_gates_passed"] else 1
+
+    if args.command == "v32-v40":
+        from .research_os import write_v32_v40_receipts
+
+        payload = write_v32_v40_receipts(args.out_dir, args.mission, args.repo)
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return 0 if payload["all_gates_passed"] else 1
 
     if not args.question:
         parser.error("--question is required unless using the milestone/firewall/chat command")

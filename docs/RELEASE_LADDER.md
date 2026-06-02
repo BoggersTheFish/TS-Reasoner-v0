@@ -1,8 +1,8 @@
 # TS-Reasoner Release Ladder
 
-This document summarizes the public TS-Reasoner ladder from typed verifier channels through the v31 TS Project curriculum pack.
+This document summarizes the public TS-Reasoner ladder from typed verifier channels through the v40 self-hosting research OS.
 
-Current release: **v31.0.0 — TS Project Curriculum Pack v1**
+Current release: **v40.0.0 — Self-Hosting Verifier-First Research OS**
 
 Core boundary:
 
@@ -13,6 +13,47 @@ Core boundary:
 - writes and external side effects remain gated;
 - durable lesson promotion remains gated;
 - receipts make accepted, rejected, blocked, and abstained outcomes inspectable.
+
+## v40.0.0: Self-Hosting Verifier-First Research OS
+
+v40.0.0 composes the v32-v39 surfaces into a local verifier-first research OS
+for bounded structured reasoning projects.
+
+Release arc:
+
+| Version | Surface | Boundary preserved |
+| --- | --- | --- |
+| v32.0.0 | TS Ontology Compiler | Taught domains compile into typed operational ontologies; domain packs are not proof. |
+| v33.0.0 | Verifier-Gated Long-Term Memory | Durable memory has lifecycle state, provenance, receipts, quarantine, and rollback. |
+| v34.0.0 | TS-AGL Compiler v1 | Language compiles into typed multi-step plans with risk propagation and missing-slot handling. |
+| v35.0.0 | Automated Research Forge | Research claims become bounded experiments and falsification receipts, including negative results. |
+| v36.0.0 | Self-Repairing Reasoning Kernel | Broken reasoning/project state is audited and repaired through staged plans. |
+| v37.0.0 | Confirmed Patch Execution Engine | Repo patches are staged, diffed, gated by confirmation, verified, and receipted. |
+| v38.0.0 | Multi-Repo TS Ecosystem Brain | The TS ecosystem is audited as a read-only graph of repos, claims, proofs, docs, models, and releases. |
+| v39.0.0 | Verifier/Model Co-Evolution System | Models improve proposal quality while verifier override remains authority. |
+| v40.0.0 | Self-Hosting Research OS | The stack prepares a bounded next-release candidate under receipts and human confirmation. |
+
+Primary commands:
+
+```bash
+python3 -m ts_reasoner.cli v32-v40
+python3 -m ts_reasoner.cli research-os --mission "prepare the next safe TS-Reasoner release candidate" --repo .
+python3 -m ts_agl.compiler "audit this repo for release readiness and prepare the next safe action"
+```
+
+Public claim:
+
+> TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates. Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.
+
+Non-claims:
+
+- not AGI;
+- not autonomous science;
+- not unrestricted self-improvement;
+- not free self-learning;
+- not broad NLP understanding;
+- not live external automation;
+- not proof by confidence, memory, user confirmation, or repeated experience.
 
 ## TS-SpectralCompute v0.1: First Metacompute Substrate
 

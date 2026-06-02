@@ -1,0 +1,76 @@
+{
+  "all_gates_passed": true,
+  "artifact": "ecosystem_brain_receipt",
+  "candidate_graph_contamination_count": 0,
+  "dry_run_only": true,
+  "ecosystem_graph": {
+    "edge_types": [
+      "documents",
+      "depends_on",
+      "claims",
+      "releases"
+    ],
+    "nodes": [
+      {
+        "kind": "project",
+        "repo": "TS-Reasoner-v0"
+      },
+      {
+        "kind": "project",
+        "repo": "TS-Core"
+      },
+      {
+        "kind": "project",
+        "repo": "TS-Codex-OS"
+      },
+      {
+        "kind": "project",
+        "repo": "BoggersTheCIG"
+      },
+      {
+        "kind": "project",
+        "repo": "bozo"
+      },
+      {
+        "kind": "project",
+        "repo": "TensionLM"
+      },
+      {
+        "kind": "project",
+        "repo": "TS-Start-Here"
+      },
+      {
+        "kind": "project",
+        "repo": "BoggersTheFish profile"
+      },
+      {
+        "kind": "project",
+        "repo": "boggersthefish.com"
+      }
+    ]
+  },
+  "proof_boundary_map": {
+    "model_confidence_is_proof": false,
+    "typed_verifier_support_is_authority": true
+  },
+  "release": "v38.0.0",
+  "stale_surface_report": [
+    {
+      "issue": "may point to old TS-Reasoner release",
+      "repo": "TS-Start-Here"
+    },
+    {
+      "issue": "must avoid unsupported AGI/self-learning claims",
+      "repo": "model cards"
+    },
+    {
+      "issue": "public framing must match proof boundary",
+      "repo": "site"
+    }
+  ],
+  "sync_plan": [
+    "audit public claims",
+    "sync release ladder",
+    "emit dry-run patch plans"
+  ]
+}

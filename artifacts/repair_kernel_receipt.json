@@ -1,0 +1,18 @@
+{
+  "all_gates_passed": true,
+  "artifact": "repair_kernel_receipt",
+  "audit": {
+    "artifact": "reasoning_state_audit",
+    "candidate_graph_contamination_count": 0,
+    "confirmation_required": true,
+    "hard_negative_missing": true,
+    "missing_receipts": [],
+    "repair_categories": [
+      "missing_bridge_synthesis",
+      "domain_pack_hard_negative_addition"
+    ],
+    "stale_memory_detected": true,
+    "unsafe_claim_detected": false
+  },
+  "release": "v36.0.0"
+}

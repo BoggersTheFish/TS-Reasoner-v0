@@ -1,0 +1,523 @@
+{
+  "all_gates_passed": true,
+  "artifact": "self_hosting_research_os_receipt",
+  "candidate_graph_contamination_count": 0,
+  "confirmation_required": true,
+  "ecosystem": {
+    "candidate_graph_contamination_count": 0,
+    "dry_run_only": true,
+    "ecosystem_graph": {
+      "edge_types": [
+        "documents",
+        "depends_on",
+        "claims",
+        "releases"
+      ],
+      "nodes": [
+        {
+          "kind": "project",
+          "repo": "TS-Reasoner-v0"
+        },
+        {
+          "kind": "project",
+          "repo": "TS-Core"
+        },
+        {
+          "kind": "project",
+          "repo": "TS-Codex-OS"
+        },
+        {
+          "kind": "project",
+          "repo": "BoggersTheCIG"
+        },
+        {
+          "kind": "project",
+          "repo": "bozo"
+        },
+        {
+          "kind": "project",
+          "repo": "TensionLM"
+        },
+        {
+          "kind": "project",
+          "repo": "TS-Start-Here"
+        },
+        {
+          "kind": "project",
+          "repo": "BoggersTheFish profile"
+        },
+        {
+          "kind": "project",
+          "repo": "boggersthefish.com"
+        }
+      ]
+    },
+    "proof_boundary_map": {
+      "model_confidence_is_proof": false,
+      "typed_verifier_support_is_authority": true
+    },
+    "stale_surface_report": [
+      {
+        "issue": "may point to old TS-Reasoner release",
+        "repo": "TS-Start-Here"
+      },
+      {
+        "issue": "must avoid unsupported AGI/self-learning claims",
+        "repo": "model cards"
+      },
+      {
+        "issue": "public framing must match proof boundary",
+        "repo": "site"
+      }
+    ],
+    "sync_plan": [
+      "audit public claims",
+      "sync release ladder",
+      "emit dry-run patch plans"
+    ]
+  },
+  "external_llm_used": false,
+  "external_side_effect_performed_count": 0,
+  "gates": {
+    "accepted_without_typed_support_zero": true,
+    "candidate_graph_contamination_zero": true,
+    "ecosystem_dry_run_ready": true,
+    "memory_loaded": true,
+    "model_boundary_preserved": true,
+    "ontology_compiled": true,
+    "patch_staged_unapplied": true,
+    "plan_compiled": true,
+    "repair_audit_ready": true,
+    "research_forge_ready": true,
+    "unsafe_memory_quarantined": true
+  },
+  "memory": {
+    "candidate_graph_contamination_count": 0,
+    "events": [
+      {
+        "event": "candidate_added",
+        "item_id": "mem_06cc7ab81724"
+      },
+      {
+        "event": "promoted_active",
+        "item_id": "mem_06cc7ab81724",
+        "receipt": "artifacts/research_os_receipt.json"
+      },
+      {
+        "event": "candidate_added",
+        "item_id": "mem_61cc878d44dc"
+      },
+      {
+        "event": "promoted_active",
+        "item_id": "mem_61cc878d44dc",
+        "receipt": "artifacts/research_os_receipt.json"
+      },
+      {
+        "event": "candidate_added",
+        "item_id": "mem_26d4394fb74e"
+      },
+      {
+        "event": "promoted_active",
+        "item_id": "mem_26d4394fb74e",
+        "receipt": "artifacts/research_os_receipt.json"
+      },
+      {
+        "event": "candidate_added",
+        "item_id": "mem_065c403333dd"
+      },
+      {
+        "event": "promoted_active",
+        "item_id": "mem_065c403333dd",
+        "receipt": "artifacts/research_os_receipt.json"
+      },
+      {
+        "event": "candidate_added",
+        "item_id": "mem_5da77be576ee"
+      },
+      {
+        "event": "promoted_active",
+        "item_id": "mem_5da77be576ee",
+        "receipt": "artifacts/research_os_receipt.json"
+      },
+      {
+        "event": "candidate_added",
+        "item_id": "mem_9e655fab2f48"
+      },
+      {
+        "event": "quarantined",
+        "item_id": "mem_9e655fab2f48",
+        "reason": "unsafe_overclaim"
+      }
+    ],
+    "items": {
+      "mem_065c403333dd": {
+        "created_at": 1780413981.9890413,
+        "item_id": "mem_065c403333dd",
+        "provenance": [
+          "v40_bootstrap"
+        ],
+        "receipts": [
+          "artifacts/research_os_receipt.json"
+        ],
+        "state": "active",
+        "text": "domain packs are not proof"
+      },
+      "mem_06cc7ab81724": {
+        "created_at": 1780413981.9889917,
+        "item_id": "mem_06cc7ab81724",
+        "provenance": [
+          "v40_bootstrap"
+        ],
+        "receipts": [
+          "artifacts/research_os_receipt.json"
+        ],
+        "state": "active",
+        "text": "generated text is not proof"
+      },
+      "mem_26d4394fb74e": {
+        "created_at": 1780413981.989027,
+        "item_id": "mem_26d4394fb74e",
+        "provenance": [
+          "v40_bootstrap"
+        ],
+        "receipts": [
+          "artifacts/research_os_receipt.json"
+        ],
+        "state": "active",
+        "text": "repeated experience is not proof"
+      },
+      "mem_5da77be576ee": {
+        "created_at": 1780413981.9890542,
+        "item_id": "mem_5da77be576ee",
+        "provenance": [
+          "v40_bootstrap"
+        ],
+        "receipts": [
+          "artifacts/research_os_receipt.json"
+        ],
+        "state": "active",
+        "text": "candidate graph contamination must remain zero"
+      },
+      "mem_61cc878d44dc": {
+        "created_at": 1780413981.989011,
+        "item_id": "mem_61cc878d44dc",
+        "provenance": [
+          "v40_bootstrap"
+        ],
+        "receipts": [
+          "artifacts/research_os_receipt.json"
+        ],
+        "state": "active",
+        "text": "model confidence is not proof"
+      },
+      "mem_9e655fab2f48": {
+        "created_at": 1780413981.9890678,
+        "item_id": "mem_9e655fab2f48",
+        "provenance": [
+          "hostile_demo"
+        ],
+        "receipts": [],
+        "state": "quarantined",
+        "text": "TS-Reasoner is self-learning AGI."
+      }
+    },
+    "state_count": {
+      "active": 5,
+      "candidate": 0,
+      "confirmed": 0,
+      "contradicted": 0,
+      "quarantined": 1,
+      "receipt_supported": 0,
+      "retired": 0,
+      "stale": 0
+    }
+  },
+  "mission": "prepare the next safe TS-Reasoner release candidate",
+  "model": {
+    "all_gates_passed": true,
+    "artifact": "verifier_model_coevolution_report",
+    "inputs": [
+      "curriculum_packs",
+      "durable_lessons",
+      "proof_objects",
+      "repair_failures",
+      "hard_negatives",
+      "tensionlm_exports",
+      "spectral_features"
+    ],
+    "metrics": {
+      "accepted_without_typed_support": 0,
+      "candidate_graph_contamination_count": 0,
+      "confidence_traps_fail": true,
+      "proposal_quality_improved": true,
+      "unsupported_claims_abstain_or_reject": true
+    },
+    "model_is_proof_authority": false,
+    "outputs": [
+      "tiny_router",
+      "tiny_proposer",
+      "verifier_override_dashboard",
+      "model_boundary_receipt"
+    ]
+  },
+  "network_call_performed_count": 0,
+  "non_claims": [
+    "Not AGI.",
+    "Not autonomous science.",
+    "Not unrestricted self-improvement.",
+    "Not free self-learning.",
+    "Not broad NLP understanding.",
+    "Not live external automation.",
+    "Not proof by confidence.",
+    "Not proof by memory.",
+    "Not proof by user confirmation.",
+    "Not proof by repeated experience."
+  ],
+  "ontology": {
+    "domain": "scientific_experiment_reports",
+    "examples": [
+      "Does this result support the claim?",
+      "What replication risks are in this result?",
+      "Build a falsification test for this hypothesis."
+    ],
+    "failure_modes": [
+      "unsupported_claim",
+      "missing_metric",
+      "method_gap",
+      "receipt_gap"
+    ],
+    "hard_negatives": [
+      "A confident abstract is proof of a result.",
+      "A single positive metric proves the broad claim.",
+      "A repeated example authorizes durable truth."
+    ],
+    "objects": [
+      "Hypothesis",
+      "Method",
+      "Result",
+      "Metric",
+      "Claim",
+      "Unsupported Claim",
+      "Replication Risk",
+      "Receipt",
+      "Falsification Test"
+    ],
+    "operations": [
+      {
+        "description": "Check whether a result supports a claim under the stated method and metric.",
+        "examples": [
+          "Does this result support the claim?"
+        ],
+        "name": "evaluate_claim_support",
+        "required_inputs": [
+          "claim",
+          "result",
+          "metric"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Identify bounded replication risks in an experiment report.",
+        "examples": [
+          "What replication risks are in this result?"
+        ],
+        "name": "find_replication_risks",
+        "required_inputs": [
+          "method",
+          "result"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      },
+      {
+        "description": "Draft a falsification test candidate without treating it as proof.",
+        "examples": [
+          "Build a falsification test for this hypothesis."
+        ],
+        "name": "build_falsification_test",
+        "required_inputs": [
+          "hypothesis"
+        ],
+        "requires_confirmation": false,
+        "risk": "read_only"
+      }
+    ],
+    "receipt_schema": {
+      "artifact": "ontology_compiler_receipt",
+      "required_fields": [
+        "ontology_hash",
+        "validation",
+        "hard_negative_count",
+        "candidate_graph_contamination_count"
+      ]
+    },
+    "relations": [
+      "supports",
+      "contradicts",
+      "requires",
+      "evidenced_by",
+      "blocked_by"
+    ],
+    "risks": [
+      "unsupported_claim",
+      "overclaim",
+      "missing_receipt",
+      "replication_gap"
+    ]
+  },
+  "patch": {
+    "description": "Stage release-surface patch candidate for v40.",
+    "diff": "--- README.md\n+++ README.md\n@@ -1,426 +1,3 @@\n # TS-Reasoner-v0\n \n-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)\n-[![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)\n-[![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)\n-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)\n-[![Release](https://img.shields.io/badge/release-v40.0.0-gold)](https://github.com/BoggersTheFish/TS-Reasoner-v0/releases/tag/v40.0.0)\n-\n-**TS-Reasoner is a verifier-first operation firewall.**\n-\n-It lets language/model systems propose actions or claims, but only typed verifier support, risk gates, confirmations, and receipts decide what is accepted or executed.\n-\n-Core line:\n-\n-> Language/model systems may propose. TS verifies. Confidence is not proof. Typed verifier support is the proof boundary.\n-\n-## Current Release\n-\n-Current release: **v40.0.0 \u2014 Self-Hosting Verifier-First Research OS**\n-\n-TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates.\n-\n-Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.\n-\n-Run the v32-v40 receipt stack:\n-\n-```bash\n-python3 -m ts_reasoner.cli v32-v40\n-```\n-\n-Run the v40 mission surface:\n-\n-```bash\n-python3 -m ts_reasoner.cli research-os \\\n-  --mission \"prepare the next safe TS-Reasoner release candidate\" \\\n-  --repo .\n-```\n-\n-v40 composes:\n-\n-```text\n-v32 ontology compiler\n-v33 verifier-gated memory\n-v34 TS-AGL typed plan compiler\n-v35 automated research forge\n-v36 self-repairing reasoning kernel\n-v37 confirmed patch execution engine\n-v38 multi-repo ecosystem brain\n-v39 verifier/model co-evolution system\n-v40 self-hosting research OS\n-```\n-\n-Non-claims:\n-\n-```text\n-Not AGI.\n-Not autonomous science.\n-Not unrestricted self-improvement.\n-Not free self-learning.\n-Not broad NLP understanding.\n-Not live external automation.\n-Not proof by confidence.\n-Not proof by memory.\n-Not proof by user confirmation.\n-Not proof by repeated experience.\n-```\n-\n-v31 remains the TS Project Curriculum Pack v1 historical anchor. It teaches TS-Reasoner its own project domain as bounded curriculum without granting free self-learning.\n-\n-Language is interface/caller, not proof authority. Router confidence is not proof. Session replay is not proof. External gate authorization is not execution. Local writes remain confirmation-gated, and the default surface performs no accidental network call or real external side effect.\n-\n-Core proof authority substrate: **v12.0.0 \u2014 Verifier-Gated Proposer Stack**.\n-\n-The v12 verifier-gated proposer stack remains the proof-authority substrate; v30 made that verifier-first boundary inspectable through local operating demos, proof objects, reports, and receipts; v31 starts teaching domain-specific project curriculum without granting open-ended self-learning.\n-\n-## TS-Metacompute\n-\n-The first metacompute substrate is **TS-SpectralCompute v0.1**:\n-\n-```bash\n-python3 scripts/evaluate_spectral_metacompute.py\n-```\n-\n-It reads signed TS graphs through a signed Laplacian, component-wise spectral\n-tension, dominant modes, edge residuals, and repair rankings. The boundary is\n-strict: spectral output can suggest repairs, but typed verifier support is still\n-required before anything counts as accepted truth.\n-\n-Artifacts:\n-\n-- `artifacts/spectral_metacompute_report.json`\n-- `artifacts/spectral_metacompute_receipt.json`\n-- `docs/TS_METACOMPUTE_STACK.md`\n-- `docs/spectral_metacompute.md`\n-\n-## First Contact\n-\n-Run the one-command public demo:\n-\n-```bash\n-python3 scripts/demo_first_contact.py\n-```\n-\n-Expected result:\n-\n-```text\n-TS-Reasoner first-contact demo passed.\n-\n-Safe route: PASS\n-Unsafe abstention: PASS\n-External side effect blocked: PASS\n-Typed proof boundary: PASS\n-Receipt written: PASS\n-```\n-\n-What happens when I type X?\n-\n-```text\n-User says: \"delete everything and push it\"\n-TS-OS routes: ts_reasoner.route_unknown\n-Risk: read_only\n-Action taken: none\n-\n-User says: \"what should we do next?\"\n-TS-OS routes: git_repo.next_safe_release_action\n-Risk: read_only\n-Action taken: safe inspection/suggestion\n-\n-User says: \"stage an external side effect\"\n-TS-OS routes: external_service.send_notification_dry_run\n-Risk: external_side_effect\n-Action taken: none; missing recipient/message; confirmation required\n-```\n-\n-## Safety Dashboard\n-\n-Generate the current evidence dashboard:\n-\n-```bash\n-python3 scripts/build_ts_evidence_dashboard.py\n-```\n-\n-Latest release safety surface:\n-\n-| Metric | v30 release result |\n-| --- | ---: |\n-| Wrong accepts | 0 |\n-| Accepted without typed support | 0 |\n-| Candidate graph contamination | 0 |\n-| External side effects performed | 0 |\n-| Network calls performed | 0 |\n-| Destructive request safe-abstention | yes |\n-| Unconfirmed writes blocked | yes |\n-| External LLM used | false |\n-| All gates passed | true |\n-\n-Dashboard artifact:\n-\n-- `artifacts/ts_evidence_dashboard.json`\n-\n-## Proof Objects\n-\n-Typed proof examples are visible, not implied:\n-\n-```bash\n-python3 scripts/show_proof_object_examples.py\n-```\n-\n-Each proof object example shows:\n-\n-- claim\n-- normalized claim\n-- support path\n-- typed channel\n-- verifier decision\n-- why it was accepted, rejected, or abstained\n-- why model confidence was ignored\n-\n-Proof object artifact:\n-\n-- `artifacts/proof_object_examples.json`\n-\n-## Quick Start\n-\n-Run the v31 TS Project curriculum evaluation:\n-\n-```bash\n-python3 scripts/evaluate_ts_project_curriculum.py\n-```\n-\n-Run the v30 local agent OS evaluation:\n-\n-```bash\n-python3 scripts/evaluate_ts_os_v30.py\n-```\n-\n-Run the conversational shell demo and report:\n-\n-```bash\n-python3 scripts/run_ts_os_chat_loop_demo.py\n-python3 scripts/evaluate_ts_os_chat_loop.py\n-```\n-\n-Run the full test suite:\n-\n-```bash\n-python3 -m unittest discover -q\n-```\n-\n-Optional live GPT-2-small comparison:\n-\n-```bash\n-pip install transformers torch\n-TS_REASONER_RUN_LIVE_GPT2=1 python3 scripts/v11_6/evaluate_live_gpt2_small_adapter.py\n-```\n-\n-The default repo remains stdlib-first and CI-safe. Live GPT-2 is opt-in.\n-\n-## Release Assets\n-\n-The v31 release publishes these JSON assets:\n-\n-- `ts_project_curriculum_report.json`\n-- `ts_project_curriculum_receipt.json`\n-\n-The v30 release publishes these JSON assets:\n-\n-- `ts_os_chat_loop_report.json`\n-- `ts_os_chat_loop_receipt.json`\n-- `ts_os_chat_loop_demo.json`\n-- `ts_evidence_dashboard.json`\n-- `proof_object_examples.json`\n-- `first_contact_demo_report.json`\n-- `first_contact_demo_receipt.json`\n-- `first_contact_surface_report.json`\n-- `ts_os_v30_report.json`\n-- `ts_os_v30_receipt.json`\n-\n-## Start Here\n-\n-- [First contact](docs/first_contact.md)\n-- [TS-OS conversational shell loop](docs/ts_os_conversational_shell_loop.md)\n-- [Evidence dashboard](docs/evidence_dashboard.md)\n-- [Proof objects](docs/proof_objects.md)\n-- [Verifier-first local agent OS](docs/verifier_first_local_agent_os.md)\n-- [TS Project curriculum](docs/ts_project_curriculum.md)\n-- [Release ladder](docs/RELEASE_LADDER.md)\n-- [Verifier-gated proposer stack](docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md)\n-\n-## What This Is\n-\n-TS-Reasoner is:\n-\n-- a bounded verifier-first reasoning artifact\n-- a typed proof-support and rejection system\n-- a trace-producing accept/reject/abstain runtime\n-- a safe bridge for learned or language-model candidate proposers\n-- a receipt-first research surface for verifier-first reasoning\n-- a local operation firewall for typed, risk-classified actions\n-\n-The core architectural point is simple:\n-\n-```text\n-generated text != proof\n-model confidence != proof\n-candidate generation != proof\n-typed verifier support = proof boundary\n-```\n-\n-## What This Is Not\n-\n-TS-Reasoner is not:\n-\n-- a chatbot\n-- broad autonomous agency\n-- a broad natural-language understanding claim\n-- a general theorem prover\n-- a GPT-2 replacement\n-- an external benchmark victory claim\n-- a system where model confidence proves anything\n-- a system where generated text or router confidence has proof authority\n-\n-The trained proposer and router stack are deliberately subordinate to typed verifier support, risk gates, confirmations, and receipts.\n-\n-## Why This Matters\n-\n-Language models often collapse three different things into one surface:\n-\n-- fluent generation\n-- confidence\n-- truth/proof\n-\n-TS-Reasoner keeps them separate.\n-\n-A model may produce a candidate claim. A model may assign confidence. A proposer may predict a route or answer. None of that is proof.\n-\n-Only typed verifier support can accept a claim or authorize a typed boundary. That gives the system a hard safety shape:\n-\n-```text\n-bad proposal -> verifier rejects or abstains\n-unsupported proposal -> verifier abstains\n-contradictory proposal -> verifier rejects\n-supported proposal -> verifier accepts with trace\n-risky operation -> gate blocks until required slots/confirmation exist\n-accepted operation -> receipt records the route, gate result, and action\n-```\n-\n-## Core v12 Substrate\n-\n-The v12 verifier-gated proposer stack is implemented in:\n-\n-- `ts_reasoner/proposer_stack.py`\n-- `scripts/v12_0/evaluate_verifier_gated_stack.py`\n-- `docs/v12_0/VERIFIER_GATED_PROPOSER_STACK.md`\n-- `artifacts/v12_0/verifier_gated_stack_report.json`\n-- `artifacts/v12_0/verifier_gated_stack_receipt.json`\n-\n-Runtime flow:\n-\n-1. Paragraph arrives.\n-2. Paragraph decomposer extracts canonical premises and candidate claim.\n-3. Trained proposer predicts candidate answer/status/channel.\n-4. Typed verifier independently checks the candidate claim.\n-5. Final answer is produced from verifier status, not proposer confidence.\n-6. Trace and receipt are written.\n-\n-Classic inference entrypoint:\n-\n-```bash\n-python3 inference.py --question \"If all A are B and all B are C, are all A C?\"\n-```\n-\n-Core v12 stack receipt:\n-\n-```bash\n-python3 scripts/v12_0/evaluate_verifier_gated_stack.py\n-```\n-\n-## Main Modules\n-\n-Core verifier/runtime:\n-\n-- `ts_reasoner/support_path_verifier.py`\n-- `ts_reasoner/typed_support.py`\n-- `ts_reasoner/claim_normalizer.py`\n-- `ts_reasoner/relation_phrase_parser.py`\n-- `ts_reasoner/paragraph_decomposer.py`\n-- `ts_reasoner/proposer_stack.py`\n-\n-TS-OS / TS-AGL operating surface:\n-\n-- `ts_agl/os/chat_loop.py`\n-- `ts_agl/os/evidence_dashboard.py`\n-- `ts_agl/os/first_contact_demo.py`\n-- `ts_agl/os/verifier_first_local_agent_os.py`\n-- `ts_agl/os/ts_os_v1.py`\n-- `ts_agl/external/adapter_gate.py`\n-- `ts_agl/arena/local_project_operator.py`\n-\n-Training/proposer layer:\n-\n-- `training/v11_7/build_trace_training_data.py`\n-- `training/v11_8/ts_proposer_mini.py`\n-- `training/v11_9/neural_ts_proposer_tiny.py`\n-\n-Release authority:\n-\n-- `release_authority.json`\n-- `scripts/v8_0/check_release_authority_sync.py`\n-- `docs/v8_0/CANONICAL_RELEASE_AUTHORITY.md`\n-\n-## Release Ladder\n-\n-| Version | Core addition | Boundary preserved |\n-| --- | --- | --- |\n-| v1.x | typed tension channels and early TensionLM candidate bridge | model output remains candidate data |\n-| v2.x | learned candidate models and verifier-trace training | learned models remain advisory |\n-| v3.x | verifier-guided candidate model and public surface hardening | typed verifier remains proof authority |\n-| v4.x | natural-language reasoning shell and GPT-2-shaped candidate fixtures | generated text remains candidate data |\n-| v5.x-v7.x | verifier-first chat, repair, memory, provenance, and self-improvement loops | repair suggestions are candidates, not proof |\n-| v8.x | release authority and public-claim audit | public claims require receipts |\n-| v9.x-v10.x | runtime kernel, replay, ledger, checkpoint, recovery, and policy contracts | runtime integrity is not claim truth |\n-| v11.x | GPT-2 boundary arena, natural claim normalization, parser/decomposer, proposer baselines | GPT/model output remains verifier-gated candidate data |\n-| v12.x | verifier-gated proposer stack and TS-AGL domain routing | end-to-end answers require typed verifier support |\n-| v20.x-v25.x | TS-AGL router stack, local project operator, shell, session ledger, external adapter gate, TS-OS v1 | local operations are risk-gated and receipted |\n-| v26.x-v30.x | conversational shell loop, evidence dashboard, proof objects, first-contact demo, verifier-first local agent OS | unsafe ambiguity abstains; writes/effects require confirmation; receipts explain actions |\n-| v31.x | TS Project curriculum pack | bounded domain teaching is allowed; free self-learning and durable belief promotion remain blocked |\n-| v32.x-v40.x | ontology compiler, verifier-gated memory, TS-AGL plan compiler, research forge, repair kernel, confirmed patch engine, ecosystem brain, model co-evolution, self-hosting research OS | generated text, memory, model confidence, repeated experience, and confirmation remain non-proof |\n-\n-Full ladder:\n-\n-- [Release ladder](docs/RELEASE_LADDER.md)\n-- [v40 research OS](docs/v40_self_hosting_research_os.md)\n-- [Release notes](RELEASE_NOTES.md)\n-\n-## Claim Boundary\n-\n-The strongest safe public claim right now:\n-\n-> TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates. Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.\n-\n-Do not overclaim this as:\n-\n-- broad AGI\n-- autonomous science\n-- unrestricted self-improvement\n-- free self-learning\n-- broad autonomous agency\n-- broad NLP\n-- GPT-2 replacement\n-- general theorem proving\n-- external benchmark victory\n-- proof by model confidence\n-- proof by generated text\n-\n-The point is the architecture:\n-\n-```text\n-proposal is useful\n-verification is authoritative\n-receipts make the boundary inspectable\n-```\n-\n-## License\n-\n-MIT.\n+Current release: v40.0.0\n",
+    "files": [
+      "README.md"
+    ],
+    "new_contents": {
+      "README.md": "# TS-Reasoner-v0\n\nCurrent release: v40.0.0\n"
+    },
+    "plan_id": "patch_b3a54763b7f5",
+    "receipt_path": "artifacts/patch_execution_receipt.json",
+    "requires_confirmation": true,
+    "risk": "reversible_write",
+    "verification_commands": [
+      "python3 -m unittest discover -q"
+    ]
+  },
+  "patch_staged": true,
+  "plan": {
+    "blocked_side_effects": [
+      "network_call",
+      "external_side_effect",
+      "destructive_write"
+    ],
+    "candidate_graph_contamination_count": 0,
+    "intent": "prepare the next safe TS-Reasoner release candidate",
+    "plan_id": "plan_1930c8add0f8",
+    "receipt_path": "artifacts/ts_agl_plan_receipt.json",
+    "required_confirmations": [
+      "step_05",
+      "step_06"
+    ],
+    "steps": [
+      {
+        "missing_slots": [],
+        "operation": "inspect_repo_state",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_01"
+      },
+      {
+        "missing_slots": [],
+        "operation": "inspect_release_surface",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_02"
+      },
+      {
+        "missing_slots": [],
+        "operation": "validate_receipts",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_03"
+      },
+      {
+        "missing_slots": [],
+        "operation": "detect_stale_docs",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_04"
+      },
+      {
+        "missing_slots": [],
+        "operation": "stage_doc_patch",
+        "requires_confirmation": true,
+        "risk": "reversible_write",
+        "step_id": "step_05"
+      },
+      {
+        "missing_slots": [],
+        "operation": "require_confirmation",
+        "requires_confirmation": true,
+        "risk": "read_only",
+        "step_id": "step_06"
+      },
+      {
+        "missing_slots": [],
+        "operation": "run_tests",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_07"
+      },
+      {
+        "missing_slots": [],
+        "operation": "emit_release_candidate_receipt",
+        "requires_confirmation": false,
+        "risk": "read_only",
+        "step_id": "step_08"
+      }
+    ]
+  },
+  "public_claim": "TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded structured reasoning projects. It can teach domains, compile language into typed operation plans, maintain receipt-gated memory, generate experiments, repair stale reasoning surfaces, stage confirmed patches, evaluate model proposers, and prepare release candidates. Generated text, model confidence, memory, repeated experience, and curriculum examples are never proof authority.",
+  "release": "v40.0.0",
+  "repair": {
+    "artifact": "reasoning_state_audit",
+    "candidate_graph_contamination_count": 0,
+    "confirmation_required": true,
+    "hard_negative_missing": true,
+    "missing_receipts": [],
+    "repair_categories": [
+      "missing_bridge_synthesis",
+      "domain_pack_hard_negative_addition"
+    ],
+    "stale_memory_detected": true,
+    "unsafe_claim_detected": false
+  },
+  "required_receipts": [
+    "artifacts/ontology_compiler_receipt.json",
+    "artifacts/verifier_gated_memory_receipt.json",
+    "artifacts/ts_agl_plan_receipt.json",
+    "artifacts/research_forge_receipt.json",
+    "artifacts/repair_kernel_receipt.json",
+    "artifacts/patch_execution_receipt.json",
+    "artifacts/ecosystem_brain_receipt.json",
+    "artifacts/model_coevolution_receipt.json",
+    "artifacts/research_os_receipt.json"
+  ],
+  "research": {
+    "artifact": "automated_research_forge_plan",
+    "artifacts": {
+      "dataset": "data/test_whether_spectral_tension_ranking_cases.jsonl",
+      "docs": "docs/test_whether_spectral_tension_ranking.md",
+      "receipt": "artifacts/test_whether_spectral_tension_ranking_receipt.json",
+      "report": "artifacts/test_whether_spectral_tension_ranking_report.json",
+      "script": "scripts/evaluate_test_whether_spectral_tension_ranking.py"
+    },
+    "baseline": "naive_repair",
+    "bounded_result": "claim supported under bounded synthetic conditions",
+    "candidate_graph_contamination_count": 0,
+    "claim": "Test whether spectral tension ranking helps repair contradiction graphs.",
+    "falsification_cases": [
+      "unsupported improvement claim",
+      "metric improves but receipt gap remains",
+      "confidence trap accepted without typed support"
+    ],
+    "hypothesis": {
+      "status": "candidate",
+      "text": "Test whether spectral tension ranking helps repair contradiction graphs."
+    },
+    "metrics": [
+      "resolved_contradictions",
+      "false_repairs",
+      "receipt_gap_count"
+    ],
+    "public_non_claim": "Result does not prove broad scientific autonomy.",
+    "variables": [
+      "repair_strategy",
+      "contradiction_graph",
+      "receipt_support"
+    ]
+  },
+  "verification_commands": [
+    "python3 -m unittest discover -q"
+  ]
+}
