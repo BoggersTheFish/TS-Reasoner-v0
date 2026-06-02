@@ -7,6 +7,9 @@ experiments, audit/repair reasoning state, stage confirmation-gated patches,
 audit the TS ecosystem graph, evaluate model proposers, and prepare a next
 release-candidate receipt.
 
+v40 composes bounded v32-v39 surfaces into one self-hosting research OS receipt.
+It does not claim each subsystem is a fully mature autonomous implementation.
+
 Artifacts:
 
 - `ts_reasoner/research_os.py`

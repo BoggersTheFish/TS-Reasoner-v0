@@ -21,6 +21,9 @@ It can:
 - prepare a bounded next-release candidate under receipts and human
   confirmation.
 
+v40 composes bounded v32-v39 surfaces into one self-hosting research OS receipt.
+It does not claim each subsystem is a fully mature autonomous implementation.
+
 ## Public Claim
 
 TS-Reasoner v40.0.0 is a self-hosting verifier-first research OS for bounded
