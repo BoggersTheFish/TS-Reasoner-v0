@@ -19,8 +19,8 @@ def main() -> int:
     parser.add_argument(
         "command",
         nargs="?",
-        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8", "v10", "repair-kernel", "research-os", "v32-v40"],
-        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8/v10/repair-kernel/research-os/v32-v40.",
+        choices=["milestone", "firewall", "chat", "v7", "compile-session", "generate-curriculum", "run-curriculum", "branch-worlds", "repair-planner", "pack-library", "trust-pressure", "proof-search", "self-audit", "v8", "v10", "repair-kernel", "research-os", "v32-v40", "cognitive-physics"],
+        help="Optional command. Use milestone/firewall/chat/v7/compile-session/generate-curriculum/run-curriculum/branch-worlds/repair-planner/pack-library/trust-pressure/proof-search/self-audit/v8/v10/repair-kernel/research-os/v32-v40/cognitive-physics.",
     )
     parser.add_argument("--question", required=False, help="Question to reason about.")
     parser.add_argument(
@@ -204,6 +204,13 @@ def main() -> int:
         from .research_os import write_v32_v40_receipts
 
         payload = write_v32_v40_receipts(args.out_dir, args.mission, args.repo)
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return 0 if payload["all_gates_passed"] else 1
+
+    if args.command == "cognitive-physics":
+        from .cognitive_physics_engine import evaluate_cognitive_physics_engine
+
+        payload = evaluate_cognitive_physics_engine(args.question or "Does A resolve to C?")
         print(json.dumps(payload, indent=2, sort_keys=True))
         return 0 if payload["all_gates_passed"] else 1
 

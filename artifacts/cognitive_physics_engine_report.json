@@ -1,0 +1,571 @@
+{
+  "accepted_without_verifier_support_count": 0,
+  "all_gates_passed": true,
+  "artifact": "cognitive_physics_engine_report",
+  "candidate_graph_contamination_count": 0,
+  "engine": "TS-OS Cognitive Physics Engine",
+  "gates": {
+    "accepted_without_verifier_support_zero": true,
+    "interference_detects_contradiction": true,
+    "lazy_engine_passes": true,
+    "photonic_frequency_slots_present": true,
+    "resonance_transmits_shape_not_answer": true,
+    "temporal_updates_prior_probabilities": true,
+    "unified_bad_blocks": true,
+    "unified_good_emits": true,
+    "unified_unsupported_blocks": true
+  },
+  "graphs": {
+    "coherent_zero_tension": {
+      "case_id": "coherent_zero_tension",
+      "edges": [
+        {
+          "edge_id": "support_ab",
+          "provenance_weight": 1.0,
+          "relation": "support",
+          "repair_hint": "",
+          "sign": 1,
+          "source": "A",
+          "status": "accepted",
+          "target": "B",
+          "weight": 1.0
+        },
+        {
+          "edge_id": "support_bc",
+          "provenance_weight": 1.0,
+          "relation": "support",
+          "repair_hint": "",
+          "sign": 1,
+          "source": "B",
+          "status": "accepted",
+          "target": "C",
+          "weight": 1.0
+        }
+      ],
+      "metadata": {
+        "expected": "zero_tension"
+      },
+      "nodes": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "late_contradiction": {
+      "case_id": "late_contradiction",
+      "edges": [
+        {
+          "edge_id": "support_ab",
+          "provenance_weight": 1.0,
+          "relation": "support",
+          "repair_hint": "",
+          "sign": 1,
+          "source": "A",
+          "status": "accepted",
+          "target": "B",
+          "weight": 1.0
+        },
+        {
+          "edge_id": "support_bc",
+          "provenance_weight": 1.0,
+          "relation": "support",
+          "repair_hint": "",
+          "sign": 1,
+          "source": "B",
+          "status": "accepted",
+          "target": "C",
+          "weight": 1.0
+        },
+        {
+          "edge_id": "conflict_ac",
+          "provenance_weight": 1.0,
+          "relation": "conflict",
+          "repair_hint": "",
+          "sign": -1,
+          "source": "A",
+          "status": "accepted",
+          "target": "C",
+          "weight": 1.0
+        }
+      ],
+      "metadata": {
+        "expected": "contradiction"
+      },
+      "nodes": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "unsupported_candidate": {
+      "case_id": "unsupported_candidate",
+      "edges": [
+        {
+          "edge_id": "candidate_ab",
+          "provenance_weight": 1.0,
+          "relation": "support",
+          "repair_hint": "",
+          "sign": 1,
+          "source": "A",
+          "status": "candidate",
+          "target": "B",
+          "weight": 1.0
+        }
+      ],
+      "metadata": {
+        "expected": "missing_verifier_support"
+      },
+      "nodes": [
+        "A",
+        "B"
+      ]
+    }
+  },
+  "lazy_universe_engine": {
+    "accepted_without_verifier_support_count": 0,
+    "all_gates_passed": true,
+    "ambient_voltage_claimed": false,
+    "answer": "Resolved zero-tension candidate for: Does A resolve to C?",
+    "artifact": "lazy_universe_engine_receipt",
+    "candidate_graph_contamination_count": 0,
+    "engine": "The_Lazy_Universe_Engine",
+    "gates": {
+      "interference_gate_ready": true,
+      "photonic_state_ledger_ready": true,
+      "resonance_shape_only": true,
+      "temporal_bridge_ready": true,
+      "typed_verifier_required": true,
+      "unified_field_boundary_preserved": true
+    },
+    "interference": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "ContradictionFirewall_as_interference_grating",
+      "artifact": "photonic_interference_gate",
+      "cancellation_ratio": 0.0,
+      "cancelled_amplitude": 0,
+      "case_id": "coherent_zero_tension",
+      "constructive_amplitude": 2.0,
+      "contradiction_detected": false,
+      "destructive_amplitude": 0,
+      "energy_estimate": {
+        "binary_cpu_cycles": 200,
+        "physical_zero_compute_claimed": false,
+        "simulated_interference_operations": 2
+      },
+      "reader_decision": "coherent_candidate",
+      "residual_tension": 0.0,
+      "verifier_required_for_acceptance": true
+    },
+    "literal_physics_solves_question_claimed": false,
+    "non_claims": [
+      "No literal photonic chip is driven by this implementation.",
+      "No physical retrocausality is claimed.",
+      "No telepathy or instant communication is claimed.",
+      "No zero-point energy source is claimed.",
+      "No generated output is accepted without typed verifier support."
+    ],
+    "operating_power_target_watts": 20,
+    "photonic": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Photonic_State_Ledger",
+      "artifact": "photonic_state_ledger",
+      "case_id": "coherent_zero_tension",
+      "entries": [
+        {
+          "amplitude": 1.0,
+          "frequency_thz": 437.83,
+          "phase_degrees": 0.0,
+          "proof_status": "accepted",
+          "relation": "support",
+          "source": "A",
+          "state_id": "freq_0001_support_ab",
+          "target": "B"
+        },
+        {
+          "amplitude": 1.0,
+          "frequency_thz": 445.33,
+          "phase_degrees": 0.0,
+          "proof_status": "accepted",
+          "relation": "support",
+          "source": "B",
+          "state_id": "freq_0002_support_bc",
+          "target": "C"
+        }
+      ],
+      "ledger_hash": "8e4f379328606f9a258f5e144fee5b894342a62d9728d44ff08f5390fb8d47f4",
+      "state_storage": "deterministic_frequency_slots",
+      "verifier_required_for_acceptance": true
+    },
+    "proof_boundary": "substrates_expose_tension_typed_verifier_decides",
+    "question": "Does A resolve to C?",
+    "resonance": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "answer_transmitted": false,
+      "architecture": "Spectral_Coupling_Telepathy",
+      "artifact": "spectral_coupling_telepathy",
+      "bandwidth_bytes": 64,
+      "baseline_harmonic_frequency": 1.0,
+      "constraint_shape": {
+        "case_id": "coherent_zero_tension",
+        "conflict_edges": 0,
+        "edge_count": 2,
+        "equilibrium": true,
+        "node_count": 3,
+        "support_edges": 2
+      },
+      "constraint_shape_hash": "3f99a91a1709a2af3b044b4e06ccfde171126e6512760b1726f25d4cd35b4a6f",
+      "telepathy_claimed": false,
+      "transmissions": [
+        {
+          "answer_packet_bytes": 0,
+          "matrix_hash_after": "6a96283c743b5cf03eba2c8c5bd3f6b43cfc01edd390752101378e64e3054ed4",
+          "matrix_hash_before": "6a96283c743b5cf03eba2c8c5bd3f6b43cfc01edd390752101378e64e3054ed4",
+          "shape_hash": "3f99a91a1709a2af3b044b4e06ccfde171126e6512760b1726f25d4cd35b4a6f",
+          "target_node": "node_london"
+        },
+        {
+          "answer_packet_bytes": 0,
+          "matrix_hash_after": "74a0c4c09e3e59f2560b17e600419f3e286d4ef47aeac0108eb1c62f193b8380",
+          "matrix_hash_before": "7fe55db294fc8a63052236f8a6fa8bb737b552f92c5f0ce4b811d28a1d454803",
+          "shape_hash": "3f99a91a1709a2af3b044b4e06ccfde171126e6512760b1726f25d4cd35b4a6f",
+          "target_node": "node_tokyo"
+        }
+      ],
+      "verifier_required_for_acceptance": true
+    },
+    "retrocausal": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Retrocausal_Fuzzer",
+      "artifact": "retrocausal_fuzzer",
+      "case_id": "coherent_zero_tension",
+      "future_memory_is_simulated": true,
+      "late_contradiction_case_count": 0,
+      "probability_updates_decreased_count": 0,
+      "temporal_bridge": {
+        "accepted_truth": false,
+        "accepted_without_verifier_support_count": 0,
+        "architecture": "Temporal_Tension_Bridge",
+        "artifact": "temporal_tension_bridge",
+        "assumption_updates": [
+          {
+            "assumption_id": "support_ab",
+            "posterior_probability": 0.8,
+            "prior_probability": 0.8,
+            "propagated_tension": 0.0,
+            "reason": "late_contradiction_tension_backpropagated"
+          },
+          {
+            "assumption_id": "support_bc",
+            "posterior_probability": 0.8,
+            "prior_probability": 0.8,
+            "propagated_tension": 0.0,
+            "reason": "late_contradiction_tension_backpropagated"
+          }
+        ],
+        "case_id": "coherent_zero_tension",
+        "contradiction_step": 4,
+        "ledger_head_hash": "d3b823ccfedc07a2b012af03b55fc4640aaea0caf59f4ac19999e3b837454012",
+        "propagated_tension": 0.0,
+        "tamper_evident_runtime_ledger": [
+          {
+            "event": "temporal_tension_update",
+            "event_hash": "e40b630d7da669f4799992966bd919661136226e2e301d27e926b1364259c0bf",
+            "event_index": 1,
+            "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "update": {
+              "assumption_id": "support_ab",
+              "posterior_probability": 0.8,
+              "prior_probability": 0.8,
+              "propagated_tension": 0.0,
+              "reason": "late_contradiction_tension_backpropagated"
+            }
+          },
+          {
+            "event": "temporal_tension_update",
+            "event_hash": "d3b823ccfedc07a2b012af03b55fc4640aaea0caf59f4ac19999e3b837454012",
+            "event_index": 2,
+            "previous_hash": "e40b630d7da669f4799992966bd919661136226e2e301d27e926b1364259c0bf",
+            "update": {
+              "assumption_id": "support_bc",
+              "posterior_probability": 0.8,
+              "prior_probability": 0.8,
+              "propagated_tension": 0.0,
+              "reason": "late_contradiction_tension_backpropagated"
+            }
+          }
+        ],
+        "time_agnostic_compute_claimed": false,
+        "verifier_required_for_acceptance": true
+      },
+      "verifier_required_for_acceptance": true
+    },
+    "unified_field": {
+      "accepted_truth": true,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Unified_Field_Kernel",
+      "artifact": "unified_field_kernel",
+      "block_reason": null,
+      "blocked_before_emission": false,
+      "candidate_text": "Resolved zero-tension candidate for: Does A resolve to C?",
+      "contradiction_detected": false,
+      "emitted": true,
+      "generation_and_verification_unified": true,
+      "photonic_ledger_hash": "8e4f379328606f9a258f5e144fee5b894342a62d9728d44ff08f5390fb8d47f4",
+      "question": "Does A resolve to C?",
+      "residual_tension": 0.0,
+      "typed_verifier_support_present": true,
+      "verifier_required_for_acceptance": true
+    }
+  },
+  "non_claims": [
+    "No literal photonic chip is driven by this implementation.",
+    "No physical retrocausality is claimed.",
+    "No telepathy or instant communication is claimed.",
+    "No zero-point energy source is claimed.",
+    "No generated output is accepted without typed verifier support."
+  ],
+  "photonic_interference_gate": {
+    "accepted_truth": false,
+    "accepted_without_verifier_support_count": 0,
+    "architecture": "ContradictionFirewall_as_interference_grating",
+    "artifact": "photonic_interference_gate",
+    "cancellation_ratio": 0.333333,
+    "cancelled_amplitude": 1.0,
+    "case_id": "late_contradiction",
+    "constructive_amplitude": 2.0,
+    "contradiction_detected": true,
+    "destructive_amplitude": 1.0,
+    "energy_estimate": {
+      "binary_cpu_cycles": 300,
+      "physical_zero_compute_claimed": false,
+      "simulated_interference_operations": 3
+    },
+    "reader_decision": "contradiction_candidate",
+    "residual_tension": 0.333333,
+    "verifier_required_for_acceptance": true
+  },
+  "photonic_state_ledger": {
+    "accepted_truth": false,
+    "accepted_without_verifier_support_count": 0,
+    "architecture": "Photonic_State_Ledger",
+    "artifact": "photonic_state_ledger",
+    "case_id": "late_contradiction",
+    "entries": [
+      {
+        "amplitude": 1.0,
+        "frequency_thz": 437.83,
+        "phase_degrees": 0.0,
+        "proof_status": "accepted",
+        "relation": "support",
+        "source": "A",
+        "state_id": "freq_0001_support_ab",
+        "target": "B"
+      },
+      {
+        "amplitude": 1.0,
+        "frequency_thz": 445.33,
+        "phase_degrees": 0.0,
+        "proof_status": "accepted",
+        "relation": "support",
+        "source": "B",
+        "state_id": "freq_0002_support_bc",
+        "target": "C"
+      },
+      {
+        "amplitude": 1.0,
+        "frequency_thz": 453.16,
+        "phase_degrees": 180.0,
+        "proof_status": "accepted",
+        "relation": "conflict",
+        "source": "A",
+        "state_id": "freq_0003_conflict_ac",
+        "target": "C"
+      }
+    ],
+    "ledger_hash": "1099ac0d792c274f5872baf1d2b01caa625b2f3aa9b33ca6fbac246cc653e1ce",
+    "state_storage": "deterministic_frequency_slots",
+    "verifier_required_for_acceptance": true
+  },
+  "proof_boundary": "substrates_expose_tension_typed_verifier_decides",
+  "question": "Does A resolve to C?",
+  "retrocausal_fuzzer": {
+    "accepted_truth": false,
+    "accepted_without_verifier_support_count": 0,
+    "architecture": "Retrocausal_Fuzzer",
+    "artifact": "retrocausal_fuzzer",
+    "case_id": "late_contradiction",
+    "future_memory_is_simulated": true,
+    "late_contradiction_case_count": 1,
+    "probability_updates_decreased_count": 3,
+    "temporal_bridge": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Temporal_Tension_Bridge",
+      "artifact": "temporal_tension_bridge",
+      "assumption_updates": [
+        {
+          "assumption_id": "conflict_ac",
+          "posterior_probability": 0.504167,
+          "prior_probability": 0.55,
+          "propagated_tension": 0.083333,
+          "reason": "late_contradiction_tension_backpropagated"
+        },
+        {
+          "assumption_id": "support_ab",
+          "posterior_probability": 0.711111,
+          "prior_probability": 0.8,
+          "propagated_tension": 0.111111,
+          "reason": "late_contradiction_tension_backpropagated"
+        },
+        {
+          "assumption_id": "support_bc",
+          "posterior_probability": 0.666667,
+          "prior_probability": 0.8,
+          "propagated_tension": 0.166666,
+          "reason": "late_contradiction_tension_backpropagated"
+        }
+      ],
+      "case_id": "late_contradiction",
+      "contradiction_step": 5,
+      "ledger_head_hash": "bc4c39b978661102a4811e007459f9fd80247a64d6b08c079138cd1d87fe40b9",
+      "propagated_tension": 0.333333,
+      "tamper_evident_runtime_ledger": [
+        {
+          "event": "temporal_tension_update",
+          "event_hash": "765d347919a8ca1fe1f976c30baa210f90fd1803016e4f4d46913974a61bf85d",
+          "event_index": 1,
+          "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "update": {
+            "assumption_id": "conflict_ac",
+            "posterior_probability": 0.504167,
+            "prior_probability": 0.55,
+            "propagated_tension": 0.083333,
+            "reason": "late_contradiction_tension_backpropagated"
+          }
+        },
+        {
+          "event": "temporal_tension_update",
+          "event_hash": "7935031f23fdaac71a42e1febbe062baae54cfc31bdaea921887fe63810dd845",
+          "event_index": 2,
+          "previous_hash": "765d347919a8ca1fe1f976c30baa210f90fd1803016e4f4d46913974a61bf85d",
+          "update": {
+            "assumption_id": "support_ab",
+            "posterior_probability": 0.711111,
+            "prior_probability": 0.8,
+            "propagated_tension": 0.111111,
+            "reason": "late_contradiction_tension_backpropagated"
+          }
+        },
+        {
+          "event": "temporal_tension_update",
+          "event_hash": "bc4c39b978661102a4811e007459f9fd80247a64d6b08c079138cd1d87fe40b9",
+          "event_index": 3,
+          "previous_hash": "7935031f23fdaac71a42e1febbe062baae54cfc31bdaea921887fe63810dd845",
+          "update": {
+            "assumption_id": "support_bc",
+            "posterior_probability": 0.666667,
+            "prior_probability": 0.8,
+            "propagated_tension": 0.166666,
+            "reason": "late_contradiction_tension_backpropagated"
+          }
+        }
+      ],
+      "time_agnostic_compute_claimed": false,
+      "verifier_required_for_acceptance": true
+    },
+    "verifier_required_for_acceptance": true
+  },
+  "spectral_coupling_telepathy": {
+    "accepted_truth": false,
+    "accepted_without_verifier_support_count": 0,
+    "answer_transmitted": false,
+    "architecture": "Spectral_Coupling_Telepathy",
+    "artifact": "spectral_coupling_telepathy",
+    "bandwidth_bytes": 64,
+    "baseline_harmonic_frequency": 1.0,
+    "constraint_shape": {
+      "case_id": "coherent_zero_tension",
+      "conflict_edges": 0,
+      "edge_count": 2,
+      "equilibrium": true,
+      "node_count": 3,
+      "support_edges": 2
+    },
+    "constraint_shape_hash": "3f99a91a1709a2af3b044b4e06ccfde171126e6512760b1726f25d4cd35b4a6f",
+    "telepathy_claimed": false,
+    "transmissions": [
+      {
+        "answer_packet_bytes": 0,
+        "matrix_hash_after": "6a96283c743b5cf03eba2c8c5bd3f6b43cfc01edd390752101378e64e3054ed4",
+        "matrix_hash_before": "6a96283c743b5cf03eba2c8c5bd3f6b43cfc01edd390752101378e64e3054ed4",
+        "shape_hash": "3f99a91a1709a2af3b044b4e06ccfde171126e6512760b1726f25d4cd35b4a6f",
+        "target_node": "node_london"
+      },
+      {
+        "answer_packet_bytes": 0,
+        "matrix_hash_after": "b2f84268a555a1c0819af6818bf376bd66fb1809fba31e7ab172845da3ae8ace",
+        "matrix_hash_before": "c2900b006e41342b1a17d07fe3f3681648dab217253a68c7ad16dda4836c0a95",
+        "shape_hash": "3f99a91a1709a2af3b044b4e06ccfde171126e6512760b1726f25d4cd35b4a6f",
+        "target_node": "node_tokyo"
+      }
+    ],
+    "verifier_required_for_acceptance": true
+  },
+  "unified_field_kernel": {
+    "coherent": {
+      "accepted_truth": true,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Unified_Field_Kernel",
+      "artifact": "unified_field_kernel",
+      "block_reason": null,
+      "blocked_before_emission": false,
+      "candidate_text": "Resolved zero-tension candidate for: Does A resolve to C?",
+      "contradiction_detected": false,
+      "emitted": true,
+      "generation_and_verification_unified": true,
+      "photonic_ledger_hash": "8e4f379328606f9a258f5e144fee5b894342a62d9728d44ff08f5390fb8d47f4",
+      "question": "Does A resolve to C?",
+      "residual_tension": 0.0,
+      "typed_verifier_support_present": true,
+      "verifier_required_for_acceptance": true
+    },
+    "contradiction": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Unified_Field_Kernel",
+      "artifact": "unified_field_kernel",
+      "block_reason": "non_zero_tension_or_missing_verifier_support",
+      "blocked_before_emission": true,
+      "candidate_text": "Resolved zero-tension candidate for: Does A resolve to C?",
+      "contradiction_detected": true,
+      "emitted": false,
+      "generation_and_verification_unified": true,
+      "photonic_ledger_hash": "1099ac0d792c274f5872baf1d2b01caa625b2f3aa9b33ca6fbac246cc653e1ce",
+      "question": "Does A resolve to C?",
+      "residual_tension": 0.333333,
+      "typed_verifier_support_present": true,
+      "verifier_required_for_acceptance": true
+    },
+    "unsupported": {
+      "accepted_truth": false,
+      "accepted_without_verifier_support_count": 0,
+      "architecture": "Unified_Field_Kernel",
+      "artifact": "unified_field_kernel",
+      "block_reason": "non_zero_tension_or_missing_verifier_support",
+      "blocked_before_emission": true,
+      "candidate_text": "Resolved zero-tension candidate for: Does A resolve to C?",
+      "contradiction_detected": false,
+      "emitted": false,
+      "generation_and_verification_unified": true,
+      "photonic_ledger_hash": "6c47bb4ee4b616c20ca4fd93efa742f9942545fbf8c13ef3d4a35bb0cd66fa6e",
+      "question": "Does A resolve to C?",
+      "residual_tension": 0.0,
+      "typed_verifier_support_present": false,
+      "verifier_required_for_acceptance": true
+    }
+  }
+}

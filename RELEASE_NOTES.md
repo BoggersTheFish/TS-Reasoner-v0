@@ -1,3 +1,44 @@
+## TS-OS Cognitive Physics Engine
+
+The Cognitive Physics Engine adds the requested long-range TS-OS roadmap layer
+as deterministic, verifier-first substrate simulators. It implements
+`Photonic_State_Ledger`, `Retrocausal_Fuzzer`,
+`Temporal_Tension_Bridge`, `Spectral_Coupling_Telepathy`,
+`Unified_Field_Kernel`, and `The_Lazy_Universe_Engine` without granting any
+substrate proof authority.
+
+Artifacts:
+
+- `ts_reasoner/cognitive_physics_engine.py`
+- `ts_metacompute/scheduler.py`
+- `scripts/evaluate_cognitive_physics_engine.py`
+- `tests/test_cognitive_physics_engine.py`
+- `docs/cognitive_physics_engine.md`
+- `docs/TS_METACOMPUTE_STACK.md`
+- `artifacts/cognitive_physics_engine_report.json`
+- `artifacts/cognitive_physics_engine_receipt.json`
+
+Gates:
+
+- Photonic state is encoded as deterministic frequency slots.
+- The interference gate detects destructive cancellation in the contradiction
+  case.
+- Temporal tension updates earlier assumption probabilities through a
+  tamper-evident event ledger.
+- Resonance telemetry shares constraint shape, not answer packets.
+- The unified field kernel emits only zero-tension verifier-supported state.
+- The lazy universe engine composes the full stack.
+- Accepted without verifier support remains zero.
+- Candidate graph contamination remains zero.
+
+Boundary:
+
+- No literal photonic chip is driven by this implementation.
+- No physical retrocausality is claimed.
+- No telepathy or instant communication is claimed.
+- No zero-point energy source is claimed.
+- No generated output is accepted without typed verifier support.
+
 ## v40.0.0: Self-Hosting Verifier-First Research OS
 
 v40.0.0 composes the v32-v39 roadmap into a bounded local research OS. It can
