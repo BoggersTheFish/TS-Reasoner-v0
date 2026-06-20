@@ -49,3 +49,6 @@ __all__ = [
     "run_tensionlm_export_jsonl",
     "train_residual_coupling_matrix",
 ]
+from .structured_request import ReasoningRequest, VerifierDecision, verify_reasoning_request
+
+__all__ = ["ReasoningRequest", "VerifierDecision", "verify_reasoning_request"]
