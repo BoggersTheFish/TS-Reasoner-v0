@@ -19,6 +19,18 @@ Substrates expose tension. Models propose. TS verifies.
 Confidence is not proof. Typed verifier support is the proof boundary.
 ```
 
+## Structured language request boundary
+
+`ts_reasoner.structured_request` exposes the bounded `ReasoningRequest` contract used by the verifier-first TSLC vertical slice. It accepts provenance-bearing entities, claims, relations, constraints, and ambiguities and returns exactly `ACCEPT`, `REPAIR`, or `REJECT` through `VerifierDecision`.
+
+```python
+from ts_reasoner.structured_request import verify_reasoning_request
+
+decision = verify_reasoning_request(request)
+```
+
+The structured verifier supports the documented relational, Boolean, ambiguity, unsupported-inference, and small planning cases only. It is deterministic, uses no external model, and does not treat user premises as verified real-world facts.
+
 ## Current System
 
 The current public system is the v40 self-hosting verifier-first research OS
