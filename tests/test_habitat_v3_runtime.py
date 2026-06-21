@@ -2,8 +2,8 @@ import unittest
 
 from ts_reasoner.agent_control import Goal, GoalStatus, GoalStore, goal_id
 from ts_reasoner.agent_runtime import (
-    AgentLimits, AgentState, Effect, EnvironmentEvent, EnvironmentSnapshot,
-    HabitatAgentLoop, SymbolicEnvironment, schedule_agents,
+    ActionProposal, AgentLimits, AgentState, Effect, EnvironmentEvent, EnvironmentSnapshot,
+    HabitatAgentLoop, HabitatV3Verifier, Precondition, SymbolicEnvironment, TrustedWorld, schedule_agents,
 )
 from ts_reasoner.habitat import WorldFact
 from ts_reasoner.topology import Connection, ConnectionEvidence, ConnectionStatus, connection_id
@@ -80,6 +80,24 @@ class HabitatV3RuntimeTests(unittest.TestCase):
             stores.propose(goal); stores.transition(goal.goal_id, GoalStatus.ACTIVE, turn=1)
         agents = (AgentState("bob", "Bob"), AgentState("alice", "Alice"))
         self.assertEqual([x.agent_id for x in schedule_agents(stores, {}, agents)], ["alice", "bob"])
+
+    def test_competing_goals_are_preserved_and_conflicted(self):
+        stores=GoalStore()
+        for owner,polarity in (("alice","negative"),("bob","positive")):
+            goal=Goal(goal_id(owner,"open","north_door",polarity=polarity),owner,"state_goal","open","north_door",desired_polarity=polarity,status=GoalStatus.PROPOSED,created_turn=1,updated_turn=1,source_ids=(owner,))
+            stores.propose(goal);stores.transition(goal.goal_id,GoalStatus.ACTIVE,turn=1)
+        loop=HabitatAgentLoop(SymbolicEnvironment(base_snapshot()),stores)
+        self.assertEqual(loop.run_bounded(2),"BLOCKED")
+        self.assertTrue(all(goal.status==GoalStatus.CONFLICTED for goal in stores.goals.values()))
+
+    def test_unauthorized_take_is_rejected(self):
+        snapshot=base_snapshot();snapshot=EnvironmentSnapshot((*snapshot.facts,fact("owned","alice","owns","red_key")),snapshot.topology,snapshot.agents,0,(),())
+        env=SymbolicEnvironment(snapshot);world=TrustedWorld();world.install_observation(env.observe(),limits=AgentLimits())
+        stores=goal_store(owner="bob");goal=next(iter(stores.goals.values()))
+        proposal=ActionProposal("take","take","bob",object_id="red_key",source_location_id="kitchen",preconditions=(Precondition("bob","at","kitchen"),Precondition("red_key","inside","box")),expected_effects=(Effect("bob","carries","red_key"),),support_ids=("owned",))
+        verified,checks,reason=HabitatV3Verifier().verify_action(proposal,world,goal)
+        self.assertIsNone(verified)
+        self.assertTrue(any(row.get("check_id")=="ownership_permission" and not row["passed"] for row in checks))
 
     def test_lessons_are_inert_until_verified_approval(self):
         loop = HabitatAgentLoop(SymbolicEnvironment(base_snapshot(mismatch=("take",))), goal_store(), limits=AgentLimits(max_loop_iterations=4))

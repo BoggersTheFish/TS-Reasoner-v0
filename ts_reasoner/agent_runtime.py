@@ -293,6 +293,14 @@ class SymbolicEnvironment:
         return canonical_hash({"facts": [asdict(item) for item in sorted(self.facts, key=lambda x:x.semantic_id)], "topology": self.topology.to_dict(), "agents": [asdict(value) for _, value in sorted(self.agents.items())], "step": self.step})
 
     def observe(self) -> EnvironmentObservation:
+        signed=project_signed_state(self.facts)
+        derived_agents={}
+        for agent_id,current in self.agents.items():
+            location=next((item.object_id for item in signed.values() if item.subject_id==agent_id and item.predicate=="at" and item.status==SUPPORTED_TRUE),current.current_location_id)
+            carried=tuple(sorted(item.object_id for item in signed.values() if item.subject_id==agent_id and item.predicate=="carries" and item.status==SUPPORTED_TRUE))
+            owned=tuple(sorted(item.object_id for item in signed.values() if item.subject_id==agent_id and item.predicate=="owns" and item.status==SUPPORTED_TRUE))
+            derived_agents[agent_id]=replace(current,current_location_id=location,carried_object_ids=carried,owned_object_ids=owned)
+        self.agents=derived_agents
         state_hash = self._state_hash()
         return EnvironmentObservation("observation:" + canonical_hash({"state": state_hash, "step": self.step})[:20], tuple(sorted(self.facts, key=lambda item:item.semantic_id)), tuple(self.topology.connections[key] for key in sorted(self.topology.connections)), tuple(self.agents[key] for key in sorted(self.agents)), self.step, ("environment:snapshot",), state_hash)
 
@@ -351,11 +359,20 @@ class HabitatV3Verifier:
         checks=[];supports=set(proposal.support_ids)
         if proposal.action_type not in self.ACTION_TYPES:
             return None,(),"UNSUPPORTED_ACTION_TYPE"
+        schema_ok,schema_reason=self._schema_valid(proposal)
+        checks.append({"check_id":"action_schema_valid","passed":schema_ok,"reason":schema_reason,"support_ids":()})
+        if not schema_ok:return None,tuple(checks),schema_reason
         if goal.status!=GoalStatus.ACTIVE:
             return None,(),"GOAL_CHANGED"
         for pre in proposal.preconditions:
             passed,ids,status=world.support_for(pre);supports.update(ids)
             checks.append({"proposition_id":pre.proposition_id,"expected":pre.expected_status,"observed":status,"passed":passed,"support_ids":ids})
+        if proposal.action_type=="take":
+            owner=next((item.subject_id for item in world.signed_state.values() if item.predicate=="owns" and item.object_id==proposal.object_id and item.status==SUPPORTED_TRUE and item.subject_id!=proposal.actor_id),"")
+            if owner:
+                permission=world.signed_state.get(proposition_key(owner,"allows_use",proposal.actor_id+"@"+proposal.object_id))
+                allowed=bool(permission and permission.status==SUPPORTED_TRUE);ids=permission.positive_support_ids if permission else ()
+                checks.append({"check_id":"ownership_permission","passed":allowed,"owner_id":owner,"support_ids":ids});supports.update(ids)
         if proposal.action_type=="move":
             allowed,edge,reason=world.topology.traversable(proposal.source_location_id,proposal.destination_location_id,supported_conditions=world.signed_state)
             checks.append({"check_id":"connection_traversable","passed":allowed,"reason":reason,"support_ids":tuple(edge.source_ids if edge else ())})
@@ -367,6 +384,22 @@ class HabitatV3Verifier:
         payload={"action":asdict(proposal),"state":world.hash,"goal":goal.goal_id,"checks":checks,"support":sorted(supports)}
         verified=VerifiedAction(proposal,"action_authorization:"+canonical_hash(payload)[:20],world.hash,tuple(checks),tuple(sorted(supports)))
         return verified,tuple(checks),"AUTHORIZED"
+
+    def _schema_valid(self,proposal:ActionProposal)->tuple[bool,str]:
+        effects={(x.subject_id,x.predicate,x.object_id,x.polarity) for x in proposal.expected_effects}
+        required={
+            "move":(proposal.source_location_id and proposal.destination_location_id,(proposal.actor_id,"at",proposal.destination_location_id,"positive")),
+            "take":(proposal.object_id,(proposal.actor_id,"carries",proposal.object_id,"positive")),
+            "put":(proposal.object_id and proposal.target_id,(proposal.object_id,"inside",proposal.target_id,"positive")),
+            "give":(proposal.object_id and proposal.recipient_id,(proposal.recipient_id,"owns",proposal.object_id,"positive")),
+            "open":(proposal.target_id,(proposal.target_id,"open","","positive")),
+            "close":(proposal.target_id,(proposal.target_id,"open","","negative")),
+            "lock":(proposal.target_id,(proposal.target_id,"locked","","positive")),
+            "unlock":(proposal.target_id and proposal.object_id,(proposal.target_id,"locked","","negative")),
+            "activate":(proposal.target_id,(proposal.target_id,"active","","positive")),
+            "deactivate":(proposal.target_id,(proposal.target_id,"active","","negative")),
+        }[proposal.action_type]
+        return (True,"ACTION_SCHEMA_VERIFIED") if bool(required[0]) and required[1] in effects and proposal.cost>=1 else (False,"ACTION_SCHEMA_MISMATCH")
 
     def verify_effects(self, action: VerifiedAction, result: ExecutionResult) -> dict[str, Any]:
         expected=tuple(sorted((x.subject_id,x.predicate,x.object_id,x.polarity) for x in action.proposal.expected_effects))
@@ -539,12 +572,16 @@ class HabitatAgentLoop:
         if not verification["approved"]:
             self.run.outcome="ERROR";self._step_receipt(LoopPhase.UPDATE_WORLD,"OBSERVATION_REJECTED");self._finish_replay();return self.run.outcome
         self.world.install_observation(observation,limits=self.limits);self._step_receipt(LoopPhase.UPDATE_WORLD,"VERIFIED_OBSERVATION_COMMITTED",pre_hash=pre,post_hash=self.world.hash,support=observation.source_ids)
+        conflicts=self._detect_goal_conflicts()
+        if conflicts:
+            self._step_receipt(LoopPhase.EVALUATE_GOALS,"COMPETING_GOALS_CONFLICTED",support=conflicts)
         evaluations=self.goals.evaluate(self.world.signed_state,turn=self.iterations);self._step_receipt(LoopPhase.EVALUATE_GOALS,"GOALS_EVALUATED",support=(sid for item in evaluations for sid in item.support_ids))
         for goal in self.goals.goals.values():
             if goal.status==GoalStatus.ACTIVE:self.tension.update("unsatisfied_goal",goal.goal_id,step=self.iterations,targets=(goal.proposition_id,),resolution_condition=goal.proposition_id+" supported")
             elif goal.status in {GoalStatus.SATISFIED,GoalStatus.ABANDONED}:self.tension.update("unsatisfied_goal",goal.goal_id,step=self.iterations,resolved=True)
         tier=self.tension.compute_tier();self._step_receipt(LoopPhase.COMPUTE_TENSION,"COMPUTE_TIER_"+tier.name)
-        selected,selection=self.goals.select(self.tension.goal_scores());self.run.selected_goal_id=selected.goal_id if selected else "";self._step_receipt(LoopPhase.SELECT_GOAL,"SELECTED" if selected else "NO_ACTIVE_GOAL",goal=selected)
+        scores=self.tension.goal_scores();scheduled=schedule_agents(self.goals,scores,self.world.agents.values())
+        selected,selection=self.goals.select(scores,owner_agent_id=scheduled[0].agent_id if scheduled else None);self.run.selected_goal_id=selected.goal_id if selected else "";self._step_receipt(LoopPhase.SELECT_GOAL,"SELECTED" if selected else "NO_ACTIVE_GOAL",goal=selected)
         if not selected:
             active_terminal=[g for g in self.goals.goals.values() if g.status==GoalStatus.SATISFIED]
             self.run.outcome="COMPLETE" if active_terminal else "BLOCKED";self._step_receipt(LoopPhase.COMPLETE if active_terminal else LoopPhase.BLOCKED,self.run.outcome);self._finish_replay();return self.run.outcome
@@ -608,6 +645,16 @@ class HabitatAgentLoop:
             if {edge.source_location_id,edge.destination_location_id}&seeds:items.append(edge.connection_id)
             if len(items)>=self.limits.max_active_cluster_items:break
         return tuple(sorted(set(items)))
+
+    def _detect_goal_conflicts(self)->tuple[str,...]:
+        groups={};receipts=[]
+        for goal in self.goals.goals.values():
+            if goal.status==GoalStatus.ACTIVE:groups.setdefault(goal.proposition_id,[]).append(goal)
+        for goals in groups.values():
+            if {goal.desired_polarity for goal in goals}!={"positive","negative"}:continue
+            for goal in sorted(goals,key=lambda item:item.goal_id):
+                verification=self.goals.transition(goal.goal_id,GoalStatus.CONFLICTED,turn=self.iterations,support_ids=tuple(other.goal_id for other in goals if other.goal_id!=goal.goal_id));receipts.append(verification.verification_id);self.tension.update("competing_goal",goal.goal_id,step=self.iterations,targets=(goal.proposition_id,))
+        return tuple(receipts)
 
     def _stale_cause(self,plan:VerifiedPlan,action:ActionProposal,goal:Goal)->str:
         if goal.status!=GoalStatus.ACTIVE:return "GOAL_CHANGED"
