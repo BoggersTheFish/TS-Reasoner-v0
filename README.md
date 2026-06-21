@@ -1,5 +1,11 @@
 # TS-Reasoner-v0
 
+## Habitat v3 verifier-first agent runtime
+
+The additive `ts_reasoner.agent_runtime`, `agent_control`, and `topology` modules provide a bounded symbolic agent loop over the preserved Habitat v2 signed-state verifier. Plans remain proposals; actions require immediate signed/topology/permission verification; environment effects are observed and matched before transactional world commit. Persistent goals, deterministic tension, stale-plan replanning, receipt-grounded reflection, approved lessons and serialized multi-agent scheduling remain under verifier authority.
+
+Habitat v3 is deterministic, model-free, simulated and bounded. It has no external model, network knowledge, real-world actuation, generated code or self-modifying policy.
+
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
 [![Runtime](https://img.shields.io/badge/runtime-stdlib_only-brightgreen)](requirements.txt)
 [![CI](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml/badge.svg)](https://github.com/BoggersTheFish/TS-Reasoner-v0/actions/workflows/tests.yml)
