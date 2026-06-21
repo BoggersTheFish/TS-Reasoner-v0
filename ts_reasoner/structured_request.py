@@ -78,6 +78,7 @@ class ReasoningRequest:
     requested_output: str = "response"
     bridge_warnings: tuple[str, ...] = ()
     repair_actions: tuple[str, ...] = ()
+    habitat: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -107,6 +108,8 @@ class StructuredAnswer:
     claim: str = ""
     clarification: str = ""
     support_ids: tuple[str, ...] = ()
+    signed_status: str = ""
+    plan_steps: tuple[dict[str, Any], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -122,6 +125,10 @@ class VerifierDecision:
     repair_actions: tuple[str, ...] = ()
     repair_result: str | None = None
     approved_memory_ids: tuple[str, ...] = ()
+    decision_subtype: str = ""
+    signed_world_state: dict[str, Any] = field(default_factory=dict)
+    causal_derivations: tuple[dict[str, Any], ...] = ()
+    planning: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -152,6 +159,9 @@ class StructuredRequestVerifier:
         if any(warning.startswith("BLOCKING:") for warning in request.bridge_warnings):
             checks.append(VerifierCheck("bridge_complete", False, "Bridge reported information loss."))
             return self._reject(request, checks, "bridge_information_loss")
+
+        if request.habitat is not None:
+            return self._verify_habitat(request, checks)
 
         contradictions = self._contradictions(request)
         if contradictions:
@@ -192,6 +202,42 @@ class StructuredRequestVerifier:
             repair_actions=request.repair_actions,
             repair_result="REPAIR_ACCEPTED" if repair else None,
             approved_memory_ids=tuple(approved),
+            decision_subtype="PREMISE_RECORDED" if answer.answer_type == "recorded" else "CONCLUSION_VERIFIED",
+        )
+
+    def _verify_habitat(self, request, checks):
+        from .habitat import evaluate_habitat, project_signed_state, WorldFact
+
+        outcome = evaluate_habitat(request.habitat or {})
+        checks.extend(VerifierCheck(str(item["check_id"]), bool(item["passed"]), str(item["message"]), tuple(item.get("support_ids", ()))) for item in outcome.checks)
+        known_support = {
+            str(item["semantic_id"])
+            for item in (request.habitat or {}).get("facts", ())
+        } | {
+            str(item["semantic_id"])
+            for item in (request.habitat or {}).get("rules", ())
+        } | {item.derived_id for item in outcome.derivations} | {
+            sid for step in (outcome.planning.chosen_plan if outcome.planning else ()) for sid in step.support_ids
+        }
+        if outcome.decision == "ACCEPT" and (not outcome.support_ids or not set(outcome.support_ids) <= known_support):
+            checks.append(VerifierCheck("habitat_support_closed", False, "Affirmative Habitat output referenced missing support."))
+            return self._reject(request, checks, "habitat_support_violation", unsupported=(outcome.subject,))
+        if outcome.decision == "ACCEPT":
+            checks.append(VerifierCheck("renderer_support_available", True, "Approved structured answer has support IDs.", outcome.support_ids))
+        answer = StructuredAnswer(
+            outcome.answer_type, outcome.subject, outcome.predicate, outcome.object_id,
+            claim=" ".join(x for x in (outcome.subject, outcome.predicate, outcome.object_id) if x),
+            support_ids=outcome.support_ids, signed_status=outcome.signed_status,
+            plan_steps=tuple(asdict(step) for step in outcome.planning.chosen_plan) if outcome.planning else (),
+        )
+        projected = project_signed_state(WorldFact.from_dict(item) for item in (request.habitat or {}).get("facts", ()))
+        return VerifierDecision(
+            outcome.decision, outcome.reason, tuple(checks), answer,
+            unsupported_claims=outcome.unsupported, contradictions=outcome.contradictions,
+            decision_subtype=outcome.subtype,
+            signed_world_state={key: asdict(value) for key, value in sorted(projected.items())},
+            causal_derivations=tuple(asdict(item) for item in outcome.derivations),
+            planning=asdict(outcome.planning) if outcome.planning else {},
         )
 
     def _reject(self, request, checks, reason, *, unsupported=(), contradictions=()) -> VerifierDecision:
