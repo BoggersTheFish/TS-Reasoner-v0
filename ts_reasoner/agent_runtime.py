@@ -556,7 +556,7 @@ class HabitatAgentLoop:
         if self.stop_requested:return "STOP_REQUESTED"
         if self.iterations>=self.limits.max_loop_iterations:return "MAX_LOOP_ITERATIONS"
         if self.actions_executed>=self.limits.max_action_executions:return "MAX_ACTION_EXECUTIONS"
-        if self.replans>self.limits.max_replans:return "MAX_REPLANS"
+        if self.replans and self.replans>=self.limits.max_replans:return "MAX_REPLANS"
         if monotonic()-self.started>=self.limits.max_wall_clock_duration:return "MAX_WALL_CLOCK_DURATION"
         return ""
 
@@ -602,7 +602,10 @@ class HabitatAgentLoop:
                 self.run.outcome="BLOCKED";self.goals.transition(selected.goal_id,GoalStatus.BLOCKED,turn=self.iterations);self._finish_replay();return self.run.outcome
             plan=replace(plan,verification_id="plan_verification:"+canonical_hash(checks)[:20]);self.current_plan=plan;self.run.plans.append(plan);self.plans_created+=1;self.plan_index=0
         action=self.current_plan.actions[self.plan_index];self._step_receipt(LoopPhase.PROPOSE_ACTION,"ACTION_PROPOSED",goal=selected,action=action,support=action.support_ids)
-        verified,checks,reason=self.verifier.verify_action(action,self.world,selected);self._step_receipt(LoopPhase.VERIFY_ACTION_PRECONDITIONS,reason,goal=selected,action=action,support=action.support_ids)
+        verified,checks,reason=self.verifier.verify_action(action,self.world,selected)
+        applied_policies=tuple(sorted(lesson.lesson_id for lesson in self.run.lessons.values() if lesson.status=="APPROVED"))
+        policy_note=(";APPROVED_POLICY_APPLIED:"+",".join(applied_policies)) if verified and applied_policies else ""
+        self._step_receipt(LoopPhase.VERIFY_ACTION_PRECONDITIONS,reason+policy_note,goal=selected,action=action,support=action.support_ids)
         if not verified:
             self._invalidate("PRECONDITION_LOST",selected);return "REPLAN"
         pre_hash=self.world.hash;result=self.environment.execute(verified);self.actions_executed+=1;self.run.environment_events.extend(result.environment_event_receipts);self._step_receipt(LoopPhase.EXECUTE_ACTION,"ENVIRONMENT_EXECUTED" if result.success else "ACTION_FAILED",goal=selected,action=action,pre_hash=pre_hash,post_hash=pre_hash)
@@ -660,7 +663,9 @@ class HabitatAgentLoop:
         if goal.status!=GoalStatus.ACTIVE:return "GOAL_CHANGED"
         for pre in action.preconditions:
             passed,_,status=self.world.support_for(pre)
-            if not passed:return "CONFLICT_INTRODUCED" if status==CONFLICTED else "OBJECT_MOVED" if pre.predicate in {"at","inside"} and pre.subject_id!=action.actor_id else "OWNERSHIP_CHANGED" if pre.predicate=="owns" else "PRECONDITION_LOST"
+            if not passed:
+                if any(row.get("actor_id") and row.get("actor_id")!=goal.owner_agent_id for row in self.run.environment_events[-4:]):return "AGENT_INTERFERENCE"
+                return "CONFLICT_INTRODUCED" if status==CONFLICTED else "OBJECT_MOVED" if pre.predicate in {"at","inside"} and pre.subject_id!=action.actor_id else "OWNERSHIP_CHANGED" if pre.predicate=="owns" else "PRECONDITION_LOST"
         if action.action_type=="move" and not self.world.topology.traversable(action.source_location_id,action.destination_location_id,supported_conditions=self.world.signed_state)[0]:return "ROUTE_BLOCKED"
         return ""
 

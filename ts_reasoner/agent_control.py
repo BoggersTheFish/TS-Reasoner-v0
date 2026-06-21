@@ -130,6 +130,11 @@ class GoalStore:
             self.goals[goal_id_value] = replace(goal, status=status, updated_turn=turn, resolution_support_ids=supports)
         return self._record(goal.goal_id, "transition", goal.status.value, status.value, approved, reason, supports)
 
+    def set_priority(self, goal_id_value: str, priority: int, *, turn: int, source_ids: Iterable[str] = ()) -> GoalVerification:
+        goal=self.goals[goal_id_value];approved=0<=priority<=1000 and goal.status not in {GoalStatus.SATISFIED,GoalStatus.UNREACHABLE,GoalStatus.ABANDONED}
+        if approved:self.goals[goal_id_value]=replace(goal,priority=priority,updated_turn=turn)
+        return self._record(goal_id_value,"priority",str(goal.priority),str(priority),approved,"GOAL_PRIORITY_VERIFIED" if approved else "GOAL_PRIORITY_REJECTED",source_ids)
+
     def evaluate(self, signed_state: Mapping[str, SignedProposition], *, turn: int) -> tuple[GoalVerification, ...]:
         results: list[GoalVerification] = []
         for goal in sorted(self.goals.values(), key=lambda item: item.goal_id):

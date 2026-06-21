@@ -53,6 +53,12 @@ class HabitatV3AgentControlTests(unittest.TestCase):
         manager.update("failed_action", "action:a", step=2)
         self.assertEqual(manager.compute_tier().name, "HIGH")
 
+    def test_priority_change_is_verifier_gated(self):
+        store=GoalStore();goal=self.make_goal();store.propose(goal);store.transition(goal.goal_id,GoalStatus.ACTIVE,turn=1)
+        self.assertTrue(store.set_priority(goal.goal_id,500,turn=2,source_ids=("command",)).approved)
+        self.assertFalse(store.set_priority(goal.goal_id,5000,turn=3).approved)
+        self.assertEqual(store.goals[goal.goal_id].priority,500)
+
 
 if __name__ == "__main__":
     unittest.main()
