@@ -82,6 +82,24 @@ class PreconditionCheck:
 
 
 @dataclass(frozen=True)
+class ActionSchema:
+    action_type: str
+    parameters: tuple[str, ...]
+    preconditions: tuple[str, ...]
+    effects: tuple[str, ...]
+    cost: int = 1
+
+
+HABITAT_ACTION_SCHEMAS = (
+    ActionSchema("move",("actor","source","destination"),("actor_at_source",),("actor_at_destination","not_actor_at_source")),
+    ActionSchema("take",("actor","object","location"),("actor_and_object_colocated","object_available"),("actor_carries_object",)),
+    ActionSchema("unlock",("actor","target","key"),("target_locked","actor_carries_compatible_key"),("target_not_locked",)),
+    ActionSchema("open",("actor","target"),("target_unlocked","actor_at_target"),("target_open",)),
+    ActionSchema("give",("giver","object","recipient"),("giver_owns_object",),("recipient_owns_object","giver_not_owner")),
+)
+
+
+@dataclass(frozen=True)
 class PlanStep:
     step_index: int
     action: str

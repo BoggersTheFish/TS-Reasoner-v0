@@ -2,7 +2,7 @@ import unittest
 
 from ts_reasoner.habitat import (
     CONFLICTED, SUPPORTED_FALSE, SUPPORTED_TRUE, UNKNOWN,
-    CausalRule, WorldFact, causal_closure, evaluate_habitat, project_signed_state,
+    HABITAT_ACTION_SCHEMAS, CausalRule, WorldFact, causal_closure, evaluate_habitat, project_signed_state,
 )
 from ts_reasoner.structured_request import ReasoningRequest, verify_reasoning_request
 
@@ -12,6 +12,9 @@ def fact(identity, subject, predicate, object_id="", polarity="positive"):
 
 
 class HabitatV2ReasonerTests(unittest.TestCase):
+    def test_required_action_schema_contract_is_explicit(self):
+        self.assertEqual([item.action_type for item in HABITAT_ACTION_SCHEMAS],["move","take","unlock","open","give"])
+        self.assertTrue(all(item.preconditions and item.effects and item.cost==1 for item in HABITAT_ACTION_SCHEMAS))
     def test_four_valued_projection(self):
         true=project_signed_state([WorldFact.from_dict(fact("p","door","open"))])
         false=project_signed_state([WorldFact.from_dict(fact("n","door","locked",polarity="negative"))])
