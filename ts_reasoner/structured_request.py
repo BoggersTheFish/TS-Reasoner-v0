@@ -238,6 +238,7 @@ class StructuredRequestVerifier:
             signed_world_state={key: asdict(value) for key, value in sorted(projected.items())},
             causal_derivations=tuple(asdict(item) for item in outcome.derivations),
             planning=asdict(outcome.planning) if outcome.planning else {},
+            approved_memory_ids=outcome.approved_memory_ids,
         )
 
     def _reject(self, request, checks, reason, *, unsupported=(), contradictions=()) -> VerifierDecision:

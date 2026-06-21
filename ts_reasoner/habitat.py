@@ -119,6 +119,7 @@ class HabitatOutcome:
     unsupported: tuple[str, ...] = ()
     derivations: tuple[CausalDerivation, ...] = ()
     planning: PlanReceipt | None = None
+    approved_memory_ids: tuple[str, ...] = ()
 
 
 def project_signed_state(facts: Iterable[WorldFact]) -> dict[str, SignedProposition]:
@@ -239,12 +240,44 @@ def evaluate_habitat(payload: dict[str, Any]) -> HabitatOutcome:
     query = payload.get("query", {})
     state, derivations = causal_closure(facts, rules, max_depth=int(payload.get("max_inference_depth", 4)), max_derived=int(payload.get("max_derived_facts", 64)))
     intent = str(query.get("kind", "state"))
+    memory_candidates=tuple(sorted(set(map(str,payload.get("memory_candidate_ids",())))))
+    if intent == "record":
+        checks=[]
+        precondition_state=project_signed_state(item for item in facts if item.origin != "event_effect")
+        for event in payload.get("events", ()):
+            for precondition in event.get("preconditions", ()):
+                key=proposition_key(str(precondition["subject_id"]),str(precondition["predicate"]),str(precondition.get("object_id","")))
+                observed=signed_status(precondition_state,key)
+                expected=SUPPORTED_TRUE if precondition.get("polarity","positive")=="positive" else SUPPORTED_FALSE
+                passed=observed.status==expected
+                checks.append({"check_id":"event_precondition_supported","passed":passed,"message":f"Event precondition {key} is {observed.status}.","support_ids":observed.positive_support_ids if expected==SUPPORTED_TRUE else observed.negative_support_ids})
+                if not passed:
+                    return HabitatOutcome("REJECT","REJECT_UNSUPPORTED","event_precondition_failed","rejection",unsupported=(key,),checks=tuple(checks))
+        supports=tuple(sorted({item.semantic_id for item in facts}|{item.semantic_id for item in rules}))
+        if not supports:
+            return HabitatOutcome("REJECT","REJECT_UNSUPPORTED","unsupported_input","rejection",unsupported=("representable habitat premise",))
+        checks.append({"check_id":"premises_representable","passed":True,"message":"Habitat premises and effects are structurally representable.","support_ids":supports})
+        return HabitatOutcome("ACCEPT","PREMISE_RECORDED","verified_support","recorded",support_ids=supports,checks=tuple(checks),approved_memory_ids=memory_candidates or supports)
     if intent == "plan":
         plan = _plan(payload, facts, max_depth=int(payload.get("max_plan_depth", 8)))
         if plan is None:
             return HabitatOutcome("REJECT","REJECT_UNREACHABLE","unreachable","rejection",unsupported=(proposition_key(str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id",""))),),checks=({"check_id":"verified_plan_exists","passed":False,"message":"No bounded plan satisfies every precondition.","support_ids":()},))
         supports=tuple(sorted(set(sid for step in plan.chosen_plan for sid in step.support_ids)))
-        return HabitatOutcome("ACCEPT","PLAN_VERIFIED","verified_support","plan",str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),support_ids=supports,checks=({"check_id":"verified_plan_exists","passed":True,"message":"Every plan step has verified preconditions and declared effects.","support_ids":supports},),planning=plan)
+        return HabitatOutcome("ACCEPT","PLAN_VERIFIED","verified_support","plan",str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),support_ids=supports,checks=({"check_id":"verified_plan_exists","passed":True,"message":"Every plan step has verified preconditions and declared effects.","support_ids":supports},),planning=plan,approved_memory_ids=memory_candidates)
+    if intent == "owner":
+        candidates=sorted((item for item in state.values() if item.predicate=="owns" and item.object_id==str(query.get("object_id","")) and item.status==SUPPORTED_TRUE),key=lambda item:item.subject_id)
+        if len(candidates)==1:
+            item=candidates[0]
+            return HabitatOutcome("ACCEPT","CONCLUSION_VERIFIED","verified_support","owner",item.subject_id,"owns",item.object_id,item.status,item.positive_support_ids,({"check_id":"direct_relation_supported","passed":True,"message":"One active owner is supported.","support_ids":item.positive_support_ids},),derivations=derivations,approved_memory_ids=memory_candidates)
+        return HabitatOutcome("REJECT","REJECT_CONFLICTED" if len(candidates)>1 else "REJECT_UNSUPPORTED","conflicted" if len(candidates)>1 else "unknown","conflict" if len(candidates)>1 else "unknown",object_id=str(query.get("object_id","")),signed_status=CONFLICTED if len(candidates)>1 else UNKNOWN,contradictions=("multiple active owners",) if len(candidates)>1 else (),unsupported=("unique active owner",) if not candidates else ())
+    if intent == "location":
+        subject=str(query.get("subject_id","")); direct=sorted((item for item in state.values() if item.subject_id==subject and item.predicate in {"inside","at"} and item.status==SUPPORTED_TRUE),key=lambda item:(item.predicate,item.object_id))
+        if direct:
+            first=direct[0]; support=list(first.positive_support_ids); container_location=next((item for item in state.values() if item.subject_id==first.object_id and item.predicate=="at" and item.status==SUPPORTED_TRUE),None)
+            if container_location:support.extend(container_location.positive_support_ids)
+            object_id=first.object_id+("@"+container_location.object_id if container_location else "")
+            return HabitatOutcome("ACCEPT","CONCLUSION_VERIFIED","verified_support","location",subject,first.predicate,object_id,SUPPORTED_TRUE,tuple(sorted(set(support))),({"check_id":"containment_chain_supported","passed":True,"message":"Declared containment and location links support the answer.","support_ids":tuple(sorted(set(support)))},),derivations=derivations,approved_memory_ids=memory_candidates)
+        return HabitatOutcome("REJECT","REJECT_UNSUPPORTED","unknown","unknown",subject,"inside","",UNKNOWN,unsupported=(f"location of {subject}",))
     key = proposition_key(str(query.get("subject_id", "")), str(query.get("predicate", "")), str(query.get("object_id", "")))
     result = signed_status(state, key)
     expected_negative = str(query.get("polarity", "positive")) == "negative"
@@ -253,10 +286,10 @@ def evaluate_habitat(payload: dict[str, Any]) -> HabitatOutcome:
     if effective == SUPPORTED_TRUE:
         direct = not any(sid.startswith("derived_") for sid in supports)
         check_id = "direct_relation_supported" if intent in {"relation","owner","location"} else "boolean_rule_supported" if derivations else "signed_state_supported"
-        return HabitatOutcome("ACCEPT","CONCLUSION_VERIFIED","verified_support",intent,str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),result.status,tuple(sorted(set(supports))),({"check_id":check_id,"passed":True,"message":"Direct signed evidence supports the query." if direct else "Bounded causal derivation supports the query.","support_ids":tuple(sorted(set(supports)))},),derivations=derivations)
+        return HabitatOutcome("ACCEPT","CONCLUSION_VERIFIED","verified_support",intent,str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),result.status,tuple(sorted(set(supports))),({"check_id":check_id,"passed":True,"message":"Direct signed evidence supports the query." if direct else "Bounded causal derivation supports the query.","support_ids":tuple(sorted(set(supports)))},),derivations=derivations,approved_memory_ids=memory_candidates)
     if effective == SUPPORTED_FALSE:
         supports = result.positive_support_ids if expected_negative else result.negative_support_ids
-        return HabitatOutcome("ACCEPT","CONCLUSION_VERIFIED","verified_support","signed_false",str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),result.status,tuple(sorted(set(supports))),({"check_id":"signed_false_supported","passed":True,"message":"Explicit opposite-polarity evidence supports a false result.","support_ids":tuple(sorted(set(supports)))},),derivations=derivations)
+        return HabitatOutcome("ACCEPT","CONCLUSION_VERIFIED","verified_support","signed_false",str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),result.status,tuple(sorted(set(supports))),({"check_id":"signed_false_supported","passed":True,"message":"Explicit opposite-polarity evidence supports a false result.","support_ids":tuple(sorted(set(supports)))},),derivations=derivations,approved_memory_ids=memory_candidates)
     if effective == CONFLICTED:
         supports=tuple(sorted(set((*result.positive_support_ids,*result.negative_support_ids))))
         return HabitatOutcome("REJECT","REJECT_CONFLICTED","conflicted","conflict",str(query.get("subject_id","")),str(query.get("predicate","")),str(query.get("object_id","")),CONFLICTED,supports,({"check_id":"signed_state_unconflicted","passed":False,"message":"Both positive and negative evidence are active.","support_ids":supports},),contradictions=(key,))
